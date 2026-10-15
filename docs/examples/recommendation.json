@@ -1,0 +1,117 @@
+{
+  "match_id": "3754065",
+  "team_id": "22",
+  "state": {
+    "minute": 64,
+    "goal_diff": 0,
+    "red_card_diff": 0,
+    "subs_left": 3
+  },
+  "needs": {
+    "team_id": "22",
+    "needs": {
+      "threat": 0.613,
+      "creation": 0.616,
+      "progression": 0.698,
+      "retention": 0.712,
+      "defense": 0.529
+    },
+    "deficit_z": {
+      "threat": 0.69,
+      "creation": 0.71,
+      "progression": 1.26,
+      "retention": 1.36,
+      "defense": 0.17
+    },
+    "importance": {
+      "threat": 1.0,
+      "creation": 1.0,
+      "progression": 1.0,
+      "retention": 1.0,
+      "defense": 1.0
+    }
+  },
+  "recommend": true,
+  "options": [
+    {
+      "out_player_id": "3810",
+      "out_name": "Shinji Okazaki",
+      "in_player_id": "3631",
+      "in_name": "Nathan Dyer",
+      "score": 0.722,
+      "expected_benefit": 0.241,
+      "delta_pct": {
+        "threat": -10.0,
+        "creation": 41.0,
+        "progression": 72.0,
+        "retention": 10.0,
+        "defense": 8.0
+      },
+      "strength": "low",
+      "reasons": [
+        "Team need retention: 0.71 (+1.4 sd vs the team's usual level, importance x1.00)",
+        "Team need progression: 0.70 (+1.3 sd vs the team's usual level, importance x1.00)",
+        "Team need creation: 0.62 (+0.7 sd vs the team's usual level, importance x1.00)",
+        "Team need threat: 0.61 (+0.7 sd vs the team's usual level, importance x1.00)",
+        "Nathan Dyer vs Shinji Okazaki: progression +72 percentile points",
+        "Nathan Dyer vs Shinji Okazaki: creation +41 percentile points",
+        "Trade-off: threat -10 percentile points",
+        "Shinji Okazaki has played 66 minutes; estimated pressing output -15% from fatigue",
+        "Evidence: Nathan Dyer 277 minutes before this match"
+      ]
+    },
+    {
+      "out_player_id": "3810",
+      "out_name": "Shinji Okazaki",
+      "in_player_id": "3671",
+      "in_name": "Leonardo Ulloa",
+      "score": 0.319,
+      "expected_benefit": 0.106,
+      "delta_pct": {
+        "threat": 2.0,
+        "creation": 24.0,
+        "progression": 10.0,
+        "retention": 0.0,
+        "defense": 26.0
+      },
+      "strength": "medium",
+      "reasons": [
+        "Team need retention: 0.71 (+1.4 sd vs the team's usual level, importance x1.00)",
+        "Team need progression: 0.70 (+1.3 sd vs the team's usual level, importance x1.00)",
+        "Team need creation: 0.62 (+0.7 sd vs the team's usual level, importance x1.00)",
+        "Team need threat: 0.61 (+0.7 sd vs the team's usual level, importance x1.00)",
+        "Leonardo Ulloa vs Shinji Okazaki: defense +26 percentile points",
+        "Leonardo Ulloa vs Shinji Okazaki: creation +24 percentile points",
+        "Shinji Okazaki has played 66 minutes; estimated pressing output -15% from fatigue",
+        "Evidence: Leonardo Ulloa 585 minutes before this match"
+      ]
+    },
+    {
+      "out_player_id": "3307",
+      "out_name": "Marc Albrighton",
+      "in_player_id": "3631",
+      "in_name": "Nathan Dyer",
+      "score": 0.314,
+      "expected_benefit": 0.105,
+      "delta_pct": {
+        "threat": 14.0,
+        "creation": -20.0,
+        "progression": 32.0,
+        "retention": 17.0,
+        "defense": -13.0
+      },
+      "strength": "low",
+      "reasons": [
+        "Team need retention: 0.71 (+1.4 sd vs the team's usual level, importance x1.00)",
+        "Team need progression: 0.70 (+1.3 sd vs the team's usual level, importance x1.00)",
+        "Team need creation: 0.62 (+0.7 sd vs the team's usual level, importance x1.00)",
+        "Team need threat: 0.61 (+0.7 sd vs the team's usual level, importance x1.00)",
+        "Nathan Dyer vs Marc Albrighton: progression +32 percentile points",
+        "Nathan Dyer vs Marc Albrighton: retention +17 percentile points",
+        "Trade-off: creation -20 percentile points",
+        "Marc Albrighton has played 66 minutes; estimated pressing output -15% from fatigue",
+        "Evidence: Nathan Dyer 277 minutes before this match"
+      ]
+    }
+  ]
+}
