@@ -271,3 +271,42 @@ Realistic sequences and coordinates for free, scenario fully controllable.
 - Minutes ignore first-half stoppage time (~1% error).
 - Data: StatsBomb Open Data. Their terms ask anyone publishing analysis based on
   it to name StatsBomb as the source and use their logo.
+
+### Recent profile, playable positions and physical enrichment
+
+The long-term `PlayerProfile` remains the engine's **GeneralProfile**. A separate
+**RecentProfile** is descriptive evidence from the player's five most recent
+actual appearances strictly before the analysed match. Volume rates are computed
+as `SUM(component) / SUM(minutes) * 90`; appearance-level per-90 values are never
+averaged equally. Recent retention uses the existing
+`1 - ball_losses / ball_actions` definition, and recent dimensions reuse the
+same league `Scale` as the GeneralProfile.
+
+Recent evidence exposes sample size and reliability. Reliability uses the same
+prior strengths as the main profile (`n / (n + k)`, with `n = minutes / 90`;
+retention uses ball actions) and means **evidence strength**, not probability of
+correctness. GeneralProfile and RecentProfile stay separate in v0; there is no
+hard-coded `60/40` or other blend yet. The current-match **LiveProfile** remains a
+third, separate concept.
+
+Playable positions are built only from lineup/position spells before the cutoff
+date. The exact position with the most historical minutes is primary. A
+secondary position is exposed when it has at least 90 historical minutes or at
+least 15% of the player's known position minutes. Exact positions also map to
+the existing broad `GK / CB / FB / CM / AM_W / ST` roles using
+`statsbomb.ROLE_BY_POSITION`. The target match may identify the squad and team,
+but its later position assignments are never used to infer pre-match versatility.
+
+Player-specific physical/biographical enrichment is separate again. The
+supported template includes height, preferred foot, top speed, metres/minute,
+HSR, sprint and acceleration/deceleration fields plus source/provenance flags.
+Unknown values remain missing. Position-group means from SkillCorner A-League
+2024/25 are stored only as **synthetic-generation/reference distributions** and
+must never silently populate a Liverpool/Arsenal player's observed physical
+attributes.
+
+Aerial ability remains a TODO. StatsBomb raw data contains useful clues such as
+aerial-duel annotations and shot body part, but v0 drops aerial duels in the
+adapter and does not define a reliable aerial-win-rate pairing. Height alone is
+not aerial ability.
+
