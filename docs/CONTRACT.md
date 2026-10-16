@@ -310,3 +310,15 @@ aerial-duel annotations and shot body part, but v0 drops aerial duels in the
 adapter and does not define a reliable aerial-win-rate pairing. Height alone is
 not aerial ability.
 
+
+## Demo dataset revision (supersedes sections 4 and the earlier recent enrichment for demo cards)
+
+The definitive demo dataset and formulas are documented in `demo_data/README.md`.
+Use `demo_data/demo_player_profiles.json` and `demo_data.load_demo_profiles`.
+General is FIFA16 anchored plus a capped season signal; Recent is General plus
+an explicit capped form delta from the last five TEAM matches. Both reuse
+`metrics.ComponentTracker` for observed event components. Outfield dimensions
+are null for GK. Physical tracking is explicitly synthetic. Source inputs and
+SHA256 evidence are committed; `scripts/build_demo_dataset.py` rebuilds offline.
+The old appearance-based recent helpers remain legacy utilities only.
+The final demo event stream must be synthetic and labelled as such.

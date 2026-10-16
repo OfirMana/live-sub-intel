@@ -9,7 +9,7 @@ from typing import Any
 DEMO_PROFILE_PATH = (
     Path(__file__).resolve().parents[2]
     / "demo_data"
-    / "liverpool_arsenal_demo_profiles.json"
+    / "demo_player_profiles.json"
 )
 
 
