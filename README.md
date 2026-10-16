@@ -96,3 +96,20 @@ Open the local URL and press **Stream events**. Each viewer gets a fresh Python
 engine; synthetic events feed sequentially over SSE and recommendations recompute
 after each simulated minute. **Play checkpoints** also works from the exported
 standalone HTML. The server binds only to 127.0.0.1 and is not publicly deployed.
+
+## Current team handoff — 16 October 2026
+
+**Prototype, not a completed/calibrated product. Liverpool receives no substitution
+recommendations at all 15 checked states across three benchmark matches, even
+with the separate freshness model. Investigating this is a priority.**
+
+- [Hebrew progress summary and prioritized outstanding work](docs/TEAM_HANDOFF_HE.md)
+- [Player-card website, Excel workbook and offline download bundle](docs/player-cards/README.md)
+- [Current benchmark results](docs/VALIDATION.md)
+- [Match-load formulas and sensitivity](docs/MATCH_LOAD.md)
+
+Everything is on the fork branch `feature/demo-player-dataset`; upstream main
+has not been merged or modified. The player browser can run offline after
+downloading its ZIP. GitHub Pages, a remote LLM and Azure deployment have not
+been configured. The demo's rich output contract still needs alignment with the
+original Recommendation schema and the rest of the team's UI/API integration.

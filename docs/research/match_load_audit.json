@@ -1,0 +1,3240 @@
+{
+  "threshold": 0.15,
+  "calibration_status": "PROVISIONAL_HEURISTIC",
+  "sensitivity": [
+    {
+      "refresh_score_cap": 0.0,
+      "matches": [
+        {
+          "match_id": "3754305",
+          "team_id": "24",
+          "recommendations": 0,
+          "snapshots": [
+            {
+              "minute": 29,
+              "recommendation": "NO_SUBSTITUTION",
+              "physical_need": {
+                "freshness": 0.0,
+                "source": "ESTIMATED_MATCH_LOAD",
+                "refresh_score_cap": 0.0
+              },
+              "best": [
+                {
+                  "out_player": {
+                    "id": "3483",
+                    "name": "Mamadou Sakho"
+                  },
+                  "in_player": {
+                    "id": "9958",
+                    "name": "Steven Caulker"
+                  },
+                  "expected_changes": {
+                    "threat": -1.317,
+                    "creation": -2.691,
+                    "progression": 3.612,
+                    "retention": 1.647,
+                    "defense": -3.499
+                  },
+                  "position_fit": 1.0,
+                  "evidence_strength": 0.152,
+                  "reason_codes": [],
+                  "score_components": {
+                    "tactical_core": -0.1877,
+                    "tactical_support": 0.0,
+                    "freshness_relief": 0.0,
+                    "outgoing_fatigue": 0.0,
+                    "evidence_multiplier": 0.5759,
+                    "remaining_time_multiplier": 0.7222
+                  },
+                  "score": -0.1081,
+                  "expected_benefit": -0.0781
+                }
+              ]
+            },
+            {
+              "minute": 54,
+              "recommendation": "NO_SUBSTITUTION",
+              "physical_need": {
+                "freshness": 0.2282,
+                "source": "ESTIMATED_MATCH_LOAD",
+                "refresh_score_cap": 0.0
+              },
+              "best": [
+                {
+                  "out_player": {
+                    "id": "3483",
+                    "name": "Mamadou Sakho"
+                  },
+                  "in_player": {
+                    "id": "9958",
+                    "name": "Steven Caulker"
+                  },
+                  "expected_changes": {
+                    "threat": -1.314,
+                    "creation": -2.69,
+                    "progression": 4.309,
+                    "retention": 2.037,
+                    "defense": -4.292
+                  },
+                  "position_fit": 1.0,
+                  "evidence_strength": 0.152,
+                  "reason_codes": [],
+                  "score_components": {
+                    "tactical_core": -0.2033,
+                    "tactical_support": -0.0012,
+                    "freshness_relief": 0.0,
+                    "outgoing_fatigue": 0.1159,
+                    "evidence_multiplier": 0.5759,
+                    "remaining_time_multiplier": 0.4444
+                  },
+                  "score": -0.1178,
+                  "expected_benefit": -0.0523
+                }
+              ]
+            },
+            {
+              "minute": 64,
+              "recommendation": "NO_SUBSTITUTION",
+              "physical_need": {
+                "freshness": 0.5327,
+                "source": "ESTIMATED_MATCH_LOAD",
+                "refresh_score_cap": 0.0
+              },
+              "best": [
+                {
+                  "out_player": {
+                    "id": "3483",
+                    "name": "Mamadou Sakho"
+                  },
+                  "in_player": {
+                    "id": "9958",
+                    "name": "Steven Caulker"
+                  },
+                  "expected_changes": {
+                    "threat": -1.314,
+                    "creation": -2.689,
+                    "progression": 4.097,
+                    "retention": 1.649,
+                    "defense": -4.19
+                  },
+                  "position_fit": 1.0,
+                  "evidence_strength": 0.152,
+                  "reason_codes": [],
+                  "score_components": {
+                    "tactical_core": -0.2129,
+                    "tactical_support": -0.0021,
+                    "freshness_relief": 0.0,
+                    "outgoing_fatigue": 0.2673,
+                    "evidence_multiplier": 0.5759,
+                    "remaining_time_multiplier": 0.3333
+                  },
+                  "score": -0.1238,
+                  "expected_benefit": -0.0413
+                }
+              ]
+            },
+            {
+              "minute": 74,
+              "recommendation": "NO_SUBSTITUTION",
+              "physical_need": {
+                "freshness": 0.7444,
+                "source": "ESTIMATED_MATCH_LOAD",
+                "refresh_score_cap": 0.0
+              },
+              "best": [
+                {
+                  "out_player": {
+                    "id": "3483",
+                    "name": "Mamadou Sakho"
+                  },
+                  "in_player": {
+                    "id": "9958",
+                    "name": "Steven Caulker"
+                  },
+                  "expected_changes": {
+                    "threat": -1.312,
+                    "creation": -2.688,
+                    "progression": 3.108,
+                    "retention": 1.696,
+                    "defense": -3.741
+                  },
+                  "position_fit": 1.0,
+                  "evidence_strength": 0.152,
+                  "reason_codes": [],
+                  "score_components": {
+                    "tactical_core": -0.2052,
+                    "tactical_support": -0.0055,
+                    "freshness_relief": 0.0,
+                    "outgoing_fatigue": 0.4091,
+                    "evidence_multiplier": 0.5759,
+                    "remaining_time_multiplier": 0.2222
+                  },
+                  "score": -0.1214,
+                  "expected_benefit": -0.027
+                }
+              ]
+            },
+            {
+              "minute": 84,
+              "recommendation": "NO_SUBSTITUTION",
+              "physical_need": {
+                "freshness": 1.0,
+                "source": "ESTIMATED_MATCH_LOAD",
+                "refresh_score_cap": 0.0
+              },
+              "best": [
+                {
+                  "out_player": {
+                    "id": "3483",
+                    "name": "Mamadou Sakho"
+                  },
+                  "in_player": {
+                    "id": "9958",
+                    "name": "Steven Caulker"
+                  },
+                  "expected_changes": {
+                    "threat": -1.311,
+                    "creation": -2.688,
+                    "progression": 3.808,
+                    "retention": 1.669,
+                    "defense": -3.466
+                  },
+                  "position_fit": 1.0,
+                  "evidence_strength": 0.152,
+                  "reason_codes": [
+                    "CURRENT_PLAYER_ESTIMATED_LOAD"
+                  ],
+                  "score_components": {
+                    "tactical_core": -0.2001,
+                    "tactical_support": -0.0087,
+                    "freshness_relief": 0.0,
+                    "outgoing_fatigue": 0.614,
+                    "evidence_multiplier": 0.5759,
+                    "remaining_time_multiplier": 0.1111
+                  },
+                  "score": -0.1202,
+                  "expected_benefit": -0.0134
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "match_id": "3754345",
+          "team_id": "24",
+          "recommendations": 0,
+          "snapshots": [
+            {
+              "minute": 29,
+              "recommendation": "NO_SUBSTITUTION",
+              "physical_need": {
+                "freshness": 0.0,
+                "source": "ESTIMATED_MATCH_LOAD",
+                "refresh_score_cap": 0.0
+              },
+              "best": [
+                {
+                  "out_player": {
+                    "id": "3483",
+                    "name": "Mamadou Sakho"
+                  },
+                  "in_player": {
+                    "id": "9958",
+                    "name": "Steven Caulker"
+                  },
+                  "expected_changes": {
+                    "threat": -1.316,
+                    "creation": -2.69,
+                    "progression": 3.48,
+                    "retention": 1.811,
+                    "defense": -3.32
+                  },
+                  "position_fit": 1.0,
+                  "evidence_strength": 0.152,
+                  "reason_codes": [],
+                  "score_components": {
+                    "tactical_core": -0.1832,
+                    "tactical_support": 0.0,
+                    "freshness_relief": 0.0,
+                    "outgoing_fatigue": 0.0,
+                    "evidence_multiplier": 0.5759,
+                    "remaining_time_multiplier": 0.7222
+                  },
+                  "score": -0.1055,
+                  "expected_benefit": -0.0762
+                }
+              ]
+            },
+            {
+              "minute": 54,
+              "recommendation": "NO_SUBSTITUTION",
+              "physical_need": {
+                "freshness": 0.2011,
+                "source": "ESTIMATED_MATCH_LOAD",
+                "refresh_score_cap": 0.0
+              },
+              "best": [
+                {
+                  "out_player": {
+                    "id": "3483",
+                    "name": "Mamadou Sakho"
+                  },
+                  "in_player": {
+                    "id": "9958",
+                    "name": "Steven Caulker"
+                  },
+                  "expected_changes": {
+                    "threat": -1.315,
+                    "creation": -2.69,
+                    "progression": 4.252,
+                    "retention": 2.084,
+                    "defense": -3.004
+                  },
+                  "position_fit": 1.0,
+                  "evidence_strength": 0.152,
+                  "reason_codes": [
+                    "HIGH_RETENTION_NEED"
+                  ],
+                  "score_components": {
+                    "tactical_core": -0.1333,
+                    "tactical_support": 0.0,
+                    "freshness_relief": 0.0,
+                    "outgoing_fatigue": 0.0948,
+                    "evidence_multiplier": 0.5759,
+                    "remaining_time_multiplier": 0.4444
+                  },
+                  "score": -0.0768,
+                  "expected_benefit": -0.0341
+                }
+              ]
+            },
+            {
+              "minute": 64,
+              "recommendation": "NO_SUBSTITUTION",
+              "physical_need": {
+                "freshness": 0.3854,
+                "source": "ESTIMATED_MATCH_LOAD",
+                "refresh_score_cap": 0.0
+              },
+              "best": [
+                {
+                  "out_player": {
+                    "id": "3483",
+                    "name": "Mamadou Sakho"
+                  },
+                  "in_player": {
+                    "id": "9958",
+                    "name": "Steven Caulker"
+                  },
+                  "expected_changes": {
+                    "threat": -1.314,
+                    "creation": -2.69,
+                    "progression": 3.88,
+                    "retention": 2.072,
+                    "defense": -3.628
+                  },
+                  "position_fit": 1.0,
+                  "evidence_strength": 0.152,
+                  "reason_codes": [],
+                  "score_components": {
+                    "tactical_core": -0.1655,
+                    "tactical_support": 0.0,
+                    "freshness_relief": 0.0,
+                    "outgoing_fatigue": 0.2254,
+                    "evidence_multiplier": 0.5759,
+                    "remaining_time_multiplier": 0.3333
+                  },
+                  "score": -0.0953,
+                  "expected_benefit": -0.0318
+                }
+              ]
+            },
+            {
+              "minute": 74,
+              "recommendation": "NO_SUBSTITUTION",
+              "physical_need": {
+                "freshness": 0.5995,
+                "source": "ESTIMATED_MATCH_LOAD",
+                "refresh_score_cap": 0.0
+              },
+              "best": [
+                {
+                  "out_player": {
+                    "id": "3483",
+                    "name": "Mamadou Sakho"
+                  },
+                  "in_player": {
+                    "id": "9958",
+                    "name": "Steven Caulker"
+                  },
+                  "expected_changes": {
+                    "threat": -2.25,
+                    "creation": -2.69,
+                    "progression": 2.973,
+                    "retention": 2.237,
+                    "defense": -3.584
+                  },
+                  "position_fit": 1.0,
+                  "evidence_strength": 0.152,
+                  "reason_codes": [],
+                  "score_components": {
+                    "tactical_core": -0.2015,
+                    "tactical_support": 0.0,
+                    "freshness_relief": 0.0,
+                    "outgoing_fatigue": 0.3843,
+                    "evidence_multiplier": 0.5759,
+                    "remaining_time_multiplier": 0.2222
+                  },
+                  "score": -0.116,
+                  "expected_benefit": -0.0258
+                }
+              ]
+            },
+            {
+              "minute": 84,
+              "recommendation": "NO_SUBSTITUTION",
+              "physical_need": {
+                "freshness": 0.5782,
+                "source": "ESTIMATED_MATCH_LOAD",
+                "refresh_score_cap": 0.0
+              },
+              "best": [
+                {
+                  "out_player": {
+                    "id": "7780",
+                    "name": "Lucas Leiva"
+                  },
+                  "in_player": {
+                    "id": "10931",
+                    "name": "Joe Allen"
+                  },
+                  "expected_changes": {
+                    "threat": 21.678,
+                    "creation": 6.215,
+                    "progression": 8.116,
+                    "retention": 8.903,
+                    "defense": -12.546
+                  },
+                  "position_fit": 1.0,
+                  "evidence_strength": 0.136,
+                  "reason_codes": [
+                    "HIGH_THREAT_NEED",
+                    "HIGH_CREATION_NEED"
+                  ],
+                  "score_components": {
+                    "tactical_core": 0.4104,
+                    "tactical_support": -0.0098,
+                    "freshness_relief": 0.0,
+                    "outgoing_fatigue": 0.5238,
+                    "evidence_multiplier": 0.5682,
+                    "remaining_time_multiplier": 0.1111
+                  },
+                  "score": 0.2276,
+                  "expected_benefit": 0.0253
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "match_id": "3754348",
+          "team_id": "24",
+          "recommendations": 0,
+          "snapshots": [
+            {
+              "minute": 29,
+              "recommendation": "NO_SUBSTITUTION",
+              "physical_need": {
+                "freshness": 0.0,
+                "source": "ESTIMATED_MATCH_LOAD",
+                "refresh_score_cap": 0.0
+              },
+              "best": [
+                {
+                  "out_player": {
+                    "id": "3635",
+                    "name": "Jordon Ibe"
+                  },
+                  "in_player": {
+                    "id": "4090",
+                    "name": "Adam Lallana"
+                  },
+                  "expected_changes": {
+                    "threat": 7.46,
+                    "creation": 21.027,
+                    "progression": 7.371,
+                    "retention": 7.75,
+                    "defense": -3.603
+                  },
+                  "position_fit": 1.0,
+                  "evidence_strength": 0.424,
+                  "reason_codes": [],
+                  "score_components": {
+                    "tactical_core": 0.1432,
+                    "tactical_support": 0.0,
+                    "freshness_relief": 0.0,
+                    "outgoing_fatigue": 0.0,
+                    "evidence_multiplier": 0.7121,
+                    "remaining_time_multiplier": 0.7222
+                  },
+                  "score": 0.1019,
+                  "expected_benefit": 0.0736
+                }
+              ]
+            },
+            {
+              "minute": 54,
+              "recommendation": "NO_SUBSTITUTION",
+              "physical_need": {
+                "freshness": 0.1673,
+                "source": "ESTIMATED_MATCH_LOAD",
+                "refresh_score_cap": 0.0
+              },
+              "best": [
+                {
+                  "out_player": {
+                    "id": "3635",
+                    "name": "Jordon Ibe"
+                  },
+                  "in_player": {
+                    "id": "4090",
+                    "name": "Adam Lallana"
+                  },
+                  "expected_changes": {
+                    "threat": 7.812,
+                    "creation": 21.105,
+                    "progression": 7.658,
+                    "retention": 7.449,
+                    "defense": -4.066
+                  },
+                  "position_fit": 1.0,
+                  "evidence_strength": 0.424,
+                  "reason_codes": [],
+                  "score_components": {
+                    "tactical_core": 0.0479,
+                    "tactical_support": 0.0193,
+                    "freshness_relief": 0.0,
+                    "outgoing_fatigue": 0.1398,
+                    "evidence_multiplier": 0.7121,
+                    "remaining_time_multiplier": 0.4444
+                  },
+                  "score": 0.0478,
+                  "expected_benefit": 0.0213
+                }
+              ]
+            },
+            {
+              "minute": 64,
+              "recommendation": "NO_SUBSTITUTION",
+              "physical_need": {
+                "freshness": 0.271,
+                "source": "ESTIMATED_MATCH_LOAD",
+                "refresh_score_cap": 0.0
+              },
+              "best": [
+                {
+                  "out_player": {
+                    "id": "3483",
+                    "name": "Mamadou Sakho"
+                  },
+                  "in_player": {
+                    "id": "9958",
+                    "name": "Steven Caulker"
+                  },
+                  "expected_changes": {
+                    "threat": -1.315,
+                    "creation": -2.69,
+                    "progression": 3.982,
+                    "retention": 1.728,
+                    "defense": -2.48
+                  },
+                  "position_fit": 1.0,
+                  "evidence_strength": 0.152,
+                  "reason_codes": [],
+                  "score_components": {
+                    "tactical_core": -0.1248,
+                    "tactical_support": 0.0,
+                    "freshness_relief": 0.0,
+                    "outgoing_fatigue": 0.2552,
+                    "evidence_multiplier": 0.5759,
+                    "remaining_time_multiplier": 0.3333
+                  },
+                  "score": -0.0718,
+                  "expected_benefit": -0.0239
+                }
+              ]
+            },
+            {
+              "minute": 74,
+              "recommendation": "NO_SUBSTITUTION",
+              "physical_need": {
+                "freshness": 0.4322,
+                "source": "ESTIMATED_MATCH_LOAD",
+                "refresh_score_cap": 0.0
+              },
+              "best": [
+                {
+                  "out_player": {
+                    "id": "3483",
+                    "name": "Mamadou Sakho"
+                  },
+                  "in_player": {
+                    "id": "9958",
+                    "name": "Steven Caulker"
+                  },
+                  "expected_changes": {
+                    "threat": -1.315,
+                    "creation": -2.69,
+                    "progression": 4.146,
+                    "retention": 2.117,
+                    "defense": -2.139
+                  },
+                  "position_fit": 1.0,
+                  "evidence_strength": 0.152,
+                  "reason_codes": [
+                    "HIGH_RETENTION_NEED"
+                  ],
+                  "score_components": {
+                    "tactical_core": -0.1074,
+                    "tactical_support": 0.0,
+                    "freshness_relief": 0.0,
+                    "outgoing_fatigue": 0.3835,
+                    "evidence_multiplier": 0.5759,
+                    "remaining_time_multiplier": 0.2222
+                  },
+                  "score": -0.0618,
+                  "expected_benefit": -0.0137
+                }
+              ]
+            },
+            {
+              "minute": 84,
+              "recommendation": "NO_SUBSTITUTION",
+              "physical_need": {
+                "freshness": 0.6558,
+                "source": "ESTIMATED_MATCH_LOAD",
+                "refresh_score_cap": 0.0
+              },
+              "best": [
+                {
+                  "out_player": {
+                    "id": "3483",
+                    "name": "Mamadou Sakho"
+                  },
+                  "in_player": {
+                    "id": "9958",
+                    "name": "Steven Caulker"
+                  },
+                  "expected_changes": {
+                    "threat": -1.315,
+                    "creation": -2.69,
+                    "progression": 4.286,
+                    "retention": 1.596,
+                    "defense": -2.654
+                  },
+                  "position_fit": 1.0,
+                  "evidence_strength": 0.152,
+                  "reason_codes": [
+                    "HIGH_RETENTION_NEED"
+                  ],
+                  "score_components": {
+                    "tactical_core": -0.1319,
+                    "tactical_support": 0.0,
+                    "freshness_relief": 0.0,
+                    "outgoing_fatigue": 0.5977,
+                    "evidence_multiplier": 0.5759,
+                    "remaining_time_multiplier": 0.1111
+                  },
+                  "score": -0.0759,
+                  "expected_benefit": -0.0084
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "match_id": "3754202",
+          "team_id": "1",
+          "recommendations": 0,
+          "snapshots": [
+            {
+              "minute": 29,
+              "recommendation": "NO_SUBSTITUTION",
+              "physical_need": {
+                "freshness": 0.0,
+                "source": "ESTIMATED_MATCH_LOAD",
+                "refresh_score_cap": 0.0
+              },
+              "best": [
+                {
+                  "out_player": {
+                    "id": "3475",
+                    "name": "Per Mertesacker"
+                  },
+                  "in_player": {
+                    "id": "6746",
+                    "name": "Gabriel Paulista"
+                  },
+                  "expected_changes": {
+                    "threat": 11.913,
+                    "creation": 7.979,
+                    "progression": 9.617,
+                    "retention": 6.888,
+                    "defense": -3.091
+                  },
+                  "position_fit": 1.0,
+                  "evidence_strength": 0.456,
+                  "reason_codes": [],
+                  "score_components": {
+                    "tactical_core": 0.1255,
+                    "tactical_support": 0.0,
+                    "freshness_relief": 0.0,
+                    "outgoing_fatigue": 0.0,
+                    "evidence_multiplier": 0.7281,
+                    "remaining_time_multiplier": 0.7222
+                  },
+                  "score": 0.0913,
+                  "expected_benefit": 0.066
+                }
+              ]
+            },
+            {
+              "minute": 54,
+              "recommendation": "NO_SUBSTITUTION",
+              "physical_need": {
+                "freshness": 0.1621,
+                "source": "ESTIMATED_MATCH_LOAD",
+                "refresh_score_cap": 0.0
+              },
+              "best": [
+                {
+                  "out_player": {
+                    "id": "3475",
+                    "name": "Per Mertesacker"
+                  },
+                  "in_player": {
+                    "id": "6746",
+                    "name": "Gabriel Paulista"
+                  },
+                  "expected_changes": {
+                    "threat": 11.916,
+                    "creation": 7.979,
+                    "progression": 9.157,
+                    "retention": 6.899,
+                    "defense": -2.511
+                  },
+                  "position_fit": 1.0,
+                  "evidence_strength": 0.456,
+                  "reason_codes": [
+                    "HIGH_RETENTION_NEED"
+                  ],
+                  "score_components": {
+                    "tactical_core": 0.4155,
+                    "tactical_support": 0.0,
+                    "freshness_relief": 0.0,
+                    "outgoing_fatigue": 0.1621,
+                    "evidence_multiplier": 0.7281,
+                    "remaining_time_multiplier": 0.4444
+                  },
+                  "score": 0.3025,
+                  "expected_benefit": 0.1345
+                }
+              ]
+            },
+            {
+              "minute": 64,
+              "recommendation": "NO_SUBSTITUTION",
+              "physical_need": {
+                "freshness": 0.3008,
+                "source": "ESTIMATED_MATCH_LOAD",
+                "refresh_score_cap": 0.0
+              },
+              "best": [
+                {
+                  "out_player": {
+                    "id": "3475",
+                    "name": "Per Mertesacker"
+                  },
+                  "in_player": {
+                    "id": "6746",
+                    "name": "Gabriel Paulista"
+                  },
+                  "expected_changes": {
+                    "threat": 11.918,
+                    "creation": 7.98,
+                    "progression": 9.679,
+                    "retention": 6.914,
+                    "defense": -2.428
+                  },
+                  "position_fit": 1.0,
+                  "evidence_strength": 0.456,
+                  "reason_codes": [
+                    "HIGH_THREAT_NEED",
+                    "HIGH_PROGRESSION_NEED",
+                    "HIGH_RETENTION_NEED"
+                  ],
+                  "score_components": {
+                    "tactical_core": 0.6073,
+                    "tactical_support": 0.0,
+                    "freshness_relief": 0.0,
+                    "outgoing_fatigue": 0.3008,
+                    "evidence_multiplier": 0.7281,
+                    "remaining_time_multiplier": 0.3333
+                  },
+                  "score": 0.4422,
+                  "expected_benefit": 0.1474
+                }
+              ]
+            },
+            {
+              "minute": 74,
+              "recommendation": "NO_SUBSTITUTION",
+              "physical_need": {
+                "freshness": 0.5183,
+                "source": "ESTIMATED_MATCH_LOAD",
+                "refresh_score_cap": 0.0
+              },
+              "best": [
+                {
+                  "out_player": {
+                    "id": "3475",
+                    "name": "Per Mertesacker"
+                  },
+                  "in_player": {
+                    "id": "6746",
+                    "name": "Gabriel Paulista"
+                  },
+                  "expected_changes": {
+                    "threat": 11.92,
+                    "creation": 7.98,
+                    "progression": 9.947,
+                    "retention": 6.93,
+                    "defense": -2.868
+                  },
+                  "position_fit": 1.0,
+                  "evidence_strength": 0.456,
+                  "reason_codes": [],
+                  "score_components": {
+                    "tactical_core": 0.1127,
+                    "tactical_support": 0.0,
+                    "freshness_relief": 0.0,
+                    "outgoing_fatigue": 0.5183,
+                    "evidence_multiplier": 0.7281,
+                    "remaining_time_multiplier": 0.2222
+                  },
+                  "score": 0.0821,
+                  "expected_benefit": 0.0182
+                }
+              ]
+            },
+            {
+              "minute": 84,
+              "recommendation": "NO_SUBSTITUTION",
+              "physical_need": {
+                "freshness": 0.7032,
+                "source": "ESTIMATED_MATCH_LOAD",
+                "refresh_score_cap": 0.0
+              },
+              "best": [
+                {
+                  "out_player": {
+                    "id": "3475",
+                    "name": "Per Mertesacker"
+                  },
+                  "in_player": {
+                    "id": "6746",
+                    "name": "Gabriel Paulista"
+                  },
+                  "expected_changes": {
+                    "threat": 11.921,
+                    "creation": 7.98,
+                    "progression": 9.402,
+                    "retention": 6.734,
+                    "defense": -2.629
+                  },
+                  "position_fit": 1.0,
+                  "evidence_strength": 0.456,
+                  "reason_codes": [
+                    "CURRENT_PLAYER_ESTIMATED_LOAD"
+                  ],
+                  "score_components": {
+                    "tactical_core": 0.1396,
+                    "tactical_support": 0.0,
+                    "freshness_relief": 0.0,
+                    "outgoing_fatigue": 0.7032,
+                    "evidence_multiplier": 0.7281,
+                    "remaining_time_multiplier": 0.1111
+                  },
+                  "score": 0.1016,
+                  "expected_benefit": 0.0113
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "match_id": "3754111",
+          "team_id": "1",
+          "recommendations": 1,
+          "snapshots": [
+            {
+              "minute": 29,
+              "recommendation": "SUBSTITUTION",
+              "physical_need": {
+                "freshness": 0.0,
+                "source": "ESTIMATED_MATCH_LOAD",
+                "refresh_score_cap": 0.0
+              },
+              "best": [
+                {
+                  "out_player": {
+                    "id": "3511",
+                    "name": "H\u00e9ctor Beller\u00edn"
+                  },
+                  "in_player": {
+                    "id": "3528",
+                    "name": "Kieran Gibbs"
+                  },
+                  "expected_changes": {
+                    "threat": 3.312,
+                    "creation": 7.735,
+                    "progression": 1.973,
+                    "retention": 3.182,
+                    "defense": 13.694
+                  },
+                  "position_fit": 1.0,
+                  "evidence_strength": 0.247,
+                  "reason_codes": [
+                    "HIGH_RETENTION_NEED",
+                    "HIGH_DEFENSE_NEED"
+                  ],
+                  "score_components": {
+                    "tactical_core": 0.4556,
+                    "tactical_support": 0.0015,
+                    "freshness_relief": 0.0,
+                    "outgoing_fatigue": 0.0,
+                    "evidence_multiplier": 0.6234,
+                    "remaining_time_multiplier": 0.7222
+                  },
+                  "score": 0.285,
+                  "expected_benefit": 0.2058
+                }
+              ]
+            },
+            {
+              "minute": 54,
+              "recommendation": "NO_SUBSTITUTION",
+              "physical_need": {
+                "freshness": 0.2115,
+                "source": "ESTIMATED_MATCH_LOAD",
+                "refresh_score_cap": 0.0
+              },
+              "best": [
+                {
+                  "out_player": {
+                    "id": "3511",
+                    "name": "H\u00e9ctor Beller\u00edn"
+                  },
+                  "in_player": {
+                    "id": "3528",
+                    "name": "Kieran Gibbs"
+                  },
+                  "expected_changes": {
+                    "threat": 3.326,
+                    "creation": 7.746,
+                    "progression": 1.101,
+                    "retention": 2.716,
+                    "defense": 13.608
+                  },
+                  "position_fit": 1.0,
+                  "evidence_strength": 0.247,
+                  "reason_codes": [
+                    "HIGH_THREAT_NEED",
+                    "HIGH_DEFENSE_NEED"
+                  ],
+                  "score_components": {
+                    "tactical_core": 0.4423,
+                    "tactical_support": 0.0006,
+                    "freshness_relief": 0.0,
+                    "outgoing_fatigue": 0.1508,
+                    "evidence_multiplier": 0.6234,
+                    "remaining_time_multiplier": 0.4444
+                  },
+                  "score": 0.2761,
+                  "expected_benefit": 0.1227
+                }
+              ]
+            },
+            {
+              "minute": 64,
+              "recommendation": "NO_SUBSTITUTION",
+              "physical_need": {
+                "freshness": 0.4678,
+                "source": "ESTIMATED_MATCH_LOAD",
+                "refresh_score_cap": 0.0
+              },
+              "best": [
+                {
+                  "out_player": {
+                    "id": "3511",
+                    "name": "H\u00e9ctor Beller\u00edn"
+                  },
+                  "in_player": {
+                    "id": "3528",
+                    "name": "Kieran Gibbs"
+                  },
+                  "expected_changes": {
+                    "threat": 3.318,
+                    "creation": 7.739,
+                    "progression": 1.779,
+                    "retention": 2.856,
+                    "defense": 13.244
+                  },
+                  "position_fit": 1.0,
+                  "evidence_strength": 0.247,
+                  "reason_codes": [
+                    "HIGH_THREAT_NEED",
+                    "HIGH_CREATION_NEED",
+                    "HIGH_DEFENSE_NEED"
+                  ],
+                  "score_components": {
+                    "tactical_core": 0.4361,
+                    "tactical_support": 0.0027,
+                    "freshness_relief": 0.0,
+                    "outgoing_fatigue": 0.2802,
+                    "evidence_multiplier": 0.6234,
+                    "remaining_time_multiplier": 0.3333
+                  },
+                  "score": 0.2736,
+                  "expected_benefit": 0.0912
+                }
+              ]
+            },
+            {
+              "minute": 74,
+              "recommendation": "NO_SUBSTITUTION",
+              "physical_need": {
+                "freshness": 0.6918,
+                "source": "ESTIMATED_MATCH_LOAD",
+                "refresh_score_cap": 0.0
+              },
+              "best": []
+            },
+            {
+              "minute": 84,
+              "recommendation": "NO_SUBSTITUTION",
+              "physical_need": {
+                "freshness": 0.8697,
+                "source": "ESTIMATED_MATCH_LOAD",
+                "refresh_score_cap": 0.0
+              },
+              "best": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "refresh_score_cap": 0.6,
+      "matches": [
+        {
+          "match_id": "3754305",
+          "team_id": "24",
+          "recommendations": 0,
+          "snapshots": [
+            {
+              "minute": 29,
+              "recommendation": "NO_SUBSTITUTION",
+              "physical_need": {
+                "freshness": 0.0,
+                "source": "ESTIMATED_MATCH_LOAD",
+                "refresh_score_cap": 0.6
+              },
+              "best": [
+                {
+                  "out_player": {
+                    "id": "3483",
+                    "name": "Mamadou Sakho"
+                  },
+                  "in_player": {
+                    "id": "9958",
+                    "name": "Steven Caulker"
+                  },
+                  "expected_changes": {
+                    "threat": -1.317,
+                    "creation": -2.691,
+                    "progression": 3.612,
+                    "retention": 1.647,
+                    "defense": -3.499
+                  },
+                  "position_fit": 1.0,
+                  "evidence_strength": 0.152,
+                  "reason_codes": [],
+                  "score_components": {
+                    "tactical_core": -0.1877,
+                    "tactical_support": 0.0,
+                    "freshness_relief": 0.0,
+                    "outgoing_fatigue": 0.0,
+                    "evidence_multiplier": 0.5759,
+                    "remaining_time_multiplier": 0.7222
+                  },
+                  "score": -0.1081,
+                  "expected_benefit": -0.0781
+                }
+              ]
+            },
+            {
+              "minute": 54,
+              "recommendation": "NO_SUBSTITUTION",
+              "physical_need": {
+                "freshness": 0.2282,
+                "source": "ESTIMATED_MATCH_LOAD",
+                "refresh_score_cap": 0.6
+              },
+              "best": [
+                {
+                  "out_player": {
+                    "id": "3483",
+                    "name": "Mamadou Sakho"
+                  },
+                  "in_player": {
+                    "id": "9958",
+                    "name": "Steven Caulker"
+                  },
+                  "expected_changes": {
+                    "threat": -1.314,
+                    "creation": -2.69,
+                    "progression": 4.309,
+                    "retention": 2.037,
+                    "defense": -4.292
+                  },
+                  "position_fit": 1.0,
+                  "evidence_strength": 0.152,
+                  "reason_codes": [
+                    "ESTIMATED_FRESHNESS_RELIEF"
+                  ],
+                  "score_components": {
+                    "tactical_core": -0.2033,
+                    "tactical_support": -0.0012,
+                    "freshness_relief": 0.069,
+                    "outgoing_fatigue": 0.1159,
+                    "evidence_multiplier": 0.5759,
+                    "remaining_time_multiplier": 0.4444
+                  },
+                  "score": -0.078,
+                  "expected_benefit": -0.0347
+                }
+              ]
+            },
+            {
+              "minute": 64,
+              "recommendation": "NO_SUBSTITUTION",
+              "physical_need": {
+                "freshness": 0.5327,
+                "source": "ESTIMATED_MATCH_LOAD",
+                "refresh_score_cap": 0.6
+              },
+              "best": [
+                {
+                  "out_player": {
+                    "id": "3483",
+                    "name": "Mamadou Sakho"
+                  },
+                  "in_player": {
+                    "id": "9958",
+                    "name": "Steven Caulker"
+                  },
+                  "expected_changes": {
+                    "threat": -1.314,
+                    "creation": -2.689,
+                    "progression": 4.097,
+                    "retention": 1.649,
+                    "defense": -4.19
+                  },
+                  "position_fit": 1.0,
+                  "evidence_strength": 0.152,
+                  "reason_codes": [
+                    "ESTIMATED_FRESHNESS_RELIEF"
+                  ],
+                  "score_components": {
+                    "tactical_core": -0.2129,
+                    "tactical_support": -0.0021,
+                    "freshness_relief": 0.1591,
+                    "outgoing_fatigue": 0.2673,
+                    "evidence_multiplier": 0.5759,
+                    "remaining_time_multiplier": 0.3333
+                  },
+                  "score": -0.0322,
+                  "expected_benefit": -0.0107
+                }
+              ]
+            },
+            {
+              "minute": 74,
+              "recommendation": "NO_SUBSTITUTION",
+              "physical_need": {
+                "freshness": 0.7444,
+                "source": "ESTIMATED_MATCH_LOAD",
+                "refresh_score_cap": 0.6
+              },
+              "best": [
+                {
+                  "out_player": {
+                    "id": "3483",
+                    "name": "Mamadou Sakho"
+                  },
+                  "in_player": {
+                    "id": "9958",
+                    "name": "Steven Caulker"
+                  },
+                  "expected_changes": {
+                    "threat": -1.312,
+                    "creation": -2.688,
+                    "progression": 3.108,
+                    "retention": 1.696,
+                    "defense": -3.741
+                  },
+                  "position_fit": 1.0,
+                  "evidence_strength": 0.152,
+                  "reason_codes": [
+                    "ESTIMATED_FRESHNESS_RELIEF"
+                  ],
+                  "score_components": {
+                    "tactical_core": -0.2052,
+                    "tactical_support": -0.0055,
+                    "freshness_relief": 0.2428,
+                    "outgoing_fatigue": 0.4091,
+                    "evidence_multiplier": 0.5759,
+                    "remaining_time_multiplier": 0.2222
+                  },
+                  "score": 0.0184,
+                  "expected_benefit": 0.0041
+                }
+              ]
+            },
+            {
+              "minute": 84,
+              "recommendation": "NO_SUBSTITUTION",
+              "physical_need": {
+                "freshness": 1.0,
+                "source": "ESTIMATED_MATCH_LOAD",
+                "refresh_score_cap": 0.6
+              },
+              "best": [
+                {
+                  "out_player": {
+                    "id": "3483",
+                    "name": "Mamadou Sakho"
+                  },
+                  "in_player": {
+                    "id": "9958",
+                    "name": "Steven Caulker"
+                  },
+                  "expected_changes": {
+                    "threat": -1.311,
+                    "creation": -2.688,
+                    "progression": 3.808,
+                    "retention": 1.669,
+                    "defense": -3.466
+                  },
+                  "position_fit": 1.0,
+                  "evidence_strength": 0.152,
+                  "reason_codes": [
+                    "ESTIMATED_FRESHNESS_RELIEF",
+                    "CURRENT_PLAYER_ESTIMATED_LOAD"
+                  ],
+                  "score_components": {
+                    "tactical_core": -0.2001,
+                    "tactical_support": -0.0087,
+                    "freshness_relief": 0.3664,
+                    "outgoing_fatigue": 0.614,
+                    "evidence_multiplier": 0.5759,
+                    "remaining_time_multiplier": 0.1111
+                  },
+                  "score": 0.0908,
+                  "expected_benefit": 0.0101
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "match_id": "3754345",
+          "team_id": "24",
+          "recommendations": 0,
+          "snapshots": [
+            {
+              "minute": 29,
+              "recommendation": "NO_SUBSTITUTION",
+              "physical_need": {
+                "freshness": 0.0,
+                "source": "ESTIMATED_MATCH_LOAD",
+                "refresh_score_cap": 0.6
+              },
+              "best": [
+                {
+                  "out_player": {
+                    "id": "3483",
+                    "name": "Mamadou Sakho"
+                  },
+                  "in_player": {
+                    "id": "9958",
+                    "name": "Steven Caulker"
+                  },
+                  "expected_changes": {
+                    "threat": -1.316,
+                    "creation": -2.69,
+                    "progression": 3.48,
+                    "retention": 1.811,
+                    "defense": -3.32
+                  },
+                  "position_fit": 1.0,
+                  "evidence_strength": 0.152,
+                  "reason_codes": [],
+                  "score_components": {
+                    "tactical_core": -0.1832,
+                    "tactical_support": 0.0,
+                    "freshness_relief": 0.0,
+                    "outgoing_fatigue": 0.0,
+                    "evidence_multiplier": 0.5759,
+                    "remaining_time_multiplier": 0.7222
+                  },
+                  "score": -0.1055,
+                  "expected_benefit": -0.0762
+                }
+              ]
+            },
+            {
+              "minute": 54,
+              "recommendation": "NO_SUBSTITUTION",
+              "physical_need": {
+                "freshness": 0.2011,
+                "source": "ESTIMATED_MATCH_LOAD",
+                "refresh_score_cap": 0.6
+              },
+              "best": [
+                {
+                  "out_player": {
+                    "id": "3483",
+                    "name": "Mamadou Sakho"
+                  },
+                  "in_player": {
+                    "id": "9958",
+                    "name": "Steven Caulker"
+                  },
+                  "expected_changes": {
+                    "threat": -1.315,
+                    "creation": -2.69,
+                    "progression": 4.252,
+                    "retention": 2.084,
+                    "defense": -3.004
+                  },
+                  "position_fit": 1.0,
+                  "evidence_strength": 0.152,
+                  "reason_codes": [
+                    "HIGH_RETENTION_NEED",
+                    "ESTIMATED_FRESHNESS_RELIEF"
+                  ],
+                  "score_components": {
+                    "tactical_core": -0.1333,
+                    "tactical_support": 0.0,
+                    "freshness_relief": 0.0569,
+                    "outgoing_fatigue": 0.0948,
+                    "evidence_multiplier": 0.5759,
+                    "remaining_time_multiplier": 0.4444
+                  },
+                  "score": -0.044,
+                  "expected_benefit": -0.0196
+                }
+              ]
+            },
+            {
+              "minute": 64,
+              "recommendation": "NO_SUBSTITUTION",
+              "physical_need": {
+                "freshness": 0.3854,
+                "source": "ESTIMATED_MATCH_LOAD",
+                "refresh_score_cap": 0.6
+              },
+              "best": [
+                {
+                  "out_player": {
+                    "id": "3483",
+                    "name": "Mamadou Sakho"
+                  },
+                  "in_player": {
+                    "id": "9958",
+                    "name": "Steven Caulker"
+                  },
+                  "expected_changes": {
+                    "threat": -1.314,
+                    "creation": -2.69,
+                    "progression": 3.88,
+                    "retention": 2.072,
+                    "defense": -3.628
+                  },
+                  "position_fit": 1.0,
+                  "evidence_strength": 0.152,
+                  "reason_codes": [
+                    "ESTIMATED_FRESHNESS_RELIEF"
+                  ],
+                  "score_components": {
+                    "tactical_core": -0.1655,
+                    "tactical_support": 0.0,
+                    "freshness_relief": 0.1344,
+                    "outgoing_fatigue": 0.2254,
+                    "evidence_multiplier": 0.5759,
+                    "remaining_time_multiplier": 0.3333
+                  },
+                  "score": -0.0179,
+                  "expected_benefit": -0.006
+                }
+              ]
+            },
+            {
+              "minute": 74,
+              "recommendation": "NO_SUBSTITUTION",
+              "physical_need": {
+                "freshness": 0.5995,
+                "source": "ESTIMATED_MATCH_LOAD",
+                "refresh_score_cap": 0.6
+              },
+              "best": [
+                {
+                  "out_player": {
+                    "id": "3483",
+                    "name": "Mamadou Sakho"
+                  },
+                  "in_player": {
+                    "id": "9958",
+                    "name": "Steven Caulker"
+                  },
+                  "expected_changes": {
+                    "threat": -2.25,
+                    "creation": -2.69,
+                    "progression": 2.973,
+                    "retention": 2.237,
+                    "defense": -3.584
+                  },
+                  "position_fit": 1.0,
+                  "evidence_strength": 0.152,
+                  "reason_codes": [
+                    "ESTIMATED_FRESHNESS_RELIEF"
+                  ],
+                  "score_components": {
+                    "tactical_core": -0.2015,
+                    "tactical_support": 0.0,
+                    "freshness_relief": 0.2269,
+                    "outgoing_fatigue": 0.3843,
+                    "evidence_multiplier": 0.5759,
+                    "remaining_time_multiplier": 0.2222
+                  },
+                  "score": 0.0146,
+                  "expected_benefit": 0.0033
+                }
+              ]
+            },
+            {
+              "minute": 84,
+              "recommendation": "NO_SUBSTITUTION",
+              "physical_need": {
+                "freshness": 0.5782,
+                "source": "ESTIMATED_MATCH_LOAD",
+                "refresh_score_cap": 0.6
+              },
+              "best": [
+                {
+                  "out_player": {
+                    "id": "7780",
+                    "name": "Lucas Leiva"
+                  },
+                  "in_player": {
+                    "id": "10931",
+                    "name": "Joe Allen"
+                  },
+                  "expected_changes": {
+                    "threat": 21.678,
+                    "creation": 6.215,
+                    "progression": 8.116,
+                    "retention": 8.903,
+                    "defense": -12.546
+                  },
+                  "position_fit": 1.0,
+                  "evidence_strength": 0.136,
+                  "reason_codes": [
+                    "HIGH_THREAT_NEED",
+                    "HIGH_CREATION_NEED",
+                    "ESTIMATED_FRESHNESS_RELIEF"
+                  ],
+                  "score_components": {
+                    "tactical_core": 0.4104,
+                    "tactical_support": -0.0098,
+                    "freshness_relief": 0.3143,
+                    "outgoing_fatigue": 0.5238,
+                    "evidence_multiplier": 0.5682,
+                    "remaining_time_multiplier": 0.1111
+                  },
+                  "score": 0.4062,
+                  "expected_benefit": 0.0451
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "match_id": "3754348",
+          "team_id": "24",
+          "recommendations": 0,
+          "snapshots": [
+            {
+              "minute": 29,
+              "recommendation": "NO_SUBSTITUTION",
+              "physical_need": {
+                "freshness": 0.0,
+                "source": "ESTIMATED_MATCH_LOAD",
+                "refresh_score_cap": 0.6
+              },
+              "best": [
+                {
+                  "out_player": {
+                    "id": "3635",
+                    "name": "Jordon Ibe"
+                  },
+                  "in_player": {
+                    "id": "4090",
+                    "name": "Adam Lallana"
+                  },
+                  "expected_changes": {
+                    "threat": 7.46,
+                    "creation": 21.027,
+                    "progression": 7.371,
+                    "retention": 7.75,
+                    "defense": -3.603
+                  },
+                  "position_fit": 1.0,
+                  "evidence_strength": 0.424,
+                  "reason_codes": [],
+                  "score_components": {
+                    "tactical_core": 0.1432,
+                    "tactical_support": 0.0,
+                    "freshness_relief": 0.0,
+                    "outgoing_fatigue": 0.0,
+                    "evidence_multiplier": 0.7121,
+                    "remaining_time_multiplier": 0.7222
+                  },
+                  "score": 0.1019,
+                  "expected_benefit": 0.0736
+                }
+              ]
+            },
+            {
+              "minute": 54,
+              "recommendation": "NO_SUBSTITUTION",
+              "physical_need": {
+                "freshness": 0.1673,
+                "source": "ESTIMATED_MATCH_LOAD",
+                "refresh_score_cap": 0.6
+              },
+              "best": [
+                {
+                  "out_player": {
+                    "id": "3635",
+                    "name": "Jordon Ibe"
+                  },
+                  "in_player": {
+                    "id": "4090",
+                    "name": "Adam Lallana"
+                  },
+                  "expected_changes": {
+                    "threat": 7.812,
+                    "creation": 21.105,
+                    "progression": 7.658,
+                    "retention": 7.449,
+                    "defense": -4.066
+                  },
+                  "position_fit": 1.0,
+                  "evidence_strength": 0.424,
+                  "reason_codes": [
+                    "ESTIMATED_FRESHNESS_RELIEF"
+                  ],
+                  "score_components": {
+                    "tactical_core": 0.0479,
+                    "tactical_support": 0.0193,
+                    "freshness_relief": 0.0839,
+                    "outgoing_fatigue": 0.1398,
+                    "evidence_multiplier": 0.7121,
+                    "remaining_time_multiplier": 0.4444
+                  },
+                  "score": 0.1076,
+                  "expected_benefit": 0.0478
+                }
+              ]
+            },
+            {
+              "minute": 64,
+              "recommendation": "NO_SUBSTITUTION",
+              "physical_need": {
+                "freshness": 0.271,
+                "source": "ESTIMATED_MATCH_LOAD",
+                "refresh_score_cap": 0.6
+              },
+              "best": [
+                {
+                  "out_player": {
+                    "id": "3483",
+                    "name": "Mamadou Sakho"
+                  },
+                  "in_player": {
+                    "id": "9958",
+                    "name": "Steven Caulker"
+                  },
+                  "expected_changes": {
+                    "threat": -1.315,
+                    "creation": -2.69,
+                    "progression": 3.982,
+                    "retention": 1.728,
+                    "defense": -2.48
+                  },
+                  "position_fit": 1.0,
+                  "evidence_strength": 0.152,
+                  "reason_codes": [
+                    "ESTIMATED_FRESHNESS_RELIEF"
+                  ],
+                  "score_components": {
+                    "tactical_core": -0.1248,
+                    "tactical_support": 0.0,
+                    "freshness_relief": 0.1531,
+                    "outgoing_fatigue": 0.2552,
+                    "evidence_multiplier": 0.5759,
+                    "remaining_time_multiplier": 0.3333
+                  },
+                  "score": 0.0163,
+                  "expected_benefit": 0.0054
+                }
+              ]
+            },
+            {
+              "minute": 74,
+              "recommendation": "NO_SUBSTITUTION",
+              "physical_need": {
+                "freshness": 0.4322,
+                "source": "ESTIMATED_MATCH_LOAD",
+                "refresh_score_cap": 0.6
+              },
+              "best": [
+                {
+                  "out_player": {
+                    "id": "3483",
+                    "name": "Mamadou Sakho"
+                  },
+                  "in_player": {
+                    "id": "9958",
+                    "name": "Steven Caulker"
+                  },
+                  "expected_changes": {
+                    "threat": -1.315,
+                    "creation": -2.69,
+                    "progression": 4.146,
+                    "retention": 2.117,
+                    "defense": -2.139
+                  },
+                  "position_fit": 1.0,
+                  "evidence_strength": 0.152,
+                  "reason_codes": [
+                    "HIGH_RETENTION_NEED",
+                    "ESTIMATED_FRESHNESS_RELIEF"
+                  ],
+                  "score_components": {
+                    "tactical_core": -0.1074,
+                    "tactical_support": 0.0,
+                    "freshness_relief": 0.2301,
+                    "outgoing_fatigue": 0.3835,
+                    "evidence_multiplier": 0.5759,
+                    "remaining_time_multiplier": 0.2222
+                  },
+                  "score": 0.0707,
+                  "expected_benefit": 0.0157
+                }
+              ]
+            },
+            {
+              "minute": 84,
+              "recommendation": "NO_SUBSTITUTION",
+              "physical_need": {
+                "freshness": 0.6558,
+                "source": "ESTIMATED_MATCH_LOAD",
+                "refresh_score_cap": 0.6
+              },
+              "best": [
+                {
+                  "out_player": {
+                    "id": "3483",
+                    "name": "Mamadou Sakho"
+                  },
+                  "in_player": {
+                    "id": "9958",
+                    "name": "Steven Caulker"
+                  },
+                  "expected_changes": {
+                    "threat": -1.315,
+                    "creation": -2.69,
+                    "progression": 4.286,
+                    "retention": 1.596,
+                    "defense": -2.654
+                  },
+                  "position_fit": 1.0,
+                  "evidence_strength": 0.152,
+                  "reason_codes": [
+                    "HIGH_RETENTION_NEED",
+                    "ESTIMATED_FRESHNESS_RELIEF"
+                  ],
+                  "score_components": {
+                    "tactical_core": -0.1319,
+                    "tactical_support": 0.0,
+                    "freshness_relief": 0.3586,
+                    "outgoing_fatigue": 0.5977,
+                    "evidence_multiplier": 0.5759,
+                    "remaining_time_multiplier": 0.1111
+                  },
+                  "score": 0.1306,
+                  "expected_benefit": 0.0145
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "match_id": "3754202",
+          "team_id": "1",
+          "recommendations": 2,
+          "snapshots": [
+            {
+              "minute": 29,
+              "recommendation": "NO_SUBSTITUTION",
+              "physical_need": {
+                "freshness": 0.0,
+                "source": "ESTIMATED_MATCH_LOAD",
+                "refresh_score_cap": 0.6
+              },
+              "best": [
+                {
+                  "out_player": {
+                    "id": "3475",
+                    "name": "Per Mertesacker"
+                  },
+                  "in_player": {
+                    "id": "6746",
+                    "name": "Gabriel Paulista"
+                  },
+                  "expected_changes": {
+                    "threat": 11.913,
+                    "creation": 7.979,
+                    "progression": 9.617,
+                    "retention": 6.888,
+                    "defense": -3.091
+                  },
+                  "position_fit": 1.0,
+                  "evidence_strength": 0.456,
+                  "reason_codes": [],
+                  "score_components": {
+                    "tactical_core": 0.1255,
+                    "tactical_support": 0.0,
+                    "freshness_relief": 0.0,
+                    "outgoing_fatigue": 0.0,
+                    "evidence_multiplier": 0.7281,
+                    "remaining_time_multiplier": 0.7222
+                  },
+                  "score": 0.0913,
+                  "expected_benefit": 0.066
+                }
+              ]
+            },
+            {
+              "minute": 54,
+              "recommendation": "SUBSTITUTION",
+              "physical_need": {
+                "freshness": 0.1621,
+                "source": "ESTIMATED_MATCH_LOAD",
+                "refresh_score_cap": 0.6
+              },
+              "best": [
+                {
+                  "out_player": {
+                    "id": "3475",
+                    "name": "Per Mertesacker"
+                  },
+                  "in_player": {
+                    "id": "6746",
+                    "name": "Gabriel Paulista"
+                  },
+                  "expected_changes": {
+                    "threat": 11.916,
+                    "creation": 7.979,
+                    "progression": 9.157,
+                    "retention": 6.899,
+                    "defense": -2.511
+                  },
+                  "position_fit": 1.0,
+                  "evidence_strength": 0.456,
+                  "reason_codes": [
+                    "HIGH_RETENTION_NEED",
+                    "ESTIMATED_FRESHNESS_RELIEF"
+                  ],
+                  "score_components": {
+                    "tactical_core": 0.4155,
+                    "tactical_support": 0.0,
+                    "freshness_relief": 0.0973,
+                    "outgoing_fatigue": 0.1621,
+                    "evidence_multiplier": 0.7281,
+                    "remaining_time_multiplier": 0.4444
+                  },
+                  "score": 0.3733,
+                  "expected_benefit": 0.1659
+                }
+              ]
+            },
+            {
+              "minute": 64,
+              "recommendation": "SUBSTITUTION",
+              "physical_need": {
+                "freshness": 0.3008,
+                "source": "ESTIMATED_MATCH_LOAD",
+                "refresh_score_cap": 0.6
+              },
+              "best": [
+                {
+                  "out_player": {
+                    "id": "3475",
+                    "name": "Per Mertesacker"
+                  },
+                  "in_player": {
+                    "id": "6746",
+                    "name": "Gabriel Paulista"
+                  },
+                  "expected_changes": {
+                    "threat": 11.918,
+                    "creation": 7.98,
+                    "progression": 9.679,
+                    "retention": 6.914,
+                    "defense": -2.428
+                  },
+                  "position_fit": 1.0,
+                  "evidence_strength": 0.456,
+                  "reason_codes": [
+                    "HIGH_THREAT_NEED",
+                    "HIGH_PROGRESSION_NEED",
+                    "HIGH_RETENTION_NEED",
+                    "ESTIMATED_FRESHNESS_RELIEF"
+                  ],
+                  "score_components": {
+                    "tactical_core": 0.6073,
+                    "tactical_support": 0.0,
+                    "freshness_relief": 0.1805,
+                    "outgoing_fatigue": 0.3008,
+                    "evidence_multiplier": 0.7281,
+                    "remaining_time_multiplier": 0.3333
+                  },
+                  "score": 0.5736,
+                  "expected_benefit": 0.1912
+                }
+              ]
+            },
+            {
+              "minute": 74,
+              "recommendation": "NO_SUBSTITUTION",
+              "physical_need": {
+                "freshness": 0.5183,
+                "source": "ESTIMATED_MATCH_LOAD",
+                "refresh_score_cap": 0.6
+              },
+              "best": [
+                {
+                  "out_player": {
+                    "id": "3475",
+                    "name": "Per Mertesacker"
+                  },
+                  "in_player": {
+                    "id": "6746",
+                    "name": "Gabriel Paulista"
+                  },
+                  "expected_changes": {
+                    "threat": 11.92,
+                    "creation": 7.98,
+                    "progression": 9.947,
+                    "retention": 6.93,
+                    "defense": -2.868
+                  },
+                  "position_fit": 1.0,
+                  "evidence_strength": 0.456,
+                  "reason_codes": [
+                    "ESTIMATED_FRESHNESS_RELIEF"
+                  ],
+                  "score_components": {
+                    "tactical_core": 0.1127,
+                    "tactical_support": 0.0,
+                    "freshness_relief": 0.311,
+                    "outgoing_fatigue": 0.5183,
+                    "evidence_multiplier": 0.7281,
+                    "remaining_time_multiplier": 0.2222
+                  },
+                  "score": 0.3085,
+                  "expected_benefit": 0.0686
+                }
+              ]
+            },
+            {
+              "minute": 84,
+              "recommendation": "NO_SUBSTITUTION",
+              "physical_need": {
+                "freshness": 0.7032,
+                "source": "ESTIMATED_MATCH_LOAD",
+                "refresh_score_cap": 0.6
+              },
+              "best": [
+                {
+                  "out_player": {
+                    "id": "3475",
+                    "name": "Per Mertesacker"
+                  },
+                  "in_player": {
+                    "id": "6746",
+                    "name": "Gabriel Paulista"
+                  },
+                  "expected_changes": {
+                    "threat": 11.921,
+                    "creation": 7.98,
+                    "progression": 9.402,
+                    "retention": 6.734,
+                    "defense": -2.629
+                  },
+                  "position_fit": 1.0,
+                  "evidence_strength": 0.456,
+                  "reason_codes": [
+                    "ESTIMATED_FRESHNESS_RELIEF",
+                    "CURRENT_PLAYER_ESTIMATED_LOAD"
+                  ],
+                  "score_components": {
+                    "tactical_core": 0.1396,
+                    "tactical_support": 0.0,
+                    "freshness_relief": 0.4219,
+                    "outgoing_fatigue": 0.7032,
+                    "evidence_multiplier": 0.7281,
+                    "remaining_time_multiplier": 0.1111
+                  },
+                  "score": 0.4088,
+                  "expected_benefit": 0.0454
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "match_id": "3754111",
+          "team_id": "1",
+          "recommendations": 1,
+          "snapshots": [
+            {
+              "minute": 29,
+              "recommendation": "SUBSTITUTION",
+              "physical_need": {
+                "freshness": 0.0,
+                "source": "ESTIMATED_MATCH_LOAD",
+                "refresh_score_cap": 0.6
+              },
+              "best": [
+                {
+                  "out_player": {
+                    "id": "3511",
+                    "name": "H\u00e9ctor Beller\u00edn"
+                  },
+                  "in_player": {
+                    "id": "3528",
+                    "name": "Kieran Gibbs"
+                  },
+                  "expected_changes": {
+                    "threat": 3.312,
+                    "creation": 7.735,
+                    "progression": 1.973,
+                    "retention": 3.182,
+                    "defense": 13.694
+                  },
+                  "position_fit": 1.0,
+                  "evidence_strength": 0.247,
+                  "reason_codes": [
+                    "HIGH_RETENTION_NEED",
+                    "HIGH_DEFENSE_NEED"
+                  ],
+                  "score_components": {
+                    "tactical_core": 0.4556,
+                    "tactical_support": 0.0015,
+                    "freshness_relief": 0.0,
+                    "outgoing_fatigue": 0.0,
+                    "evidence_multiplier": 0.6234,
+                    "remaining_time_multiplier": 0.7222
+                  },
+                  "score": 0.285,
+                  "expected_benefit": 0.2058
+                }
+              ]
+            },
+            {
+              "minute": 54,
+              "recommendation": "NO_SUBSTITUTION",
+              "physical_need": {
+                "freshness": 0.2115,
+                "source": "ESTIMATED_MATCH_LOAD",
+                "refresh_score_cap": 0.6
+              },
+              "best": [
+                {
+                  "out_player": {
+                    "id": "3511",
+                    "name": "H\u00e9ctor Beller\u00edn"
+                  },
+                  "in_player": {
+                    "id": "3528",
+                    "name": "Kieran Gibbs"
+                  },
+                  "expected_changes": {
+                    "threat": 3.326,
+                    "creation": 7.746,
+                    "progression": 1.101,
+                    "retention": 2.716,
+                    "defense": 13.608
+                  },
+                  "position_fit": 1.0,
+                  "evidence_strength": 0.247,
+                  "reason_codes": [
+                    "HIGH_THREAT_NEED",
+                    "HIGH_DEFENSE_NEED",
+                    "ESTIMATED_FRESHNESS_RELIEF"
+                  ],
+                  "score_components": {
+                    "tactical_core": 0.4423,
+                    "tactical_support": 0.0006,
+                    "freshness_relief": 0.0905,
+                    "outgoing_fatigue": 0.1508,
+                    "evidence_multiplier": 0.6234,
+                    "remaining_time_multiplier": 0.4444
+                  },
+                  "score": 0.3325,
+                  "expected_benefit": 0.1478
+                }
+              ]
+            },
+            {
+              "minute": 64,
+              "recommendation": "NO_SUBSTITUTION",
+              "physical_need": {
+                "freshness": 0.4678,
+                "source": "ESTIMATED_MATCH_LOAD",
+                "refresh_score_cap": 0.6
+              },
+              "best": [
+                {
+                  "out_player": {
+                    "id": "3511",
+                    "name": "H\u00e9ctor Beller\u00edn"
+                  },
+                  "in_player": {
+                    "id": "3528",
+                    "name": "Kieran Gibbs"
+                  },
+                  "expected_changes": {
+                    "threat": 3.318,
+                    "creation": 7.739,
+                    "progression": 1.779,
+                    "retention": 2.856,
+                    "defense": 13.244
+                  },
+                  "position_fit": 1.0,
+                  "evidence_strength": 0.247,
+                  "reason_codes": [
+                    "HIGH_THREAT_NEED",
+                    "HIGH_CREATION_NEED",
+                    "HIGH_DEFENSE_NEED",
+                    "ESTIMATED_FRESHNESS_RELIEF"
+                  ],
+                  "score_components": {
+                    "tactical_core": 0.4361,
+                    "tactical_support": 0.0027,
+                    "freshness_relief": 0.1681,
+                    "outgoing_fatigue": 0.2802,
+                    "evidence_multiplier": 0.6234,
+                    "remaining_time_multiplier": 0.3333
+                  },
+                  "score": 0.3784,
+                  "expected_benefit": 0.1261
+                }
+              ]
+            },
+            {
+              "minute": 74,
+              "recommendation": "NO_SUBSTITUTION",
+              "physical_need": {
+                "freshness": 0.6918,
+                "source": "ESTIMATED_MATCH_LOAD",
+                "refresh_score_cap": 0.6
+              },
+              "best": []
+            },
+            {
+              "minute": 84,
+              "recommendation": "NO_SUBSTITUTION",
+              "physical_need": {
+                "freshness": 0.8697,
+                "source": "ESTIMATED_MATCH_LOAD",
+                "refresh_score_cap": 0.6
+              },
+              "best": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "refresh_score_cap": 1.2,
+      "matches": [
+        {
+          "match_id": "3754305",
+          "team_id": "24",
+          "recommendations": 0,
+          "snapshots": [
+            {
+              "minute": 29,
+              "recommendation": "NO_SUBSTITUTION",
+              "physical_need": {
+                "freshness": 0.0,
+                "source": "ESTIMATED_MATCH_LOAD",
+                "refresh_score_cap": 1.2
+              },
+              "best": [
+                {
+                  "out_player": {
+                    "id": "3483",
+                    "name": "Mamadou Sakho"
+                  },
+                  "in_player": {
+                    "id": "9958",
+                    "name": "Steven Caulker"
+                  },
+                  "expected_changes": {
+                    "threat": -1.317,
+                    "creation": -2.691,
+                    "progression": 3.612,
+                    "retention": 1.647,
+                    "defense": -3.499
+                  },
+                  "position_fit": 1.0,
+                  "evidence_strength": 0.152,
+                  "reason_codes": [],
+                  "score_components": {
+                    "tactical_core": -0.1877,
+                    "tactical_support": 0.0,
+                    "freshness_relief": 0.0,
+                    "outgoing_fatigue": 0.0,
+                    "evidence_multiplier": 0.5759,
+                    "remaining_time_multiplier": 0.7222
+                  },
+                  "score": -0.1081,
+                  "expected_benefit": -0.0781
+                }
+              ]
+            },
+            {
+              "minute": 54,
+              "recommendation": "NO_SUBSTITUTION",
+              "physical_need": {
+                "freshness": 0.2282,
+                "source": "ESTIMATED_MATCH_LOAD",
+                "refresh_score_cap": 1.2
+              },
+              "best": [
+                {
+                  "out_player": {
+                    "id": "3483",
+                    "name": "Mamadou Sakho"
+                  },
+                  "in_player": {
+                    "id": "9958",
+                    "name": "Steven Caulker"
+                  },
+                  "expected_changes": {
+                    "threat": -1.314,
+                    "creation": -2.69,
+                    "progression": 4.309,
+                    "retention": 2.037,
+                    "defense": -4.292
+                  },
+                  "position_fit": 1.0,
+                  "evidence_strength": 0.152,
+                  "reason_codes": [
+                    "ESTIMATED_FRESHNESS_RELIEF"
+                  ],
+                  "score_components": {
+                    "tactical_core": -0.2033,
+                    "tactical_support": -0.0012,
+                    "freshness_relief": 0.1381,
+                    "outgoing_fatigue": 0.1159,
+                    "evidence_multiplier": 0.5759,
+                    "remaining_time_multiplier": 0.4444
+                  },
+                  "score": -0.0382,
+                  "expected_benefit": -0.017
+                }
+              ]
+            },
+            {
+              "minute": 64,
+              "recommendation": "NO_SUBSTITUTION",
+              "physical_need": {
+                "freshness": 0.5327,
+                "source": "ESTIMATED_MATCH_LOAD",
+                "refresh_score_cap": 1.2
+              },
+              "best": [
+                {
+                  "out_player": {
+                    "id": "3483",
+                    "name": "Mamadou Sakho"
+                  },
+                  "in_player": {
+                    "id": "9958",
+                    "name": "Steven Caulker"
+                  },
+                  "expected_changes": {
+                    "threat": -1.314,
+                    "creation": -2.689,
+                    "progression": 4.097,
+                    "retention": 1.649,
+                    "defense": -4.19
+                  },
+                  "position_fit": 1.0,
+                  "evidence_strength": 0.152,
+                  "reason_codes": [
+                    "ESTIMATED_FRESHNESS_RELIEF"
+                  ],
+                  "score_components": {
+                    "tactical_core": -0.2129,
+                    "tactical_support": -0.0021,
+                    "freshness_relief": 0.3182,
+                    "outgoing_fatigue": 0.2673,
+                    "evidence_multiplier": 0.5759,
+                    "remaining_time_multiplier": 0.3333
+                  },
+                  "score": 0.0594,
+                  "expected_benefit": 0.0198
+                }
+              ]
+            },
+            {
+              "minute": 74,
+              "recommendation": "NO_SUBSTITUTION",
+              "physical_need": {
+                "freshness": 0.7444,
+                "source": "ESTIMATED_MATCH_LOAD",
+                "refresh_score_cap": 1.2
+              },
+              "best": [
+                {
+                  "out_player": {
+                    "id": "3483",
+                    "name": "Mamadou Sakho"
+                  },
+                  "in_player": {
+                    "id": "9958",
+                    "name": "Steven Caulker"
+                  },
+                  "expected_changes": {
+                    "threat": -1.312,
+                    "creation": -2.688,
+                    "progression": 3.108,
+                    "retention": 1.696,
+                    "defense": -3.741
+                  },
+                  "position_fit": 1.0,
+                  "evidence_strength": 0.152,
+                  "reason_codes": [
+                    "ESTIMATED_FRESHNESS_RELIEF"
+                  ],
+                  "score_components": {
+                    "tactical_core": -0.2052,
+                    "tactical_support": -0.0055,
+                    "freshness_relief": 0.4855,
+                    "outgoing_fatigue": 0.4091,
+                    "evidence_multiplier": 0.5759,
+                    "remaining_time_multiplier": 0.2222
+                  },
+                  "score": 0.1582,
+                  "expected_benefit": 0.0352
+                }
+              ]
+            },
+            {
+              "minute": 84,
+              "recommendation": "NO_SUBSTITUTION",
+              "physical_need": {
+                "freshness": 1.0,
+                "source": "ESTIMATED_MATCH_LOAD",
+                "refresh_score_cap": 1.2
+              },
+              "best": [
+                {
+                  "out_player": {
+                    "id": "3483",
+                    "name": "Mamadou Sakho"
+                  },
+                  "in_player": {
+                    "id": "9958",
+                    "name": "Steven Caulker"
+                  },
+                  "expected_changes": {
+                    "threat": -1.311,
+                    "creation": -2.688,
+                    "progression": 3.808,
+                    "retention": 1.669,
+                    "defense": -3.466
+                  },
+                  "position_fit": 1.0,
+                  "evidence_strength": 0.152,
+                  "reason_codes": [
+                    "ESTIMATED_FRESHNESS_RELIEF",
+                    "CURRENT_PLAYER_ESTIMATED_LOAD"
+                  ],
+                  "score_components": {
+                    "tactical_core": -0.2001,
+                    "tactical_support": -0.0087,
+                    "freshness_relief": 0.7327,
+                    "outgoing_fatigue": 0.614,
+                    "evidence_multiplier": 0.5759,
+                    "remaining_time_multiplier": 0.1111
+                  },
+                  "score": 0.3017,
+                  "expected_benefit": 0.0335
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "match_id": "3754345",
+          "team_id": "24",
+          "recommendations": 0,
+          "snapshots": [
+            {
+              "minute": 29,
+              "recommendation": "NO_SUBSTITUTION",
+              "physical_need": {
+                "freshness": 0.0,
+                "source": "ESTIMATED_MATCH_LOAD",
+                "refresh_score_cap": 1.2
+              },
+              "best": [
+                {
+                  "out_player": {
+                    "id": "3483",
+                    "name": "Mamadou Sakho"
+                  },
+                  "in_player": {
+                    "id": "9958",
+                    "name": "Steven Caulker"
+                  },
+                  "expected_changes": {
+                    "threat": -1.316,
+                    "creation": -2.69,
+                    "progression": 3.48,
+                    "retention": 1.811,
+                    "defense": -3.32
+                  },
+                  "position_fit": 1.0,
+                  "evidence_strength": 0.152,
+                  "reason_codes": [],
+                  "score_components": {
+                    "tactical_core": -0.1832,
+                    "tactical_support": 0.0,
+                    "freshness_relief": 0.0,
+                    "outgoing_fatigue": 0.0,
+                    "evidence_multiplier": 0.5759,
+                    "remaining_time_multiplier": 0.7222
+                  },
+                  "score": -0.1055,
+                  "expected_benefit": -0.0762
+                }
+              ]
+            },
+            {
+              "minute": 54,
+              "recommendation": "NO_SUBSTITUTION",
+              "physical_need": {
+                "freshness": 0.2011,
+                "source": "ESTIMATED_MATCH_LOAD",
+                "refresh_score_cap": 1.2
+              },
+              "best": [
+                {
+                  "out_player": {
+                    "id": "3483",
+                    "name": "Mamadou Sakho"
+                  },
+                  "in_player": {
+                    "id": "9958",
+                    "name": "Steven Caulker"
+                  },
+                  "expected_changes": {
+                    "threat": -1.315,
+                    "creation": -2.69,
+                    "progression": 4.252,
+                    "retention": 2.084,
+                    "defense": -3.004
+                  },
+                  "position_fit": 1.0,
+                  "evidence_strength": 0.152,
+                  "reason_codes": [
+                    "HIGH_RETENTION_NEED",
+                    "ESTIMATED_FRESHNESS_RELIEF"
+                  ],
+                  "score_components": {
+                    "tactical_core": -0.1333,
+                    "tactical_support": 0.0,
+                    "freshness_relief": 0.1137,
+                    "outgoing_fatigue": 0.0948,
+                    "evidence_multiplier": 0.5759,
+                    "remaining_time_multiplier": 0.4444
+                  },
+                  "score": -0.0113,
+                  "expected_benefit": -0.005
+                }
+              ]
+            },
+            {
+              "minute": 64,
+              "recommendation": "NO_SUBSTITUTION",
+              "physical_need": {
+                "freshness": 0.3854,
+                "source": "ESTIMATED_MATCH_LOAD",
+                "refresh_score_cap": 1.2
+              },
+              "best": [
+                {
+                  "out_player": {
+                    "id": "3483",
+                    "name": "Mamadou Sakho"
+                  },
+                  "in_player": {
+                    "id": "9958",
+                    "name": "Steven Caulker"
+                  },
+                  "expected_changes": {
+                    "threat": -1.314,
+                    "creation": -2.69,
+                    "progression": 3.88,
+                    "retention": 2.072,
+                    "defense": -3.628
+                  },
+                  "position_fit": 1.0,
+                  "evidence_strength": 0.152,
+                  "reason_codes": [
+                    "ESTIMATED_FRESHNESS_RELIEF"
+                  ],
+                  "score_components": {
+                    "tactical_core": -0.1655,
+                    "tactical_support": 0.0,
+                    "freshness_relief": 0.2688,
+                    "outgoing_fatigue": 0.2254,
+                    "evidence_multiplier": 0.5759,
+                    "remaining_time_multiplier": 0.3333
+                  },
+                  "score": 0.0595,
+                  "expected_benefit": 0.0198
+                }
+              ]
+            },
+            {
+              "minute": 74,
+              "recommendation": "NO_SUBSTITUTION",
+              "physical_need": {
+                "freshness": 0.5995,
+                "source": "ESTIMATED_MATCH_LOAD",
+                "refresh_score_cap": 1.2
+              },
+              "best": [
+                {
+                  "out_player": {
+                    "id": "3483",
+                    "name": "Mamadou Sakho"
+                  },
+                  "in_player": {
+                    "id": "9958",
+                    "name": "Steven Caulker"
+                  },
+                  "expected_changes": {
+                    "threat": -2.25,
+                    "creation": -2.69,
+                    "progression": 2.973,
+                    "retention": 2.237,
+                    "defense": -3.584
+                  },
+                  "position_fit": 1.0,
+                  "evidence_strength": 0.152,
+                  "reason_codes": [
+                    "ESTIMATED_FRESHNESS_RELIEF"
+                  ],
+                  "score_components": {
+                    "tactical_core": -0.2015,
+                    "tactical_support": 0.0,
+                    "freshness_relief": 0.4537,
+                    "outgoing_fatigue": 0.3843,
+                    "evidence_multiplier": 0.5759,
+                    "remaining_time_multiplier": 0.2222
+                  },
+                  "score": 0.1453,
+                  "expected_benefit": 0.0323
+                }
+              ]
+            },
+            {
+              "minute": 84,
+              "recommendation": "NO_SUBSTITUTION",
+              "physical_need": {
+                "freshness": 0.5782,
+                "source": "ESTIMATED_MATCH_LOAD",
+                "refresh_score_cap": 1.2
+              },
+              "best": [
+                {
+                  "out_player": {
+                    "id": "7780",
+                    "name": "Lucas Leiva"
+                  },
+                  "in_player": {
+                    "id": "10931",
+                    "name": "Joe Allen"
+                  },
+                  "expected_changes": {
+                    "threat": 21.678,
+                    "creation": 6.215,
+                    "progression": 8.116,
+                    "retention": 8.903,
+                    "defense": -12.546
+                  },
+                  "position_fit": 1.0,
+                  "evidence_strength": 0.136,
+                  "reason_codes": [
+                    "HIGH_THREAT_NEED",
+                    "HIGH_CREATION_NEED",
+                    "ESTIMATED_FRESHNESS_RELIEF"
+                  ],
+                  "score_components": {
+                    "tactical_core": 0.4104,
+                    "tactical_support": -0.0098,
+                    "freshness_relief": 0.6286,
+                    "outgoing_fatigue": 0.5238,
+                    "evidence_multiplier": 0.5682,
+                    "remaining_time_multiplier": 0.1111
+                  },
+                  "score": 0.5848,
+                  "expected_benefit": 0.065
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "match_id": "3754348",
+          "team_id": "24",
+          "recommendations": 0,
+          "snapshots": [
+            {
+              "minute": 29,
+              "recommendation": "NO_SUBSTITUTION",
+              "physical_need": {
+                "freshness": 0.0,
+                "source": "ESTIMATED_MATCH_LOAD",
+                "refresh_score_cap": 1.2
+              },
+              "best": [
+                {
+                  "out_player": {
+                    "id": "3635",
+                    "name": "Jordon Ibe"
+                  },
+                  "in_player": {
+                    "id": "4090",
+                    "name": "Adam Lallana"
+                  },
+                  "expected_changes": {
+                    "threat": 7.46,
+                    "creation": 21.027,
+                    "progression": 7.371,
+                    "retention": 7.75,
+                    "defense": -3.603
+                  },
+                  "position_fit": 1.0,
+                  "evidence_strength": 0.424,
+                  "reason_codes": [],
+                  "score_components": {
+                    "tactical_core": 0.1432,
+                    "tactical_support": 0.0,
+                    "freshness_relief": 0.0,
+                    "outgoing_fatigue": 0.0,
+                    "evidence_multiplier": 0.7121,
+                    "remaining_time_multiplier": 0.7222
+                  },
+                  "score": 0.1019,
+                  "expected_benefit": 0.0736
+                }
+              ]
+            },
+            {
+              "minute": 54,
+              "recommendation": "NO_SUBSTITUTION",
+              "physical_need": {
+                "freshness": 0.1673,
+                "source": "ESTIMATED_MATCH_LOAD",
+                "refresh_score_cap": 1.2
+              },
+              "best": [
+                {
+                  "out_player": {
+                    "id": "3635",
+                    "name": "Jordon Ibe"
+                  },
+                  "in_player": {
+                    "id": "4090",
+                    "name": "Adam Lallana"
+                  },
+                  "expected_changes": {
+                    "threat": 7.812,
+                    "creation": 21.105,
+                    "progression": 7.658,
+                    "retention": 7.449,
+                    "defense": -4.066
+                  },
+                  "position_fit": 1.0,
+                  "evidence_strength": 0.424,
+                  "reason_codes": [
+                    "ESTIMATED_FRESHNESS_RELIEF"
+                  ],
+                  "score_components": {
+                    "tactical_core": 0.0479,
+                    "tactical_support": 0.0193,
+                    "freshness_relief": 0.1678,
+                    "outgoing_fatigue": 0.1398,
+                    "evidence_multiplier": 0.7121,
+                    "remaining_time_multiplier": 0.4444
+                  },
+                  "score": 0.1673,
+                  "expected_benefit": 0.0744
+                }
+              ]
+            },
+            {
+              "minute": 64,
+              "recommendation": "NO_SUBSTITUTION",
+              "physical_need": {
+                "freshness": 0.271,
+                "source": "ESTIMATED_MATCH_LOAD",
+                "refresh_score_cap": 1.2
+              },
+              "best": [
+                {
+                  "out_player": {
+                    "id": "3483",
+                    "name": "Mamadou Sakho"
+                  },
+                  "in_player": {
+                    "id": "9958",
+                    "name": "Steven Caulker"
+                  },
+                  "expected_changes": {
+                    "threat": -1.315,
+                    "creation": -2.69,
+                    "progression": 3.982,
+                    "retention": 1.728,
+                    "defense": -2.48
+                  },
+                  "position_fit": 1.0,
+                  "evidence_strength": 0.152,
+                  "reason_codes": [
+                    "ESTIMATED_FRESHNESS_RELIEF"
+                  ],
+                  "score_components": {
+                    "tactical_core": -0.1248,
+                    "tactical_support": 0.0,
+                    "freshness_relief": 0.3062,
+                    "outgoing_fatigue": 0.2552,
+                    "evidence_multiplier": 0.5759,
+                    "remaining_time_multiplier": 0.3333
+                  },
+                  "score": 0.1045,
+                  "expected_benefit": 0.0348
+                }
+              ]
+            },
+            {
+              "minute": 74,
+              "recommendation": "NO_SUBSTITUTION",
+              "physical_need": {
+                "freshness": 0.4322,
+                "source": "ESTIMATED_MATCH_LOAD",
+                "refresh_score_cap": 1.2
+              },
+              "best": [
+                {
+                  "out_player": {
+                    "id": "3483",
+                    "name": "Mamadou Sakho"
+                  },
+                  "in_player": {
+                    "id": "9958",
+                    "name": "Steven Caulker"
+                  },
+                  "expected_changes": {
+                    "threat": -1.315,
+                    "creation": -2.69,
+                    "progression": 4.146,
+                    "retention": 2.117,
+                    "defense": -2.139
+                  },
+                  "position_fit": 1.0,
+                  "evidence_strength": 0.152,
+                  "reason_codes": [
+                    "HIGH_RETENTION_NEED",
+                    "ESTIMATED_FRESHNESS_RELIEF"
+                  ],
+                  "score_components": {
+                    "tactical_core": -0.1074,
+                    "tactical_support": 0.0,
+                    "freshness_relief": 0.4602,
+                    "outgoing_fatigue": 0.3835,
+                    "evidence_multiplier": 0.5759,
+                    "remaining_time_multiplier": 0.2222
+                  },
+                  "score": 0.2032,
+                  "expected_benefit": 0.0452
+                }
+              ]
+            },
+            {
+              "minute": 84,
+              "recommendation": "NO_SUBSTITUTION",
+              "physical_need": {
+                "freshness": 0.6558,
+                "source": "ESTIMATED_MATCH_LOAD",
+                "refresh_score_cap": 1.2
+              },
+              "best": [
+                {
+                  "out_player": {
+                    "id": "3483",
+                    "name": "Mamadou Sakho"
+                  },
+                  "in_player": {
+                    "id": "9958",
+                    "name": "Steven Caulker"
+                  },
+                  "expected_changes": {
+                    "threat": -1.315,
+                    "creation": -2.69,
+                    "progression": 4.286,
+                    "retention": 1.596,
+                    "defense": -2.654
+                  },
+                  "position_fit": 1.0,
+                  "evidence_strength": 0.152,
+                  "reason_codes": [
+                    "HIGH_RETENTION_NEED",
+                    "ESTIMATED_FRESHNESS_RELIEF"
+                  ],
+                  "score_components": {
+                    "tactical_core": -0.1319,
+                    "tactical_support": 0.0,
+                    "freshness_relief": 0.7172,
+                    "outgoing_fatigue": 0.5977,
+                    "evidence_multiplier": 0.5759,
+                    "remaining_time_multiplier": 0.1111
+                  },
+                  "score": 0.3371,
+                  "expected_benefit": 0.0375
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "match_id": "3754202",
+          "team_id": "1",
+          "recommendations": 2,
+          "snapshots": [
+            {
+              "minute": 29,
+              "recommendation": "NO_SUBSTITUTION",
+              "physical_need": {
+                "freshness": 0.0,
+                "source": "ESTIMATED_MATCH_LOAD",
+                "refresh_score_cap": 1.2
+              },
+              "best": [
+                {
+                  "out_player": {
+                    "id": "3475",
+                    "name": "Per Mertesacker"
+                  },
+                  "in_player": {
+                    "id": "6746",
+                    "name": "Gabriel Paulista"
+                  },
+                  "expected_changes": {
+                    "threat": 11.913,
+                    "creation": 7.979,
+                    "progression": 9.617,
+                    "retention": 6.888,
+                    "defense": -3.091
+                  },
+                  "position_fit": 1.0,
+                  "evidence_strength": 0.456,
+                  "reason_codes": [],
+                  "score_components": {
+                    "tactical_core": 0.1255,
+                    "tactical_support": 0.0,
+                    "freshness_relief": 0.0,
+                    "outgoing_fatigue": 0.0,
+                    "evidence_multiplier": 0.7281,
+                    "remaining_time_multiplier": 0.7222
+                  },
+                  "score": 0.0913,
+                  "expected_benefit": 0.066
+                }
+              ]
+            },
+            {
+              "minute": 54,
+              "recommendation": "SUBSTITUTION",
+              "physical_need": {
+                "freshness": 0.1621,
+                "source": "ESTIMATED_MATCH_LOAD",
+                "refresh_score_cap": 1.2
+              },
+              "best": [
+                {
+                  "out_player": {
+                    "id": "3475",
+                    "name": "Per Mertesacker"
+                  },
+                  "in_player": {
+                    "id": "6746",
+                    "name": "Gabriel Paulista"
+                  },
+                  "expected_changes": {
+                    "threat": 11.916,
+                    "creation": 7.979,
+                    "progression": 9.157,
+                    "retention": 6.899,
+                    "defense": -2.511
+                  },
+                  "position_fit": 1.0,
+                  "evidence_strength": 0.456,
+                  "reason_codes": [
+                    "HIGH_RETENTION_NEED",
+                    "ESTIMATED_FRESHNESS_RELIEF"
+                  ],
+                  "score_components": {
+                    "tactical_core": 0.4155,
+                    "tactical_support": 0.0,
+                    "freshness_relief": 0.1945,
+                    "outgoing_fatigue": 0.1621,
+                    "evidence_multiplier": 0.7281,
+                    "remaining_time_multiplier": 0.4444
+                  },
+                  "score": 0.4442,
+                  "expected_benefit": 0.1974
+                }
+              ]
+            },
+            {
+              "minute": 64,
+              "recommendation": "SUBSTITUTION",
+              "physical_need": {
+                "freshness": 0.3008,
+                "source": "ESTIMATED_MATCH_LOAD",
+                "refresh_score_cap": 1.2
+              },
+              "best": [
+                {
+                  "out_player": {
+                    "id": "3475",
+                    "name": "Per Mertesacker"
+                  },
+                  "in_player": {
+                    "id": "6746",
+                    "name": "Gabriel Paulista"
+                  },
+                  "expected_changes": {
+                    "threat": 11.918,
+                    "creation": 7.98,
+                    "progression": 9.679,
+                    "retention": 6.914,
+                    "defense": -2.428
+                  },
+                  "position_fit": 1.0,
+                  "evidence_strength": 0.456,
+                  "reason_codes": [
+                    "HIGH_THREAT_NEED",
+                    "HIGH_PROGRESSION_NEED",
+                    "HIGH_RETENTION_NEED",
+                    "ESTIMATED_FRESHNESS_RELIEF"
+                  ],
+                  "score_components": {
+                    "tactical_core": 0.6073,
+                    "tactical_support": 0.0,
+                    "freshness_relief": 0.361,
+                    "outgoing_fatigue": 0.3008,
+                    "evidence_multiplier": 0.7281,
+                    "remaining_time_multiplier": 0.3333
+                  },
+                  "score": 0.705,
+                  "expected_benefit": 0.235
+                }
+              ]
+            },
+            {
+              "minute": 74,
+              "recommendation": "NO_SUBSTITUTION",
+              "physical_need": {
+                "freshness": 0.5183,
+                "source": "ESTIMATED_MATCH_LOAD",
+                "refresh_score_cap": 1.2
+              },
+              "best": [
+                {
+                  "out_player": {
+                    "id": "3475",
+                    "name": "Per Mertesacker"
+                  },
+                  "in_player": {
+                    "id": "6746",
+                    "name": "Gabriel Paulista"
+                  },
+                  "expected_changes": {
+                    "threat": 11.92,
+                    "creation": 7.98,
+                    "progression": 9.947,
+                    "retention": 6.93,
+                    "defense": -2.868
+                  },
+                  "position_fit": 1.0,
+                  "evidence_strength": 0.456,
+                  "reason_codes": [
+                    "ESTIMATED_FRESHNESS_RELIEF"
+                  ],
+                  "score_components": {
+                    "tactical_core": 0.1127,
+                    "tactical_support": 0.0,
+                    "freshness_relief": 0.622,
+                    "outgoing_fatigue": 0.5183,
+                    "evidence_multiplier": 0.7281,
+                    "remaining_time_multiplier": 0.2222
+                  },
+                  "score": 0.5349,
+                  "expected_benefit": 0.1189
+                }
+              ]
+            },
+            {
+              "minute": 84,
+              "recommendation": "NO_SUBSTITUTION",
+              "physical_need": {
+                "freshness": 0.7032,
+                "source": "ESTIMATED_MATCH_LOAD",
+                "refresh_score_cap": 1.2
+              },
+              "best": [
+                {
+                  "out_player": {
+                    "id": "3475",
+                    "name": "Per Mertesacker"
+                  },
+                  "in_player": {
+                    "id": "6746",
+                    "name": "Gabriel Paulista"
+                  },
+                  "expected_changes": {
+                    "threat": 11.921,
+                    "creation": 7.98,
+                    "progression": 9.402,
+                    "retention": 6.734,
+                    "defense": -2.629
+                  },
+                  "position_fit": 1.0,
+                  "evidence_strength": 0.456,
+                  "reason_codes": [
+                    "ESTIMATED_FRESHNESS_RELIEF",
+                    "CURRENT_PLAYER_ESTIMATED_LOAD"
+                  ],
+                  "score_components": {
+                    "tactical_core": 0.1396,
+                    "tactical_support": 0.0,
+                    "freshness_relief": 0.8438,
+                    "outgoing_fatigue": 0.7032,
+                    "evidence_multiplier": 0.7281,
+                    "remaining_time_multiplier": 0.1111
+                  },
+                  "score": 0.716,
+                  "expected_benefit": 0.0796
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "match_id": "3754111",
+          "team_id": "1",
+          "recommendations": 3,
+          "snapshots": [
+            {
+              "minute": 29,
+              "recommendation": "SUBSTITUTION",
+              "physical_need": {
+                "freshness": 0.0,
+                "source": "ESTIMATED_MATCH_LOAD",
+                "refresh_score_cap": 1.2
+              },
+              "best": [
+                {
+                  "out_player": {
+                    "id": "3511",
+                    "name": "H\u00e9ctor Beller\u00edn"
+                  },
+                  "in_player": {
+                    "id": "3528",
+                    "name": "Kieran Gibbs"
+                  },
+                  "expected_changes": {
+                    "threat": 3.312,
+                    "creation": 7.735,
+                    "progression": 1.973,
+                    "retention": 3.182,
+                    "defense": 13.694
+                  },
+                  "position_fit": 1.0,
+                  "evidence_strength": 0.247,
+                  "reason_codes": [
+                    "HIGH_RETENTION_NEED",
+                    "HIGH_DEFENSE_NEED"
+                  ],
+                  "score_components": {
+                    "tactical_core": 0.4556,
+                    "tactical_support": 0.0015,
+                    "freshness_relief": 0.0,
+                    "outgoing_fatigue": 0.0,
+                    "evidence_multiplier": 0.6234,
+                    "remaining_time_multiplier": 0.7222
+                  },
+                  "score": 0.285,
+                  "expected_benefit": 0.2058
+                }
+              ]
+            },
+            {
+              "minute": 54,
+              "recommendation": "SUBSTITUTION",
+              "physical_need": {
+                "freshness": 0.2115,
+                "source": "ESTIMATED_MATCH_LOAD",
+                "refresh_score_cap": 1.2
+              },
+              "best": [
+                {
+                  "out_player": {
+                    "id": "3511",
+                    "name": "H\u00e9ctor Beller\u00edn"
+                  },
+                  "in_player": {
+                    "id": "3528",
+                    "name": "Kieran Gibbs"
+                  },
+                  "expected_changes": {
+                    "threat": 3.326,
+                    "creation": 7.746,
+                    "progression": 1.101,
+                    "retention": 2.716,
+                    "defense": 13.608
+                  },
+                  "position_fit": 1.0,
+                  "evidence_strength": 0.247,
+                  "reason_codes": [
+                    "HIGH_THREAT_NEED",
+                    "HIGH_DEFENSE_NEED",
+                    "ESTIMATED_FRESHNESS_RELIEF"
+                  ],
+                  "score_components": {
+                    "tactical_core": 0.4423,
+                    "tactical_support": 0.0006,
+                    "freshness_relief": 0.181,
+                    "outgoing_fatigue": 0.1508,
+                    "evidence_multiplier": 0.6234,
+                    "remaining_time_multiplier": 0.4444
+                  },
+                  "score": 0.3889,
+                  "expected_benefit": 0.1729
+                }
+              ]
+            },
+            {
+              "minute": 64,
+              "recommendation": "SUBSTITUTION",
+              "physical_need": {
+                "freshness": 0.4678,
+                "source": "ESTIMATED_MATCH_LOAD",
+                "refresh_score_cap": 1.2
+              },
+              "best": [
+                {
+                  "out_player": {
+                    "id": "3511",
+                    "name": "H\u00e9ctor Beller\u00edn"
+                  },
+                  "in_player": {
+                    "id": "3528",
+                    "name": "Kieran Gibbs"
+                  },
+                  "expected_changes": {
+                    "threat": 3.318,
+                    "creation": 7.739,
+                    "progression": 1.779,
+                    "retention": 2.856,
+                    "defense": 13.244
+                  },
+                  "position_fit": 1.0,
+                  "evidence_strength": 0.247,
+                  "reason_codes": [
+                    "HIGH_THREAT_NEED",
+                    "HIGH_CREATION_NEED",
+                    "HIGH_DEFENSE_NEED",
+                    "ESTIMATED_FRESHNESS_RELIEF"
+                  ],
+                  "score_components": {
+                    "tactical_core": 0.4361,
+                    "tactical_support": 0.0027,
+                    "freshness_relief": 0.3362,
+                    "outgoing_fatigue": 0.2802,
+                    "evidence_multiplier": 0.6234,
+                    "remaining_time_multiplier": 0.3333
+                  },
+                  "score": 0.4832,
+                  "expected_benefit": 0.1611
+                }
+              ]
+            },
+            {
+              "minute": 74,
+              "recommendation": "NO_SUBSTITUTION",
+              "physical_need": {
+                "freshness": 0.6918,
+                "source": "ESTIMATED_MATCH_LOAD",
+                "refresh_score_cap": 1.2
+              },
+              "best": []
+            },
+            {
+              "minute": 84,
+              "recommendation": "NO_SUBSTITUTION",
+              "physical_need": {
+                "freshness": 0.8697,
+                "source": "ESTIMATED_MATCH_LOAD",
+                "refresh_score_cap": 1.2
+              },
+              "best": []
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "examples": [
+    {
+      "minutes": 30,
+      "stamina": 75,
+      "pressure_actions": 5,
+      "fatigue": 0.0,
+      "load_ratio": 0.3333,
+      "intensity": 1.0,
+      "stamina_capacity": 1.0,
+      "estimated_distance_m": 3450.0,
+      "distance_is_observed": false,
+      "load_source": "ESTIMATED:minutes+FIFA stamina+pressure/carry proxy; synthetic distance reference"
+    },
+    {
+      "minutes": 60,
+      "stamina": 75,
+      "pressure_actions": 10,
+      "fatigue": 0.1162,
+      "load_ratio": 0.6667,
+      "intensity": 1.0,
+      "stamina_capacity": 1.0,
+      "estimated_distance_m": 6900.0,
+      "distance_is_observed": false,
+      "load_source": "ESTIMATED:minutes+FIFA stamina+pressure/carry proxy; synthetic distance reference"
+    },
+    {
+      "minutes": 75,
+      "stamina": 75,
+      "pressure_actions": 12.5,
+      "fatigue": 0.3286,
+      "load_ratio": 0.8333,
+      "intensity": 1.0,
+      "stamina_capacity": 1.0,
+      "estimated_distance_m": 8625.0,
+      "distance_is_observed": false,
+      "load_source": "ESTIMATED:minutes+FIFA stamina+pressure/carry proxy; synthetic distance reference"
+    },
+    {
+      "minutes": 90,
+      "stamina": 75,
+      "pressure_actions": 15,
+      "fatigue": 0.6037,
+      "load_ratio": 1.0,
+      "intensity": 1.0,
+      "stamina_capacity": 1.0,
+      "estimated_distance_m": 10350.0,
+      "distance_is_observed": false,
+      "load_source": "ESTIMATED:minutes+FIFA stamina+pressure/carry proxy; synthetic distance reference"
+    },
+    {
+      "minutes": 75,
+      "stamina": 55,
+      "pressure_actions": 12.5,
+      "fatigue": 0.5354,
+      "load_ratio": 0.9615,
+      "intensity": 1.0,
+      "stamina_capacity": 0.8667,
+      "estimated_distance_m": 8625.0,
+      "distance_is_observed": false,
+      "load_source": "ESTIMATED:minutes+FIFA stamina+pressure/carry proxy; synthetic distance reference"
+    },
+    {
+      "minutes": 75,
+      "stamina": 90,
+      "pressure_actions": 12.5,
+      "fatigue": 0.2232,
+      "load_ratio": 0.7576,
+      "intensity": 1.0,
+      "stamina_capacity": 1.1,
+      "estimated_distance_m": 8625.0,
+      "distance_is_observed": false,
+      "load_source": "ESTIMATED:minutes+FIFA stamina+pressure/carry proxy; synthetic distance reference"
+    },
+    {
+      "minutes": 75,
+      "stamina": 75,
+      "pressure_actions": 30,
+      "fatigue": 0.5298,
+      "load_ratio": 0.9583,
+      "intensity": 1.15,
+      "stamina_capacity": 1.0,
+      "estimated_distance_m": 9918.8,
+      "distance_is_observed": false,
+      "load_source": "ESTIMATED:minutes+FIFA stamina+pressure/carry proxy; synthetic distance reference"
+    }
+  ]
+}

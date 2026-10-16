@@ -1,23 +1,52 @@
-# Validation record
+# Current validation record — 16 October 2026
 
-40 automated tests passed on Python 3.12. Tests cover source cutoff, exact offline card reconstruction, role artifacts, bounded modifiers, pooled rates, fatigue, window decay, opposition-based defense need, specialist scoring, no-sub decisions and repeatable synthetic streams.
+47 automated tests pass after the separate match-load/freshness revision.
+They cover source cutoff, exact offline card reconstruction, bounded modifiers,
+pooled rates, position artifacts, load sensitivity, window decay, opposition-based
+defense need, specialist scoring, no-sub gates and repeatable synthetic streams.
+Passing tests establishes implementation behavior, not football decision quality.
 
-Local HTTP/SSE smoke test: 91 minute updates, both decision types, and complete event. Browser preview rendered and changed team/checkpoint successfully; no browser console errors were reported.
+## Current research benchmarks
 
-## Research benchmarks
+Refresh-score cap 1.2; recommendation threshold .15 (unchanged). Five checked
+states per match; counts describe snapshots, not distinct executed substitutions.
 
-| Match | Date | Team evaluated | Sub / no-sub checkpoints | Missing active card coverage |
+| Match | Date | Team evaluated | Qualifying / checked states | Missing active card coverage |
 |---|---|---|---|---|
-| Liverpool vs Arsenal (3754305) | 2016-01-13 | Liverpool | 0 / 5 | 0 |
-| Liverpool vs Manchester United (3754345) | 2016-01-17 | Liverpool | 0 / 5 | 0 |
-| Norwich City vs Liverpool (3754348) | 2016-01-23 | Liverpool | 0 / 5 | 0 |
-| Stoke City vs Arsenal (3754202) | 2016-01-17 | Arsenal | 2 / 3 | 0 |
-| Arsenal vs Chelsea (3754111) | 2016-01-24 | Arsenal | 1 / 4 | 1 |
+| Liverpool vs Arsenal (3754305) | 2016-01-13 | Liverpool | **0 / 5** | 0 |
+| Liverpool vs Manchester United (3754345) | 2016-01-17 | Liverpool | **0 / 5** | 0 |
+| Norwich City vs Liverpool (3754348) | 2016-01-23 | Liverpool | **0 / 5** | 0 |
+| Stoke City vs Arsenal (3754202) | 2016-01-17 | Arsenal | 2 / 5 | 0 |
+| Arsenal vs Chelsea (3754111) | 2016-01-24 | Arsenal | 3 / 5 | 1 |
 
-Profiles and team baselines are frozen strictly before 2016-01-13. Later matches are held-out smoke checks, not evidence that the provisional threshold is calibrated. Only the definitive 36-player squad is scored; missing players are disclosed. Match 3754305 does not have to reproduce any historical substitution. No assertion checks for Benteke.
+**Liverpool receives no recommendation in all 15 checked states, even after
+adding freshness. This remains a priority investigation, not a validated
+conclusion that no substitutions were warranted.**
 
-The final event demo is original synthetic data. It automatically applies only deterministic engine-approved swaps. The local preview includes a deterministic explanation; no remote LLM or cloud deployment has been configured. Physical tracking fields remain synthetic, and the FIFA16 snapshot update date is unverified.
+Profiles and team baselines remain frozen before 2016-01-13. Later matches are
+held-out smoke checks; they do not calibrate the threshold. Only the definitive
+36-player squad is scored, with missing active profiles disclosed. No assertion
+requires a named historical substitution. See MATCH_LOAD.md for the score
+breakdown, load formulas and sensitivity at refresh caps 0, .6 and 1.2.
 
-Match-load follow-up: 47 tests now pass. `docs/MATCH_LOAD.md` documents the
-separate freshness score, unchanged threshold and sensitivity at caps 0/.6/1.2.
-The first validation record above describes the preceding implementation.
+## Local integration and player-card artifacts
+
+The earlier local HTTP/SSE smoke check produced 91 minute updates and completion.
+The synthetic scenario remains repeatable under current tests. The browser preview
+and player-card browser were checked without console errors. The card browser's
+search, team/role filters, view selection and player detail were exercised.
+The workbook contains six sheets with filters and frozen identifying columns and
+headers. General and Recent formulas were compared to all supported card ratings;
+all sheets were visually reviewed, with no exported Excel error cells found.
+The workbook and browser are copied unchanged into docs/player-cards for sharing.
+
+The demo events are original synthetic data. Current explanations are deterministic;
+no remote LLM, Azure deployment or GitHub Pages hosting is configured. Physical
+tracking remains synthetic, and the FIFA16 snapshot update date is unverified.
+
+## Previous iteration
+
+Before the separate freshness contribution, the 40-test version produced qualifying
+snapshot counts [0, 0, 0, 2, 1] for the same five matches. The new cap-0 sensitivity
+is a different comparison: it disables the explicit refresh reward after removing
+the old fatigue card penalty. Do not conflate these baselines.
