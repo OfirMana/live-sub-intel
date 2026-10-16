@@ -1,0 +1,7231 @@
+{
+  "metadata": {
+    "demo_match_id": 3754305,
+    "as_of_date": "2016-01-13",
+    "teams": [
+      "Liverpool",
+      "Arsenal"
+    ],
+    "player_count": 36,
+    "general_model": "FIFA16 absolute capability anchor + small reliability-weighted StatsBomb season adjustment",
+    "recent_model": "Actual StatsBomb events from each team's five league matches immediately before the demo; recent score is a conservative adjustment around General",
+    "recent_match_ids": {
+      "Liverpool": [
+        "3754255",
+        "3754051",
+        "3754343",
+        "3754226",
+        "3754251"
+      ],
+      "Arsenal": [
+        "3754117",
+        "3754296",
+        "3754309",
+        "3754173",
+        "3754069"
+      ]
+    },
+    "physical_model": "Deterministic synthetic physical profile from FIFA16 pace/physic and SkillCorner A-League 2024/25 positional reference; not observed tracking data",
+    "position_policy": "FIFA16/curated playable positions only; no PROFILE_FIT-only eligibility and no major structural role invention",
+    "score_range": "0-95 capability dimensions; FIFA overall retained separately",
+    "sanity_checks": {
+      "Mertesacker defense": true,
+      "Koscielny defense": true,
+      "Ozil creation": true,
+      "Giroud threat": true,
+      "CB threat cap": true,
+      "all dimensions valid": true
+    }
+  },
+  "recent_reference": {
+    "sample_players": 25,
+    "component_mean_std": {
+      "npxg": {
+        "mean": 0.1429,
+        "std": 0.145
+      },
+      "box_presence": {
+        "mean": 2.0075,
+        "std": 1.8849
+      },
+      "xa": {
+        "mean": 0.1189,
+        "std": 0.1215
+      },
+      "box_passes": {
+        "mean": 1.0704,
+        "std": 0.9678
+      },
+      "prog_passes": {
+        "mean": 6.7218,
+        "std": 3.2789
+      },
+      "prog_carries": {
+        "mean": 3.2157,
+        "std": 2.0969
+      },
+      "pressures": {
+        "mean": 14.7004,
+        "std": 6.5017
+      },
+      "def_actions": {
+        "mean": 8.0356,
+        "std": 2.8994
+      },
+      "retention_rate": {
+        "mean": 0.7334,
+        "std": 0.0903
+      }
+    }
+  },
+  "players": [
+    {
+      "player_id": 3496,
+      "name": "Mesut Özil",
+      "team": "Arsenal",
+      "fifa16": {
+        "overall": 88,
+        "pace": 72,
+        "shooting": 76,
+        "passing": 88,
+        "dribbling": 83,
+        "defending": 27,
+        "physic": 57,
+        "height_cm": 183,
+        "preferred_foot": "Left"
+      },
+      "positions": {
+        "fifa_positions": [
+          "CAM",
+          "RM",
+          "RW"
+        ],
+        "primary_role": "AM_W",
+        "eligible_roles": [
+          "AM_W"
+        ],
+        "role_suitability": {
+          "AM_W": 1
+        },
+        "source": "FIFA16 + curated demo mapping"
+      },
+      "general": {
+        "overall": 88,
+        "threat": 80.1,
+        "creation": 95,
+        "progression": 88.7,
+        "retention": 83.6,
+        "defense": 31.6,
+        "aerial": 61.6
+      },
+      "season_signal": {
+        "history_minutes": 1719.2,
+        "appearances": 19,
+        "history_flag": "OK",
+        "adjustment": {
+          "threat": 0.5,
+          "creation": 3.02,
+          "progression": 2.41,
+          "retention": 2.73,
+          "defense": -1.36
+        }
+      },
+      "recent_5": {
+        "team_match_ids": [
+          "3754117",
+          "3754296",
+          "3754309",
+          "3754173",
+          "3754069"
+        ],
+        "appearances": 5,
+        "starts": 5,
+        "minutes": 445.9,
+        "raw_p90": {
+          "npxg": 0.161,
+          "box_presence": 2.422,
+          "xa": 0.453,
+          "box_passes": 3.229,
+          "prog_passes": 11.504,
+          "prog_carries": 3.431,
+          "pressures": 13.926,
+          "def_actions": 5.046
+        },
+        "retention_rate": 0.782,
+        "dimension_z": {
+          "threat": 0.171,
+          "creation": 2.492,
+          "progression": 0.781,
+          "retention": 0.544,
+          "defense": -0.575
+        },
+        "reliability": {
+          "threat": 0.442,
+          "creation": 0.44,
+          "progression": 0.689,
+          "retention": 0.755,
+          "defense": 0.56
+        },
+        "delta_from_general": {
+          "threat": 0.3,
+          "creation": 2.46,
+          "progression": 1.97,
+          "retention": 1.57,
+          "defense": -1.23
+        },
+        "scores": {
+          "threat": 80.4,
+          "creation": 95,
+          "progression": 90.7,
+          "retention": 85.2,
+          "defense": 30.4
+        },
+        "per_match": {
+          "3754069": {
+            "minutes": 95,
+            "started": true,
+            "npxg": 0.053,
+            "box_presence": 2,
+            "xa": 0.45,
+            "box_passes": 4,
+            "prog_passes": 14,
+            "prog_carries": 4,
+            "pressures": 16,
+            "def_actions": 8,
+            "ball_actions": 70,
+            "ball_losses": 18
+          },
+          "3754117": {
+            "minutes": 85,
+            "started": true,
+            "npxg": 0,
+            "box_presence": 4,
+            "xa": 0.86,
+            "box_passes": 1,
+            "prog_passes": 9,
+            "prog_carries": 4,
+            "pressures": 14,
+            "def_actions": 2,
+            "ball_actions": 52,
+            "ball_losses": 13
+          },
+          "3754173": {
+            "minutes": 95,
+            "started": true,
+            "npxg": 0.357,
+            "box_presence": 3,
+            "xa": 0.658,
+            "box_passes": 6,
+            "prog_passes": 20,
+            "prog_carries": 2,
+            "pressures": 21,
+            "def_actions": 5,
+            "ball_actions": 67,
+            "ball_losses": 13
+          },
+          "3754296": {
+            "minutes": 75.9,
+            "started": true,
+            "npxg": 0,
+            "box_presence": 0,
+            "xa": 0.138,
+            "box_passes": 4,
+            "prog_passes": 8,
+            "prog_carries": 4,
+            "pressures": 14,
+            "def_actions": 10,
+            "ball_actions": 50,
+            "ball_losses": 12
+          },
+          "3754309": {
+            "minutes": 95,
+            "started": true,
+            "npxg": 0.386,
+            "box_presence": 3,
+            "xa": 0.139,
+            "box_passes": 1,
+            "prog_passes": 6,
+            "prog_carries": 3,
+            "pressures": 4,
+            "def_actions": 0,
+            "ball_actions": 69,
+            "ball_losses": 11
+          }
+        }
+      },
+      "physical": {
+        "height_cm": 183,
+        "preferred_foot": "Left",
+        "fifa16_pace": 72,
+        "fifa16_physic": 57,
+        "max_speed_kmh": 31.62,
+        "meters_per_minute": 117,
+        "hsr_distance_90": 606.9,
+        "hsr_count_90": 57,
+        "sprint_distance_90": 192.7,
+        "sprint_count_90": 10.7,
+        "high_accel_90": 6.4,
+        "high_decel_90": 16,
+        "source": "SYNTHETIC: FIFA16 attributes + SkillCorner role reference",
+        "is_observed": false
+      },
+      "aerial_evidence": {
+        "score": 30.4,
+        "reliability": 0.578,
+        "aerial_duels_p90": 0.73,
+        "aerial_win_rate": 0.318,
+        "headers_p90": 0.1
+      }
+    },
+    {
+      "player_id": 3461,
+      "name": "Petr Čech",
+      "team": "Arsenal",
+      "fifa16": {
+        "overall": 86,
+        "pace": 48,
+        "shooting": 16,
+        "passing": 28,
+        "dribbling": 41,
+        "defending": 16,
+        "physic": 41,
+        "height_cm": 196,
+        "preferred_foot": "Left",
+        "gk_diving": 83,
+        "gk_handling": 84,
+        "gk_kicking": 77,
+        "gk_positioning": 85,
+        "gk_reflexes": 85
+      },
+      "positions": {
+        "fifa_positions": [
+          "GK"
+        ],
+        "primary_role": "GK",
+        "eligible_roles": [
+          "GK"
+        ],
+        "role_suitability": {
+          "GK": 1
+        },
+        "source": "FIFA16 + curated demo mapping"
+      },
+      "general": {
+        "overall": 86,
+        "goalkeeping": 86,
+        "threat": null,
+        "creation": null,
+        "progression": null,
+        "retention": null,
+        "defense": null,
+        "aerial": 75.5
+      },
+      "season_signal": {
+        "history_minutes": 1915.7,
+        "appearances": 20,
+        "history_flag": "OK",
+        "adjustment": {
+          "threat": 0,
+          "creation": 0,
+          "progression": -1,
+          "retention": -0.27,
+          "defense": 0
+        }
+      },
+      "recent_5": {
+        "team_match_ids": [
+          "3754117",
+          "3754296",
+          "3754309",
+          "3754173",
+          "3754069"
+        ],
+        "appearances": 5,
+        "starts": 5,
+        "minutes": 475,
+        "raw_p90": {
+          "npxg": 0,
+          "box_presence": 0,
+          "xa": 0,
+          "box_passes": 0,
+          "prog_passes": 0,
+          "prog_carries": 0,
+          "pressures": 0,
+          "def_actions": 4.926
+        },
+        "retention_rate": 0.596,
+        "dimension_z": {
+          "threat": -1.025,
+          "creation": -1.043,
+          "progression": -1.792,
+          "retention": -1.524,
+          "defense": -1.667
+        },
+        "reliability": {
+          "threat": 0.457,
+          "creation": 0.456,
+          "progression": 0.702,
+          "retention": 0.485,
+          "defense": 0.576
+        },
+        "delta_from_general": {
+          "threat": null,
+          "creation": null,
+          "progression": null,
+          "retention": null,
+          "defense": null
+        },
+        "scores": {
+          "threat": null,
+          "creation": null,
+          "progression": null,
+          "retention": null,
+          "defense": null
+        },
+        "per_match": {
+          "3754069": {
+            "minutes": 95,
+            "started": true,
+            "npxg": 0,
+            "box_presence": 0,
+            "xa": 0,
+            "box_passes": 0,
+            "prog_passes": 0,
+            "prog_carries": 0,
+            "pressures": 0,
+            "def_actions": 6,
+            "ball_actions": 22,
+            "ball_losses": 4
+          },
+          "3754117": {
+            "minutes": 95,
+            "started": true,
+            "npxg": 0,
+            "box_presence": 0,
+            "xa": 0,
+            "box_passes": 0,
+            "prog_passes": 0,
+            "prog_carries": 0,
+            "pressures": 0,
+            "def_actions": 8,
+            "ball_actions": 21,
+            "ball_losses": 11
+          },
+          "3754173": {
+            "minutes": 95,
+            "started": true,
+            "npxg": 0,
+            "box_presence": 0,
+            "xa": 0,
+            "box_passes": 0,
+            "prog_passes": 0,
+            "prog_carries": 0,
+            "pressures": 0,
+            "def_actions": 6,
+            "ball_actions": 22,
+            "ball_losses": 12
+          },
+          "3754296": {
+            "minutes": 95,
+            "started": true,
+            "npxg": 0,
+            "box_presence": 0,
+            "xa": 0,
+            "box_passes": 0,
+            "prog_passes": 0,
+            "prog_carries": 0,
+            "pressures": 0,
+            "def_actions": 3,
+            "ball_actions": 13,
+            "ball_losses": 8
+          },
+          "3754309": {
+            "minutes": 95,
+            "started": true,
+            "npxg": 0,
+            "box_presence": 0,
+            "xa": 0,
+            "box_passes": 0,
+            "prog_passes": 0,
+            "prog_carries": 0,
+            "pressures": 0,
+            "def_actions": 3,
+            "ball_actions": 16,
+            "ball_losses": 3
+          }
+        }
+      },
+      "physical": {
+        "height_cm": 196,
+        "preferred_foot": "Left",
+        "fifa16_pace": 48,
+        "fifa16_physic": 41,
+        "max_speed_kmh": 29.58,
+        "meters_per_minute": 51.4,
+        "hsr_distance_90": 52.1,
+        "hsr_count_90": 7.1,
+        "sprint_distance_90": 20.1,
+        "sprint_count_90": 1.6,
+        "high_accel_90": 1.7,
+        "high_decel_90": 2.7,
+        "source": "SYNTHETIC: FIFA16 attributes + SkillCorner role reference",
+        "is_observed": false
+      },
+      "aerial_evidence": {
+        "score": null,
+        "reliability": null,
+        "aerial_duels_p90": 0,
+        "aerial_win_rate": 0.5,
+        "headers_p90": 0
+      }
+    },
+    {
+      "player_id": 3394,
+      "name": "Laurent Koscielny",
+      "team": "Arsenal",
+      "fifa16": {
+        "overall": 84,
+        "pace": 78,
+        "shooting": 42,
+        "passing": 66,
+        "dribbling": 68,
+        "defending": 85,
+        "physic": 81,
+        "height_cm": 186,
+        "preferred_foot": "Right"
+      },
+      "positions": {
+        "fifa_positions": [
+          "CB"
+        ],
+        "primary_role": "CB",
+        "eligible_roles": [
+          "CB"
+        ],
+        "role_suitability": {
+          "CB": 1
+        },
+        "source": "FIFA16 + curated demo mapping"
+      },
+      "general": {
+        "overall": 84,
+        "threat": 42.8,
+        "creation": 50.2,
+        "progression": 69.1,
+        "retention": 69.2,
+        "defense": 86.6,
+        "aerial": 78.4
+      },
+      "season_signal": {
+        "history_minutes": 1544.7,
+        "appearances": 17,
+        "history_flag": "OK",
+        "adjustment": {
+          "threat": 1.26,
+          "creation": 1.25,
+          "progression": 2.45,
+          "retention": -0.09,
+          "defense": 2.4
+        }
+      },
+      "recent_5": {
+        "team_match_ids": [
+          "3754117",
+          "3754296",
+          "3754309",
+          "3754173",
+          "3754069"
+        ],
+        "appearances": 4,
+        "starts": 4,
+        "minutes": 380,
+        "raw_p90": {
+          "npxg": 0.148,
+          "box_presence": 0.237,
+          "xa": 0.044,
+          "box_passes": 0.474,
+          "prog_passes": 7.816,
+          "prog_carries": 3.789,
+          "pressures": 8.526,
+          "def_actions": 9.947
+        },
+        "retention_rate": 0.817,
+        "dimension_z": {
+          "threat": -0.453,
+          "creation": -0.618,
+          "progression": 0.304,
+          "retention": 0.929,
+          "defense": -0.145
+        },
+        "reliability": {
+          "threat": 0.405,
+          "creation": 0.402,
+          "progression": 0.653,
+          "retention": 0.65,
+          "defense": 0.521
+        },
+        "delta_from_general": {
+          "threat": -0.71,
+          "creation": -0.94,
+          "progression": 0.78,
+          "retention": 2.15,
+          "defense": -0.3
+        },
+        "scores": {
+          "threat": 42.1,
+          "creation": 49.3,
+          "progression": 69.9,
+          "retention": 71.3,
+          "defense": 86.3
+        },
+        "per_match": {
+          "3754069": {
+            "minutes": 95,
+            "started": true,
+            "npxg": 0.566,
+            "box_presence": 1,
+            "xa": 0.113,
+            "box_passes": 1,
+            "prog_passes": 4,
+            "prog_carries": 1,
+            "pressures": 12,
+            "def_actions": 10,
+            "ball_actions": 37,
+            "ball_losses": 4
+          },
+          "3754117": {
+            "minutes": 95,
+            "started": true,
+            "npxg": 0.058,
+            "box_presence": 0,
+            "xa": 0,
+            "box_passes": 0,
+            "prog_passes": 5,
+            "prog_carries": 5,
+            "pressures": 4,
+            "def_actions": 9,
+            "ball_actions": 61,
+            "ball_losses": 9
+          },
+          "3754173": {
+            "minutes": 0,
+            "started": false,
+            "npxg": 0,
+            "box_presence": 0,
+            "xa": 0,
+            "box_passes": 0,
+            "prog_passes": 0,
+            "prog_carries": 0,
+            "pressures": 0,
+            "def_actions": 0,
+            "ball_actions": 0,
+            "ball_losses": 0
+          },
+          "3754296": {
+            "minutes": 95,
+            "started": true,
+            "npxg": 0,
+            "box_presence": 0,
+            "xa": 0.072,
+            "box_passes": 1,
+            "prog_passes": 17,
+            "prog_carries": 7,
+            "pressures": 9,
+            "def_actions": 10,
+            "ball_actions": 40,
+            "ball_losses": 10
+          },
+          "3754309": {
+            "minutes": 95,
+            "started": true,
+            "npxg": 0,
+            "box_presence": 0,
+            "xa": 0,
+            "box_passes": 0,
+            "prog_passes": 7,
+            "prog_carries": 3,
+            "pressures": 11,
+            "def_actions": 13,
+            "ball_actions": 48,
+            "ball_losses": 11
+          }
+        }
+      },
+      "physical": {
+        "height_cm": 186,
+        "preferred_foot": "Right",
+        "fifa16_pace": 78,
+        "fifa16_physic": 81,
+        "max_speed_kmh": 32.13,
+        "meters_per_minute": 108.3,
+        "hsr_distance_90": 413.7,
+        "hsr_count_90": 38.1,
+        "sprint_distance_90": 115.7,
+        "sprint_count_90": 6.6,
+        "high_accel_90": 4.9,
+        "high_decel_90": 10.9,
+        "source": "SYNTHETIC: FIFA16 attributes + SkillCorner role reference",
+        "is_observed": false
+      },
+      "aerial_evidence": {
+        "score": 44.8,
+        "reliability": 0.525,
+        "aerial_duels_p90": 5.54,
+        "aerial_win_rate": 0.635,
+        "headers_p90": 3.61
+      }
+    },
+    {
+      "player_id": 3475,
+      "name": "Per Mertesacker",
+      "team": "Arsenal",
+      "fifa16": {
+        "overall": 83,
+        "pace": 31,
+        "shooting": 41,
+        "passing": 62,
+        "dribbling": 49,
+        "defending": 87,
+        "physic": 63,
+        "height_cm": 198,
+        "preferred_foot": "Right"
+      },
+      "positions": {
+        "fifa_positions": [
+          "CB"
+        ],
+        "primary_role": "CB",
+        "eligible_roles": [
+          "CB"
+        ],
+        "role_suitability": {
+          "CB": 1
+        },
+        "source": "FIFA16 + curated demo mapping"
+      },
+      "general": {
+        "overall": 83,
+        "threat": 32.8,
+        "creation": 41.2,
+        "progression": 47.6,
+        "retention": 57,
+        "defense": 80.2,
+        "aerial": 83.9
+      },
+      "season_signal": {
+        "history_minutes": 1435.4,
+        "appearances": 15,
+        "history_flag": "OK",
+        "adjustment": {
+          "threat": -0.41,
+          "creation": -1.1,
+          "progression": 0.94,
+          "retention": 1.34,
+          "defense": -1.98
+        }
+      },
+      "recent_5": {
+        "team_match_ids": [
+          "3754117",
+          "3754296",
+          "3754309",
+          "3754173",
+          "3754069"
+        ],
+        "appearances": 5,
+        "starts": 5,
+        "minutes": 475,
+        "raw_p90": {
+          "npxg": 0.102,
+          "box_presence": 0,
+          "xa": 0,
+          "box_passes": 0,
+          "prog_passes": 8.147,
+          "prog_carries": 0.947,
+          "pressures": 2.084,
+          "def_actions": 3.789
+        },
+        "retention_rate": 0.909,
+        "dimension_z": {
+          "threat": -0.675,
+          "creation": -1.043,
+          "progression": -0.324,
+          "retention": 1.942,
+          "defense": -1.702
+        },
+        "reliability": {
+          "threat": 0.457,
+          "creation": 0.456,
+          "progression": 0.702,
+          "retention": 0.716,
+          "defense": 0.576
+        },
+        "delta_from_general": {
+          "threat": -1.16,
+          "creation": -1.64,
+          "progression": -0.89,
+          "retention": 3.7,
+          "defense": -2.81
+        },
+        "scores": {
+          "threat": 31.6,
+          "creation": 39.6,
+          "progression": 46.7,
+          "retention": 60.7,
+          "defense": 77.4
+        },
+        "per_match": {
+          "3754069": {
+            "minutes": 95,
+            "started": true,
+            "npxg": 0,
+            "box_presence": 0,
+            "xa": 0,
+            "box_passes": 0,
+            "prog_passes": 15,
+            "prog_carries": 2,
+            "pressures": 2,
+            "def_actions": 4,
+            "ball_actions": 59,
+            "ball_losses": 3
+          },
+          "3754117": {
+            "minutes": 95,
+            "started": true,
+            "npxg": 0,
+            "box_presence": 0,
+            "xa": 0,
+            "box_passes": 0,
+            "prog_passes": 8,
+            "prog_carries": 1,
+            "pressures": 1,
+            "def_actions": 1,
+            "ball_actions": 60,
+            "ball_losses": 6
+          },
+          "3754173": {
+            "minutes": 95,
+            "started": true,
+            "npxg": 0.536,
+            "box_presence": 0,
+            "xa": 0,
+            "box_passes": 0,
+            "prog_passes": 4,
+            "prog_carries": 0,
+            "pressures": 3,
+            "def_actions": 6,
+            "ball_actions": 43,
+            "ball_losses": 4
+          },
+          "3754296": {
+            "minutes": 95,
+            "started": true,
+            "npxg": 0,
+            "box_presence": 0,
+            "xa": 0,
+            "box_passes": 0,
+            "prog_passes": 9,
+            "prog_carries": 0,
+            "pressures": 4,
+            "def_actions": 6,
+            "ball_actions": 32,
+            "ball_losses": 5
+          },
+          "3754309": {
+            "minutes": 95,
+            "started": true,
+            "npxg": 0,
+            "box_presence": 0,
+            "xa": 0,
+            "box_passes": 0,
+            "prog_passes": 7,
+            "prog_carries": 2,
+            "pressures": 1,
+            "def_actions": 3,
+            "ball_actions": 58,
+            "ball_losses": 5
+          }
+        }
+      },
+      "physical": {
+        "height_cm": 198,
+        "preferred_foot": "Right",
+        "fifa16_pace": 31,
+        "fifa16_physic": 63,
+        "max_speed_kmh": 28.14,
+        "meters_per_minute": 100.5,
+        "hsr_distance_90": 302.4,
+        "hsr_count_90": 29.5,
+        "sprint_distance_90": 70.2,
+        "sprint_count_90": 4.3,
+        "high_accel_90": 3.5,
+        "high_decel_90": 10.3,
+        "source": "SYNTHETIC: FIFA16 attributes + SkillCorner role reference",
+        "is_observed": false
+      },
+      "aerial_evidence": {
+        "score": 51.5,
+        "reliability": 0.499,
+        "aerial_duels_p90": 4.64,
+        "aerial_win_rate": 0.67,
+        "headers_p90": 3.14
+      }
+    },
+    {
+      "player_id": 3517,
+      "name": "Aaron Ramsey",
+      "team": "Arsenal",
+      "fifa16": {
+        "overall": 82,
+        "pace": 69,
+        "shooting": 78,
+        "passing": 81,
+        "dribbling": 79,
+        "defending": 66,
+        "physic": 75,
+        "height_cm": 177,
+        "preferred_foot": "Right"
+      },
+      "positions": {
+        "fifa_positions": [
+          "CM",
+          "CDM",
+          "RM",
+          "RW"
+        ],
+        "primary_role": "CM",
+        "eligible_roles": [
+          "CM",
+          "AM_W"
+        ],
+        "role_suitability": {
+          "CM": 1,
+          "AM_W": 0.85
+        },
+        "source": "FIFA16 + curated demo mapping"
+      },
+      "general": {
+        "overall": 82,
+        "threat": 79.1,
+        "creation": 82.1,
+        "progression": 81.9,
+        "retention": 81.1,
+        "defense": 70.4,
+        "aerial": 66.7
+      },
+      "season_signal": {
+        "history_minutes": 1492.6,
+        "appearances": 16,
+        "history_flag": "OK",
+        "adjustment": {
+          "threat": 1.87,
+          "creation": -0.21,
+          "progression": 2.59,
+          "retention": 2.05,
+          "defense": 2.59
+        }
+      },
+      "recent_5": {
+        "team_match_ids": [
+          "3754117",
+          "3754296",
+          "3754309",
+          "3754173",
+          "3754069"
+        ],
+        "appearances": 5,
+        "starts": 5,
+        "minutes": 475,
+        "raw_p90": {
+          "npxg": 0.41,
+          "box_presence": 4.168,
+          "xa": 0.048,
+          "box_passes": 1.895,
+          "prog_passes": 14.589,
+          "prog_carries": 5.684,
+          "pressures": 22.168,
+          "def_actions": 12.316
+        },
+        "retention_rate": 0.81,
+        "dimension_z": {
+          "threat": 1.494,
+          "creation": 0.134,
+          "progression": 1.788,
+          "retention": 0.843,
+          "defense": 1.312
+        },
+        "reliability": {
+          "threat": 0.457,
+          "creation": 0.456,
+          "progression": 0.702,
+          "retention": 0.8,
+          "defense": 0.576
+        },
+        "delta_from_general": {
+          "threat": 2.08,
+          "creation": 0.24,
+          "progression": 3.5,
+          "retention": 2.45,
+          "defense": 2.43
+        },
+        "scores": {
+          "threat": 81.2,
+          "creation": 82.3,
+          "progression": 85.4,
+          "retention": 83.5,
+          "defense": 72.8
+        },
+        "per_match": {
+          "3754069": {
+            "minutes": 95,
+            "started": true,
+            "npxg": 0.471,
+            "box_presence": 7,
+            "xa": 0.059,
+            "box_passes": 2,
+            "prog_passes": 20,
+            "prog_carries": 7,
+            "pressures": 33,
+            "def_actions": 11,
+            "ball_actions": 80,
+            "ball_losses": 13
+          },
+          "3754117": {
+            "minutes": 95,
+            "started": true,
+            "npxg": 0.771,
+            "box_presence": 3,
+            "xa": 0.063,
+            "box_passes": 4,
+            "prog_passes": 14,
+            "prog_carries": 5,
+            "pressures": 25,
+            "def_actions": 11,
+            "ball_actions": 82,
+            "ball_losses": 12
+          },
+          "3754173": {
+            "minutes": 95,
+            "started": true,
+            "npxg": 0,
+            "box_presence": 6,
+            "xa": 0,
+            "box_passes": 0,
+            "prog_passes": 12,
+            "prog_carries": 5,
+            "pressures": 26,
+            "def_actions": 14,
+            "ball_actions": 79,
+            "ball_losses": 18
+          },
+          "3754296": {
+            "minutes": 95,
+            "started": true,
+            "npxg": 0.888,
+            "box_presence": 3,
+            "xa": 0.041,
+            "box_passes": 1,
+            "prog_passes": 5,
+            "prog_carries": 4,
+            "pressures": 18,
+            "def_actions": 17,
+            "ball_actions": 68,
+            "ball_losses": 19
+          },
+          "3754309": {
+            "minutes": 95,
+            "started": true,
+            "npxg": 0.033,
+            "box_presence": 3,
+            "xa": 0.091,
+            "box_passes": 3,
+            "prog_passes": 26,
+            "prog_carries": 9,
+            "pressures": 15,
+            "def_actions": 12,
+            "ball_actions": 90,
+            "ball_losses": 14
+          }
+        }
+      },
+      "physical": {
+        "height_cm": 177,
+        "preferred_foot": "Right",
+        "fifa16_pace": 69,
+        "fifa16_physic": 75,
+        "max_speed_kmh": 31.37,
+        "meters_per_minute": 123.7,
+        "hsr_distance_90": 541,
+        "hsr_count_90": 46.4,
+        "sprint_distance_90": 111.8,
+        "sprint_count_90": 6.4,
+        "high_accel_90": 3.7,
+        "high_decel_90": 11.7,
+        "source": "SYNTHETIC: FIFA16 attributes + SkillCorner role reference",
+        "is_observed": false
+      },
+      "aerial_evidence": {
+        "score": 47,
+        "reliability": 0.535,
+        "aerial_duels_p90": 1.87,
+        "aerial_win_rate": 0.358,
+        "headers_p90": 0.36
+      }
+    },
+    {
+      "player_id": 3604,
+      "name": "Olivier Giroud",
+      "team": "Arsenal",
+      "fifa16": {
+        "overall": 82,
+        "pace": 63,
+        "shooting": 82,
+        "passing": 69,
+        "dribbling": 70,
+        "defending": 42,
+        "physic": 81,
+        "height_cm": 192,
+        "preferred_foot": "Left"
+      },
+      "positions": {
+        "fifa_positions": [
+          "ST"
+        ],
+        "primary_role": "ST",
+        "eligible_roles": [
+          "ST"
+        ],
+        "role_suitability": {
+          "ST": 1
+        },
+        "source": "FIFA16 + curated demo mapping"
+      },
+      "general": {
+        "overall": 82,
+        "threat": 84.3,
+        "creation": 65.5,
+        "progression": 60.8,
+        "retention": 70.3,
+        "defense": 50.2,
+        "aerial": 84.6
+      },
+      "season_signal": {
+        "history_minutes": 1399.5,
+        "appearances": 20,
+        "history_flag": "OK",
+        "adjustment": {
+          "threat": 0.99,
+          "creation": 0,
+          "progression": -2.04,
+          "retention": -1.04,
+          "defense": 0.41
+        }
+      },
+      "recent_5": {
+        "team_match_ids": [
+          "3754117",
+          "3754296",
+          "3754309",
+          "3754173",
+          "3754069"
+        ],
+        "appearances": 5,
+        "starts": 5,
+        "minutes": 452.9,
+        "raw_p90": {
+          "npxg": 0.204,
+          "box_presence": 2.981,
+          "xa": 0.175,
+          "box_passes": 0.596,
+          "prog_passes": 1.59,
+          "prog_carries": 1.987,
+          "pressures": 15.301,
+          "def_actions": 4.173
+        },
+        "retention_rate": 0.581,
+        "dimension_z": {
+          "threat": 0.469,
+          "creation": -0.014,
+          "progression": -1.076,
+          "retention": -1.683,
+          "defense": -0.62
+        },
+        "reliability": {
+          "threat": 0.446,
+          "creation": 0.444,
+          "progression": 0.692,
+          "retention": 0.632,
+          "defense": 0.564
+        },
+        "delta_from_general": {
+          "threat": 0.81,
+          "creation": -0.03,
+          "progression": -2.55,
+          "retention": -3.07,
+          "defense": -1.32
+        },
+        "scores": {
+          "threat": 85.1,
+          "creation": 65.5,
+          "progression": 58.2,
+          "retention": 67.2,
+          "defense": 48.9
+        },
+        "per_match": {
+          "3754069": {
+            "minutes": 88.2,
+            "started": true,
+            "npxg": 0.398,
+            "box_presence": 5,
+            "xa": 0.532,
+            "box_passes": 0,
+            "prog_passes": 2,
+            "prog_carries": 3,
+            "pressures": 15,
+            "def_actions": 2,
+            "ball_actions": 36,
+            "ball_losses": 12
+          },
+          "3754117": {
+            "minutes": 95,
+            "started": true,
+            "npxg": 0.084,
+            "box_presence": 1,
+            "xa": 0.044,
+            "box_passes": 0,
+            "prog_passes": 2,
+            "prog_carries": 3,
+            "pressures": 15,
+            "def_actions": 3,
+            "ball_actions": 44,
+            "ball_losses": 19
+          },
+          "3754173": {
+            "minutes": 79.8,
+            "started": true,
+            "npxg": 0.301,
+            "box_presence": 2,
+            "xa": 0.213,
+            "box_passes": 2,
+            "prog_passes": 3,
+            "prog_carries": 3,
+            "pressures": 17,
+            "def_actions": 7,
+            "ball_actions": 28,
+            "ball_losses": 10
+          },
+          "3754296": {
+            "minutes": 95,
+            "started": true,
+            "npxg": 0.104,
+            "box_presence": 2,
+            "xa": 0.091,
+            "box_passes": 1,
+            "prog_passes": 1,
+            "prog_carries": 0,
+            "pressures": 23,
+            "def_actions": 6,
+            "ball_actions": 37,
+            "ball_losses": 19
+          },
+          "3754309": {
+            "minutes": 95,
+            "started": true,
+            "npxg": 0.141,
+            "box_presence": 5,
+            "xa": 0,
+            "box_passes": 0,
+            "prog_passes": 0,
+            "prog_carries": 1,
+            "pressures": 7,
+            "def_actions": 3,
+            "ball_actions": 27,
+            "ball_losses": 12
+          }
+        }
+      },
+      "physical": {
+        "height_cm": 192,
+        "preferred_foot": "Left",
+        "fifa16_pace": 63,
+        "fifa16_physic": 81,
+        "max_speed_kmh": 30.86,
+        "meters_per_minute": 119.5,
+        "hsr_distance_90": 538.1,
+        "hsr_count_90": 50.8,
+        "sprint_distance_90": 147.8,
+        "sprint_count_90": 8.8,
+        "high_accel_90": 6.1,
+        "high_decel_90": 14.4,
+        "source": "SYNTHETIC: FIFA16 attributes + SkillCorner role reference",
+        "is_observed": false
+      },
+      "aerial_evidence": {
+        "score": 76,
+        "reliability": 0.905,
+        "aerial_duels_p90": 8.75,
+        "aerial_win_rate": 0.502,
+        "headers_p90": 2.12
+      }
+    },
+    {
+      "player_id": 3668,
+      "name": "Theo Walcott",
+      "team": "Arsenal",
+      "fifa16": {
+        "overall": 81,
+        "pace": 95,
+        "shooting": 75,
+        "passing": 72,
+        "dribbling": 80,
+        "defending": 40,
+        "physic": 67,
+        "height_cm": 176,
+        "preferred_foot": "Right"
+      },
+      "positions": {
+        "fifa_positions": [
+          "RW",
+          "ST",
+          "RM",
+          "LW"
+        ],
+        "primary_role": "AM_W",
+        "eligible_roles": [
+          "AM_W",
+          "ST"
+        ],
+        "role_suitability": {
+          "AM_W": 1,
+          "ST": 0.85
+        },
+        "source": "FIFA16 + curated demo mapping"
+      },
+      "general": {
+        "overall": 81,
+        "threat": 81.1,
+        "creation": 81.7,
+        "progression": 85.8,
+        "retention": 76,
+        "defense": 45.3,
+        "aerial": 59.7
+      },
+      "season_signal": {
+        "history_minutes": 970,
+        "appearances": 14,
+        "history_flag": "OK",
+        "adjustment": {
+          "threat": 0.37,
+          "creation": -0.21,
+          "progression": 1.26,
+          "retention": 0.71,
+          "defense": -0.12
+        }
+      },
+      "recent_5": {
+        "team_match_ids": [
+          "3754117",
+          "3754296",
+          "3754309",
+          "3754173",
+          "3754069"
+        ],
+        "appearances": 5,
+        "starts": 5,
+        "minutes": 405,
+        "raw_p90": {
+          "npxg": 0.14,
+          "box_presence": 3.778,
+          "xa": 0.03,
+          "box_passes": 0.889,
+          "prog_passes": 2.889,
+          "prog_carries": 3.334,
+          "pressures": 11.779,
+          "def_actions": 7.112
+        },
+        "retention_rate": 0.619,
+        "dimension_z": {
+          "threat": 0.46,
+          "creation": -0.462,
+          "progression": -0.556,
+          "retention": -1.27,
+          "defense": -0.384
+        },
+        "reliability": {
+          "threat": 0.42,
+          "creation": 0.417,
+          "progression": 0.668,
+          "retention": 0.582,
+          "defense": 0.537
+        },
+        "delta_from_general": {
+          "threat": 0.75,
+          "creation": -0.75,
+          "progression": -1.42,
+          "retention": -2.41,
+          "defense": -0.81
+        },
+        "scores": {
+          "threat": 81.8,
+          "creation": 81,
+          "progression": 84.4,
+          "retention": 73.6,
+          "defense": 44.5
+        },
+        "per_match": {
+          "3754069": {
+            "minutes": 80.9,
+            "started": true,
+            "npxg": 0.169,
+            "box_presence": 5,
+            "xa": 0.034,
+            "box_passes": 1,
+            "prog_passes": 2,
+            "prog_carries": 2,
+            "pressures": 14,
+            "def_actions": 5,
+            "ball_actions": 30,
+            "ball_losses": 11
+          },
+          "3754117": {
+            "minutes": 63.7,
+            "started": true,
+            "npxg": 0,
+            "box_presence": 2,
+            "xa": 0,
+            "box_passes": 0,
+            "prog_passes": 1,
+            "prog_carries": 4,
+            "pressures": 7,
+            "def_actions": 3,
+            "ball_actions": 17,
+            "ball_losses": 7
+          },
+          "3754173": {
+            "minutes": 95,
+            "started": true,
+            "npxg": 0.244,
+            "box_presence": 4,
+            "xa": 0.099,
+            "box_passes": 1,
+            "prog_passes": 3,
+            "prog_carries": 2,
+            "pressures": 15,
+            "def_actions": 7,
+            "ball_actions": 32,
+            "ball_losses": 11
+          },
+          "3754296": {
+            "minutes": 87.4,
+            "started": true,
+            "npxg": 0.076,
+            "box_presence": 2,
+            "xa": 0,
+            "box_passes": 0,
+            "prog_passes": 4,
+            "prog_carries": 4,
+            "pressures": 14,
+            "def_actions": 10,
+            "ball_actions": 31,
+            "ball_losses": 12
+          },
+          "3754309": {
+            "minutes": 78,
+            "started": true,
+            "npxg": 0.142,
+            "box_presence": 4,
+            "xa": 0,
+            "box_passes": 2,
+            "prog_passes": 3,
+            "prog_carries": 3,
+            "pressures": 3,
+            "def_actions": 7,
+            "ball_actions": 29,
+            "ball_losses": 12
+          }
+        }
+      },
+      "physical": {
+        "height_cm": 176,
+        "preferred_foot": "Right",
+        "fifa16_pace": 95,
+        "fifa16_physic": 67,
+        "max_speed_kmh": 33.58,
+        "meters_per_minute": 121.5,
+        "hsr_distance_90": 689.7,
+        "hsr_count_90": 63.5,
+        "sprint_distance_90": 231.9,
+        "sprint_count_90": 12.6,
+        "high_accel_90": 7.3,
+        "high_decel_90": 16.5,
+        "source": "SYNTHETIC: FIFA16 attributes + SkillCorner role reference",
+        "is_observed": false
+      },
+      "aerial_evidence": {
+        "score": 11.2,
+        "reliability": 0.76,
+        "aerial_duels_p90": 2.51,
+        "aerial_win_rate": 0.292,
+        "headers_p90": 0.65
+      }
+    },
+    {
+      "player_id": 3498,
+      "name": "Nacho Monreal",
+      "team": "Arsenal",
+      "fifa16": {
+        "overall": 80,
+        "pace": 77,
+        "shooting": 58,
+        "passing": 68,
+        "dribbling": 75,
+        "defending": 80,
+        "physic": 75,
+        "height_cm": 178,
+        "preferred_foot": "Left"
+      },
+      "positions": {
+        "fifa_positions": [
+          "LB",
+          "CB"
+        ],
+        "primary_role": "FB",
+        "eligible_roles": [
+          "FB",
+          "CB"
+        ],
+        "role_suitability": {
+          "FB": 1,
+          "CB": 0.85
+        },
+        "source": "FIFA16 + curated demo mapping"
+      },
+      "general": {
+        "overall": 80,
+        "threat": 58.3,
+        "creation": 61.7,
+        "progression": 74.9,
+        "retention": 74.8,
+        "defense": 79.7,
+        "aerial": 71.2
+      },
+      "season_signal": {
+        "history_minutes": 1833.6,
+        "appearances": 20,
+        "history_flag": "OK",
+        "adjustment": {
+          "threat": -0.15,
+          "creation": 1.26,
+          "progression": 0.17,
+          "retention": 2.23,
+          "defense": 0.7
+        }
+      },
+      "recent_5": {
+        "team_match_ids": [
+          "3754117",
+          "3754296",
+          "3754309",
+          "3754173",
+          "3754069"
+        ],
+        "appearances": 5,
+        "starts": 4,
+        "minutes": 393.9,
+        "raw_p90": {
+          "npxg": 0.031,
+          "box_presence": 0.914,
+          "xa": 0.195,
+          "box_passes": 0.914,
+          "prog_passes": 4.569,
+          "prog_carries": 1.371,
+          "pressures": 12.794,
+          "def_actions": 7.767
+        },
+        "retention_rate": 0.749,
+        "dimension_z": {
+          "threat": -0.677,
+          "creation": 0.231,
+          "progression": -0.768,
+          "retention": 0.17,
+          "defense": -0.193
+        },
+        "reliability": {
+          "threat": 0.413,
+          "creation": 0.41,
+          "progression": 0.661,
+          "retention": 0.666,
+          "defense": 0.53
+        },
+        "delta_from_general": {
+          "threat": -1.05,
+          "creation": 0.38,
+          "progression": -1.87,
+          "retention": 0.45,
+          "defense": -0.41
+        },
+        "scores": {
+          "threat": 57.3,
+          "creation": 62.1,
+          "progression": 73,
+          "retention": 75.3,
+          "defense": 79.3
+        },
+        "per_match": {
+          "3754069": {
+            "minutes": 95,
+            "started": true,
+            "npxg": 0.045,
+            "box_presence": 0,
+            "xa": 0.215,
+            "box_passes": 2,
+            "prog_passes": 8,
+            "prog_carries": 0,
+            "pressures": 20,
+            "def_actions": 11,
+            "ball_actions": 44,
+            "ball_losses": 12
+          },
+          "3754117": {
+            "minutes": 95,
+            "started": true,
+            "npxg": 0,
+            "box_presence": 1,
+            "xa": 0,
+            "box_passes": 0,
+            "prog_passes": 2,
+            "prog_carries": 0,
+            "pressures": 10,
+            "def_actions": 4,
+            "ball_actions": 49,
+            "ball_losses": 13
+          },
+          "3754173": {
+            "minutes": 13.9,
+            "started": false,
+            "npxg": 0,
+            "box_presence": 0,
+            "xa": 0,
+            "box_passes": 0,
+            "prog_passes": 0,
+            "prog_carries": 0,
+            "pressures": 0,
+            "def_actions": 0,
+            "ball_actions": 5,
+            "ball_losses": 1
+          },
+          "3754296": {
+            "minutes": 95,
+            "started": true,
+            "npxg": 0,
+            "box_presence": 1,
+            "xa": 0.214,
+            "box_passes": 1,
+            "prog_passes": 3,
+            "prog_carries": 2,
+            "pressures": 15,
+            "def_actions": 12,
+            "ball_actions": 41,
+            "ball_losses": 13
+          },
+          "3754309": {
+            "minutes": 95,
+            "started": true,
+            "npxg": 0.09,
+            "box_presence": 2,
+            "xa": 0.423,
+            "box_passes": 1,
+            "prog_passes": 7,
+            "prog_carries": 4,
+            "pressures": 11,
+            "def_actions": 7,
+            "ball_actions": 60,
+            "ball_losses": 11
+          }
+        }
+      },
+      "physical": {
+        "height_cm": 178,
+        "preferred_foot": "Left",
+        "fifa16_pace": 77,
+        "fifa16_physic": 75,
+        "max_speed_kmh": 32.05,
+        "meters_per_minute": 114.3,
+        "hsr_distance_90": 622.2,
+        "hsr_count_90": 57.5,
+        "sprint_distance_90": 210.1,
+        "sprint_count_90": 11.6,
+        "high_accel_90": 6.9,
+        "high_decel_90": 17.9,
+        "source": "SYNTHETIC: FIFA16 attributes + SkillCorner role reference",
+        "is_observed": false
+      },
+      "aerial_evidence": {
+        "score": 69.6,
+        "reliability": 0.573,
+        "aerial_duels_p90": 3.63,
+        "aerial_win_rate": 0.561,
+        "headers_p90": 1.47
+      }
+    },
+    {
+      "player_id": 3528,
+      "name": "Kieran Gibbs",
+      "team": "Arsenal",
+      "fifa16": {
+        "overall": 79,
+        "pace": 81,
+        "shooting": 60,
+        "passing": 70,
+        "dribbling": 76,
+        "defending": 78,
+        "physic": 72,
+        "height_cm": 178,
+        "preferred_foot": "Left"
+      },
+      "positions": {
+        "fifa_positions": [
+          "LB",
+          "LWB",
+          "LM"
+        ],
+        "primary_role": "FB",
+        "eligible_roles": [
+          "FB",
+          "AM_W"
+        ],
+        "role_suitability": {
+          "FB": 1,
+          "AM_W": 0.85
+        },
+        "source": "FIFA16 + curated demo mapping"
+      },
+      "general": {
+        "overall": 79,
+        "threat": 60.6,
+        "creation": 61.6,
+        "progression": 75.9,
+        "retention": 73.1,
+        "defense": 78.2,
+        "aerial": 69
+      },
+      "season_signal": {
+        "history_minutes": 295,
+        "appearances": 11,
+        "history_flag": "LOW_MINUTES",
+        "adjustment": {
+          "threat": 0.12,
+          "creation": -0.57,
+          "progression": -0.92,
+          "retention": -0.21,
+          "defense": 1.41
+        }
+      },
+      "recent_5": {
+        "team_match_ids": [
+          "3754117",
+          "3754296",
+          "3754309",
+          "3754173",
+          "3754069"
+        ],
+        "appearances": 4,
+        "starts": 1,
+        "minutes": 152.9,
+        "raw_p90": {
+          "npxg": 0.026,
+          "box_presence": 0.589,
+          "xa": 0,
+          "box_passes": 0,
+          "prog_passes": 5.299,
+          "prog_carries": 3.532,
+          "pressures": 18.251,
+          "def_actions": 10.009
+        },
+        "retention_rate": 0.745,
+        "dimension_z": {
+          "threat": -0.779,
+          "creation": -1.043,
+          "progression": -0.141,
+          "retention": 0.125,
+          "defense": 0.613
+        },
+        "reliability": {
+          "threat": 0.222,
+          "creation": 0.214,
+          "progression": 0.432,
+          "retention": 0.485,
+          "defense": 0.308
+        },
+        "delta_from_general": {
+          "threat": -0.63,
+          "creation": -0.77,
+          "progression": -0.24,
+          "retention": 0.24,
+          "defense": 0.72
+        },
+        "scores": {
+          "threat": 60,
+          "creation": 60.8,
+          "progression": 75.7,
+          "retention": 73.3,
+          "defense": 78.9
+        },
+        "per_match": {
+          "3754069": {
+            "minutes": 14.1,
+            "started": false,
+            "npxg": 0,
+            "box_presence": 0,
+            "xa": 0,
+            "box_passes": 0,
+            "prog_passes": 0,
+            "prog_carries": 0,
+            "pressures": 7,
+            "def_actions": 2,
+            "ball_actions": 5,
+            "ball_losses": 1
+          },
+          "3754117": {
+            "minutes": 31.6,
+            "started": false,
+            "npxg": 0.044,
+            "box_presence": 1,
+            "xa": 0,
+            "box_passes": 0,
+            "prog_passes": 1,
+            "prog_carries": 2,
+            "pressures": 6,
+            "def_actions": 4,
+            "ball_actions": 18,
+            "ball_losses": 6
+          },
+          "3754173": {
+            "minutes": 81,
+            "started": true,
+            "npxg": 0,
+            "box_presence": 0,
+            "xa": 0,
+            "box_passes": 0,
+            "prog_passes": 8,
+            "prog_carries": 3,
+            "pressures": 8,
+            "def_actions": 10,
+            "ball_actions": 61,
+            "ball_losses": 11
+          },
+          "3754296": {
+            "minutes": 26.1,
+            "started": false,
+            "npxg": 0,
+            "box_presence": 0,
+            "xa": 0,
+            "box_passes": 0,
+            "prog_passes": 0,
+            "prog_carries": 1,
+            "pressures": 10,
+            "def_actions": 1,
+            "ball_actions": 10,
+            "ball_losses": 6
+          },
+          "3754309": {
+            "minutes": 0,
+            "started": false,
+            "npxg": 0,
+            "box_presence": 0,
+            "xa": 0,
+            "box_passes": 0,
+            "prog_passes": 0,
+            "prog_carries": 0,
+            "pressures": 0,
+            "def_actions": 0,
+            "ball_actions": 0,
+            "ball_losses": 0
+          }
+        }
+      },
+      "physical": {
+        "height_cm": 178,
+        "preferred_foot": "Left",
+        "fifa16_pace": 81,
+        "fifa16_physic": 72,
+        "max_speed_kmh": 32.38,
+        "meters_per_minute": 114.3,
+        "hsr_distance_90": 636.5,
+        "hsr_count_90": 58.6,
+        "sprint_distance_90": 217.2,
+        "sprint_count_90": 12,
+        "high_accel_90": 7.1,
+        "high_decel_90": 17.7,
+        "source": "SYNTHETIC: FIFA16 attributes + SkillCorner role reference",
+        "is_observed": false
+      },
+      "aerial_evidence": {
+        "score": 59.2,
+        "reliability": 0.315,
+        "aerial_duels_p90": 4.88,
+        "aerial_win_rate": 0.343,
+        "headers_p90": 1.22
+      }
+    },
+    {
+      "player_id": 3525,
+      "name": "Alex Oxlade-Chamberlain",
+      "team": "Arsenal",
+      "fifa16": {
+        "overall": 78,
+        "pace": 89,
+        "shooting": 70,
+        "passing": 73,
+        "dribbling": 83,
+        "defending": 42,
+        "physic": 69,
+        "height_cm": 175,
+        "preferred_foot": "Right"
+      },
+      "positions": {
+        "fifa_positions": [
+          "RW",
+          "RM",
+          "LW",
+          "CM"
+        ],
+        "primary_role": "AM_W",
+        "eligible_roles": [
+          "AM_W",
+          "CM"
+        ],
+        "role_suitability": {
+          "AM_W": 1,
+          "CM": 0.85
+        },
+        "source": "FIFA16 + curated demo mapping"
+      },
+      "general": {
+        "overall": 78,
+        "threat": 76.8,
+        "creation": 83.3,
+        "progression": 87,
+        "retention": 78.1,
+        "defense": 48.9,
+        "aerial": 61.7
+      },
+      "season_signal": {
+        "history_minutes": 716.1,
+        "appearances": 17,
+        "history_flag": "OK",
+        "adjustment": {
+          "threat": -0.1,
+          "creation": 0.63,
+          "progression": 2.54,
+          "retention": 0.66,
+          "defense": 1.54
+        }
+      },
+      "recent_5": {
+        "team_match_ids": [
+          "3754117",
+          "3754296",
+          "3754309",
+          "3754173",
+          "3754069"
+        ],
+        "appearances": 5,
+        "starts": 2,
+        "minutes": 242.6,
+        "raw_p90": {
+          "npxg": 0.106,
+          "box_presence": 2.226,
+          "xa": 0.182,
+          "box_passes": 2.597,
+          "prog_passes": 8.904,
+          "prog_carries": 6.678,
+          "pressures": 18.55,
+          "def_actions": 8.162
+        },
+        "retention_rate": 0.698,
+        "dimension_z": {
+          "threat": -0.069,
+          "creation": 1.049,
+          "progression": 1.158,
+          "retention": -0.393,
+          "defense": 0.318
+        },
+        "reliability": {
+          "threat": 0.307,
+          "creation": 0.301,
+          "progression": 0.546,
+          "retention": 0.582,
+          "defense": 0.412
+        },
+        "delta_from_general": {
+          "threat": -0.08,
+          "creation": 1.09,
+          "progression": 2.13,
+          "retention": -0.89,
+          "defense": 0.52
+        },
+        "scores": {
+          "threat": 76.7,
+          "creation": 84.4,
+          "progression": 89.1,
+          "retention": 77.2,
+          "defense": 49.4
+        },
+        "per_match": {
+          "3754069": {
+            "minutes": 67.9,
+            "started": true,
+            "npxg": 0.124,
+            "box_presence": 2,
+            "xa": 0.04,
+            "box_passes": 3,
+            "prog_passes": 9,
+            "prog_carries": 6,
+            "pressures": 9,
+            "def_actions": 2,
+            "ball_actions": 44,
+            "ball_losses": 14
+          },
+          "3754117": {
+            "minutes": 31.3,
+            "started": false,
+            "npxg": 0.063,
+            "box_presence": 3,
+            "xa": 0.1,
+            "box_passes": 2,
+            "prog_passes": 4,
+            "prog_carries": 5,
+            "pressures": 8,
+            "def_actions": 4,
+            "ball_actions": 17,
+            "ball_losses": 3
+          },
+          "3754173": {
+            "minutes": 92.5,
+            "started": true,
+            "npxg": 0.099,
+            "box_presence": 1,
+            "xa": 0,
+            "box_passes": 1,
+            "prog_passes": 7,
+            "prog_carries": 7,
+            "pressures": 25,
+            "def_actions": 9,
+            "ball_actions": 52,
+            "ball_losses": 14
+          },
+          "3754296": {
+            "minutes": 19.1,
+            "started": false,
+            "npxg": 0,
+            "box_presence": 0,
+            "xa": 0.301,
+            "box_passes": 0,
+            "prog_passes": 2,
+            "prog_carries": 0,
+            "pressures": 4,
+            "def_actions": 3,
+            "ball_actions": 10,
+            "ball_losses": 4
+          },
+          "3754309": {
+            "minutes": 31.8,
+            "started": false,
+            "npxg": 0,
+            "box_presence": 0,
+            "xa": 0.049,
+            "box_passes": 1,
+            "prog_passes": 2,
+            "prog_carries": 0,
+            "pressures": 4,
+            "def_actions": 4,
+            "ball_actions": 16,
+            "ball_losses": 7
+          }
+        }
+      },
+      "physical": {
+        "height_cm": 175,
+        "preferred_foot": "Right",
+        "fifa16_pace": 89,
+        "fifa16_physic": 69,
+        "max_speed_kmh": 33.06,
+        "meters_per_minute": 121.1,
+        "hsr_distance_90": 668.1,
+        "hsr_count_90": 61.8,
+        "sprint_distance_90": 221.6,
+        "sprint_count_90": 12.1,
+        "high_accel_90": 7.1,
+        "high_decel_90": 16.6,
+        "source": "SYNTHETIC: FIFA16 attributes + SkillCorner role reference",
+        "is_observed": false
+      },
+      "aerial_evidence": {
+        "score": 73.8,
+        "reliability": 0.44,
+        "aerial_duels_p90": 2.01,
+        "aerial_win_rate": 0.368,
+        "headers_p90": 0.13
+      }
+    },
+    {
+      "player_id": 6746,
+      "name": "Gabriel Paulista",
+      "team": "Arsenal",
+      "fifa16": {
+        "overall": 78,
+        "pace": 70,
+        "shooting": 53,
+        "passing": 66,
+        "dribbling": 69,
+        "defending": 80,
+        "physic": 75,
+        "height_cm": 187,
+        "preferred_foot": "Right"
+      },
+      "positions": {
+        "fifa_positions": [
+          "CB",
+          "RB"
+        ],
+        "primary_role": "CB",
+        "eligible_roles": [
+          "CB",
+          "FB"
+        ],
+        "role_suitability": {
+          "CB": 1,
+          "FB": 0.85
+        },
+        "source": "FIFA16 + curated demo mapping"
+      },
+      "general": {
+        "overall": 78,
+        "threat": 49.6,
+        "creation": 49.8,
+        "progression": 64.4,
+        "retention": 68.9,
+        "defense": 79,
+        "aerial": 76.3
+      },
+      "season_signal": {
+        "history_minutes": 755,
+        "appearances": 8,
+        "history_flag": "OK",
+        "adjustment": {
+          "threat": 0.54,
+          "creation": -0.53,
+          "progression": -0.66,
+          "retention": 0.03,
+          "defense": 0.03
+        }
+      },
+      "recent_5": {
+        "team_match_ids": [
+          "3754117",
+          "3754296",
+          "3754309",
+          "3754173",
+          "3754069"
+        ],
+        "appearances": 1,
+        "starts": 1,
+        "minutes": 95,
+        "raw_p90": {
+          "npxg": 0.203,
+          "box_presence": 0,
+          "xa": 0,
+          "box_passes": 0,
+          "prog_passes": 3.789,
+          "prog_carries": 0,
+          "pressures": 1.895,
+          "def_actions": 8.526
+        },
+        "retention_rate": 0.91,
+        "dimension_z": {
+          "threat": -0.327,
+          "creation": -1.043,
+          "progression": -1.214,
+          "retention": 1.961,
+          "defense": -0.9
+        },
+        "reliability": {
+          "threat": 0.152,
+          "creation": 0.145,
+          "progression": 0.321,
+          "retention": 0.401,
+          "defense": 0.217
+        },
+        "delta_from_general": {
+          "threat": -0.2,
+          "creation": -0.52,
+          "progression": -1.29,
+          "retention": 2.08,
+          "defense": -0.7
+        },
+        "scores": {
+          "threat": 49.4,
+          "creation": 49.3,
+          "progression": 63.1,
+          "retention": 71,
+          "defense": 78.3
+        },
+        "per_match": {
+          "3754069": {
+            "minutes": 0,
+            "started": false,
+            "npxg": 0,
+            "box_presence": 0,
+            "xa": 0,
+            "box_passes": 0,
+            "prog_passes": 0,
+            "prog_carries": 0,
+            "pressures": 0,
+            "def_actions": 0,
+            "ball_actions": 0,
+            "ball_losses": 0
+          },
+          "3754117": {
+            "minutes": 0,
+            "started": false,
+            "npxg": 0,
+            "box_presence": 0,
+            "xa": 0,
+            "box_passes": 0,
+            "prog_passes": 0,
+            "prog_carries": 0,
+            "pressures": 0,
+            "def_actions": 0,
+            "ball_actions": 0,
+            "ball_losses": 0
+          },
+          "3754173": {
+            "minutes": 95,
+            "started": true,
+            "npxg": 0.214,
+            "box_presence": 0,
+            "xa": 0,
+            "box_passes": 0,
+            "prog_passes": 4,
+            "prog_carries": 0,
+            "pressures": 2,
+            "def_actions": 9,
+            "ball_actions": 67,
+            "ball_losses": 6
+          },
+          "3754296": {
+            "minutes": 0,
+            "started": false,
+            "npxg": 0,
+            "box_presence": 0,
+            "xa": 0,
+            "box_passes": 0,
+            "prog_passes": 0,
+            "prog_carries": 0,
+            "pressures": 0,
+            "def_actions": 0,
+            "ball_actions": 0,
+            "ball_losses": 0
+          },
+          "3754309": {
+            "minutes": 0,
+            "started": false,
+            "npxg": 0,
+            "box_presence": 0,
+            "xa": 0,
+            "box_passes": 0,
+            "prog_passes": 0,
+            "prog_carries": 0,
+            "pressures": 0,
+            "def_actions": 0,
+            "ball_actions": 0,
+            "ball_losses": 0
+          }
+        }
+      },
+      "physical": {
+        "height_cm": 187,
+        "preferred_foot": "Right",
+        "fifa16_pace": 70,
+        "fifa16_physic": 75,
+        "max_speed_kmh": 31.45,
+        "meters_per_minute": 106.5,
+        "hsr_distance_90": 394.7,
+        "hsr_count_90": 36.6,
+        "sprint_distance_90": 108,
+        "sprint_count_90": 6.2,
+        "high_accel_90": 4.6,
+        "high_decel_90": 10.7,
+        "source": "SYNTHETIC: FIFA16 attributes + SkillCorner role reference",
+        "is_observed": false
+      },
+      "aerial_evidence": {
+        "score": 54.1,
+        "reliability": 0.381,
+        "aerial_duels_p90": 5.13,
+        "aerial_win_rate": 0.661,
+        "headers_p90": 3.93
+      }
+    },
+    {
+      "player_id": 42703,
+      "name": "Mikel Arteta",
+      "team": "Arsenal",
+      "fifa16": {
+        "overall": 78,
+        "pace": 45,
+        "shooting": 75,
+        "passing": 81,
+        "dribbling": 73,
+        "defending": 68,
+        "physic": 67,
+        "height_cm": 175,
+        "preferred_foot": "Right"
+      },
+      "positions": {
+        "fifa_positions": [
+          "CM",
+          "CDM"
+        ],
+        "primary_role": "CM",
+        "eligible_roles": [
+          "CM"
+        ],
+        "role_suitability": {
+          "CM": 1
+        },
+        "source": "FIFA16 + curated demo mapping"
+      },
+      "general": {
+        "overall": 78,
+        "threat": 71.5,
+        "creation": 80.5,
+        "progression": 70.9,
+        "retention": 75.1,
+        "defense": 68.3,
+        "aerial": 63.6
+      },
+      "season_signal": {
+        "history_minutes": 183.5,
+        "appearances": 7,
+        "history_flag": "LOW_MINUTES",
+        "adjustment": {
+          "threat": -0.23,
+          "creation": -0.33,
+          "progression": -0.26,
+          "retention": 0.19,
+          "defense": 0.54
+        }
+      },
+      "recent_5": {
+        "team_match_ids": [
+          "3754117",
+          "3754296",
+          "3754309",
+          "3754173",
+          "3754069"
+        ],
+        "appearances": 0,
+        "starts": 0,
+        "minutes": 0,
+        "raw_p90": {
+          "npxg": null,
+          "box_presence": null,
+          "xa": null,
+          "box_passes": null,
+          "prog_passes": null,
+          "prog_carries": null,
+          "pressures": null,
+          "def_actions": null
+        },
+        "retention_rate": null,
+        "dimension_z": {
+          "threat": null,
+          "creation": null,
+          "progression": null,
+          "retention": null,
+          "defense": null
+        },
+        "reliability": {
+          "threat": 0,
+          "creation": 0,
+          "progression": 0,
+          "retention": 0,
+          "defense": 0
+        },
+        "delta_from_general": {
+          "threat": 0,
+          "creation": 0,
+          "progression": 0,
+          "retention": 0,
+          "defense": 0
+        },
+        "scores": {
+          "threat": 71.5,
+          "creation": 80.5,
+          "progression": 70.9,
+          "retention": 75.1,
+          "defense": 68.3
+        },
+        "per_match": {
+          "3754069": {
+            "minutes": 0,
+            "started": false,
+            "npxg": 0,
+            "box_presence": 0,
+            "xa": 0,
+            "box_passes": 0,
+            "prog_passes": 0,
+            "prog_carries": 0,
+            "pressures": 0,
+            "def_actions": 0,
+            "ball_actions": 0,
+            "ball_losses": 0
+          },
+          "3754117": {
+            "minutes": 0,
+            "started": false,
+            "npxg": 0,
+            "box_presence": 0,
+            "xa": 0,
+            "box_passes": 0,
+            "prog_passes": 0,
+            "prog_carries": 0,
+            "pressures": 0,
+            "def_actions": 0,
+            "ball_actions": 0,
+            "ball_losses": 0
+          },
+          "3754173": {
+            "minutes": 0,
+            "started": false,
+            "npxg": 0,
+            "box_presence": 0,
+            "xa": 0,
+            "box_passes": 0,
+            "prog_passes": 0,
+            "prog_carries": 0,
+            "pressures": 0,
+            "def_actions": 0,
+            "ball_actions": 0,
+            "ball_losses": 0
+          },
+          "3754296": {
+            "minutes": 0,
+            "started": false,
+            "npxg": 0,
+            "box_presence": 0,
+            "xa": 0,
+            "box_passes": 0,
+            "prog_passes": 0,
+            "prog_carries": 0,
+            "pressures": 0,
+            "def_actions": 0,
+            "ball_actions": 0,
+            "ball_losses": 0
+          },
+          "3754309": {
+            "minutes": 0,
+            "started": false,
+            "npxg": 0,
+            "box_presence": 0,
+            "xa": 0,
+            "box_passes": 0,
+            "prog_passes": 0,
+            "prog_carries": 0,
+            "pressures": 0,
+            "def_actions": 0,
+            "ball_actions": 0,
+            "ball_losses": 0
+          }
+        }
+      },
+      "physical": {
+        "height_cm": 175,
+        "preferred_foot": "Right",
+        "fifa16_pace": 45,
+        "fifa16_physic": 67,
+        "max_speed_kmh": 29.32,
+        "meters_per_minute": 119.3,
+        "hsr_distance_90": 462.6,
+        "hsr_count_90": 40.8,
+        "sprint_distance_90": 87.5,
+        "sprint_count_90": 5.1,
+        "high_accel_90": 3.2,
+        "high_decel_90": 11.4,
+        "source": "SYNTHETIC: FIFA16 attributes + SkillCorner role reference",
+        "is_observed": false
+      },
+      "aerial_evidence": {
+        "score": 92.5,
+        "reliability": 0.246,
+        "aerial_duels_p90": 6.87,
+        "aerial_win_rate": 0.531,
+        "headers_p90": 1.96
+      }
+    },
+    {
+      "player_id": 3511,
+      "name": "Héctor Bellerín",
+      "team": "Arsenal",
+      "fifa16": {
+        "overall": 77,
+        "pace": 95,
+        "shooting": 53,
+        "passing": 65,
+        "dribbling": 77,
+        "defending": 72,
+        "physic": 69,
+        "height_cm": 177,
+        "preferred_foot": "Right"
+      },
+      "positions": {
+        "fifa_positions": [
+          "RB",
+          "RWB"
+        ],
+        "primary_role": "FB",
+        "eligible_roles": [
+          "FB"
+        ],
+        "role_suitability": {
+          "FB": 1
+        },
+        "source": "FIFA16 + curated demo mapping"
+      },
+      "general": {
+        "overall": 77,
+        "threat": 56.6,
+        "creation": 58.4,
+        "progression": 79.2,
+        "retention": 71,
+        "defense": 70.1,
+        "aerial": 64.4
+      },
+      "season_signal": {
+        "history_minutes": 1723.6,
+        "appearances": 18,
+        "history_flag": "OK",
+        "adjustment": {
+          "threat": -0.18,
+          "creation": 0.24,
+          "progression": 0.47,
+          "retention": -0.63,
+          "defense": -1.25
+        }
+      },
+      "recent_5": {
+        "team_match_ids": [
+          "3754117",
+          "3754296",
+          "3754309",
+          "3754173",
+          "3754069"
+        ],
+        "appearances": 5,
+        "starts": 5,
+        "minutes": 475,
+        "raw_p90": {
+          "npxg": 0.019,
+          "box_presence": 1.326,
+          "xa": 0.05,
+          "box_passes": 0.379,
+          "prog_passes": 5.116,
+          "prog_carries": 4.926,
+          "pressures": 7.389,
+          "def_actions": 4.168
+        },
+        "retention_rate": 0.773,
+        "dimension_z": {
+          "threat": -0.608,
+          "creation": -0.642,
+          "progression": 0.163,
+          "retention": 0.438,
+          "defense": -1.229
+        },
+        "reliability": {
+          "threat": 0.457,
+          "creation": 0.456,
+          "progression": 0.702,
+          "retention": 0.715,
+          "defense": 0.576
+        },
+        "delta_from_general": {
+          "threat": -1.05,
+          "creation": -1.1,
+          "progression": 0.46,
+          "retention": 1.22,
+          "defense": -2.33
+        },
+        "scores": {
+          "threat": 55.5,
+          "creation": 57.3,
+          "progression": 79.7,
+          "retention": 72.2,
+          "defense": 67.8
+        },
+        "per_match": {
+          "3754069": {
+            "minutes": 95,
+            "started": true,
+            "npxg": 0,
+            "box_presence": 3,
+            "xa": 0.118,
+            "box_passes": 0,
+            "prog_passes": 3,
+            "prog_carries": 5,
+            "pressures": 10,
+            "def_actions": 4,
+            "ball_actions": 46,
+            "ball_losses": 15
+          },
+          "3754117": {
+            "minutes": 95,
+            "started": true,
+            "npxg": 0.1,
+            "box_presence": 3,
+            "xa": 0,
+            "box_passes": 0,
+            "prog_passes": 4,
+            "prog_carries": 5,
+            "pressures": 11,
+            "def_actions": 1,
+            "ball_actions": 48,
+            "ball_losses": 10
+          },
+          "3754173": {
+            "minutes": 95,
+            "started": true,
+            "npxg": 0,
+            "box_presence": 1,
+            "xa": 0.144,
+            "box_passes": 2,
+            "prog_passes": 9,
+            "prog_carries": 9,
+            "pressures": 10,
+            "def_actions": 4,
+            "ball_actions": 56,
+            "ball_losses": 12
+          },
+          "3754296": {
+            "minutes": 95,
+            "started": true,
+            "npxg": 0,
+            "box_presence": 0,
+            "xa": 0,
+            "box_passes": 0,
+            "prog_passes": 5,
+            "prog_carries": 3,
+            "pressures": 6,
+            "def_actions": 9,
+            "ball_actions": 42,
+            "ball_losses": 12
+          },
+          "3754309": {
+            "minutes": 95,
+            "started": true,
+            "npxg": 0,
+            "box_presence": 0,
+            "xa": 0,
+            "box_passes": 0,
+            "prog_passes": 6,
+            "prog_carries": 4,
+            "pressures": 2,
+            "def_actions": 4,
+            "ball_actions": 59,
+            "ball_losses": 8
+          }
+        }
+      },
+      "physical": {
+        "height_cm": 177,
+        "preferred_foot": "Right",
+        "fifa16_pace": 95,
+        "fifa16_physic": 69,
+        "max_speed_kmh": 33.58,
+        "meters_per_minute": 115.4,
+        "hsr_distance_90": 686.6,
+        "hsr_count_90": 62.5,
+        "sprint_distance_90": 242.1,
+        "sprint_count_90": 13.2,
+        "high_accel_90": 7.6,
+        "high_decel_90": 17.6,
+        "source": "SYNTHETIC: FIFA16 attributes + SkillCorner role reference",
+        "is_observed": false
+      },
+      "aerial_evidence": {
+        "score": 26.2,
+        "reliability": 0.538,
+        "aerial_duels_p90": 2.25,
+        "aerial_win_rate": 0.539,
+        "headers_p90": 0.84
+      }
+    },
+    {
+      "player_id": 5581,
+      "name": "Joel Campbell",
+      "team": "Arsenal",
+      "fifa16": {
+        "overall": 76,
+        "pace": 88,
+        "shooting": 73,
+        "passing": 70,
+        "dribbling": 78,
+        "defending": 43,
+        "physic": 74,
+        "height_cm": 178,
+        "preferred_foot": "Left"
+      },
+      "positions": {
+        "fifa_positions": [
+          "RW",
+          "ST",
+          "RM",
+          "LW"
+        ],
+        "primary_role": "AM_W",
+        "eligible_roles": [
+          "AM_W",
+          "ST"
+        ],
+        "role_suitability": {
+          "AM_W": 1,
+          "ST": 0.85
+        },
+        "source": "FIFA16 + curated demo mapping"
+      },
+      "general": {
+        "overall": 76,
+        "threat": 78.5,
+        "creation": 79.4,
+        "progression": 79.7,
+        "retention": 73.6,
+        "defense": 50.4,
+        "aerial": 63.5
+      },
+      "season_signal": {
+        "history_minutes": 542,
+        "appearances": 10,
+        "history_flag": "OK",
+        "adjustment": {
+          "threat": 0.26,
+          "creation": -0.49,
+          "progression": -1.59,
+          "retention": -0.96,
+          "defense": 1.15
+        }
+      },
+      "recent_5": {
+        "team_match_ids": [
+          "3754117",
+          "3754296",
+          "3754309",
+          "3754173",
+          "3754069"
+        ],
+        "appearances": 5,
+        "starts": 3,
+        "minutes": 237.9,
+        "raw_p90": {
+          "npxg": 0.108,
+          "box_presence": 2.27,
+          "xa": 0.251,
+          "box_passes": 1.513,
+          "prog_passes": 3.027,
+          "prog_carries": 1.513,
+          "pressures": 25.349,
+          "def_actions": 9.458
+        },
+        "retention_rate": 0.686,
+        "dimension_z": {
+          "threat": -0.05,
+          "creation": 0.773,
+          "progression": -0.969,
+          "retention": -0.524,
+          "defense": 1.064
+        },
+        "reliability": {
+          "threat": 0.303,
+          "creation": 0.297,
+          "progression": 0.542,
+          "retention": 0.462,
+          "defense": 0.407
+        },
+        "delta_from_general": {
+          "threat": -0.06,
+          "creation": 0.85,
+          "progression": -1.85,
+          "retention": -0.93,
+          "defense": 1.49
+        },
+        "scores": {
+          "threat": 78.4,
+          "creation": 80.2,
+          "progression": 77.9,
+          "retention": 72.7,
+          "defense": 51.9
+        },
+        "per_match": {
+          "3754069": {
+            "minutes": 27.1,
+            "started": false,
+            "npxg": 0,
+            "box_presence": 3,
+            "xa": 0.13,
+            "box_passes": 0,
+            "prog_passes": 1,
+            "prog_carries": 2,
+            "pressures": 8,
+            "def_actions": 1,
+            "ball_actions": 11,
+            "ball_losses": 3
+          },
+          "3754117": {
+            "minutes": 63.4,
+            "started": true,
+            "npxg": 0,
+            "box_presence": 0,
+            "xa": 0.038,
+            "box_passes": 2,
+            "prog_passes": 2,
+            "prog_carries": 0,
+            "pressures": 19,
+            "def_actions": 6,
+            "ball_actions": 20,
+            "ball_losses": 8
+          },
+          "3754173": {
+            "minutes": 15.2,
+            "started": false,
+            "npxg": 0,
+            "box_presence": 0,
+            "xa": 0,
+            "box_passes": 0,
+            "prog_passes": 0,
+            "prog_carries": 0,
+            "pressures": 9,
+            "def_actions": 0,
+            "ball_actions": 5,
+            "ball_losses": 1
+          },
+          "3754296": {
+            "minutes": 68.9,
+            "started": true,
+            "npxg": 0.286,
+            "box_presence": 3,
+            "xa": 0.496,
+            "box_passes": 1,
+            "prog_passes": 3,
+            "prog_carries": 2,
+            "pressures": 18,
+            "def_actions": 12,
+            "ball_actions": 23,
+            "ball_losses": 8
+          },
+          "3754309": {
+            "minutes": 63.2,
+            "started": true,
+            "npxg": 0,
+            "box_presence": 0,
+            "xa": 0,
+            "box_passes": 1,
+            "prog_passes": 2,
+            "prog_carries": 0,
+            "pressures": 13,
+            "def_actions": 6,
+            "ball_actions": 27,
+            "ball_losses": 7
+          }
+        }
+      },
+      "physical": {
+        "height_cm": 178,
+        "preferred_foot": "Left",
+        "fifa16_pace": 88,
+        "fifa16_physic": 74,
+        "max_speed_kmh": 32.98,
+        "meters_per_minute": 121.9,
+        "hsr_distance_90": 664.5,
+        "hsr_count_90": 61.6,
+        "sprint_distance_90": 219.9,
+        "sprint_count_90": 12,
+        "high_accel_90": 7,
+        "high_decel_90": 16.9,
+        "source": "SYNTHETIC: FIFA16 attributes + SkillCorner role reference",
+        "is_observed": false
+      },
+      "aerial_evidence": {
+        "score": 34.8,
+        "reliability": 0.399,
+        "aerial_duels_p90": 1.99,
+        "aerial_win_rate": 0.344,
+        "headers_p90": 0
+      }
+    },
+    {
+      "player_id": 6631,
+      "name": "Mathieu Flamini",
+      "team": "Arsenal",
+      "fifa16": {
+        "overall": 76,
+        "pace": 67,
+        "shooting": 68,
+        "passing": 72,
+        "dribbling": 71,
+        "defending": 76,
+        "physic": 77,
+        "height_cm": 178,
+        "preferred_foot": "Right"
+      },
+      "positions": {
+        "fifa_positions": [
+          "CDM",
+          "CM",
+          "RB"
+        ],
+        "primary_role": "CM",
+        "eligible_roles": [
+          "CM",
+          "FB"
+        ],
+        "role_suitability": {
+          "CM": 1,
+          "FB": 0.85
+        },
+        "source": "FIFA16 + curated demo mapping"
+      },
+      "general": {
+        "overall": 76,
+        "threat": 67.9,
+        "creation": 72.4,
+        "progression": 72.1,
+        "retention": 73.7,
+        "defense": 76.5,
+        "aerial": 68.7
+      },
+      "season_signal": {
+        "history_minutes": 682.9,
+        "appearances": 10,
+        "history_flag": "OK",
+        "adjustment": {
+          "threat": -0.49,
+          "creation": -1.01,
+          "progression": -0.26,
+          "retention": 1.46,
+          "defense": 0.28
+        }
+      },
+      "recent_5": {
+        "team_match_ids": [
+          "3754117",
+          "3754296",
+          "3754309",
+          "3754173",
+          "3754069"
+        ],
+        "appearances": 4,
+        "starts": 4,
+        "minutes": 358.1,
+        "raw_p90": {
+          "npxg": 0.009,
+          "box_presence": 0,
+          "xa": 0,
+          "box_passes": 0,
+          "prog_passes": 6.284,
+          "prog_carries": 0.251,
+          "pressures": 15.082,
+          "def_actions": 6.284
+        },
+        "retention_rate": 0.872,
+        "dimension_z": {
+          "threat": -0.996,
+          "creation": -1.043,
+          "progression": -0.774,
+          "retention": 1.536,
+          "defense": -0.273
+        },
+        "reliability": {
+          "threat": 0.392,
+          "creation": 0.388,
+          "progression": 0.64,
+          "retention": 0.632,
+          "defense": 0.507
+        },
+        "delta_from_general": {
+          "threat": -1.36,
+          "creation": -1.4,
+          "progression": -1.82,
+          "retention": 2.93,
+          "defense": -0.55
+        },
+        "scores": {
+          "threat": 66.5,
+          "creation": 71,
+          "progression": 70.3,
+          "retention": 76.6,
+          "defense": 76
+        },
+        "per_match": {
+          "3754069": {
+            "minutes": 95,
+            "started": true,
+            "npxg": 0.034,
+            "box_presence": 0,
+            "xa": 0,
+            "box_passes": 0,
+            "prog_passes": 6,
+            "prog_carries": 0,
+            "pressures": 27,
+            "def_actions": 9,
+            "ball_actions": 36,
+            "ball_losses": 4
+          },
+          "3754117": {
+            "minutes": 95,
+            "started": true,
+            "npxg": 0,
+            "box_presence": 0,
+            "xa": 0,
+            "box_passes": 0,
+            "prog_passes": 14,
+            "prog_carries": 0,
+            "pressures": 16,
+            "def_actions": 4,
+            "ball_actions": 55,
+            "ball_losses": 6
+          },
+          "3754173": {
+            "minutes": 0,
+            "started": false,
+            "npxg": 0,
+            "box_presence": 0,
+            "xa": 0,
+            "box_passes": 0,
+            "prog_passes": 0,
+            "prog_carries": 0,
+            "pressures": 0,
+            "def_actions": 0,
+            "ball_actions": 0,
+            "ball_losses": 0
+          },
+          "3754296": {
+            "minutes": 95,
+            "started": true,
+            "npxg": 0,
+            "box_presence": 0,
+            "xa": 0,
+            "box_passes": 0,
+            "prog_passes": 1,
+            "prog_carries": 1,
+            "pressures": 7,
+            "def_actions": 5,
+            "ball_actions": 31,
+            "ball_losses": 4
+          },
+          "3754309": {
+            "minutes": 73,
+            "started": true,
+            "npxg": 0,
+            "box_presence": 0,
+            "xa": 0,
+            "box_passes": 0,
+            "prog_passes": 4,
+            "prog_carries": 0,
+            "pressures": 10,
+            "def_actions": 7,
+            "ball_actions": 50,
+            "ball_losses": 8
+          }
+        }
+      },
+      "physical": {
+        "height_cm": 178,
+        "preferred_foot": "Right",
+        "fifa16_pace": 67,
+        "fifa16_physic": 77,
+        "max_speed_kmh": 31.2,
+        "meters_per_minute": 123.8,
+        "hsr_distance_90": 534.5,
+        "hsr_count_90": 45.9,
+        "sprint_distance_90": 109.8,
+        "sprint_count_90": 6.3,
+        "high_accel_90": 3.7,
+        "high_decel_90": 11.8,
+        "source": "SYNTHETIC: FIFA16 attributes + SkillCorner role reference",
+        "is_observed": false
+      },
+      "aerial_evidence": {
+        "score": 36.8,
+        "reliability": 0.383,
+        "aerial_duels_p90": 1.98,
+        "aerial_win_rate": 0.527,
+        "headers_p90": 0.79
+      }
+    },
+    {
+      "player_id": 3713,
+      "name": "Calum Chambers",
+      "team": "Arsenal",
+      "fifa16": {
+        "overall": 72,
+        "pace": 66,
+        "shooting": 52,
+        "passing": 64,
+        "dribbling": 67,
+        "defending": 73,
+        "physic": 74,
+        "height_cm": 183,
+        "preferred_foot": "Right"
+      },
+      "positions": {
+        "fifa_positions": [
+          "CB",
+          "RB",
+          "CDM",
+          "CM"
+        ],
+        "primary_role": "CB",
+        "eligible_roles": [
+          "CB",
+          "FB",
+          "CM"
+        ],
+        "role_suitability": {
+          "CB": 1,
+          "FB": 0.85,
+          "CM": 0.85
+        },
+        "source": "FIFA16 + curated demo mapping"
+      },
+      "general": {
+        "overall": 72,
+        "threat": 47.7,
+        "creation": 48.5,
+        "progression": 62.1,
+        "retention": 66.5,
+        "defense": 74.4,
+        "aerial": 70.2
+      },
+      "season_signal": {
+        "history_minutes": 309.7,
+        "appearances": 9,
+        "history_flag": "LOW_MINUTES",
+        "adjustment": {
+          "threat": 0.02,
+          "creation": 0.09,
+          "progression": -0.47,
+          "retention": -0.52,
+          "defense": 1.23
+        }
+      },
+      "recent_5": {
+        "team_match_ids": [
+          "3754117",
+          "3754296",
+          "3754309",
+          "3754173",
+          "3754069"
+        ],
+        "appearances": 5,
+        "starts": 1,
+        "minutes": 141.3,
+        "raw_p90": {
+          "npxg": 0,
+          "box_presence": 0,
+          "xa": 0,
+          "box_passes": 0.637,
+          "prog_passes": 8.915,
+          "prog_carries": 2.547,
+          "pressures": 16.557,
+          "def_actions": 13.373
+        },
+        "retention_rate": 0.846,
+        "dimension_z": {
+          "threat": -1.025,
+          "creation": -0.714,
+          "progression": 0.175,
+          "retention": 1.249,
+          "defense": 1.063
+        },
+        "reliability": {
+          "threat": 0.209,
+          "creation": 0.202,
+          "progression": 0.413,
+          "retention": 0.476,
+          "defense": 0.291
+        },
+        "delta_from_general": {
+          "threat": -0.74,
+          "creation": -0.54,
+          "progression": 0.29,
+          "retention": 1.95,
+          "defense": 1.07
+        },
+        "scores": {
+          "threat": 47,
+          "creation": 48,
+          "progression": 62.4,
+          "retention": 68.4,
+          "defense": 75.5
+        },
+        "per_match": {
+          "3754069": {
+            "minutes": 6.8,
+            "started": false,
+            "npxg": 0,
+            "box_presence": 0,
+            "xa": 0,
+            "box_passes": 0,
+            "prog_passes": 1,
+            "prog_carries": 0,
+            "pressures": 4,
+            "def_actions": 1,
+            "ball_actions": 4,
+            "ball_losses": 2
+          },
+          "3754117": {
+            "minutes": 9.9,
+            "started": false,
+            "npxg": 0,
+            "box_presence": 0,
+            "xa": 0,
+            "box_passes": 1,
+            "prog_passes": 1,
+            "prog_carries": 1,
+            "pressures": 3,
+            "def_actions": 0,
+            "ball_actions": 5,
+            "ball_losses": 1
+          },
+          "3754173": {
+            "minutes": 95,
+            "started": true,
+            "npxg": 0,
+            "box_presence": 0,
+            "xa": 0,
+            "box_passes": 0,
+            "prog_passes": 10,
+            "prog_carries": 1,
+            "pressures": 13,
+            "def_actions": 16,
+            "ball_actions": 64,
+            "ball_losses": 8
+          },
+          "3754296": {
+            "minutes": 7.6,
+            "started": false,
+            "npxg": 0,
+            "box_presence": 0,
+            "xa": 0,
+            "box_passes": 0,
+            "prog_passes": 0,
+            "prog_carries": 0,
+            "pressures": 3,
+            "def_actions": 1,
+            "ball_actions": 0,
+            "ball_losses": 0
+          },
+          "3754309": {
+            "minutes": 21.9,
+            "started": false,
+            "npxg": 0,
+            "box_presence": 0,
+            "xa": 0,
+            "box_passes": 0,
+            "prog_passes": 2,
+            "prog_carries": 2,
+            "pressures": 3,
+            "def_actions": 3,
+            "ball_actions": 18,
+            "ball_losses": 3
+          }
+        }
+      },
+      "physical": {
+        "height_cm": 183,
+        "preferred_foot": "Right",
+        "fifa16_pace": 66,
+        "fifa16_physic": 74,
+        "max_speed_kmh": 31.11,
+        "meters_per_minute": 105.9,
+        "hsr_distance_90": 385.3,
+        "hsr_count_90": 35.9,
+        "sprint_distance_90": 104.1,
+        "sprint_count_90": 6,
+        "high_accel_90": 4.5,
+        "high_decel_90": 10.6,
+        "source": "SYNTHETIC: FIFA16 attributes + SkillCorner role reference",
+        "is_observed": false
+      },
+      "aerial_evidence": {
+        "score": 45.1,
+        "reliability": 0.225,
+        "aerial_duels_p90": 5.52,
+        "aerial_win_rate": 0.651,
+        "headers_p90": 2.32
+      }
+    },
+    {
+      "player_id": 3647,
+      "name": "Alex Iwobi",
+      "team": "Arsenal",
+      "fifa16": {
+        "overall": 69,
+        "pace": 77,
+        "shooting": 57,
+        "passing": 62,
+        "dribbling": 76,
+        "defending": 29,
+        "physic": 58,
+        "height_cm": 180,
+        "preferred_foot": "Right"
+      },
+      "positions": {
+        "fifa_positions": [
+          "LW",
+          "CAM",
+          "RW"
+        ],
+        "primary_role": "AM_W",
+        "eligible_roles": [
+          "AM_W"
+        ],
+        "role_suitability": {
+          "AM_W": 1
+        },
+        "source": "FIFA16 + curated demo mapping"
+      },
+      "general": {
+        "overall": 69,
+        "threat": 64.8,
+        "creation": 72.3,
+        "progression": 74.6,
+        "retention": 68.5,
+        "defense": 34.8,
+        "aerial": 55.7
+      },
+      "season_signal": {
+        "history_minutes": 18.5,
+        "appearances": 3,
+        "history_flag": "VERY_LOW_MINUTES",
+        "adjustment": {
+          "threat": -0.01,
+          "creation": 0,
+          "progression": -0.03,
+          "retention": 0.05,
+          "defense": -0.04
+        }
+      },
+      "recent_5": {
+        "team_match_ids": [
+          "3754117",
+          "3754296",
+          "3754309",
+          "3754173",
+          "3754069"
+        ],
+        "appearances": 2,
+        "starts": 0,
+        "minutes": 19.5,
+        "raw_p90": {
+          "npxg": 0,
+          "box_presence": 0,
+          "xa": 0,
+          "box_passes": 4.608,
+          "prog_passes": 4.608,
+          "prog_carries": 9.215,
+          "pressures": 0,
+          "def_actions": 0
+        },
+        "retention_rate": 0.8,
+        "dimension_z": {
+          "threat": -1.025,
+          "creation": 1.338,
+          "progression": 1.108,
+          "retention": 0.738,
+          "defense": -2.516
+        },
+        "reliability": {
+          "threat": 0.036,
+          "creation": 0.034,
+          "progression": 0.089,
+          "retention": 0.048,
+          "defense": 0.055
+        },
+        "delta_from_general": {
+          "threat": -0.13,
+          "creation": 0.15,
+          "progression": 0.34,
+          "retention": 0.13,
+          "defense": -0.31
+        },
+        "scores": {
+          "threat": 64.7,
+          "creation": 72.4,
+          "progression": 74.9,
+          "retention": 68.6,
+          "defense": 34.5
+        },
+        "per_match": {
+          "3754069": {
+            "minutes": 0,
+            "started": false,
+            "npxg": 0,
+            "box_presence": 0,
+            "xa": 0,
+            "box_passes": 0,
+            "prog_passes": 0,
+            "prog_carries": 0,
+            "pressures": 0,
+            "def_actions": 0,
+            "ball_actions": 0,
+            "ball_losses": 0
+          },
+          "3754117": {
+            "minutes": 0,
+            "started": false,
+            "npxg": 0,
+            "box_presence": 0,
+            "xa": 0,
+            "box_passes": 0,
+            "prog_passes": 0,
+            "prog_carries": 0,
+            "pressures": 0,
+            "def_actions": 0,
+            "ball_actions": 0,
+            "ball_losses": 0
+          },
+          "3754173": {
+            "minutes": 2.5,
+            "started": false,
+            "npxg": 0,
+            "box_presence": 0,
+            "xa": 0,
+            "box_passes": 0,
+            "prog_passes": 0,
+            "prog_carries": 0,
+            "pressures": 0,
+            "def_actions": 0,
+            "ball_actions": 0,
+            "ball_losses": 0
+          },
+          "3754296": {
+            "minutes": 0,
+            "started": false,
+            "npxg": 0,
+            "box_presence": 0,
+            "xa": 0,
+            "box_passes": 0,
+            "prog_passes": 0,
+            "prog_carries": 0,
+            "pressures": 0,
+            "def_actions": 0,
+            "ball_actions": 0,
+            "ball_losses": 0
+          },
+          "3754309": {
+            "minutes": 17,
+            "started": false,
+            "npxg": 0,
+            "box_presence": 0,
+            "xa": 0,
+            "box_passes": 1,
+            "prog_passes": 1,
+            "prog_carries": 2,
+            "pressures": 0,
+            "def_actions": 0,
+            "ball_actions": 5,
+            "ball_losses": 1
+          }
+        }
+      },
+      "physical": {
+        "height_cm": 180,
+        "preferred_foot": "Right",
+        "fifa16_pace": 77,
+        "fifa16_physic": 58,
+        "max_speed_kmh": 32.05,
+        "meters_per_minute": 117.7,
+        "hsr_distance_90": 624.9,
+        "hsr_count_90": 58.4,
+        "sprint_distance_90": 201.2,
+        "sprint_count_90": 11.1,
+        "high_accel_90": 6.6,
+        "high_decel_90": 16.1,
+        "source": "SYNTHETIC: FIFA16 attributes + SkillCorner role reference",
+        "is_observed": false
+      },
+      "aerial_evidence": {
+        "score": 46.9,
+        "reliability": 0.034,
+        "aerial_duels_p90": 0,
+        "aerial_win_rate": 0.348,
+        "headers_p90": 0
+      }
+    },
+    {
+      "player_id": 9417,
+      "name": "Matt Macey",
+      "team": "Arsenal",
+      "fifa16": {
+        "overall": 51,
+        "pace": 33,
+        "shooting": 15,
+        "passing": 25,
+        "dribbling": 32,
+        "defending": 14,
+        "physic": 38,
+        "height_cm": 198,
+        "preferred_foot": "Right",
+        "gk_diving": 53,
+        "gk_handling": 49,
+        "gk_kicking": 46,
+        "gk_positioning": 49,
+        "gk_reflexes": 53
+      },
+      "positions": {
+        "fifa_positions": [
+          "GK"
+        ],
+        "primary_role": "GK",
+        "eligible_roles": [
+          "GK"
+        ],
+        "role_suitability": {
+          "GK": 1
+        },
+        "source": "FIFA16 + curated demo mapping"
+      },
+      "general": {
+        "overall": 51,
+        "goalkeeping": 51,
+        "threat": null,
+        "creation": null,
+        "progression": null,
+        "retention": null,
+        "defense": null,
+        "aerial": 69.1
+      },
+      "season_signal": {
+        "history_minutes": 0,
+        "appearances": 0,
+        "history_flag": "NO_HISTORY",
+        "adjustment": {
+          "threat": 0,
+          "creation": 0,
+          "progression": 0,
+          "retention": 0,
+          "defense": 0
+        }
+      },
+      "recent_5": {
+        "team_match_ids": [
+          "3754117",
+          "3754296",
+          "3754309",
+          "3754173",
+          "3754069"
+        ],
+        "appearances": 0,
+        "starts": 0,
+        "minutes": 0,
+        "raw_p90": {
+          "npxg": null,
+          "box_presence": null,
+          "xa": null,
+          "box_passes": null,
+          "prog_passes": null,
+          "prog_carries": null,
+          "pressures": null,
+          "def_actions": null
+        },
+        "retention_rate": null,
+        "dimension_z": {
+          "threat": null,
+          "creation": null,
+          "progression": null,
+          "retention": null,
+          "defense": null
+        },
+        "reliability": {
+          "threat": 0,
+          "creation": 0,
+          "progression": 0,
+          "retention": 0,
+          "defense": 0
+        },
+        "delta_from_general": {
+          "threat": null,
+          "creation": null,
+          "progression": null,
+          "retention": null,
+          "defense": null
+        },
+        "scores": {
+          "threat": null,
+          "creation": null,
+          "progression": null,
+          "retention": null,
+          "defense": null
+        },
+        "per_match": {
+          "3754069": {
+            "minutes": 0,
+            "started": false,
+            "npxg": 0,
+            "box_presence": 0,
+            "xa": 0,
+            "box_passes": 0,
+            "prog_passes": 0,
+            "prog_carries": 0,
+            "pressures": 0,
+            "def_actions": 0,
+            "ball_actions": 0,
+            "ball_losses": 0
+          },
+          "3754117": {
+            "minutes": 0,
+            "started": false,
+            "npxg": 0,
+            "box_presence": 0,
+            "xa": 0,
+            "box_passes": 0,
+            "prog_passes": 0,
+            "prog_carries": 0,
+            "pressures": 0,
+            "def_actions": 0,
+            "ball_actions": 0,
+            "ball_losses": 0
+          },
+          "3754173": {
+            "minutes": 0,
+            "started": false,
+            "npxg": 0,
+            "box_presence": 0,
+            "xa": 0,
+            "box_passes": 0,
+            "prog_passes": 0,
+            "prog_carries": 0,
+            "pressures": 0,
+            "def_actions": 0,
+            "ball_actions": 0,
+            "ball_losses": 0
+          },
+          "3754296": {
+            "minutes": 0,
+            "started": false,
+            "npxg": 0,
+            "box_presence": 0,
+            "xa": 0,
+            "box_passes": 0,
+            "prog_passes": 0,
+            "prog_carries": 0,
+            "pressures": 0,
+            "def_actions": 0,
+            "ball_actions": 0,
+            "ball_losses": 0
+          },
+          "3754309": {
+            "minutes": 0,
+            "started": false,
+            "npxg": 0,
+            "box_presence": 0,
+            "xa": 0,
+            "box_passes": 0,
+            "prog_passes": 0,
+            "prog_carries": 0,
+            "pressures": 0,
+            "def_actions": 0,
+            "ball_actions": 0,
+            "ball_losses": 0
+          }
+        }
+      },
+      "physical": {
+        "height_cm": 198,
+        "preferred_foot": "Right",
+        "fifa16_pace": 33,
+        "fifa16_physic": 38,
+        "max_speed_kmh": 28.3,
+        "meters_per_minute": 50.3,
+        "hsr_distance_90": 46.7,
+        "hsr_count_90": 6.5,
+        "sprint_distance_90": 16.7,
+        "sprint_count_90": 1.4,
+        "high_accel_90": 1.6,
+        "high_decel_90": 2.7,
+        "source": "SYNTHETIC: FIFA16 attributes + SkillCorner role reference",
+        "is_observed": false
+      },
+      "aerial_evidence": null
+    },
+    {
+      "player_id": 3535,
+      "name": "Roberto Firmino",
+      "team": "Liverpool",
+      "fifa16": {
+        "overall": 82,
+        "pace": 76,
+        "shooting": 79,
+        "passing": 79,
+        "dribbling": 82,
+        "defending": 42,
+        "physic": 74,
+        "height_cm": 181,
+        "preferred_foot": "Right"
+      },
+      "positions": {
+        "fifa_positions": [
+          "CAM",
+          "CF",
+          "ST",
+          "RW"
+        ],
+        "primary_role": "AM_W",
+        "eligible_roles": [
+          "AM_W",
+          "ST"
+        ],
+        "role_suitability": {
+          "AM_W": 1,
+          "ST": 0.85
+        },
+        "source": "FIFA16 + curated demo mapping"
+      },
+      "general": {
+        "overall": 82,
+        "threat": 83.4,
+        "creation": 88.1,
+        "progression": 81.6,
+        "retention": 77.9,
+        "defense": 51.1,
+        "aerial": 68.7
+      },
+      "season_signal": {
+        "history_minutes": 952.2,
+        "appearances": 17,
+        "history_flag": "OK",
+        "adjustment": {
+          "threat": 1.28,
+          "creation": 0.49,
+          "progression": -1.66,
+          "retention": -1.88,
+          "defense": 2.71
+        }
+      },
+      "recent_5": {
+        "team_match_ids": [
+          "3754255",
+          "3754051",
+          "3754343",
+          "3754226",
+          "3754251"
+        ],
+        "appearances": 5,
+        "starts": 4,
+        "minutes": 331.8,
+        "raw_p90": {
+          "npxg": 0.248,
+          "box_presence": 3.526,
+          "xa": 0.38,
+          "box_passes": 0.271,
+          "prog_passes": 2.984,
+          "prog_carries": 3.526,
+          "pressures": 25.497,
+          "def_actions": 10.036
+        },
+        "retention_rate": 0.684,
+        "dimension_z": {
+          "threat": 0.766,
+          "creation": 0.663,
+          "progression": -0.496,
+          "retention": -0.551,
+          "defense": 1.175
+        },
+        "reliability": {
+          "threat": 0.374,
+          "creation": 0.37,
+          "progression": 0.622,
+          "retention": 0.639,
+          "defense": 0.488
+        },
+        "delta_from_general": {
+          "threat": 1.06,
+          "creation": 0.92,
+          "progression": -1.19,
+          "retention": -1.35,
+          "defense": 1.92
+        },
+        "scores": {
+          "threat": 84.5,
+          "creation": 89,
+          "progression": 80.4,
+          "retention": 76.6,
+          "defense": 53
+        },
+        "per_match": {
+          "3754051": {
+            "minutes": 73.5,
+            "started": true,
+            "npxg": 0,
+            "box_presence": 0,
+            "xa": 0,
+            "box_passes": 0,
+            "prog_passes": 2,
+            "prog_carries": 1,
+            "pressures": 13,
+            "def_actions": 3,
+            "ball_actions": 31,
+            "ball_losses": 10
+          },
+          "3754226": {
+            "minutes": 92.8,
+            "started": true,
+            "npxg": 0.159,
+            "box_presence": 4,
+            "xa": 0.662,
+            "box_passes": 0,
+            "prog_passes": 2,
+            "prog_carries": 3,
+            "pressures": 26,
+            "def_actions": 8,
+            "ball_actions": 40,
+            "ball_losses": 11
+          },
+          "3754251": {
+            "minutes": 60.5,
+            "started": true,
+            "npxg": 0.65,
+            "box_presence": 4,
+            "xa": 0.041,
+            "box_passes": 0,
+            "prog_passes": 3,
+            "prog_carries": 5,
+            "pressures": 29,
+            "def_actions": 15,
+            "ball_actions": 41,
+            "ball_losses": 10
+          },
+          "3754255": {
+            "minutes": 10,
+            "started": false,
+            "npxg": 0,
+            "box_presence": 0,
+            "xa": 0,
+            "box_passes": 0,
+            "prog_passes": 0,
+            "prog_carries": 0,
+            "pressures": 4,
+            "def_actions": 2,
+            "ball_actions": 8,
+            "ball_losses": 6
+          },
+          "3754343": {
+            "minutes": 95,
+            "started": true,
+            "npxg": 0.106,
+            "box_presence": 5,
+            "xa": 0.698,
+            "box_passes": 1,
+            "prog_passes": 4,
+            "prog_carries": 4,
+            "pressures": 22,
+            "def_actions": 9,
+            "ball_actions": 57,
+            "ball_losses": 19
+          }
+        }
+      },
+      "physical": {
+        "height_cm": 181,
+        "preferred_foot": "Right",
+        "fifa16_pace": 76,
+        "fifa16_physic": 74,
+        "max_speed_kmh": 31.96,
+        "meters_per_minute": 120.5,
+        "hsr_distance_90": 621.3,
+        "hsr_count_90": 58.2,
+        "sprint_distance_90": 199.5,
+        "sprint_count_90": 11,
+        "high_accel_90": 6.6,
+        "high_decel_90": 16.9,
+        "source": "SYNTHETIC: FIFA16 attributes + SkillCorner role reference",
+        "is_observed": false
+      },
+      "aerial_evidence": {
+        "score": 75.6,
+        "reliability": 0.507,
+        "aerial_duels_p90": 4.35,
+        "aerial_win_rate": 0.348,
+        "headers_p90": 0.57
+      }
+    },
+    {
+      "player_id": 3483,
+      "name": "Mamadou Sakho",
+      "team": "Liverpool",
+      "fifa16": {
+        "overall": 81,
+        "pace": 66,
+        "shooting": 34,
+        "passing": 63,
+        "dribbling": 60,
+        "defending": 80,
+        "physic": 82,
+        "height_cm": 187,
+        "preferred_foot": "Left"
+      },
+      "positions": {
+        "fifa_positions": [
+          "CB"
+        ],
+        "primary_role": "CB",
+        "eligible_roles": [
+          "CB"
+        ],
+        "role_suitability": {
+          "CB": 1
+        },
+        "source": "FIFA16 + curated demo mapping"
+      },
+      "general": {
+        "overall": 81,
+        "threat": 32.6,
+        "creation": 43.9,
+        "progression": 62.4,
+        "retention": 64.3,
+        "defense": 82.1,
+        "aerial": 79.5
+      },
+      "season_signal": {
+        "history_minutes": 994.9,
+        "appearances": 11,
+        "history_flag": "OK",
+        "adjustment": {
+          "threat": -0.5,
+          "creation": -0.56,
+          "progression": 2.71,
+          "retention": -0.06,
+          "defense": 1.66
+        }
+      },
+      "recent_5": {
+        "team_match_ids": [
+          "3754255",
+          "3754051",
+          "3754343",
+          "3754226",
+          "3754251"
+        ],
+        "appearances": 4,
+        "starts": 4,
+        "minutes": 366.1,
+        "raw_p90": {
+          "npxg": 0.049,
+          "box_presence": 0,
+          "xa": 0,
+          "box_passes": 0,
+          "prog_passes": 6.147,
+          "prog_carries": 0.738,
+          "pressures": 5.409,
+          "def_actions": 9.097
+        },
+        "retention_rate": 0.791,
+        "dimension_z": {
+          "threat": -0.856,
+          "creation": -1.043,
+          "progression": -0.679,
+          "retention": 0.634,
+          "defense": -0.531
+        },
+        "reliability": {
+          "threat": 0.397,
+          "creation": 0.393,
+          "progression": 0.645,
+          "retention": 0.701,
+          "defense": 0.512
+        },
+        "delta_from_general": {
+          "threat": -1.23,
+          "creation": -1.42,
+          "progression": -1.64,
+          "retention": 1.68,
+          "defense": -1.05
+        },
+        "scores": {
+          "threat": 31.4,
+          "creation": 42.5,
+          "progression": 60.8,
+          "retention": 66,
+          "defense": 81.1
+        },
+        "per_match": {
+          "3754051": {
+            "minutes": 95,
+            "started": true,
+            "npxg": 0,
+            "box_presence": 0,
+            "xa": 0,
+            "box_passes": 0,
+            "prog_passes": 7,
+            "prog_carries": 2,
+            "pressures": 10,
+            "def_actions": 13,
+            "ball_actions": 77,
+            "ball_losses": 21
+          },
+          "3754226": {
+            "minutes": 95,
+            "started": true,
+            "npxg": 0,
+            "box_presence": 0,
+            "xa": 0,
+            "box_passes": 0,
+            "prog_passes": 4,
+            "prog_carries": 0,
+            "pressures": 3,
+            "def_actions": 7,
+            "ball_actions": 41,
+            "ball_losses": 9
+          },
+          "3754251": {
+            "minutes": 81,
+            "started": true,
+            "npxg": 0,
+            "box_presence": 0,
+            "xa": 0,
+            "box_passes": 0,
+            "prog_passes": 4,
+            "prog_carries": 1,
+            "pressures": 6,
+            "def_actions": 8,
+            "ball_actions": 39,
+            "ball_losses": 8
+          },
+          "3754255": {
+            "minutes": 0,
+            "started": false,
+            "npxg": 0,
+            "box_presence": 0,
+            "xa": 0,
+            "box_passes": 0,
+            "prog_passes": 0,
+            "prog_carries": 0,
+            "pressures": 0,
+            "def_actions": 0,
+            "ball_actions": 0,
+            "ball_losses": 0
+          },
+          "3754343": {
+            "minutes": 95,
+            "started": true,
+            "npxg": 0.2,
+            "box_presence": 0,
+            "xa": 0,
+            "box_passes": 0,
+            "prog_passes": 10,
+            "prog_carries": 0,
+            "pressures": 3,
+            "def_actions": 9,
+            "ball_actions": 77,
+            "ball_losses": 11
+          }
+        }
+      },
+      "physical": {
+        "height_cm": 187,
+        "preferred_foot": "Left",
+        "fifa16_pace": 66,
+        "fifa16_physic": 82,
+        "max_speed_kmh": 31.11,
+        "meters_per_minute": 107.2,
+        "hsr_distance_90": 385.3,
+        "hsr_count_90": 35.9,
+        "sprint_distance_90": 104.1,
+        "sprint_count_90": 6,
+        "high_accel_90": 4.5,
+        "high_decel_90": 10.9,
+        "source": "SYNTHETIC: FIFA16 attributes + SkillCorner role reference",
+        "is_observed": false
+      },
+      "aerial_evidence": {
+        "score": 89,
+        "reliability": 0.457,
+        "aerial_duels_p90": 7.51,
+        "aerial_win_rate": 0.667,
+        "headers_p90": 4.16
+      }
+    },
+    {
+      "player_id": 4090,
+      "name": "Adam Lallana",
+      "team": "Liverpool",
+      "fifa16": {
+        "overall": 80,
+        "pace": 73,
+        "shooting": 72,
+        "passing": 80,
+        "dribbling": 80,
+        "defending": 50,
+        "physic": 67,
+        "height_cm": 172,
+        "preferred_foot": "Right"
+      },
+      "positions": {
+        "fifa_positions": [
+          "CAM",
+          "RW",
+          "LW",
+          "CM"
+        ],
+        "primary_role": "AM_W",
+        "eligible_roles": [
+          "AM_W",
+          "CM"
+        ],
+        "role_suitability": {
+          "AM_W": 1,
+          "CM": 0.85
+        },
+        "source": "FIFA16 + curated demo mapping"
+      },
+      "general": {
+        "overall": 80,
+        "threat": 76.7,
+        "creation": 87.2,
+        "progression": 80.4,
+        "retention": 76.8,
+        "defense": 55.5,
+        "aerial": 60.9
+      },
+      "season_signal": {
+        "history_minutes": 1163.1,
+        "appearances": 16,
+        "history_flag": "OK",
+        "adjustment": {
+          "threat": 0.39,
+          "creation": 0.03,
+          "progression": -1.88,
+          "retention": -1.22,
+          "defense": 2.13
+        }
+      },
+      "recent_5": {
+        "team_match_ids": [
+          "3754255",
+          "3754051",
+          "3754343",
+          "3754226",
+          "3754251"
+        ],
+        "appearances": 5,
+        "starts": 4,
+        "minutes": 379.7,
+        "raw_p90": {
+          "npxg": 0.178,
+          "box_presence": 3.792,
+          "xa": 0.242,
+          "box_passes": 0.948,
+          "prog_passes": 5.452,
+          "prog_carries": 4.741,
+          "pressures": 18.014,
+          "def_actions": 8.77
+        },
+        "retention_rate": 0.63,
+        "dimension_z": {
+          "threat": 0.593,
+          "creation": 0.442,
+          "progression": 0.17,
+          "retention": -1.144,
+          "defense": 0.381
+        },
+        "reliability": {
+          "threat": 0.405,
+          "creation": 0.401,
+          "progression": 0.653,
+          "retention": 0.634,
+          "defense": 0.521
+        },
+        "delta_from_general": {
+          "threat": 0.91,
+          "creation": 0.69,
+          "progression": 0.44,
+          "retention": -2.44,
+          "defense": 0.78
+        },
+        "scores": {
+          "threat": 77.6,
+          "creation": 87.9,
+          "progression": 80.8,
+          "retention": 74.4,
+          "defense": 56.3
+        },
+        "per_match": {
+          "3754051": {
+            "minutes": 73.3,
+            "started": true,
+            "npxg": 0.183,
+            "box_presence": 3,
+            "xa": 0,
+            "box_passes": 0,
+            "prog_passes": 4,
+            "prog_carries": 2,
+            "pressures": 14,
+            "def_actions": 4,
+            "ball_actions": 34,
+            "ball_losses": 11
+          },
+          "3754226": {
+            "minutes": 95,
+            "started": true,
+            "npxg": 0,
+            "box_presence": 4,
+            "xa": 0.378,
+            "box_passes": 1,
+            "prog_passes": 3,
+            "prog_carries": 3,
+            "pressures": 21,
+            "def_actions": 10,
+            "ball_actions": 32,
+            "ball_losses": 16
+          },
+          "3754251": {
+            "minutes": 34.5,
+            "started": false,
+            "npxg": 0,
+            "box_presence": 1,
+            "xa": 0,
+            "box_passes": 1,
+            "prog_passes": 5,
+            "prog_carries": 4,
+            "pressures": 5,
+            "def_actions": 5,
+            "ball_actions": 15,
+            "ball_losses": 5
+          },
+          "3754255": {
+            "minutes": 85,
+            "started": true,
+            "npxg": 0.406,
+            "box_presence": 3,
+            "xa": 0.583,
+            "box_passes": 2,
+            "prog_passes": 6,
+            "prog_carries": 2,
+            "pressures": 10,
+            "def_actions": 5,
+            "ball_actions": 44,
+            "ball_losses": 10
+          },
+          "3754343": {
+            "minutes": 91.9,
+            "started": true,
+            "npxg": 0.16,
+            "box_presence": 5,
+            "xa": 0.058,
+            "box_passes": 0,
+            "prog_passes": 5,
+            "prog_carries": 9,
+            "pressures": 26,
+            "def_actions": 13,
+            "ball_actions": 48,
+            "ball_losses": 22
+          }
+        }
+      },
+      "physical": {
+        "height_cm": 172,
+        "preferred_foot": "Right",
+        "fifa16_pace": 73,
+        "fifa16_physic": 67,
+        "max_speed_kmh": 31.7,
+        "meters_per_minute": 118.9,
+        "hsr_distance_90": 610.5,
+        "hsr_count_90": 57.3,
+        "sprint_distance_90": 194.4,
+        "sprint_count_90": 10.8,
+        "high_accel_90": 6.5,
+        "high_decel_90": 16.5,
+        "source": "SYNTHETIC: FIFA16 attributes + SkillCorner role reference",
+        "is_observed": false
+      },
+      "aerial_evidence": {
+        "score": 59.5,
+        "reliability": 0.592,
+        "aerial_duels_p90": 3.25,
+        "aerial_win_rate": 0.318,
+        "headers_p90": 1.16
+      }
+    },
+    {
+      "player_id": 3380,
+      "name": "Christian Benteke",
+      "team": "Liverpool",
+      "fifa16": {
+        "overall": 80,
+        "pace": 77,
+        "shooting": 78,
+        "passing": 64,
+        "dribbling": 70,
+        "defending": 37,
+        "physic": 82,
+        "height_cm": 190,
+        "preferred_foot": "Right"
+      },
+      "positions": {
+        "fifa_positions": [
+          "ST"
+        ],
+        "primary_role": "ST",
+        "eligible_roles": [
+          "ST"
+        ],
+        "role_suitability": {
+          "ST": 1
+        },
+        "source": "FIFA16 + curated demo mapping"
+      },
+      "general": {
+        "overall": 80,
+        "threat": 82.8,
+        "creation": 61.9,
+        "progression": 62.9,
+        "retention": 69.7,
+        "defense": 44.4,
+        "aerial": 82.8
+      },
+      "season_signal": {
+        "history_minutes": 1235.7,
+        "appearances": 17,
+        "history_flag": "OK",
+        "adjustment": {
+          "threat": 1.09,
+          "creation": 0.31,
+          "progression": -1.45,
+          "retention": 0.04,
+          "defense": -1.58
+        }
+      },
+      "recent_5": {
+        "team_match_ids": [
+          "3754255",
+          "3754051",
+          "3754343",
+          "3754226",
+          "3754251"
+        ],
+        "appearances": 5,
+        "starts": 3,
+        "minutes": 363.9,
+        "raw_p90": {
+          "npxg": 0.69,
+          "box_presence": 8.162,
+          "xa": 0.15,
+          "box_passes": 0.989,
+          "prog_passes": 2.473,
+          "prog_carries": 2.226,
+          "pressures": 8.657,
+          "def_actions": 1.484
+        },
+        "retention_rate": 0.603,
+        "dimension_z": {
+          "threat": 3.518,
+          "creation": 0.087,
+          "progression": -0.884,
+          "retention": -1.443,
+          "defense": -1.595
+        },
+        "reliability": {
+          "threat": 0.395,
+          "creation": 0.391,
+          "progression": 0.643,
+          "retention": 0.567,
+          "defense": 0.511
+        },
+        "delta_from_general": {
+          "threat": 2.33,
+          "creation": 0.14,
+          "progression": -2.04,
+          "retention": -2.54,
+          "defense": -2.41
+        },
+        "scores": {
+          "threat": 85.1,
+          "creation": 62,
+          "progression": 60.9,
+          "retention": 67.2,
+          "defense": 42
+        },
+        "per_match": {
+          "3754051": {
+            "minutes": 21.5,
+            "started": false,
+            "npxg": 0.066,
+            "box_presence": 0,
+            "xa": 0,
+            "box_passes": 1,
+            "prog_passes": 2,
+            "prog_carries": 0,
+            "pressures": 0,
+            "def_actions": 0,
+            "ball_actions": 6,
+            "ball_losses": 1
+          },
+          "3754226": {
+            "minutes": 95,
+            "started": true,
+            "npxg": 0.946,
+            "box_presence": 7,
+            "xa": 0.151,
+            "box_passes": 1,
+            "prog_passes": 3,
+            "prog_carries": 4,
+            "pressures": 10,
+            "def_actions": 1,
+            "ball_actions": 33,
+            "ball_losses": 15
+          },
+          "3754251": {
+            "minutes": 95,
+            "started": true,
+            "npxg": 0.447,
+            "box_presence": 8,
+            "xa": 0.04,
+            "box_passes": 0,
+            "prog_passes": 3,
+            "prog_carries": 1,
+            "pressures": 11,
+            "def_actions": 2,
+            "ball_actions": 34,
+            "ball_losses": 14
+          },
+          "3754255": {
+            "minutes": 95,
+            "started": true,
+            "npxg": 0.617,
+            "box_presence": 12,
+            "xa": 0.417,
+            "box_passes": 2,
+            "prog_passes": 2,
+            "prog_carries": 2,
+            "pressures": 5,
+            "def_actions": 1,
+            "ball_actions": 33,
+            "ball_losses": 10
+          },
+          "3754343": {
+            "minutes": 57.3,
+            "started": false,
+            "npxg": 0.713,
+            "box_presence": 6,
+            "xa": 0,
+            "box_passes": 0,
+            "prog_passes": 0,
+            "prog_carries": 2,
+            "pressures": 9,
+            "def_actions": 2,
+            "ball_actions": 25,
+            "ball_losses": 12
+          }
+        }
+      },
+      "physical": {
+        "height_cm": 190,
+        "preferred_foot": "Right",
+        "fifa16_pace": 77,
+        "fifa16_physic": 82,
+        "max_speed_kmh": 32.05,
+        "meters_per_minute": 121.3,
+        "hsr_distance_90": 585.3,
+        "hsr_count_90": 54.5,
+        "sprint_distance_90": 167.7,
+        "sprint_count_90": 9.8,
+        "high_accel_90": 6.6,
+        "high_decel_90": 14.4,
+        "source": "SYNTHETIC: FIFA16 attributes + SkillCorner role reference",
+        "is_observed": false
+      },
+      "aerial_evidence": {
+        "score": 91,
+        "reliability": 0.918,
+        "aerial_duels_p90": 13.77,
+        "aerial_win_rate": 0.504,
+        "headers_p90": 1.68
+      }
+    },
+    {
+      "player_id": 3473,
+      "name": "James Milner",
+      "team": "Liverpool",
+      "fifa16": {
+        "overall": 80,
+        "pace": 71,
+        "shooting": 79,
+        "passing": 81,
+        "dribbling": 77,
+        "defending": 69,
+        "physic": 74,
+        "height_cm": 176,
+        "preferred_foot": "Right"
+      },
+      "positions": {
+        "fifa_positions": [
+          "CM",
+          "RM",
+          "LM"
+        ],
+        "primary_role": "CM",
+        "eligible_roles": [
+          "CM",
+          "AM_W"
+        ],
+        "role_suitability": {
+          "CM": 1,
+          "AM_W": 0.85
+        },
+        "source": "FIFA16 + curated demo mapping"
+      },
+      "general": {
+        "overall": 80,
+        "threat": 79.3,
+        "creation": 84,
+        "progression": 80.1,
+        "retention": 76.7,
+        "defense": 70.6,
+        "aerial": 65.5
+      },
+      "season_signal": {
+        "history_minutes": 1418.8,
+        "appearances": 15,
+        "history_flag": "OK",
+        "adjustment": {
+          "threat": 1.42,
+          "creation": 2.04,
+          "progression": 1.02,
+          "retention": -1.27,
+          "defense": 0.61
+        }
+      },
+      "recent_5": {
+        "team_match_ids": [
+          "3754255",
+          "3754051",
+          "3754343",
+          "3754226",
+          "3754251"
+        ],
+        "appearances": 1,
+        "starts": 1,
+        "minutes": 93.7,
+        "raw_p90": {
+          "npxg": 0.131,
+          "box_presence": 3.842,
+          "xa": 0.132,
+          "box_passes": 2.882,
+          "prog_passes": 10.566,
+          "prog_carries": 4.803,
+          "pressures": 23.052,
+          "def_actions": 7.684
+        },
+        "retention_rate": 0.638,
+        "dimension_z": {
+          "threat": 0.444,
+          "creation": 0.989,
+          "progression": 0.965,
+          "retention": -1.06,
+          "defense": 0.582
+        },
+        "reliability": {
+          "threat": 0.15,
+          "creation": 0.144,
+          "progression": 0.318,
+          "retention": 0.408,
+          "defense": 0.215
+        },
+        "delta_from_general": {
+          "threat": 0.26,
+          "creation": 0.5,
+          "progression": 1.08,
+          "retention": -1.49,
+          "defense": 0.48
+        },
+        "scores": {
+          "threat": 79.6,
+          "creation": 84.5,
+          "progression": 81.2,
+          "retention": 75.2,
+          "defense": 71.1
+        },
+        "per_match": {
+          "3754051": {
+            "minutes": 0,
+            "started": false,
+            "npxg": 0,
+            "box_presence": 0,
+            "xa": 0,
+            "box_passes": 0,
+            "prog_passes": 0,
+            "prog_carries": 0,
+            "pressures": 0,
+            "def_actions": 0,
+            "ball_actions": 0,
+            "ball_losses": 0
+          },
+          "3754226": {
+            "minutes": 0,
+            "started": false,
+            "npxg": 0,
+            "box_presence": 0,
+            "xa": 0,
+            "box_passes": 0,
+            "prog_passes": 0,
+            "prog_carries": 0,
+            "pressures": 0,
+            "def_actions": 0,
+            "ball_actions": 0,
+            "ball_losses": 0
+          },
+          "3754251": {
+            "minutes": 0,
+            "started": false,
+            "npxg": 0,
+            "box_presence": 0,
+            "xa": 0,
+            "box_passes": 0,
+            "prog_passes": 0,
+            "prog_carries": 0,
+            "pressures": 0,
+            "def_actions": 0,
+            "ball_actions": 0,
+            "ball_losses": 0
+          },
+          "3754255": {
+            "minutes": 93.7,
+            "started": true,
+            "npxg": 0.136,
+            "box_presence": 4,
+            "xa": 0.137,
+            "box_passes": 3,
+            "prog_passes": 11,
+            "prog_carries": 5,
+            "pressures": 24,
+            "def_actions": 8,
+            "ball_actions": 69,
+            "ball_losses": 25
+          },
+          "3754343": {
+            "minutes": 0,
+            "started": false,
+            "npxg": 0,
+            "box_presence": 0,
+            "xa": 0,
+            "box_passes": 0,
+            "prog_passes": 0,
+            "prog_carries": 0,
+            "pressures": 0,
+            "def_actions": 0,
+            "ball_actions": 0,
+            "ball_losses": 0
+          }
+        }
+      },
+      "physical": {
+        "height_cm": 176,
+        "preferred_foot": "Right",
+        "fifa16_pace": 71,
+        "fifa16_physic": 74,
+        "max_speed_kmh": 31.54,
+        "meters_per_minute": 123.7,
+        "hsr_distance_90": 547.5,
+        "hsr_count_90": 46.8,
+        "sprint_distance_90": 113.9,
+        "sprint_count_90": 6.5,
+        "high_accel_90": 3.8,
+        "high_decel_90": 11.7,
+        "source": "SYNTHETIC: FIFA16 attributes + SkillCorner role reference",
+        "is_observed": false
+      },
+      "aerial_evidence": {
+        "score": 38,
+        "reliability": 0.552,
+        "aerial_duels_p90": 3.11,
+        "aerial_win_rate": 0.5,
+        "headers_p90": 0.63
+      }
+    },
+    {
+      "player_id": 4590,
+      "name": "Nathaniel Clyne",
+      "team": "Liverpool",
+      "fifa16": {
+        "overall": 80,
+        "pace": 86,
+        "shooting": 59,
+        "passing": 69,
+        "dribbling": 78,
+        "defending": 78,
+        "physic": 77,
+        "height_cm": 175,
+        "preferred_foot": "Right"
+      },
+      "positions": {
+        "fifa_positions": [
+          "RB",
+          "RWB"
+        ],
+        "primary_role": "FB",
+        "eligible_roles": [
+          "FB"
+        ],
+        "role_suitability": {
+          "FB": 1
+        },
+        "source": "FIFA16 + curated demo mapping"
+      },
+      "general": {
+        "overall": 80,
+        "threat": 60.7,
+        "creation": 61.9,
+        "progression": 80.8,
+        "retention": 74,
+        "defense": 78.9,
+        "aerial": 66.7
+      },
+      "season_signal": {
+        "history_minutes": 1938.8,
+        "appearances": 20,
+        "history_flag": "OK",
+        "adjustment": {
+          "threat": 0.19,
+          "creation": 0.09,
+          "progression": 2.4,
+          "retention": -0.7,
+          "defense": 1.06
+        }
+      },
+      "recent_5": {
+        "team_match_ids": [
+          "3754255",
+          "3754051",
+          "3754343",
+          "3754226",
+          "3754251"
+        ],
+        "appearances": 5,
+        "starts": 5,
+        "minutes": 475,
+        "raw_p90": {
+          "npxg": 0.014,
+          "box_presence": 1.137,
+          "xa": 0.044,
+          "box_passes": 1.137,
+          "prog_passes": 6.821,
+          "prog_carries": 3.979,
+          "pressures": 8.905,
+          "def_actions": 6.253
+        },
+        "retention_rate": 0.676,
+        "dimension_z": {
+          "threat": -0.675,
+          "creation": -0.273,
+          "progression": 0.197,
+          "retention": -0.636,
+          "defense": -0.753
+        },
+        "reliability": {
+          "threat": 0.457,
+          "creation": 0.456,
+          "progression": 0.702,
+          "retention": 0.742,
+          "defense": 0.576
+        },
+        "delta_from_general": {
+          "threat": -1.16,
+          "creation": -0.49,
+          "progression": 0.55,
+          "retention": -1.78,
+          "defense": -1.6
+        },
+        "scores": {
+          "threat": 59.5,
+          "creation": 61.4,
+          "progression": 81.4,
+          "retention": 72.2,
+          "defense": 77.3
+        },
+        "per_match": {
+          "3754051": {
+            "minutes": 95,
+            "started": true,
+            "npxg": 0.032,
+            "box_presence": 1,
+            "xa": 0,
+            "box_passes": 0,
+            "prog_passes": 9,
+            "prog_carries": 4,
+            "pressures": 14,
+            "def_actions": 6,
+            "ball_actions": 61,
+            "ball_losses": 22
+          },
+          "3754226": {
+            "minutes": 95,
+            "started": true,
+            "npxg": 0.006,
+            "box_presence": 0,
+            "xa": 0.141,
+            "box_passes": 2,
+            "prog_passes": 6,
+            "prog_carries": 2,
+            "pressures": 8,
+            "def_actions": 5,
+            "ball_actions": 41,
+            "ball_losses": 12
+          },
+          "3754251": {
+            "minutes": 95,
+            "started": true,
+            "npxg": 0,
+            "box_presence": 1,
+            "xa": 0,
+            "box_passes": 1,
+            "prog_passes": 7,
+            "prog_carries": 4,
+            "pressures": 13,
+            "def_actions": 12,
+            "ball_actions": 47,
+            "ball_losses": 22
+          },
+          "3754255": {
+            "minutes": 95,
+            "started": true,
+            "npxg": 0.036,
+            "box_presence": 3,
+            "xa": 0.036,
+            "box_passes": 1,
+            "prog_passes": 3,
+            "prog_carries": 5,
+            "pressures": 4,
+            "def_actions": 6,
+            "ball_actions": 70,
+            "ball_losses": 13
+          },
+          "3754343": {
+            "minutes": 95,
+            "started": true,
+            "npxg": 0,
+            "box_presence": 1,
+            "xa": 0.058,
+            "box_passes": 2,
+            "prog_passes": 11,
+            "prog_carries": 6,
+            "pressures": 8,
+            "def_actions": 4,
+            "ball_actions": 68,
+            "ball_losses": 24
+          }
+        }
+      },
+      "physical": {
+        "height_cm": 175,
+        "preferred_foot": "Right",
+        "fifa16_pace": 86,
+        "fifa16_physic": 77,
+        "max_speed_kmh": 32.81,
+        "meters_per_minute": 115.7,
+        "hsr_distance_90": 654.4,
+        "hsr_count_90": 60,
+        "sprint_distance_90": 226.1,
+        "sprint_count_90": 12.4,
+        "high_accel_90": 7.3,
+        "high_decel_90": 18,
+        "source": "SYNTHETIC: FIFA16 attributes + SkillCorner role reference",
+        "is_observed": false
+      },
+      "aerial_evidence": {
+        "score": 11.9,
+        "reliability": 0.546,
+        "aerial_duels_p90": 1.9,
+        "aerial_win_rate": 0.516,
+        "headers_p90": 1.07
+      }
+    },
+    {
+      "player_id": 3532,
+      "name": "Jordan Henderson",
+      "team": "Liverpool",
+      "fifa16": {
+        "overall": 79,
+        "pace": 74,
+        "shooting": 71,
+        "passing": 81,
+        "dribbling": 75,
+        "defending": 70,
+        "physic": 82,
+        "height_cm": 182,
+        "preferred_foot": "Right"
+      },
+      "positions": {
+        "fifa_positions": [
+          "CM",
+          "CDM",
+          "RM"
+        ],
+        "primary_role": "CM",
+        "eligible_roles": [
+          "CM",
+          "AM_W"
+        ],
+        "role_suitability": {
+          "CM": 1,
+          "AM_W": 0.85
+        },
+        "source": "FIFA16 + curated demo mapping"
+      },
+      "general": {
+        "overall": 79,
+        "threat": 72.7,
+        "creation": 81.9,
+        "progression": 80.5,
+        "retention": 78.9,
+        "defense": 73.2,
+        "aerial": 72.3
+      },
+      "season_signal": {
+        "history_minutes": 537.8,
+        "appearances": 7,
+        "history_flag": "OK",
+        "adjustment": {
+          "threat": 0.79,
+          "creation": 1.13,
+          "progression": 1.37,
+          "retention": 0.72,
+          "defense": 0.84
+        }
+      },
+      "recent_5": {
+        "team_match_ids": [
+          "3754255",
+          "3754051",
+          "3754343",
+          "3754226",
+          "3754251"
+        ],
+        "appearances": 4,
+        "starts": 4,
+        "minutes": 345.6,
+        "raw_p90": {
+          "npxg": 0.217,
+          "box_presence": 1.563,
+          "xa": 0.128,
+          "box_passes": 2.865,
+          "prog_passes": 11.459,
+          "prog_carries": 2.604,
+          "pressures": 15.626,
+          "def_actions": 7.552
+        },
+        "retention_rate": 0.702,
+        "dimension_z": {
+          "threat": 0.138,
+          "creation": 0.963,
+          "progression": 0.577,
+          "retention": -0.348,
+          "defense": -0.012
+        },
+        "reliability": {
+          "threat": 0.384,
+          "creation": 0.379,
+          "progression": 0.632,
+          "retention": 0.718,
+          "defense": 0.498
+        },
+        "delta_from_general": {
+          "threat": 0.21,
+          "creation": 1.29,
+          "progression": 1.39,
+          "retention": -0.98,
+          "defense": -0.02
+        },
+        "scores": {
+          "threat": 72.9,
+          "creation": 83.2,
+          "progression": 81.9,
+          "retention": 77.9,
+          "defense": 73.2
+        },
+        "per_match": {
+          "3754051": {
+            "minutes": 95,
+            "started": true,
+            "npxg": 0.156,
+            "box_presence": 3,
+            "xa": 0.175,
+            "box_passes": 3,
+            "prog_passes": 11,
+            "prog_carries": 4,
+            "pressures": 16,
+            "def_actions": 5,
+            "ball_actions": 62,
+            "ball_losses": 24
+          },
+          "3754226": {
+            "minutes": 60.6,
+            "started": true,
+            "npxg": 0.064,
+            "box_presence": 0,
+            "xa": 0,
+            "box_passes": 2,
+            "prog_passes": 7,
+            "prog_carries": 2,
+            "pressures": 12,
+            "def_actions": 5,
+            "ball_actions": 38,
+            "ball_losses": 6
+          },
+          "3754251": {
+            "minutes": 0,
+            "started": false,
+            "npxg": 0,
+            "box_presence": 0,
+            "xa": 0,
+            "box_passes": 0,
+            "prog_passes": 0,
+            "prog_carries": 0,
+            "pressures": 0,
+            "def_actions": 0,
+            "ball_actions": 0,
+            "ball_losses": 0
+          },
+          "3754255": {
+            "minutes": 95,
+            "started": true,
+            "npxg": 0.614,
+            "box_presence": 2,
+            "xa": 0,
+            "box_passes": 4,
+            "prog_passes": 14,
+            "prog_carries": 3,
+            "pressures": 9,
+            "def_actions": 9,
+            "ball_actions": 89,
+            "ball_losses": 23
+          },
+          "3754343": {
+            "minutes": 95,
+            "started": true,
+            "npxg": 0,
+            "box_presence": 1,
+            "xa": 0.315,
+            "box_passes": 2,
+            "prog_passes": 12,
+            "prog_carries": 1,
+            "pressures": 23,
+            "def_actions": 10,
+            "ball_actions": 66,
+            "ball_losses": 23
+          }
+        }
+      },
+      "physical": {
+        "height_cm": 182,
+        "preferred_foot": "Right",
+        "fifa16_pace": 74,
+        "fifa16_physic": 82,
+        "max_speed_kmh": 31.79,
+        "meters_per_minute": 125.6,
+        "hsr_distance_90": 557.3,
+        "hsr_count_90": 47.5,
+        "sprint_distance_90": 116.9,
+        "sprint_count_90": 6.6,
+        "high_accel_90": 3.8,
+        "high_decel_90": 11.9,
+        "source": "SYNTHETIC: FIFA16 attributes + SkillCorner role reference",
+        "is_observed": false
+      },
+      "aerial_evidence": {
+        "score": 36.9,
+        "reliability": 0.4,
+        "aerial_duels_p90": 1.84,
+        "aerial_win_rate": 0.523,
+        "headers_p90": 0.84
+      }
+    },
+    {
+      "player_id": 7780,
+      "name": "Lucas Leiva",
+      "team": "Liverpool",
+      "fifa16": {
+        "overall": 79,
+        "pace": 56,
+        "shooting": 48,
+        "passing": 73,
+        "dribbling": 73,
+        "defending": 78,
+        "physic": 80,
+        "height_cm": 179,
+        "preferred_foot": "Right"
+      },
+      "positions": {
+        "fifa_positions": [
+          "CDM",
+          "CM",
+          "CB"
+        ],
+        "primary_role": "CM",
+        "eligible_roles": [
+          "CM",
+          "CB"
+        ],
+        "role_suitability": {
+          "CM": 1,
+          "CB": 0.85
+        },
+        "source": "FIFA16 + curated demo mapping"
+      },
+      "general": {
+        "overall": 79,
+        "threat": 51.6,
+        "creation": 72.4,
+        "progression": 71.4,
+        "retention": 73.6,
+        "defense": 81,
+        "aerial": 73.2
+      },
+      "season_signal": {
+        "history_minutes": 1330.9,
+        "appearances": 16,
+        "history_flag": "OK",
+        "adjustment": {
+          "threat": -0.96,
+          "creation": -0.1,
+          "progression": 0.62,
+          "retention": -0.46,
+          "defense": 2.62
+        }
+      },
+      "recent_5": {
+        "team_match_ids": [
+          "3754255",
+          "3754051",
+          "3754343",
+          "3754226",
+          "3754251"
+        ],
+        "appearances": 4,
+        "starts": 2,
+        "minutes": 228.8,
+        "raw_p90": {
+          "npxg": 0.1,
+          "box_presence": 0.393,
+          "xa": 0.023,
+          "box_passes": 0.393,
+          "prog_passes": 7.475,
+          "prog_carries": 0.393,
+          "pressures": 20.064,
+          "def_actions": 11.802
+        },
+        "retention_rate": 0.675,
+        "dimension_z": {
+          "threat": -0.576,
+          "creation": -0.745,
+          "progression": -0.558,
+          "retention": -0.643,
+          "defense": 1.062
+        },
+        "reliability": {
+          "threat": 0.296,
+          "creation": 0.289,
+          "progression": 0.532,
+          "retention": 0.606,
+          "defense": 0.398
+        },
+        "delta_from_general": {
+          "threat": -0.65,
+          "creation": -0.8,
+          "progression": -1.14,
+          "retention": -1.47,
+          "defense": 1.45
+        },
+        "scores": {
+          "threat": 51,
+          "creation": 71.6,
+          "progression": 70.3,
+          "retention": 72.1,
+          "defense": 82.5
+        },
+        "per_match": {
+          "3754051": {
+            "minutes": 95,
+            "started": true,
+            "npxg": 0,
+            "box_presence": 0,
+            "xa": 0,
+            "box_passes": 0,
+            "prog_passes": 6,
+            "prog_carries": 0,
+            "pressures": 17,
+            "def_actions": 9,
+            "ball_actions": 63,
+            "ball_losses": 22
+          },
+          "3754226": {
+            "minutes": 34.4,
+            "started": false,
+            "npxg": 0,
+            "box_presence": 0,
+            "xa": 0.032,
+            "box_passes": 0,
+            "prog_passes": 2,
+            "prog_carries": 1,
+            "pressures": 8,
+            "def_actions": 7,
+            "ball_actions": 21,
+            "ball_losses": 10
+          },
+          "3754251": {
+            "minutes": 95,
+            "started": true,
+            "npxg": 0.254,
+            "box_presence": 1,
+            "xa": 0.026,
+            "box_passes": 1,
+            "prog_passes": 11,
+            "prog_carries": 0,
+            "pressures": 25,
+            "def_actions": 14,
+            "ball_actions": 69,
+            "ball_losses": 18
+          },
+          "3754255": {
+            "minutes": 0,
+            "started": false,
+            "npxg": 0,
+            "box_presence": 0,
+            "xa": 0,
+            "box_passes": 0,
+            "prog_passes": 0,
+            "prog_carries": 0,
+            "pressures": 0,
+            "def_actions": 0,
+            "ball_actions": 0,
+            "ball_losses": 0
+          },
+          "3754343": {
+            "minutes": 4.3,
+            "started": false,
+            "npxg": 0,
+            "box_presence": 0,
+            "xa": 0,
+            "box_passes": 0,
+            "prog_passes": 0,
+            "prog_carries": 0,
+            "pressures": 1,
+            "def_actions": 0,
+            "ball_actions": 1,
+            "ball_losses": 0
+          }
+        }
+      },
+      "physical": {
+        "height_cm": 179,
+        "preferred_foot": "Right",
+        "fifa16_pace": 56,
+        "fifa16_physic": 80,
+        "max_speed_kmh": 30.26,
+        "meters_per_minute": 123,
+        "hsr_distance_90": 498.5,
+        "hsr_count_90": 43.3,
+        "sprint_distance_90": 98.6,
+        "sprint_count_90": 5.7,
+        "high_accel_90": 3.4,
+        "high_decel_90": 11.9,
+        "source": "SYNTHETIC: FIFA16 attributes + SkillCorner role reference",
+        "is_observed": false
+      },
+      "aerial_evidence": {
+        "score": 86.5,
+        "reliability": 0.523,
+        "aerial_duels_p90": 4.53,
+        "aerial_win_rate": 0.537,
+        "headers_p90": 1.35
+      }
+    },
+    {
+      "player_id": 38412,
+      "name": "Kolo Touré",
+      "team": "Liverpool",
+      "fifa16": {
+        "overall": 78,
+        "pace": 67,
+        "shooting": 57,
+        "passing": 64,
+        "dribbling": 57,
+        "defending": 79,
+        "physic": 78,
+        "height_cm": 178,
+        "preferred_foot": "Right"
+      },
+      "positions": {
+        "fifa_positions": [
+          "CB"
+        ],
+        "primary_role": "CB",
+        "eligible_roles": [
+          "CB"
+        ],
+        "role_suitability": {
+          "CB": 1
+        },
+        "source": "FIFA16 + curated demo mapping"
+      },
+      "general": {
+        "overall": 78,
+        "threat": 50,
+        "creation": 46.9,
+        "progression": 59.3,
+        "retention": 62.6,
+        "defense": 78.8,
+        "aerial": 69.5
+      },
+      "season_signal": {
+        "history_minutes": 8.5,
+        "appearances": 3,
+        "history_flag": "VERY_LOW_MINUTES",
+        "adjustment": {
+          "threat": 0,
+          "creation": 0,
+          "progression": -0.01,
+          "retention": -0.01,
+          "defense": 0
+        }
+      },
+      "recent_5": {
+        "team_match_ids": [
+          "3754255",
+          "3754051",
+          "3754343",
+          "3754226",
+          "3754251"
+        ],
+        "appearances": 1,
+        "starts": 0,
+        "minutes": 2.2,
+        "raw_p90": {
+          "npxg": 0,
+          "box_presence": 0,
+          "xa": 0,
+          "box_passes": 0,
+          "prog_passes": 0,
+          "prog_carries": 0,
+          "pressures": 0,
+          "def_actions": 0
+        },
+        "retention_rate": 0.5,
+        "dimension_z": {
+          "threat": -1.025,
+          "creation": -1.043,
+          "progression": -1.792,
+          "retention": -2.585,
+          "defense": -2.516
+        },
+        "reliability": {
+          "threat": 0.004,
+          "creation": 0.004,
+          "progression": 0.011,
+          "retention": 0.02,
+          "defense": 0.006
+        },
+        "delta_from_general": {
+          "threat": -0.02,
+          "creation": -0.01,
+          "progression": -0.05,
+          "retention": -0.11,
+          "defense": -0.04
+        },
+        "scores": {
+          "threat": 50,
+          "creation": 46.9,
+          "progression": 59.2,
+          "retention": 62.5,
+          "defense": 78.8
+        },
+        "per_match": {
+          "3754051": {
+            "minutes": 0,
+            "started": false,
+            "npxg": 0,
+            "box_presence": 0,
+            "xa": 0,
+            "box_passes": 0,
+            "prog_passes": 0,
+            "prog_carries": 0,
+            "pressures": 0,
+            "def_actions": 0,
+            "ball_actions": 0,
+            "ball_losses": 0
+          },
+          "3754226": {
+            "minutes": 2.2,
+            "started": false,
+            "npxg": 0,
+            "box_presence": 0,
+            "xa": 0,
+            "box_passes": 0,
+            "prog_passes": 0,
+            "prog_carries": 0,
+            "pressures": 0,
+            "def_actions": 0,
+            "ball_actions": 2,
+            "ball_losses": 1
+          },
+          "3754251": {
+            "minutes": 0,
+            "started": false,
+            "npxg": 0,
+            "box_presence": 0,
+            "xa": 0,
+            "box_passes": 0,
+            "prog_passes": 0,
+            "prog_carries": 0,
+            "pressures": 0,
+            "def_actions": 0,
+            "ball_actions": 0,
+            "ball_losses": 0
+          },
+          "3754255": {
+            "minutes": 0,
+            "started": false,
+            "npxg": 0,
+            "box_presence": 0,
+            "xa": 0,
+            "box_passes": 0,
+            "prog_passes": 0,
+            "prog_carries": 0,
+            "pressures": 0,
+            "def_actions": 0,
+            "ball_actions": 0,
+            "ball_losses": 0
+          },
+          "3754343": {
+            "minutes": 0,
+            "started": false,
+            "npxg": 0,
+            "box_presence": 0,
+            "xa": 0,
+            "box_passes": 0,
+            "prog_passes": 0,
+            "prog_carries": 0,
+            "pressures": 0,
+            "def_actions": 0,
+            "ball_actions": 0,
+            "ball_losses": 0
+          }
+        }
+      },
+      "physical": {
+        "height_cm": 178,
+        "preferred_foot": "Right",
+        "fifa16_pace": 67,
+        "fifa16_physic": 78,
+        "max_speed_kmh": 31.2,
+        "meters_per_minute": 106.7,
+        "hsr_distance_90": 387.6,
+        "hsr_count_90": 36.1,
+        "sprint_distance_90": 105,
+        "sprint_count_90": 6.1,
+        "high_accel_90": 4.5,
+        "high_decel_90": 10.8,
+        "source": "SYNTHETIC: FIFA16 attributes + SkillCorner role reference",
+        "is_observed": false
+      },
+      "aerial_evidence": {
+        "score": 65.3,
+        "reliability": 0.017,
+        "aerial_duels_p90": 10.61,
+        "aerial_win_rate": 0.35,
+        "headers_p90": 10.61
+      }
+    },
+    {
+      "player_id": 3539,
+      "name": "Simon Mignolet",
+      "team": "Liverpool",
+      "fifa16": {
+        "overall": 78,
+        "pace": 57,
+        "shooting": 24,
+        "passing": 37,
+        "dribbling": 37,
+        "defending": 16,
+        "physic": 52,
+        "height_cm": 193,
+        "preferred_foot": "Right",
+        "gk_diving": 82,
+        "gk_handling": 73,
+        "gk_kicking": 65,
+        "gk_positioning": 72,
+        "gk_reflexes": 84
+      },
+      "positions": {
+        "fifa_positions": [
+          "GK"
+        ],
+        "primary_role": "GK",
+        "eligible_roles": [
+          "GK"
+        ],
+        "role_suitability": {
+          "GK": 1
+        },
+        "source": "FIFA16 + curated demo mapping"
+      },
+      "general": {
+        "overall": 78,
+        "goalkeeping": 78,
+        "threat": null,
+        "creation": null,
+        "progression": null,
+        "retention": null,
+        "defense": null,
+        "aerial": 74.2
+      },
+      "season_signal": {
+        "history_minutes": 1842.4,
+        "appearances": 19,
+        "history_flag": "OK",
+        "adjustment": {
+          "threat": 0,
+          "creation": 0,
+          "progression": -1.36,
+          "retention": 0.56,
+          "defense": 0
+        }
+      },
+      "recent_5": {
+        "team_match_ids": [
+          "3754255",
+          "3754051",
+          "3754343",
+          "3754226",
+          "3754251"
+        ],
+        "appearances": 4,
+        "starts": 4,
+        "minutes": 380,
+        "raw_p90": {
+          "npxg": 0,
+          "box_presence": 0,
+          "xa": 0,
+          "box_passes": 0,
+          "prog_passes": 0,
+          "prog_carries": 0,
+          "pressures": 0,
+          "def_actions": 4.026
+        },
+        "retention_rate": 0.676,
+        "dimension_z": {
+          "threat": -1.025,
+          "creation": -1.043,
+          "progression": -1.792,
+          "retention": -0.635,
+          "defense": -1.822
+        },
+        "reliability": {
+          "threat": 0.405,
+          "creation": 0.402,
+          "progression": 0.653,
+          "retention": 0.415,
+          "defense": 0.521
+        },
+        "delta_from_general": {
+          "threat": null,
+          "creation": null,
+          "progression": null,
+          "retention": null,
+          "defense": null
+        },
+        "scores": {
+          "threat": null,
+          "creation": null,
+          "progression": null,
+          "retention": null,
+          "defense": null
+        },
+        "per_match": {
+          "3754051": {
+            "minutes": 0,
+            "started": false,
+            "npxg": 0,
+            "box_presence": 0,
+            "xa": 0,
+            "box_passes": 0,
+            "prog_passes": 0,
+            "prog_carries": 0,
+            "pressures": 0,
+            "def_actions": 0,
+            "ball_actions": 0,
+            "ball_losses": 0
+          },
+          "3754226": {
+            "minutes": 95,
+            "started": true,
+            "npxg": 0,
+            "box_presence": 0,
+            "xa": 0,
+            "box_passes": 0,
+            "prog_passes": 0,
+            "prog_carries": 0,
+            "pressures": 0,
+            "def_actions": 3,
+            "ball_actions": 13,
+            "ball_losses": 7
+          },
+          "3754251": {
+            "minutes": 95,
+            "started": true,
+            "npxg": 0,
+            "box_presence": 0,
+            "xa": 0,
+            "box_passes": 0,
+            "prog_passes": 0,
+            "prog_carries": 0,
+            "pressures": 0,
+            "def_actions": 4,
+            "ball_actions": 18,
+            "ball_losses": 3
+          },
+          "3754255": {
+            "minutes": 95,
+            "started": true,
+            "npxg": 0,
+            "box_presence": 0,
+            "xa": 0,
+            "box_passes": 0,
+            "prog_passes": 0,
+            "prog_carries": 0,
+            "pressures": 0,
+            "def_actions": 6,
+            "ball_actions": 21,
+            "ball_losses": 5
+          },
+          "3754343": {
+            "minutes": 95,
+            "started": true,
+            "npxg": 0,
+            "box_presence": 0,
+            "xa": 0,
+            "box_passes": 0,
+            "prog_passes": 0,
+            "prog_carries": 0,
+            "pressures": 0,
+            "def_actions": 4,
+            "ball_actions": 19,
+            "ball_losses": 8
+          }
+        }
+      },
+      "physical": {
+        "height_cm": 193,
+        "preferred_foot": "Right",
+        "fifa16_pace": 57,
+        "fifa16_physic": 52,
+        "max_speed_kmh": 30.34,
+        "meters_per_minute": 52.8,
+        "hsr_distance_90": 55.3,
+        "hsr_count_90": 7.5,
+        "sprint_distance_90": 22.1,
+        "sprint_count_90": 1.8,
+        "high_accel_90": 1.8,
+        "high_decel_90": 2.8,
+        "source": "SYNTHETIC: FIFA16 attributes + SkillCorner role reference",
+        "is_observed": false
+      },
+      "aerial_evidence": {
+        "score": null,
+        "reliability": null,
+        "aerial_duels_p90": 0,
+        "aerial_win_rate": 0.5,
+        "headers_p90": 0
+      }
+    },
+    {
+      "player_id": 3515,
+      "name": "Alberto Moreno",
+      "team": "Liverpool",
+      "fifa16": {
+        "overall": 77,
+        "pace": 87,
+        "shooting": 62,
+        "passing": 66,
+        "dribbling": 81,
+        "defending": 71,
+        "physic": 74,
+        "height_cm": 171,
+        "preferred_foot": "Left"
+      },
+      "positions": {
+        "fifa_positions": [
+          "LB",
+          "LWB"
+        ],
+        "primary_role": "FB",
+        "eligible_roles": [
+          "FB"
+        ],
+        "role_suitability": {
+          "FB": 1
+        },
+        "source": "FIFA16 + curated demo mapping"
+      },
+      "general": {
+        "overall": 77,
+        "threat": 64.3,
+        "creation": 62.4,
+        "progression": 79.4,
+        "retention": 74.3,
+        "defense": 74,
+        "aerial": 61.3
+      },
+      "season_signal": {
+        "history_minutes": 1503.9,
+        "appearances": 19,
+        "history_flag": "OK",
+        "adjustment": {
+          "threat": 0.9,
+          "creation": 1.8,
+          "progression": 0.9,
+          "retention": -0.44,
+          "defense": 2.43
+        }
+      },
+      "recent_5": {
+        "team_match_ids": [
+          "3754255",
+          "3754051",
+          "3754343",
+          "3754226",
+          "3754251"
+        ],
+        "appearances": 5,
+        "starts": 5,
+        "minutes": 440.8,
+        "raw_p90": {
+          "npxg": 0.034,
+          "box_presence": 1.634,
+          "xa": 0.187,
+          "box_passes": 1.634,
+          "prog_passes": 6.943,
+          "prog_carries": 3.471,
+          "pressures": 14.09,
+          "def_actions": 7.964
+        },
+        "retention_rate": 0.683,
+        "dimension_z": {
+          "threat": -0.473,
+          "creation": 0.571,
+          "progression": 0.095,
+          "retention": -0.559,
+          "defense": -0.059
+        },
+        "reliability": {
+          "threat": 0.44,
+          "creation": 0.437,
+          "progression": 0.686,
+          "retention": 0.711,
+          "defense": 0.557
+        },
+        "delta_from_general": {
+          "threat": -0.81,
+          "creation": 0.95,
+          "progression": 0.26,
+          "retention": -1.52,
+          "defense": -0.13
+        },
+        "scores": {
+          "threat": 63.5,
+          "creation": 63.4,
+          "progression": 79.7,
+          "retention": 72.8,
+          "defense": 73.9
+        },
+        "per_match": {
+          "3754051": {
+            "minutes": 95,
+            "started": true,
+            "npxg": 0.018,
+            "box_presence": 3,
+            "xa": 0.041,
+            "box_passes": 1,
+            "prog_passes": 3,
+            "prog_carries": 3,
+            "pressures": 14,
+            "def_actions": 7,
+            "ball_actions": 56,
+            "ball_losses": 16
+          },
+          "3754226": {
+            "minutes": 95,
+            "started": true,
+            "npxg": 0,
+            "box_presence": 1,
+            "xa": 0.095,
+            "box_passes": 0,
+            "prog_passes": 4,
+            "prog_carries": 1,
+            "pressures": 16,
+            "def_actions": 9,
+            "ball_actions": 47,
+            "ball_losses": 17
+          },
+          "3754251": {
+            "minutes": 60.8,
+            "started": true,
+            "npxg": 0.06,
+            "box_presence": 2,
+            "xa": 0.147,
+            "box_passes": 1,
+            "prog_passes": 5,
+            "prog_carries": 6,
+            "pressures": 11,
+            "def_actions": 8,
+            "ball_actions": 33,
+            "ball_losses": 14
+          },
+          "3754255": {
+            "minutes": 95,
+            "started": true,
+            "npxg": 0.049,
+            "box_presence": 1,
+            "xa": 0.553,
+            "box_passes": 3,
+            "prog_passes": 10,
+            "prog_carries": 6,
+            "pressures": 9,
+            "def_actions": 10,
+            "ball_actions": 58,
+            "ball_losses": 16
+          },
+          "3754343": {
+            "minutes": 95,
+            "started": true,
+            "npxg": 0.042,
+            "box_presence": 1,
+            "xa": 0.079,
+            "box_passes": 3,
+            "prog_passes": 12,
+            "prog_carries": 1,
+            "pressures": 19,
+            "def_actions": 5,
+            "ball_actions": 52,
+            "ball_losses": 15
+          }
+        }
+      },
+      "physical": {
+        "height_cm": 171,
+        "preferred_foot": "Left",
+        "fifa16_pace": 87,
+        "fifa16_physic": 74,
+        "max_speed_kmh": 32.9,
+        "meters_per_minute": 115.3,
+        "hsr_distance_90": 658,
+        "hsr_count_90": 60.3,
+        "sprint_distance_90": 227.9,
+        "sprint_count_90": 12.5,
+        "high_accel_90": 7.3,
+        "high_decel_90": 17.8,
+        "source": "SYNTHETIC: FIFA16 attributes + SkillCorner role reference",
+        "is_observed": false
+      },
+      "aerial_evidence": {
+        "score": 16,
+        "reliability": 0.507,
+        "aerial_duels_p90": 1.56,
+        "aerial_win_rate": 0.54,
+        "headers_p90": 0.84
+      }
+    },
+    {
+      "player_id": 10931,
+      "name": "Joe Allen",
+      "team": "Liverpool",
+      "fifa16": {
+        "overall": 76,
+        "pace": 65,
+        "shooting": 56,
+        "passing": 77,
+        "dribbling": 81,
+        "defending": 64,
+        "physic": 69,
+        "height_cm": 168,
+        "preferred_foot": "Right"
+      },
+      "positions": {
+        "fifa_positions": [
+          "CM",
+          "CDM"
+        ],
+        "primary_role": "CM",
+        "eligible_roles": [
+          "CM"
+        ],
+        "role_suitability": {
+          "CM": 1
+        },
+        "source": "FIFA16 + curated demo mapping"
+      },
+      "general": {
+        "overall": 76,
+        "threat": 61.2,
+        "creation": 78.6,
+        "progression": 76.9,
+        "retention": 77.5,
+        "defense": 65.5,
+        "aerial": 57.6
+      },
+      "season_signal": {
+        "history_minutes": 142.2,
+        "appearances": 6,
+        "history_flag": "LOW_MINUTES",
+        "adjustment": {
+          "threat": 0.56,
+          "creation": 0.92,
+          "progression": -0.46,
+          "retention": -0.29,
+          "defense": 0.48
+        }
+      },
+      "recent_5": {
+        "team_match_ids": [
+          "3754255",
+          "3754051",
+          "3754343",
+          "3754226",
+          "3754251"
+        ],
+        "appearances": 2,
+        "starts": 0,
+        "minutes": 17,
+        "raw_p90": {
+          "npxg": 0.529,
+          "box_presence": 5.284,
+          "xa": 0,
+          "box_passes": 0,
+          "prog_passes": 5.284,
+          "prog_carries": 5.284,
+          "pressures": 26.419,
+          "def_actions": 5.284
+        },
+        "retention_rate": 0.75,
+        "dimension_z": {
+          "threat": 2.2,
+          "creation": -1.043,
+          "progression": 0.274,
+          "retention": 0.184,
+          "defense": 0.427
+        },
+        "reliability": {
+          "threat": 0.032,
+          "creation": 0.03,
+          "progression": 0.078,
+          "retention": 0.074,
+          "defense": 0.048
+        },
+        "delta_from_general": {
+          "threat": 0.17,
+          "creation": -0.11,
+          "progression": 0.08,
+          "retention": 0.05,
+          "defense": 0.08
+        },
+        "scores": {
+          "threat": 61.4,
+          "creation": 78.5,
+          "progression": 77,
+          "retention": 77.6,
+          "defense": 65.6
+        },
+        "per_match": {
+          "3754051": {
+            "minutes": 0,
+            "started": false,
+            "npxg": 0,
+            "box_presence": 0,
+            "xa": 0,
+            "box_passes": 0,
+            "prog_passes": 0,
+            "prog_carries": 0,
+            "pressures": 0,
+            "def_actions": 0,
+            "ball_actions": 0,
+            "ball_losses": 0
+          },
+          "3754226": {
+            "minutes": 0,
+            "started": false,
+            "npxg": 0,
+            "box_presence": 0,
+            "xa": 0,
+            "box_passes": 0,
+            "prog_passes": 0,
+            "prog_carries": 0,
+            "pressures": 0,
+            "def_actions": 0,
+            "ball_actions": 0,
+            "ball_losses": 0
+          },
+          "3754251": {
+            "minutes": 13.9,
+            "started": false,
+            "npxg": 0.1,
+            "box_presence": 1,
+            "xa": 0,
+            "box_passes": 0,
+            "prog_passes": 1,
+            "prog_carries": 1,
+            "pressures": 5,
+            "def_actions": 1,
+            "ball_actions": 8,
+            "ball_losses": 2
+          },
+          "3754255": {
+            "minutes": 0,
+            "started": false,
+            "npxg": 0,
+            "box_presence": 0,
+            "xa": 0,
+            "box_passes": 0,
+            "prog_passes": 0,
+            "prog_carries": 0,
+            "pressures": 0,
+            "def_actions": 0,
+            "ball_actions": 0,
+            "ball_losses": 0
+          },
+          "3754343": {
+            "minutes": 3.1,
+            "started": false,
+            "npxg": 0,
+            "box_presence": 0,
+            "xa": 0,
+            "box_passes": 0,
+            "prog_passes": 0,
+            "prog_carries": 0,
+            "pressures": 0,
+            "def_actions": 0,
+            "ball_actions": 0,
+            "ball_losses": 0
+          }
+        }
+      },
+      "physical": {
+        "height_cm": 168,
+        "preferred_foot": "Right",
+        "fifa16_pace": 65,
+        "fifa16_physic": 69,
+        "max_speed_kmh": 31.02,
+        "meters_per_minute": 122.1,
+        "hsr_distance_90": 527.9,
+        "hsr_count_90": 45.4,
+        "sprint_distance_90": 107.8,
+        "sprint_count_90": 6.2,
+        "high_accel_90": 3.6,
+        "high_decel_90": 11.5,
+        "source": "SYNTHETIC: FIFA16 attributes + SkillCorner role reference",
+        "is_observed": false
+      },
+      "aerial_evidence": {
+        "score": 53.8,
+        "reliability": 0.156,
+        "aerial_duels_p90": 5.06,
+        "aerial_win_rate": 0.52,
+        "headers_p90": 0.63
+      }
+    },
+    {
+      "player_id": 9958,
+      "name": "Steven Caulker",
+      "team": "Liverpool",
+      "fifa16": {
+        "overall": 76,
+        "pace": 72,
+        "shooting": 32,
+        "passing": 59,
+        "dribbling": 63,
+        "defending": 77,
+        "physic": 76,
+        "height_cm": 191,
+        "preferred_foot": "Right"
+      },
+      "positions": {
+        "fifa_positions": [
+          "CB"
+        ],
+        "primary_role": "CB",
+        "eligible_roles": [
+          "CB"
+        ],
+        "role_suitability": {
+          "CB": 1
+        },
+        "source": "FIFA16 + curated demo mapping"
+      },
+      "general": {
+        "overall": 76,
+        "threat": 32.8,
+        "creation": 42.1,
+        "progression": 60.8,
+        "retention": 63.5,
+        "defense": 76.7,
+        "aerial": 78.7
+      },
+      "season_signal": {
+        "history_minutes": 161.1,
+        "appearances": 3,
+        "history_flag": "LOW_MINUTES",
+        "adjustment": {
+          "threat": 0.16,
+          "creation": -0.01,
+          "progression": 0.15,
+          "retention": -0.09,
+          "defense": -0.06
+        }
+      },
+      "recent_5": {
+        "team_match_ids": [
+          "3754255",
+          "3754051",
+          "3754343",
+          "3754226",
+          "3754251"
+        ],
+        "appearances": 0,
+        "starts": 0,
+        "minutes": 0,
+        "raw_p90": {
+          "npxg": null,
+          "box_presence": null,
+          "xa": null,
+          "box_passes": null,
+          "prog_passes": null,
+          "prog_carries": null,
+          "pressures": null,
+          "def_actions": null
+        },
+        "retention_rate": null,
+        "dimension_z": {
+          "threat": null,
+          "creation": null,
+          "progression": null,
+          "retention": null,
+          "defense": null
+        },
+        "reliability": {
+          "threat": 0,
+          "creation": 0,
+          "progression": 0,
+          "retention": 0,
+          "defense": 0
+        },
+        "delta_from_general": {
+          "threat": 0,
+          "creation": 0,
+          "progression": 0,
+          "retention": 0,
+          "defense": 0
+        },
+        "scores": {
+          "threat": 32.8,
+          "creation": 42.1,
+          "progression": 60.8,
+          "retention": 63.5,
+          "defense": 76.7
+        },
+        "per_match": {
+          "3754051": {
+            "minutes": 0,
+            "started": false,
+            "npxg": 0,
+            "box_presence": 0,
+            "xa": 0,
+            "box_passes": 0,
+            "prog_passes": 0,
+            "prog_carries": 0,
+            "pressures": 0,
+            "def_actions": 0,
+            "ball_actions": 0,
+            "ball_losses": 0
+          },
+          "3754226": {
+            "minutes": 0,
+            "started": false,
+            "npxg": 0,
+            "box_presence": 0,
+            "xa": 0,
+            "box_passes": 0,
+            "prog_passes": 0,
+            "prog_carries": 0,
+            "pressures": 0,
+            "def_actions": 0,
+            "ball_actions": 0,
+            "ball_losses": 0
+          },
+          "3754251": {
+            "minutes": 0,
+            "started": false,
+            "npxg": 0,
+            "box_presence": 0,
+            "xa": 0,
+            "box_passes": 0,
+            "prog_passes": 0,
+            "prog_carries": 0,
+            "pressures": 0,
+            "def_actions": 0,
+            "ball_actions": 0,
+            "ball_losses": 0
+          },
+          "3754255": {
+            "minutes": 0,
+            "started": false,
+            "npxg": 0,
+            "box_presence": 0,
+            "xa": 0,
+            "box_passes": 0,
+            "prog_passes": 0,
+            "prog_carries": 0,
+            "pressures": 0,
+            "def_actions": 0,
+            "ball_actions": 0,
+            "ball_losses": 0
+          },
+          "3754343": {
+            "minutes": 0,
+            "started": false,
+            "npxg": 0,
+            "box_presence": 0,
+            "xa": 0,
+            "box_passes": 0,
+            "prog_passes": 0,
+            "prog_carries": 0,
+            "pressures": 0,
+            "def_actions": 0,
+            "ball_actions": 0,
+            "ball_losses": 0
+          }
+        }
+      },
+      "physical": {
+        "height_cm": 191,
+        "preferred_foot": "Right",
+        "fifa16_pace": 72,
+        "fifa16_physic": 76,
+        "max_speed_kmh": 31.62,
+        "meters_per_minute": 106.9,
+        "hsr_distance_90": 399.5,
+        "hsr_count_90": 37,
+        "sprint_distance_90": 109.9,
+        "sprint_count_90": 6.3,
+        "high_accel_90": 4.7,
+        "high_decel_90": 10.7,
+        "source": "SYNTHETIC: FIFA16 attributes + SkillCorner role reference",
+        "is_observed": false
+      },
+      "aerial_evidence": {
+        "score": 55.3,
+        "reliability": 0.14,
+        "aerial_duels_p90": 6.71,
+        "aerial_win_rate": 0.656,
+        "headers_p90": 6.71
+      }
+    },
+    {
+      "player_id": 3493,
+      "name": "Emre Can",
+      "team": "Liverpool",
+      "fifa16": {
+        "overall": 75,
+        "pace": 73,
+        "shooting": 66,
+        "passing": 77,
+        "dribbling": 72,
+        "defending": 74,
+        "physic": 76,
+        "height_cm": 188,
+        "preferred_foot": "Right"
+      },
+      "positions": {
+        "fifa_positions": [
+          "CM",
+          "CDM",
+          "CB"
+        ],
+        "primary_role": "CM",
+        "eligible_roles": [
+          "CM",
+          "CB"
+        ],
+        "role_suitability": {
+          "CM": 1,
+          "CB": 0.85
+        },
+        "source": "FIFA16 + curated demo mapping"
+      },
+      "general": {
+        "overall": 75,
+        "threat": 67.7,
+        "creation": 77.2,
+        "progression": 78.5,
+        "retention": 73.1,
+        "defense": 75.8,
+        "aerial": 76.9
+      },
+      "season_signal": {
+        "history_minutes": 1642.5,
+        "appearances": 19,
+        "history_flag": "OK",
+        "adjustment": {
+          "threat": 0.07,
+          "creation": 0.3,
+          "progression": 2.27,
+          "retention": -1.23,
+          "defense": 1.37
+        }
+      },
+      "recent_5": {
+        "team_match_ids": [
+          "3754255",
+          "3754051",
+          "3754343",
+          "3754226",
+          "3754251"
+        ],
+        "appearances": 5,
+        "starts": 5,
+        "minutes": 475,
+        "raw_p90": {
+          "npxg": 0.069,
+          "box_presence": 1.705,
+          "xa": 0.214,
+          "box_passes": 0.758,
+          "prog_passes": 11.179,
+          "prog_carries": 5.116,
+          "pressures": 18,
+          "def_actions": 13.074
+        },
+        "retention_rate": 0.73,
+        "dimension_z": {
+          "threat": -0.335,
+          "creation": 0.229,
+          "progression": 1.133,
+          "retention": -0.036,
+          "defense": 1.123
+        },
+        "reliability": {
+          "threat": 0.457,
+          "creation": 0.456,
+          "progression": 0.702,
+          "retention": 0.796,
+          "defense": 0.576
+        },
+        "delta_from_general": {
+          "threat": -0.6,
+          "creation": 0.41,
+          "progression": 2.69,
+          "retention": -0.12,
+          "defense": 2.19
+        },
+        "scores": {
+          "threat": 67.1,
+          "creation": 77.6,
+          "progression": 81.2,
+          "retention": 73,
+          "defense": 78
+        },
+        "per_match": {
+          "3754051": {
+            "minutes": 95,
+            "started": true,
+            "npxg": 0.024,
+            "box_presence": 2,
+            "xa": 0.031,
+            "box_passes": 0,
+            "prog_passes": 11,
+            "prog_carries": 3,
+            "pressures": 19,
+            "def_actions": 12,
+            "ball_actions": 74,
+            "ball_losses": 23
+          },
+          "3754226": {
+            "minutes": 95,
+            "started": true,
+            "npxg": 0.106,
+            "box_presence": 2,
+            "xa": 0,
+            "box_passes": 0,
+            "prog_passes": 7,
+            "prog_carries": 1,
+            "pressures": 16,
+            "def_actions": 14,
+            "ball_actions": 68,
+            "ball_losses": 18
+          },
+          "3754251": {
+            "minutes": 95,
+            "started": true,
+            "npxg": 0.041,
+            "box_presence": 1,
+            "xa": 0.962,
+            "box_passes": 1,
+            "prog_passes": 17,
+            "prog_carries": 6,
+            "pressures": 25,
+            "def_actions": 15,
+            "ball_actions": 82,
+            "ball_losses": 22
+          },
+          "3754255": {
+            "minutes": 95,
+            "started": true,
+            "npxg": 0.097,
+            "box_presence": 2,
+            "xa": 0.112,
+            "box_passes": 2,
+            "prog_passes": 14,
+            "prog_carries": 12,
+            "pressures": 20,
+            "def_actions": 13,
+            "ball_actions": 96,
+            "ball_losses": 16
+          },
+          "3754343": {
+            "minutes": 95,
+            "started": true,
+            "npxg": 0.096,
+            "box_presence": 2,
+            "xa": 0.023,
+            "box_passes": 1,
+            "prog_passes": 10,
+            "prog_carries": 5,
+            "pressures": 15,
+            "def_actions": 15,
+            "ball_actions": 69,
+            "ball_losses": 26
+          }
+        }
+      },
+      "physical": {
+        "height_cm": 188,
+        "preferred_foot": "Right",
+        "fifa16_pace": 73,
+        "fifa16_physic": 76,
+        "max_speed_kmh": 31.7,
+        "meters_per_minute": 124.4,
+        "hsr_distance_90": 554,
+        "hsr_count_90": 47.3,
+        "sprint_distance_90": 115.9,
+        "sprint_count_90": 6.6,
+        "high_accel_90": 3.8,
+        "high_decel_90": 11.7,
+        "source": "SYNTHETIC: FIFA16 attributes + SkillCorner role reference",
+        "is_observed": false
+      },
+      "aerial_evidence": {
+        "score": 77.9,
+        "reliability": 0.589,
+        "aerial_duels_p90": 4.22,
+        "aerial_win_rate": 0.527,
+        "headers_p90": 1.1
+      }
+    },
+    {
+      "player_id": 3635,
+      "name": "Jordon Ibe",
+      "team": "Liverpool",
+      "fifa16": {
+        "overall": 71,
+        "pace": 86,
+        "shooting": 64,
+        "passing": 58,
+        "dribbling": 74,
+        "defending": 47,
+        "physic": 63,
+        "height_cm": 175,
+        "preferred_foot": "Right"
+      },
+      "positions": {
+        "fifa_positions": [
+          "RW",
+          "LW",
+          "RM"
+        ],
+        "primary_role": "AM_W",
+        "eligible_roles": [
+          "AM_W"
+        ],
+        "role_suitability": {
+          "AM_W": 1
+        },
+        "source": "FIFA16 + curated demo mapping"
+      },
+      "general": {
+        "overall": 71,
+        "threat": 70.3,
+        "creation": 69.8,
+        "progression": 76,
+        "retention": 67.9,
+        "defense": 50,
+        "aerial": 57
+      },
+      "season_signal": {
+        "history_minutes": 713.7,
+        "appearances": 16,
+        "history_flag": "OK",
+        "adjustment": {
+          "threat": -0.41,
+          "creation": 0.04,
+          "progression": 1.44,
+          "retention": 1.18,
+          "defense": -0.2
+        }
+      },
+      "recent_5": {
+        "team_match_ids": [
+          "3754255",
+          "3754051",
+          "3754343",
+          "3754226",
+          "3754251"
+        ],
+        "appearances": 4,
+        "starts": 1,
+        "minutes": 153.3,
+        "raw_p90": {
+          "npxg": 0.177,
+          "box_presence": 3.522,
+          "xa": 0.046,
+          "box_passes": 1.761,
+          "prog_passes": 4.109,
+          "prog_carries": 8.804,
+          "pressures": 20.543,
+          "def_actions": 7.043
+        },
+        "retention_rate": 0.726,
+        "dimension_z": {
+          "threat": 0.521,
+          "creation": 0.055,
+          "progression": 0.934,
+          "retention": -0.081,
+          "defense": 0.278
+        },
+        "reliability": {
+          "threat": 0.222,
+          "creation": 0.215,
+          "progression": 0.433,
+          "retention": 0.422,
+          "defense": 0.308
+        },
+        "delta_from_general": {
+          "threat": 0.44,
+          "creation": 0.05,
+          "progression": 1.44,
+          "retention": -0.14,
+          "defense": 0.34
+        },
+        "scores": {
+          "threat": 70.7,
+          "creation": 69.8,
+          "progression": 77.4,
+          "retention": 67.8,
+          "defense": 50.3
+        },
+        "per_match": {
+          "3754051": {
+            "minutes": 21.7,
+            "started": false,
+            "npxg": 0.064,
+            "box_presence": 1,
+            "xa": 0,
+            "box_passes": 0,
+            "prog_passes": 1,
+            "prog_carries": 1,
+            "pressures": 3,
+            "def_actions": 7,
+            "ball_actions": 11,
+            "ball_losses": 2
+          },
+          "3754226": {
+            "minutes": 12.4,
+            "started": false,
+            "npxg": 0.148,
+            "box_presence": 1,
+            "xa": 0,
+            "box_passes": 0,
+            "prog_passes": 0,
+            "prog_carries": 1,
+            "pressures": 0,
+            "def_actions": 0,
+            "ball_actions": 2,
+            "ball_losses": 1
+          },
+          "3754251": {
+            "minutes": 95,
+            "started": true,
+            "npxg": 0.053,
+            "box_presence": 4,
+            "xa": 0.024,
+            "box_passes": 3,
+            "prog_passes": 5,
+            "prog_carries": 9,
+            "pressures": 30,
+            "def_actions": 4,
+            "ball_actions": 47,
+            "ball_losses": 13
+          },
+          "3754255": {
+            "minutes": 24.3,
+            "started": false,
+            "npxg": 0.038,
+            "box_presence": 0,
+            "xa": 0.054,
+            "box_passes": 0,
+            "prog_passes": 1,
+            "prog_carries": 4,
+            "pressures": 2,
+            "def_actions": 1,
+            "ball_actions": 13,
+            "ball_losses": 4
+          },
+          "3754343": {
+            "minutes": 0,
+            "started": false,
+            "npxg": 0,
+            "box_presence": 0,
+            "xa": 0,
+            "box_passes": 0,
+            "prog_passes": 0,
+            "prog_carries": 0,
+            "pressures": 0,
+            "def_actions": 0,
+            "ball_actions": 0,
+            "ball_losses": 0
+          }
+        }
+      },
+      "physical": {
+        "height_cm": 175,
+        "preferred_foot": "Right",
+        "fifa16_pace": 86,
+        "fifa16_physic": 63,
+        "max_speed_kmh": 32.81,
+        "meters_per_minute": 119.7,
+        "hsr_distance_90": 657.3,
+        "hsr_count_90": 61,
+        "sprint_distance_90": 216.5,
+        "sprint_count_90": 11.9,
+        "high_accel_90": 7,
+        "high_decel_90": 16.3,
+        "source": "SYNTHETIC: FIFA16 attributes + SkillCorner role reference",
+        "is_observed": false
+      },
+      "aerial_evidence": {
+        "score": 20.6,
+        "reliability": 0.433,
+        "aerial_duels_p90": 1.26,
+        "aerial_win_rate": 0.34,
+        "headers_p90": 0.13
+      }
+    },
+    {
+      "player_id": 10326,
+      "name": "João Carlos Teixeira",
+      "team": "Liverpool",
+      "fifa16": {
+        "overall": 68,
+        "pace": 73,
+        "shooting": 59,
+        "passing": 67,
+        "dribbling": 71,
+        "defending": 33,
+        "physic": 54,
+        "height_cm": 177,
+        "preferred_foot": "Right"
+      },
+      "positions": {
+        "fifa_positions": [
+          "CAM",
+          "CM",
+          "RW"
+        ],
+        "primary_role": "AM_W",
+        "eligible_roles": [
+          "AM_W",
+          "CM"
+        ],
+        "role_suitability": {
+          "AM_W": 1,
+          "CM": 0.85
+        },
+        "source": "FIFA16 + curated demo mapping"
+      },
+      "general": {
+        "overall": 68,
+        "threat": 65.2,
+        "creation": 75,
+        "progression": 73.9,
+        "retention": 67,
+        "defense": 37.2,
+        "aerial": 53.7
+      },
+      "season_signal": {
+        "history_minutes": 0,
+        "appearances": 0,
+        "history_flag": "NO_HISTORY",
+        "adjustment": {
+          "threat": 0,
+          "creation": 0,
+          "progression": 0,
+          "retention": 0,
+          "defense": 0
+        }
+      },
+      "recent_5": {
+        "team_match_ids": [
+          "3754255",
+          "3754051",
+          "3754343",
+          "3754226",
+          "3754251"
+        ],
+        "appearances": 0,
+        "starts": 0,
+        "minutes": 0,
+        "raw_p90": {
+          "npxg": null,
+          "box_presence": null,
+          "xa": null,
+          "box_passes": null,
+          "prog_passes": null,
+          "prog_carries": null,
+          "pressures": null,
+          "def_actions": null
+        },
+        "retention_rate": null,
+        "dimension_z": {
+          "threat": null,
+          "creation": null,
+          "progression": null,
+          "retention": null,
+          "defense": null
+        },
+        "reliability": {
+          "threat": 0,
+          "creation": 0,
+          "progression": 0,
+          "retention": 0,
+          "defense": 0
+        },
+        "delta_from_general": {
+          "threat": 0,
+          "creation": 0,
+          "progression": 0,
+          "retention": 0,
+          "defense": 0
+        },
+        "scores": {
+          "threat": 65.2,
+          "creation": 75,
+          "progression": 73.9,
+          "retention": 67,
+          "defense": 37.2
+        },
+        "per_match": {
+          "3754051": {
+            "minutes": 0,
+            "started": false,
+            "npxg": 0,
+            "box_presence": 0,
+            "xa": 0,
+            "box_passes": 0,
+            "prog_passes": 0,
+            "prog_carries": 0,
+            "pressures": 0,
+            "def_actions": 0,
+            "ball_actions": 0,
+            "ball_losses": 0
+          },
+          "3754226": {
+            "minutes": 0,
+            "started": false,
+            "npxg": 0,
+            "box_presence": 0,
+            "xa": 0,
+            "box_passes": 0,
+            "prog_passes": 0,
+            "prog_carries": 0,
+            "pressures": 0,
+            "def_actions": 0,
+            "ball_actions": 0,
+            "ball_losses": 0
+          },
+          "3754251": {
+            "minutes": 0,
+            "started": false,
+            "npxg": 0,
+            "box_presence": 0,
+            "xa": 0,
+            "box_passes": 0,
+            "prog_passes": 0,
+            "prog_carries": 0,
+            "pressures": 0,
+            "def_actions": 0,
+            "ball_actions": 0,
+            "ball_losses": 0
+          },
+          "3754255": {
+            "minutes": 0,
+            "started": false,
+            "npxg": 0,
+            "box_presence": 0,
+            "xa": 0,
+            "box_passes": 0,
+            "prog_passes": 0,
+            "prog_carries": 0,
+            "pressures": 0,
+            "def_actions": 0,
+            "ball_actions": 0,
+            "ball_losses": 0
+          },
+          "3754343": {
+            "minutes": 0,
+            "started": false,
+            "npxg": 0,
+            "box_presence": 0,
+            "xa": 0,
+            "box_passes": 0,
+            "prog_passes": 0,
+            "prog_carries": 0,
+            "pressures": 0,
+            "def_actions": 0,
+            "ball_actions": 0,
+            "ball_losses": 0
+          }
+        }
+      },
+      "physical": {
+        "height_cm": 177,
+        "preferred_foot": "Right",
+        "fifa16_pace": 73,
+        "fifa16_physic": 54,
+        "max_speed_kmh": 31.7,
+        "meters_per_minute": 116.5,
+        "hsr_distance_90": 610.5,
+        "hsr_count_90": 57.3,
+        "sprint_distance_90": 194.4,
+        "sprint_count_90": 10.8,
+        "high_accel_90": 6.5,
+        "high_decel_90": 15.9,
+        "source": "SYNTHETIC: FIFA16 attributes + SkillCorner role reference",
+        "is_observed": false
+      },
+      "aerial_evidence": null
+    },
+    {
+      "player_id": 9914,
+      "name": "Danny Ward",
+      "team": "Liverpool",
+      "fifa16": {
+        "overall": 65,
+        "pace": 43,
+        "shooting": 17,
+        "passing": 31,
+        "dribbling": 39,
+        "defending": 18,
+        "physic": 41,
+        "height_cm": 191,
+        "preferred_foot": "Right",
+        "gk_diving": 67,
+        "gk_handling": 63,
+        "gk_kicking": 60,
+        "gk_positioning": 62,
+        "gk_reflexes": 69
+      },
+      "positions": {
+        "fifa_positions": [
+          "GK"
+        ],
+        "primary_role": "GK",
+        "eligible_roles": [
+          "GK"
+        ],
+        "role_suitability": {
+          "GK": 1
+        },
+        "source": "FIFA16 + curated demo mapping"
+      },
+      "general": {
+        "overall": 65,
+        "goalkeeping": 65,
+        "threat": null,
+        "creation": null,
+        "progression": null,
+        "retention": null,
+        "defense": null,
+        "aerial": 66.3
+      },
+      "season_signal": {
+        "history_minutes": 0,
+        "appearances": 0,
+        "history_flag": "NO_HISTORY",
+        "adjustment": {
+          "threat": 0,
+          "creation": 0,
+          "progression": 0,
+          "retention": 0,
+          "defense": 0
+        }
+      },
+      "recent_5": {
+        "team_match_ids": [
+          "3754255",
+          "3754051",
+          "3754343",
+          "3754226",
+          "3754251"
+        ],
+        "appearances": 0,
+        "starts": 0,
+        "minutes": 0,
+        "raw_p90": {
+          "npxg": null,
+          "box_presence": null,
+          "xa": null,
+          "box_passes": null,
+          "prog_passes": null,
+          "prog_carries": null,
+          "pressures": null,
+          "def_actions": null
+        },
+        "retention_rate": null,
+        "dimension_z": {
+          "threat": null,
+          "creation": null,
+          "progression": null,
+          "retention": null,
+          "defense": null
+        },
+        "reliability": {
+          "threat": 0,
+          "creation": 0,
+          "progression": 0,
+          "retention": 0,
+          "defense": 0
+        },
+        "delta_from_general": {
+          "threat": null,
+          "creation": null,
+          "progression": null,
+          "retention": null,
+          "defense": null
+        },
+        "scores": {
+          "threat": null,
+          "creation": null,
+          "progression": null,
+          "retention": null,
+          "defense": null
+        },
+        "per_match": {
+          "3754051": {
+            "minutes": 0,
+            "started": false,
+            "npxg": 0,
+            "box_presence": 0,
+            "xa": 0,
+            "box_passes": 0,
+            "prog_passes": 0,
+            "prog_carries": 0,
+            "pressures": 0,
+            "def_actions": 0,
+            "ball_actions": 0,
+            "ball_losses": 0
+          },
+          "3754226": {
+            "minutes": 0,
+            "started": false,
+            "npxg": 0,
+            "box_presence": 0,
+            "xa": 0,
+            "box_passes": 0,
+            "prog_passes": 0,
+            "prog_carries": 0,
+            "pressures": 0,
+            "def_actions": 0,
+            "ball_actions": 0,
+            "ball_losses": 0
+          },
+          "3754251": {
+            "minutes": 0,
+            "started": false,
+            "npxg": 0,
+            "box_presence": 0,
+            "xa": 0,
+            "box_passes": 0,
+            "prog_passes": 0,
+            "prog_carries": 0,
+            "pressures": 0,
+            "def_actions": 0,
+            "ball_actions": 0,
+            "ball_losses": 0
+          },
+          "3754255": {
+            "minutes": 0,
+            "started": false,
+            "npxg": 0,
+            "box_presence": 0,
+            "xa": 0,
+            "box_passes": 0,
+            "prog_passes": 0,
+            "prog_carries": 0,
+            "pressures": 0,
+            "def_actions": 0,
+            "ball_actions": 0,
+            "ball_losses": 0
+          },
+          "3754343": {
+            "minutes": 0,
+            "started": false,
+            "npxg": 0,
+            "box_presence": 0,
+            "xa": 0,
+            "box_passes": 0,
+            "prog_passes": 0,
+            "prog_carries": 0,
+            "pressures": 0,
+            "def_actions": 0,
+            "ball_actions": 0,
+            "ball_losses": 0
+          }
+        }
+      },
+      "physical": {
+        "height_cm": 191,
+        "preferred_foot": "Right",
+        "fifa16_pace": 43,
+        "fifa16_physic": 41,
+        "max_speed_kmh": 29.16,
+        "meters_per_minute": 51.1,
+        "hsr_distance_90": 50.3,
+        "hsr_count_90": 6.9,
+        "sprint_distance_90": 18.9,
+        "sprint_count_90": 1.6,
+        "high_accel_90": 1.7,
+        "high_decel_90": 2.7,
+        "source": "SYNTHETIC: FIFA16 attributes + SkillCorner role reference",
+        "is_observed": false
+      },
+      "aerial_evidence": null
+    },
+    {
+      "player_id": 13448,
+      "name": "Brad Smith",
+      "team": "Liverpool",
+      "fifa16": {
+        "overall": 60,
+        "pace": 78,
+        "shooting": 42,
+        "passing": 48,
+        "dribbling": 60,
+        "defending": 51,
+        "physic": 65,
+        "height_cm": 176,
+        "preferred_foot": "Left"
+      },
+      "positions": {
+        "fifa_positions": [
+          "LB",
+          "LWB",
+          "LM"
+        ],
+        "primary_role": "FB",
+        "eligible_roles": [
+          "FB",
+          "AM_W"
+        ],
+        "role_suitability": {
+          "FB": 1,
+          "AM_W": 0.85
+        },
+        "source": "FIFA16 + curated demo mapping"
+      },
+      "general": {
+        "overall": 60,
+        "threat": 44.3,
+        "creation": 41.8,
+        "progression": 61.7,
+        "retention": 56.5,
+        "defense": 53.9,
+        "aerial": 56.9
+      },
+      "season_signal": {
+        "history_minutes": 32.3,
+        "appearances": 1,
+        "history_flag": "VERY_LOW_MINUTES",
+        "adjustment": {
+          "threat": 0.03,
+          "creation": 0.03,
+          "progression": 0.04,
+          "retention": -0.01,
+          "defense": 0.12
+        }
+      },
+      "recent_5": {
+        "team_match_ids": [
+          "3754255",
+          "3754051",
+          "3754343",
+          "3754226",
+          "3754251"
+        ],
+        "appearances": 1,
+        "starts": 0,
+        "minutes": 34.3,
+        "raw_p90": {
+          "npxg": 0.071,
+          "box_presence": 5.255,
+          "xa": 0.492,
+          "box_passes": 5.255,
+          "prog_passes": 7.883,
+          "prog_carries": 7.883,
+          "pressures": 18.394,
+          "def_actions": 21.022
+        },
+        "retention_rate": 0.737,
+        "dimension_z": {
+          "threat": 0.613,
+          "creation": 3.698,
+          "progression": 1.29,
+          "retention": 0.038,
+          "defense": 2.524
+        },
+        "reliability": {
+          "threat": 0.062,
+          "creation": 0.058,
+          "progression": 0.146,
+          "retention": 0.16,
+          "defense": 0.092
+        },
+        "delta_from_general": {
+          "threat": 0.14,
+          "creation": 0.34,
+          "progression": 0.61,
+          "retention": 0.02,
+          "defense": 0.51
+        },
+        "scores": {
+          "threat": 44.4,
+          "creation": 42.1,
+          "progression": 62.3,
+          "retention": 56.5,
+          "defense": 54.4
+        },
+        "per_match": {
+          "3754051": {
+            "minutes": 0,
+            "started": false,
+            "npxg": 0,
+            "box_presence": 0,
+            "xa": 0,
+            "box_passes": 0,
+            "prog_passes": 0,
+            "prog_carries": 0,
+            "pressures": 0,
+            "def_actions": 0,
+            "ball_actions": 0,
+            "ball_losses": 0
+          },
+          "3754226": {
+            "minutes": 0,
+            "started": false,
+            "npxg": 0,
+            "box_presence": 0,
+            "xa": 0,
+            "box_passes": 0,
+            "prog_passes": 0,
+            "prog_carries": 0,
+            "pressures": 0,
+            "def_actions": 0,
+            "ball_actions": 0,
+            "ball_losses": 0
+          },
+          "3754251": {
+            "minutes": 34.3,
+            "started": false,
+            "npxg": 0.027,
+            "box_presence": 2,
+            "xa": 0.187,
+            "box_passes": 2,
+            "prog_passes": 3,
+            "prog_carries": 3,
+            "pressures": 7,
+            "def_actions": 8,
+            "ball_actions": 19,
+            "ball_losses": 5
+          },
+          "3754255": {
+            "minutes": 0,
+            "started": false,
+            "npxg": 0,
+            "box_presence": 0,
+            "xa": 0,
+            "box_passes": 0,
+            "prog_passes": 0,
+            "prog_carries": 0,
+            "pressures": 0,
+            "def_actions": 0,
+            "ball_actions": 0,
+            "ball_losses": 0
+          },
+          "3754343": {
+            "minutes": 0,
+            "started": false,
+            "npxg": 0,
+            "box_presence": 0,
+            "xa": 0,
+            "box_passes": 0,
+            "prog_passes": 0,
+            "prog_carries": 0,
+            "pressures": 0,
+            "def_actions": 0,
+            "ball_actions": 0,
+            "ball_losses": 0
+          }
+        }
+      },
+      "physical": {
+        "height_cm": 176,
+        "preferred_foot": "Left",
+        "fifa16_pace": 78,
+        "fifa16_physic": 65,
+        "max_speed_kmh": 32.13,
+        "meters_per_minute": 112.8,
+        "hsr_distance_90": 625.7,
+        "hsr_count_90": 57.8,
+        "sprint_distance_90": 211.9,
+        "sprint_count_90": 11.7,
+        "high_accel_90": 6.9,
+        "high_decel_90": 17.4,
+        "source": "SYNTHETIC: FIFA16 attributes + SkillCorner role reference",
+        "is_observed": false
+      },
+      "aerial_evidence": {
+        "score": 44.1,
+        "reliability": 0.048,
+        "aerial_duels_p90": 5.57,
+        "aerial_win_rate": 0.55,
+        "headers_p90": 0
+      }
+    }
+  ]
+}
