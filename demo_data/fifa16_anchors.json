@@ -1,0 +1,684 @@
+{
+  "3380": {
+    "name": "Christian Benteke",
+    "team": "Liverpool",
+    "overall": 80,
+    "pace": 77,
+    "shooting": 78,
+    "passing": 64,
+    "dribbling": 70,
+    "defending": 37,
+    "physic": 82,
+    "height_cm": 190,
+    "foot": "Right",
+    "positions": [
+      "ST"
+    ],
+    "role": "ST"
+  },
+  "3394": {
+    "name": "Laurent Koscielny",
+    "team": "Arsenal",
+    "overall": 84,
+    "pace": 78,
+    "shooting": 42,
+    "passing": 66,
+    "dribbling": 68,
+    "defending": 85,
+    "physic": 81,
+    "height_cm": 186,
+    "foot": "Right",
+    "positions": [
+      "CB"
+    ],
+    "role": "CB"
+  },
+  "3461": {
+    "name": "Petr Čech",
+    "team": "Arsenal",
+    "overall": 86,
+    "pace": 48,
+    "shooting": 16,
+    "passing": 28,
+    "dribbling": 41,
+    "defending": 16,
+    "physic": 41,
+    "height_cm": 196,
+    "foot": "Left",
+    "positions": [
+      "GK"
+    ],
+    "role": "GK",
+    "gk_diving": 83,
+    "gk_handling": 84,
+    "gk_kicking": 77,
+    "gk_positioning": 85,
+    "gk_reflexes": 85
+  },
+  "3473": {
+    "name": "James Milner",
+    "team": "Liverpool",
+    "overall": 80,
+    "pace": 71,
+    "shooting": 79,
+    "passing": 81,
+    "dribbling": 77,
+    "defending": 69,
+    "physic": 74,
+    "height_cm": 176,
+    "foot": "Right",
+    "positions": [
+      "CM",
+      "RM",
+      "LM"
+    ],
+    "role": "CM"
+  },
+  "3475": {
+    "name": "Per Mertesacker",
+    "team": "Arsenal",
+    "overall": 83,
+    "pace": 31,
+    "shooting": 41,
+    "passing": 62,
+    "dribbling": 49,
+    "defending": 87,
+    "physic": 63,
+    "height_cm": 198,
+    "foot": "Right",
+    "positions": [
+      "CB"
+    ],
+    "role": "CB"
+  },
+  "3483": {
+    "name": "Mamadou Sakho",
+    "team": "Liverpool",
+    "overall": 81,
+    "pace": 66,
+    "shooting": 34,
+    "passing": 63,
+    "dribbling": 60,
+    "defending": 80,
+    "physic": 82,
+    "height_cm": 187,
+    "foot": "Left",
+    "positions": [
+      "CB"
+    ],
+    "role": "CB"
+  },
+  "3493": {
+    "name": "Emre Can",
+    "team": "Liverpool",
+    "overall": 75,
+    "pace": 73,
+    "shooting": 66,
+    "passing": 77,
+    "dribbling": 72,
+    "defending": 74,
+    "physic": 76,
+    "height_cm": 188,
+    "foot": "Right",
+    "positions": [
+      "CM",
+      "CDM",
+      "CB"
+    ],
+    "role": "CM"
+  },
+  "3496": {
+    "name": "Mesut Özil",
+    "team": "Arsenal",
+    "overall": 88,
+    "pace": 72,
+    "shooting": 76,
+    "passing": 88,
+    "dribbling": 83,
+    "defending": 27,
+    "physic": 57,
+    "height_cm": 183,
+    "foot": "Left",
+    "positions": [
+      "CAM",
+      "RM",
+      "RW"
+    ],
+    "role": "AM_W"
+  },
+  "3498": {
+    "name": "Nacho Monreal",
+    "team": "Arsenal",
+    "overall": 80,
+    "pace": 77,
+    "shooting": 58,
+    "passing": 68,
+    "dribbling": 75,
+    "defending": 80,
+    "physic": 75,
+    "height_cm": 178,
+    "foot": "Left",
+    "positions": [
+      "LB",
+      "CB"
+    ],
+    "role": "FB"
+  },
+  "3511": {
+    "name": "Héctor Bellerín",
+    "team": "Arsenal",
+    "overall": 77,
+    "pace": 95,
+    "shooting": 53,
+    "passing": 65,
+    "dribbling": 77,
+    "defending": 72,
+    "physic": 69,
+    "height_cm": 177,
+    "foot": "Right",
+    "positions": [
+      "RB",
+      "RWB"
+    ],
+    "role": "FB"
+  },
+  "3515": {
+    "name": "Alberto Moreno",
+    "team": "Liverpool",
+    "overall": 77,
+    "pace": 87,
+    "shooting": 62,
+    "passing": 66,
+    "dribbling": 81,
+    "defending": 71,
+    "physic": 74,
+    "height_cm": 171,
+    "foot": "Left",
+    "positions": [
+      "LB",
+      "LWB"
+    ],
+    "role": "FB"
+  },
+  "3517": {
+    "name": "Aaron Ramsey",
+    "team": "Arsenal",
+    "overall": 82,
+    "pace": 69,
+    "shooting": 78,
+    "passing": 81,
+    "dribbling": 79,
+    "defending": 66,
+    "physic": 75,
+    "height_cm": 177,
+    "foot": "Right",
+    "positions": [
+      "CM",
+      "CDM",
+      "RM",
+      "RW"
+    ],
+    "role": "CM"
+  },
+  "3525": {
+    "name": "Alex Oxlade-Chamberlain",
+    "team": "Arsenal",
+    "overall": 78,
+    "pace": 89,
+    "shooting": 70,
+    "passing": 73,
+    "dribbling": 83,
+    "defending": 42,
+    "physic": 69,
+    "height_cm": 175,
+    "foot": "Right",
+    "positions": [
+      "RW",
+      "RM",
+      "LW",
+      "CM"
+    ],
+    "role": "AM_W"
+  },
+  "3528": {
+    "name": "Kieran Gibbs",
+    "team": "Arsenal",
+    "overall": 79,
+    "pace": 81,
+    "shooting": 60,
+    "passing": 70,
+    "dribbling": 76,
+    "defending": 78,
+    "physic": 72,
+    "height_cm": 178,
+    "foot": "Left",
+    "positions": [
+      "LB",
+      "LWB",
+      "LM"
+    ],
+    "role": "FB"
+  },
+  "3532": {
+    "name": "Jordan Henderson",
+    "team": "Liverpool",
+    "overall": 79,
+    "pace": 74,
+    "shooting": 71,
+    "passing": 81,
+    "dribbling": 75,
+    "defending": 70,
+    "physic": 82,
+    "height_cm": 182,
+    "foot": "Right",
+    "positions": [
+      "CM",
+      "CDM",
+      "RM"
+    ],
+    "role": "CM"
+  },
+  "3535": {
+    "name": "Roberto Firmino",
+    "team": "Liverpool",
+    "overall": 82,
+    "pace": 76,
+    "shooting": 79,
+    "passing": 79,
+    "dribbling": 82,
+    "defending": 42,
+    "physic": 74,
+    "height_cm": 181,
+    "foot": "Right",
+    "positions": [
+      "CAM",
+      "CF",
+      "ST",
+      "RW"
+    ],
+    "role": "AM_W"
+  },
+  "3539": {
+    "name": "Simon Mignolet",
+    "team": "Liverpool",
+    "overall": 78,
+    "pace": 57,
+    "shooting": 24,
+    "passing": 37,
+    "dribbling": 37,
+    "defending": 16,
+    "physic": 52,
+    "height_cm": 193,
+    "foot": "Right",
+    "positions": [
+      "GK"
+    ],
+    "role": "GK",
+    "gk_diving": 82,
+    "gk_handling": 73,
+    "gk_kicking": 65,
+    "gk_positioning": 72,
+    "gk_reflexes": 84
+  },
+  "3604": {
+    "name": "Olivier Giroud",
+    "team": "Arsenal",
+    "overall": 82,
+    "pace": 63,
+    "shooting": 82,
+    "passing": 69,
+    "dribbling": 70,
+    "defending": 42,
+    "physic": 81,
+    "height_cm": 192,
+    "foot": "Left",
+    "positions": [
+      "ST"
+    ],
+    "role": "ST"
+  },
+  "3635": {
+    "name": "Jordon Ibe",
+    "team": "Liverpool",
+    "overall": 71,
+    "pace": 86,
+    "shooting": 64,
+    "passing": 58,
+    "dribbling": 74,
+    "defending": 47,
+    "physic": 63,
+    "height_cm": 175,
+    "foot": "Right",
+    "positions": [
+      "RW",
+      "LW",
+      "RM"
+    ],
+    "role": "AM_W"
+  },
+  "3647": {
+    "name": "Alex Iwobi",
+    "team": "Arsenal",
+    "overall": 69,
+    "pace": 77,
+    "shooting": 57,
+    "passing": 62,
+    "dribbling": 76,
+    "defending": 29,
+    "physic": 58,
+    "height_cm": 180,
+    "foot": "Right",
+    "positions": [
+      "LW",
+      "CAM",
+      "RW"
+    ],
+    "role": "AM_W"
+  },
+  "3668": {
+    "name": "Theo Walcott",
+    "team": "Arsenal",
+    "overall": 81,
+    "pace": 95,
+    "shooting": 75,
+    "passing": 72,
+    "dribbling": 80,
+    "defending": 40,
+    "physic": 67,
+    "height_cm": 176,
+    "foot": "Right",
+    "positions": [
+      "RW",
+      "ST",
+      "RM",
+      "LW"
+    ],
+    "role": "AM_W"
+  },
+  "3713": {
+    "name": "Calum Chambers",
+    "team": "Arsenal",
+    "overall": 72,
+    "pace": 66,
+    "shooting": 52,
+    "passing": 64,
+    "dribbling": 67,
+    "defending": 73,
+    "physic": 74,
+    "height_cm": 183,
+    "foot": "Right",
+    "positions": [
+      "CB",
+      "RB",
+      "CDM",
+      "CM"
+    ],
+    "role": "CB"
+  },
+  "4090": {
+    "name": "Adam Lallana",
+    "team": "Liverpool",
+    "overall": 80,
+    "pace": 73,
+    "shooting": 72,
+    "passing": 80,
+    "dribbling": 80,
+    "defending": 50,
+    "physic": 67,
+    "height_cm": 172,
+    "foot": "Right",
+    "positions": [
+      "CAM",
+      "RW",
+      "LW",
+      "CM"
+    ],
+    "role": "AM_W"
+  },
+  "4590": {
+    "name": "Nathaniel Clyne",
+    "team": "Liverpool",
+    "overall": 80,
+    "pace": 86,
+    "shooting": 59,
+    "passing": 69,
+    "dribbling": 78,
+    "defending": 78,
+    "physic": 77,
+    "height_cm": 175,
+    "foot": "Right",
+    "positions": [
+      "RB",
+      "RWB"
+    ],
+    "role": "FB"
+  },
+  "5581": {
+    "name": "Joel Campbell",
+    "team": "Arsenal",
+    "overall": 76,
+    "pace": 88,
+    "shooting": 73,
+    "passing": 70,
+    "dribbling": 78,
+    "defending": 43,
+    "physic": 74,
+    "height_cm": 178,
+    "foot": "Left",
+    "positions": [
+      "RW",
+      "ST",
+      "RM",
+      "LW"
+    ],
+    "role": "AM_W"
+  },
+  "6631": {
+    "name": "Mathieu Flamini",
+    "team": "Arsenal",
+    "overall": 76,
+    "pace": 67,
+    "shooting": 68,
+    "passing": 72,
+    "dribbling": 71,
+    "defending": 76,
+    "physic": 77,
+    "height_cm": 178,
+    "foot": "Right",
+    "positions": [
+      "CDM",
+      "CM",
+      "RB"
+    ],
+    "role": "CM"
+  },
+  "6746": {
+    "name": "Gabriel Paulista",
+    "team": "Arsenal",
+    "overall": 78,
+    "pace": 70,
+    "shooting": 53,
+    "passing": 66,
+    "dribbling": 69,
+    "defending": 80,
+    "physic": 75,
+    "height_cm": 187,
+    "foot": "Right",
+    "positions": [
+      "CB",
+      "RB"
+    ],
+    "role": "CB"
+  },
+  "7780": {
+    "name": "Lucas Leiva",
+    "team": "Liverpool",
+    "overall": 79,
+    "pace": 56,
+    "shooting": 48,
+    "passing": 73,
+    "dribbling": 73,
+    "defending": 78,
+    "physic": 80,
+    "height_cm": 179,
+    "foot": "Right",
+    "positions": [
+      "CDM",
+      "CM",
+      "CB"
+    ],
+    "role": "CM"
+  },
+  "9417": {
+    "name": "Matt Macey",
+    "team": "Arsenal",
+    "overall": 51,
+    "pace": 33,
+    "shooting": 15,
+    "passing": 25,
+    "dribbling": 32,
+    "defending": 14,
+    "physic": 38,
+    "height_cm": 198,
+    "foot": "Right",
+    "positions": [
+      "GK"
+    ],
+    "role": "GK",
+    "gk_diving": 53,
+    "gk_handling": 49,
+    "gk_kicking": 46,
+    "gk_positioning": 49,
+    "gk_reflexes": 53
+  },
+  "9914": {
+    "name": "Danny Ward",
+    "team": "Liverpool",
+    "overall": 65,
+    "pace": 43,
+    "shooting": 17,
+    "passing": 31,
+    "dribbling": 39,
+    "defending": 18,
+    "physic": 41,
+    "height_cm": 191,
+    "foot": "Right",
+    "positions": [
+      "GK"
+    ],
+    "role": "GK",
+    "gk_diving": 67,
+    "gk_handling": 63,
+    "gk_kicking": 60,
+    "gk_positioning": 62,
+    "gk_reflexes": 69
+  },
+  "9958": {
+    "name": "Steven Caulker",
+    "team": "Liverpool",
+    "overall": 76,
+    "pace": 72,
+    "shooting": 32,
+    "passing": 59,
+    "dribbling": 63,
+    "defending": 77,
+    "physic": 76,
+    "height_cm": 191,
+    "foot": "Right",
+    "positions": [
+      "CB"
+    ],
+    "role": "CB"
+  },
+  "10326": {
+    "name": "João Carlos Teixeira",
+    "team": "Liverpool",
+    "overall": 68,
+    "pace": 73,
+    "shooting": 59,
+    "passing": 67,
+    "dribbling": 71,
+    "defending": 33,
+    "physic": 54,
+    "height_cm": 177,
+    "foot": "Right",
+    "positions": [
+      "CAM",
+      "CM",
+      "RW"
+    ],
+    "role": "AM_W"
+  },
+  "10931": {
+    "name": "Joe Allen",
+    "team": "Liverpool",
+    "overall": 76,
+    "pace": 65,
+    "shooting": 56,
+    "passing": 77,
+    "dribbling": 81,
+    "defending": 64,
+    "physic": 69,
+    "height_cm": 168,
+    "foot": "Right",
+    "positions": [
+      "CM",
+      "CDM"
+    ],
+    "role": "CM"
+  },
+  "13448": {
+    "name": "Brad Smith",
+    "team": "Liverpool",
+    "overall": 60,
+    "pace": 78,
+    "shooting": 42,
+    "passing": 48,
+    "dribbling": 60,
+    "defending": 51,
+    "physic": 65,
+    "height_cm": 176,
+    "foot": "Left",
+    "positions": [
+      "LB",
+      "LWB",
+      "LM"
+    ],
+    "role": "FB"
+  },
+  "38412": {
+    "name": "Kolo Touré",
+    "team": "Liverpool",
+    "overall": 78,
+    "pace": 67,
+    "shooting": 57,
+    "passing": 64,
+    "dribbling": 57,
+    "defending": 79,
+    "physic": 78,
+    "height_cm": 178,
+    "foot": "Right",
+    "positions": [
+      "CB"
+    ],
+    "role": "CB"
+  },
+  "42703": {
+    "name": "Mikel Arteta",
+    "team": "Arsenal",
+    "overall": 78,
+    "pace": 45,
+    "shooting": 75,
+    "passing": 81,
+    "dribbling": 73,
+    "defending": 68,
+    "physic": 67,
+    "height_cm": 175,
+    "foot": "Right",
+    "positions": [
+      "CM",
+      "CDM"
+    ],
+    "role": "CM"
+  }
+}
