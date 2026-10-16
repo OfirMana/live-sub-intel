@@ -1,0 +1,824 @@
+{
+  "3394": {
+    "matches": {
+      "3754069": {
+        "minutes": 95,
+        "started": true,
+        "npxg": 0.5659696599999999,
+        "box_presence": 1,
+        "xa": 0.11279191699999999,
+        "box_passes": 1,
+        "prog_passes": 4,
+        "prog_carries": 1,
+        "pressures": 12,
+        "def_actions": 10,
+        "ball_actions": 37,
+        "ball_losses": 4,
+        "team": "Arsenal",
+        "name": "Laurent Koscielny"
+      },
+      "3754173": {
+        "minutes": 0,
+        "started": false,
+        "npxg": 0,
+        "box_presence": 0,
+        "xa": 0,
+        "box_passes": 0,
+        "prog_passes": 0,
+        "prog_carries": 0,
+        "pressures": 0,
+        "def_actions": 0,
+        "ball_actions": 0,
+        "ball_losses": 0,
+        "team": "Arsenal",
+        "name": "Laurent Koscielny"
+      },
+      "3754309": {
+        "minutes": 95,
+        "started": true,
+        "npxg": 0,
+        "box_presence": 0,
+        "xa": 0,
+        "box_passes": 0,
+        "prog_passes": 7,
+        "prog_carries": 3,
+        "pressures": 11,
+        "def_actions": 13,
+        "ball_actions": 48,
+        "ball_losses": 11,
+        "team": "Arsenal",
+        "name": "Laurent Koscielny"
+      }
+    }
+  },
+  "3461": {
+    "matches": {
+      "3754069": {
+        "minutes": 95,
+        "started": true,
+        "npxg": 0,
+        "box_presence": 0,
+        "xa": 0,
+        "box_passes": 0,
+        "prog_passes": 0,
+        "prog_carries": 0,
+        "pressures": 0,
+        "def_actions": 6,
+        "ball_actions": 22,
+        "ball_losses": 4,
+        "team": "Arsenal",
+        "name": "Petr Čech"
+      },
+      "3754173": {
+        "minutes": 95,
+        "started": true,
+        "npxg": 0,
+        "box_presence": 0,
+        "xa": 0,
+        "box_passes": 0,
+        "prog_passes": 0,
+        "prog_carries": 0,
+        "pressures": 0,
+        "def_actions": 6,
+        "ball_actions": 22,
+        "ball_losses": 12,
+        "team": "Arsenal",
+        "name": "Petr Čech"
+      },
+      "3754309": {
+        "minutes": 95,
+        "started": true,
+        "npxg": 0,
+        "box_presence": 0,
+        "xa": 0,
+        "box_passes": 0,
+        "prog_passes": 0,
+        "prog_carries": 0,
+        "pressures": 0,
+        "def_actions": 3,
+        "ball_actions": 16,
+        "ball_losses": 3,
+        "team": "Arsenal",
+        "name": "Petr Čech"
+      }
+    }
+  },
+  "3475": {
+    "matches": {
+      "3754069": {
+        "minutes": 95,
+        "started": true,
+        "npxg": 0,
+        "box_presence": 0,
+        "xa": 0,
+        "box_passes": 0,
+        "prog_passes": 15,
+        "prog_carries": 2,
+        "pressures": 2,
+        "def_actions": 4,
+        "ball_actions": 59,
+        "ball_losses": 3,
+        "team": "Arsenal",
+        "name": "Per Mertesacker"
+      },
+      "3754173": {
+        "minutes": 95,
+        "started": true,
+        "npxg": 0.53635293,
+        "box_presence": 0,
+        "xa": 0,
+        "box_passes": 0,
+        "prog_passes": 4,
+        "prog_carries": 0,
+        "pressures": 3,
+        "def_actions": 6,
+        "ball_actions": 43,
+        "ball_losses": 4,
+        "team": "Arsenal",
+        "name": "Per Mertesacker"
+      },
+      "3754309": {
+        "minutes": 95,
+        "started": true,
+        "npxg": 0,
+        "box_presence": 0,
+        "xa": 0,
+        "box_passes": 0,
+        "prog_passes": 7,
+        "prog_carries": 2,
+        "pressures": 1,
+        "def_actions": 3,
+        "ball_actions": 58,
+        "ball_losses": 5,
+        "team": "Arsenal",
+        "name": "Per Mertesacker"
+      }
+    }
+  },
+  "3496": {
+    "matches": {
+      "3754069": {
+        "minutes": 95,
+        "started": true,
+        "npxg": 0.052807998,
+        "box_presence": 2,
+        "xa": 0.44995713,
+        "box_passes": 4,
+        "prog_passes": 14,
+        "prog_carries": 4,
+        "pressures": 16,
+        "def_actions": 8,
+        "ball_actions": 70,
+        "ball_losses": 18,
+        "team": "Arsenal",
+        "name": "Mesut Özil"
+      },
+      "3754173": {
+        "minutes": 95,
+        "started": true,
+        "npxg": 0.35733210000000004,
+        "box_presence": 3,
+        "xa": 0.6584692544999999,
+        "box_passes": 6,
+        "prog_passes": 20,
+        "prog_carries": 2,
+        "pressures": 21,
+        "def_actions": 5,
+        "ball_actions": 67,
+        "ball_losses": 13,
+        "team": "Arsenal",
+        "name": "Mesut Özil"
+      },
+      "3754309": {
+        "minutes": 95,
+        "started": true,
+        "npxg": 0.38586125,
+        "box_presence": 3,
+        "xa": 0.13881996,
+        "box_passes": 1,
+        "prog_passes": 6,
+        "prog_carries": 3,
+        "pressures": 4,
+        "def_actions": 0,
+        "ball_actions": 69,
+        "ball_losses": 11,
+        "team": "Arsenal",
+        "name": "Mesut Özil"
+      }
+    }
+  },
+  "3498": {
+    "matches": {
+      "3754069": {
+        "minutes": 95,
+        "started": true,
+        "npxg": 0.044672597,
+        "box_presence": 0,
+        "xa": 0.21500938,
+        "box_passes": 2,
+        "prog_passes": 8,
+        "prog_carries": 0,
+        "pressures": 20,
+        "def_actions": 11,
+        "ball_actions": 44,
+        "ball_losses": 12,
+        "team": "Arsenal",
+        "name": "Nacho Monreal"
+      },
+      "3754173": {
+        "minutes": 13.95,
+        "started": false,
+        "npxg": 0,
+        "box_presence": 0,
+        "xa": 0,
+        "box_passes": 0,
+        "prog_passes": 0,
+        "prog_carries": 0,
+        "pressures": 0,
+        "def_actions": 0,
+        "ball_actions": 5,
+        "ball_losses": 1,
+        "team": "Arsenal",
+        "name": "Nacho Monreal"
+      },
+      "3754309": {
+        "minutes": 95,
+        "started": true,
+        "npxg": 0.090159394,
+        "box_presence": 2,
+        "xa": 0.423011942,
+        "box_passes": 1,
+        "prog_passes": 7,
+        "prog_carries": 4,
+        "pressures": 11,
+        "def_actions": 7,
+        "ball_actions": 60,
+        "ball_losses": 11,
+        "team": "Arsenal",
+        "name": "Nacho Monreal"
+      }
+    }
+  },
+  "3511": {
+    "matches": {
+      "3754069": {
+        "minutes": 95,
+        "started": true,
+        "npxg": 0,
+        "box_presence": 3,
+        "xa": 0.11808057,
+        "box_passes": 0,
+        "prog_passes": 3,
+        "prog_carries": 5,
+        "pressures": 10,
+        "def_actions": 4,
+        "ball_actions": 46,
+        "ball_losses": 15,
+        "team": "Arsenal",
+        "name": "Héctor Bellerín"
+      },
+      "3754173": {
+        "minutes": 95,
+        "started": true,
+        "npxg": 0,
+        "box_presence": 1,
+        "xa": 0.1439676,
+        "box_passes": 2,
+        "prog_passes": 9,
+        "prog_carries": 9,
+        "pressures": 10,
+        "def_actions": 4,
+        "ball_actions": 56,
+        "ball_losses": 12,
+        "team": "Arsenal",
+        "name": "Héctor Bellerín"
+      },
+      "3754309": {
+        "minutes": 95,
+        "started": true,
+        "npxg": 0,
+        "box_presence": 0,
+        "xa": 0,
+        "box_passes": 0,
+        "prog_passes": 6,
+        "prog_carries": 4,
+        "pressures": 2,
+        "def_actions": 4,
+        "ball_actions": 59,
+        "ball_losses": 8,
+        "team": "Arsenal",
+        "name": "Héctor Bellerín"
+      }
+    }
+  },
+  "3517": {
+    "matches": {
+      "3754069": {
+        "minutes": 95,
+        "started": true,
+        "npxg": 0.47112401,
+        "box_presence": 7,
+        "xa": 0.0588617233,
+        "box_passes": 2,
+        "prog_passes": 20,
+        "prog_carries": 7,
+        "pressures": 33,
+        "def_actions": 11,
+        "ball_actions": 80,
+        "ball_losses": 13,
+        "team": "Arsenal",
+        "name": "Aaron Ramsey"
+      },
+      "3754173": {
+        "minutes": 95,
+        "started": true,
+        "npxg": 0,
+        "box_presence": 6,
+        "xa": 0,
+        "box_passes": 0,
+        "prog_passes": 12,
+        "prog_carries": 5,
+        "pressures": 26,
+        "def_actions": 14,
+        "ball_actions": 79,
+        "ball_losses": 18,
+        "team": "Arsenal",
+        "name": "Aaron Ramsey"
+      },
+      "3754309": {
+        "minutes": 95,
+        "started": true,
+        "npxg": 0.033079468,
+        "box_presence": 3,
+        "xa": 0.09061787,
+        "box_passes": 3,
+        "prog_passes": 26,
+        "prog_carries": 9,
+        "pressures": 15,
+        "def_actions": 12,
+        "ball_actions": 90,
+        "ball_losses": 14,
+        "team": "Arsenal",
+        "name": "Aaron Ramsey"
+      }
+    }
+  },
+  "3525": {
+    "matches": {
+      "3754069": {
+        "minutes": 67.88333333333334,
+        "started": true,
+        "npxg": 0.1241342953,
+        "box_presence": 2,
+        "xa": 0.040021766,
+        "box_passes": 3,
+        "prog_passes": 9,
+        "prog_carries": 6,
+        "pressures": 9,
+        "def_actions": 2,
+        "ball_actions": 44,
+        "ball_losses": 14,
+        "team": "Arsenal",
+        "name": "Alex Oxlade-Chamberlain"
+      },
+      "3754173": {
+        "minutes": 92.5,
+        "started": true,
+        "npxg": 0.098797314,
+        "box_presence": 1,
+        "xa": 0,
+        "box_passes": 1,
+        "prog_passes": 7,
+        "prog_carries": 7,
+        "pressures": 25,
+        "def_actions": 9,
+        "ball_actions": 52,
+        "ball_losses": 14,
+        "team": "Arsenal",
+        "name": "Alex Oxlade-Chamberlain"
+      },
+      "3754309": {
+        "minutes": 31.766666666666666,
+        "started": false,
+        "npxg": 0,
+        "box_presence": 0,
+        "xa": 0.04935862,
+        "box_passes": 1,
+        "prog_passes": 2,
+        "prog_carries": 0,
+        "pressures": 4,
+        "def_actions": 4,
+        "ball_actions": 16,
+        "ball_losses": 7,
+        "team": "Arsenal",
+        "name": "Alex Oxlade-Chamberlain"
+      }
+    }
+  },
+  "3528": {
+    "matches": {
+      "3754069": {
+        "minutes": 14.116666666666667,
+        "started": false,
+        "npxg": 0,
+        "box_presence": 0,
+        "xa": 0,
+        "box_passes": 0,
+        "prog_passes": 0,
+        "prog_carries": 0,
+        "pressures": 7,
+        "def_actions": 2,
+        "ball_actions": 5,
+        "ball_losses": 1,
+        "team": "Arsenal",
+        "name": "Kieran Gibbs"
+      },
+      "3754173": {
+        "minutes": 81.05,
+        "started": true,
+        "npxg": 0,
+        "box_presence": 0,
+        "xa": 0,
+        "box_passes": 0,
+        "prog_passes": 8,
+        "prog_carries": 3,
+        "pressures": 8,
+        "def_actions": 10,
+        "ball_actions": 61,
+        "ball_losses": 11,
+        "team": "Arsenal",
+        "name": "Kieran Gibbs"
+      },
+      "3754309": {
+        "minutes": 0,
+        "started": false,
+        "npxg": 0,
+        "box_presence": 0,
+        "xa": 0,
+        "box_passes": 0,
+        "prog_passes": 0,
+        "prog_carries": 0,
+        "pressures": 0,
+        "def_actions": 0,
+        "ball_actions": 0,
+        "ball_losses": 0,
+        "team": "Arsenal",
+        "name": "Kieran Gibbs"
+      }
+    }
+  },
+  "3604": {
+    "matches": {
+      "3754069": {
+        "minutes": 88.15,
+        "started": true,
+        "npxg": 0.398006716,
+        "box_presence": 5,
+        "xa": 0.53183204,
+        "box_passes": 0,
+        "prog_passes": 2,
+        "prog_carries": 3,
+        "pressures": 15,
+        "def_actions": 2,
+        "ball_actions": 36,
+        "ball_losses": 12,
+        "team": "Arsenal",
+        "name": "Olivier Giroud"
+      },
+      "3754173": {
+        "minutes": 79.76666666666667,
+        "started": true,
+        "npxg": 0.301142056,
+        "box_presence": 2,
+        "xa": 0.2133645,
+        "box_passes": 2,
+        "prog_passes": 3,
+        "prog_carries": 3,
+        "pressures": 17,
+        "def_actions": 7,
+        "ball_actions": 28,
+        "ball_losses": 10,
+        "team": "Arsenal",
+        "name": "Olivier Giroud"
+      },
+      "3754309": {
+        "minutes": 95,
+        "started": true,
+        "npxg": 0.14100164399999998,
+        "box_presence": 5,
+        "xa": 0,
+        "box_passes": 0,
+        "prog_passes": 0,
+        "prog_carries": 1,
+        "pressures": 7,
+        "def_actions": 3,
+        "ball_actions": 27,
+        "ball_losses": 12,
+        "team": "Arsenal",
+        "name": "Olivier Giroud"
+      }
+    }
+  },
+  "3647": {
+    "matches": {
+      "3754069": {
+        "minutes": 0,
+        "started": false,
+        "npxg": 0,
+        "box_presence": 0,
+        "xa": 0,
+        "box_passes": 0,
+        "prog_passes": 0,
+        "prog_carries": 0,
+        "pressures": 0,
+        "def_actions": 0,
+        "ball_actions": 0,
+        "ball_losses": 0,
+        "team": "Arsenal",
+        "name": "Alex Iwobi"
+      },
+      "3754173": {
+        "minutes": 2.5,
+        "started": false,
+        "npxg": 0,
+        "box_presence": 0,
+        "xa": 0,
+        "box_passes": 0,
+        "prog_passes": 0,
+        "prog_carries": 0,
+        "pressures": 0,
+        "def_actions": 0,
+        "ball_actions": 0,
+        "ball_losses": 0,
+        "team": "Arsenal",
+        "name": "Alex Iwobi"
+      },
+      "3754309": {
+        "minutes": 17.033333333333335,
+        "started": false,
+        "npxg": 0,
+        "box_presence": 0,
+        "xa": 0,
+        "box_passes": 1,
+        "prog_passes": 1,
+        "prog_carries": 2,
+        "pressures": 0,
+        "def_actions": 0,
+        "ball_actions": 5,
+        "ball_losses": 1,
+        "team": "Arsenal",
+        "name": "Alex Iwobi"
+      }
+    }
+  },
+  "3668": {
+    "matches": {
+      "3754069": {
+        "minutes": 80.88333333333333,
+        "started": true,
+        "npxg": 0.16870451,
+        "box_presence": 5,
+        "xa": 0.034217745,
+        "box_passes": 1,
+        "prog_passes": 2,
+        "prog_carries": 2,
+        "pressures": 14,
+        "def_actions": 5,
+        "ball_actions": 30,
+        "ball_losses": 11,
+        "team": "Arsenal",
+        "name": "Theo Walcott"
+      },
+      "3754173": {
+        "minutes": 95,
+        "started": true,
+        "npxg": 0.24410349799999997,
+        "box_presence": 4,
+        "xa": 0.098797314,
+        "box_passes": 1,
+        "prog_passes": 3,
+        "prog_carries": 2,
+        "pressures": 15,
+        "def_actions": 7,
+        "ball_actions": 32,
+        "ball_losses": 11,
+        "team": "Arsenal",
+        "name": "Theo Walcott"
+      },
+      "3754309": {
+        "minutes": 77.96666666666667,
+        "started": true,
+        "npxg": 0.14186603,
+        "box_presence": 4,
+        "xa": 0,
+        "box_passes": 2,
+        "prog_passes": 3,
+        "prog_carries": 3,
+        "pressures": 3,
+        "def_actions": 7,
+        "ball_actions": 29,
+        "ball_losses": 12,
+        "team": "Arsenal",
+        "name": "Theo Walcott"
+      }
+    }
+  },
+  "3713": {
+    "matches": {
+      "3754069": {
+        "minutes": 6.85,
+        "started": false,
+        "npxg": 0,
+        "box_presence": 0,
+        "xa": 0,
+        "box_passes": 0,
+        "prog_passes": 1,
+        "prog_carries": 0,
+        "pressures": 4,
+        "def_actions": 1,
+        "ball_actions": 4,
+        "ball_losses": 2,
+        "team": "Arsenal",
+        "name": "Calum Chambers"
+      },
+      "3754173": {
+        "minutes": 95,
+        "started": true,
+        "npxg": 0,
+        "box_presence": 0,
+        "xa": 0,
+        "box_passes": 0,
+        "prog_passes": 10,
+        "prog_carries": 1,
+        "pressures": 13,
+        "def_actions": 16,
+        "ball_actions": 64,
+        "ball_losses": 8,
+        "team": "Arsenal",
+        "name": "Calum Chambers"
+      },
+      "3754309": {
+        "minutes": 21.95,
+        "started": false,
+        "npxg": 0,
+        "box_presence": 0,
+        "xa": 0,
+        "box_passes": 0,
+        "prog_passes": 2,
+        "prog_carries": 2,
+        "pressures": 3,
+        "def_actions": 3,
+        "ball_actions": 18,
+        "ball_losses": 3,
+        "team": "Arsenal",
+        "name": "Calum Chambers"
+      }
+    }
+  },
+  "5581": {
+    "matches": {
+      "3754069": {
+        "minutes": 27.116666666666667,
+        "started": false,
+        "npxg": 0,
+        "box_presence": 3,
+        "xa": 0.13016075,
+        "box_passes": 0,
+        "prog_passes": 1,
+        "prog_carries": 2,
+        "pressures": 8,
+        "def_actions": 1,
+        "ball_actions": 11,
+        "ball_losses": 3,
+        "team": "Arsenal",
+        "name": "Joel Campbell"
+      },
+      "3754173": {
+        "minutes": 15.233333333333333,
+        "started": false,
+        "npxg": 0,
+        "box_presence": 0,
+        "xa": 0,
+        "box_passes": 0,
+        "prog_passes": 0,
+        "prog_carries": 0,
+        "pressures": 9,
+        "def_actions": 0,
+        "ball_actions": 5,
+        "ball_losses": 1,
+        "team": "Arsenal",
+        "name": "Joel Campbell"
+      },
+      "3754309": {
+        "minutes": 63.233333333333334,
+        "started": true,
+        "npxg": 0,
+        "box_presence": 0,
+        "xa": 0,
+        "box_passes": 1,
+        "prog_passes": 2,
+        "prog_carries": 0,
+        "pressures": 13,
+        "def_actions": 6,
+        "ball_actions": 27,
+        "ball_losses": 7,
+        "team": "Arsenal",
+        "name": "Joel Campbell"
+      }
+    }
+  },
+  "6631": {
+    "matches": {
+      "3754069": {
+        "minutes": 95,
+        "started": true,
+        "npxg": 0.034217745,
+        "box_presence": 0,
+        "xa": 0,
+        "box_passes": 0,
+        "prog_passes": 6,
+        "prog_carries": 0,
+        "pressures": 27,
+        "def_actions": 9,
+        "ball_actions": 36,
+        "ball_losses": 4,
+        "team": "Arsenal",
+        "name": "Mathieu Flamini"
+      },
+      "3754309": {
+        "minutes": 73.05,
+        "started": true,
+        "npxg": 0,
+        "box_presence": 0,
+        "xa": 0,
+        "box_passes": 0,
+        "prog_passes": 4,
+        "prog_carries": 0,
+        "pressures": 10,
+        "def_actions": 7,
+        "ball_actions": 50,
+        "ball_losses": 8,
+        "team": "Arsenal",
+        "name": "Mathieu Flamini"
+      }
+    }
+  },
+  "6746": {
+    "matches": {
+      "3754069": {
+        "minutes": 0,
+        "started": false,
+        "npxg": 0,
+        "box_presence": 0,
+        "xa": 0,
+        "box_passes": 0,
+        "prog_passes": 0,
+        "prog_carries": 0,
+        "pressures": 0,
+        "def_actions": 0,
+        "ball_actions": 0,
+        "ball_losses": 0,
+        "team": "Arsenal",
+        "name": "Gabriel Paulista"
+      },
+      "3754173": {
+        "minutes": 95,
+        "started": true,
+        "npxg": 0.2138152405,
+        "box_presence": 0,
+        "xa": 0,
+        "box_passes": 0,
+        "prog_passes": 4,
+        "prog_carries": 0,
+        "pressures": 2,
+        "def_actions": 9,
+        "ball_actions": 67,
+        "ball_losses": 6,
+        "team": "Arsenal",
+        "name": "Gabriel Paulista"
+      },
+      "3754309": {
+        "minutes": 0,
+        "started": false,
+        "npxg": 0,
+        "box_presence": 0,
+        "xa": 0,
+        "box_passes": 0,
+        "prog_passes": 0,
+        "prog_carries": 0,
+        "pressures": 0,
+        "def_actions": 0,
+        "ball_actions": 0,
+        "ball_losses": 0,
+        "team": "Arsenal",
+        "name": "Gabriel Paulista"
+      }
+    }
+  },
+  "9417": {
+    "matches": {}
+  },
+  "42703": {
+    "matches": {}
+  }
+}
