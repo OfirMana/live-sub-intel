@@ -19,6 +19,9 @@ def test_reproducible_and_no_future_leakage():
         assert build_player(a, evidence) == actual[a['player_id']]
     assert all(r['date'] < evidence['cutoff'] for r in evidence['rows'])
     assert '3754305' not in evidence['match_ids']
+    assert evidence['team_windows']['Liverpool'] == ['3754251', '3754226', '3754343', '3754051', '3754255']
+    assert evidence['team_windows']['Arsenal'] == ['3754069', '3754173', '3754309', '3754296', '3754117']
+    assert len(evidence['starter_positions']) == 22
 
 
 def test_ratings_caps_and_goalkeepers():

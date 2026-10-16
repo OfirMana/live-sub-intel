@@ -89,6 +89,8 @@ def main():
     for team in ('Liverpool', 'Arsenal'):
         windows[team] = [str(m['match_id']) for m in reversed(before) if team in (m['home_team']['home_team_name'], m['away_team']['away_team_name'])][:5]
     evidence = dict(cutoff=CUTOFF, target_match_id='3754305', team_windows=windows,
+                    starter_positions={str(p['player_id']): ROLE_BY_POSITION[p['positions'][0]['position']].value
+                                       for t in target for p in t['lineup'] if p['positions'] and p['positions'][0]['start_reason'] == 'Starting XI'},
                     match_ids=[str(m['match_id']) for m in before],
                     source=f'{PINNED_OPEN_DATA}/matches/2/27.json',
                     rows=[r for r in all_rows if r['player_id'] in wanted])
@@ -137,10 +139,12 @@ def main():
         conceded = {c: sum(other[mid]['totals'][c] for oid, other in team_games.items() if oid != tid for mid in games if mid in other) / minutes * 90 for c in COMPONENTS}
         evidence['team_baselines'][tid] = dict(p90=own, conceded_p90=conceded,
                                                loss_rate=own['ball_losses'] / max(own['ball_actions'], 1))
+    used_paths = [CACHE/'matches/2/27.json', CACHE/'lineups/3754305.json']
+    used_paths += [CACHE/f'{kind}/{m["match_id"]}.json' for m in before for kind in ('events', 'lineups')]
     evidence['raw_sha256'] = {str(p.relative_to(CACHE)).replace('\\', '/'): hashlib.sha256(p.read_bytes()).hexdigest()
-                              for folder in ('events', 'lineups', 'matches') for p in sorted((CACHE / folder).glob('*.json'))}
+                              for p in sorted(used_paths)}
     out = ROOT / 'demo_data/source_evidence.json'
-    out.write_text(json.dumps(evidence, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
+    out.write_text(json.dumps(evidence, ensure_ascii=False, indent=2) + '\n', encoding='utf-8', newline='\n')
     print(f'{len(before)} pre-cutoff matches; {len(evidence["rows"])} target-player rows -> {out}')
 
 

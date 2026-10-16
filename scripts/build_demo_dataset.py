@@ -17,7 +17,7 @@ DATA = ROOT / 'demo_data'
 
 
 def save(path, data):
-    path.write_text(json.dumps(data, ensure_ascii=False, indent=2, allow_nan=False) + '\n', encoding='utf-8')
+    path.write_text(json.dumps(data, ensure_ascii=False, indent=2, allow_nan=False) + '\n', encoding='utf-8', newline='\n')
 
 
 def refresh_fifa():

@@ -322,3 +322,62 @@ are null for GK. Physical tracking is explicitly synthetic. Source inputs and
 SHA256 evidence are committed; `scripts/build_demo_dataset.py` rebuilds offline.
 The old appearance-based recent helpers remain legacy utilities only.
 The final demo event stream must be synthetic and labelled as such.
+
+## Live demo revision (supersedes formation-change rules in section 8)
+
+`demo_live.py` consumes the canonical cards. `MatchState` now keeps per-player
+cumulative counts, a 12-minute half-life count window, and exponentially weighted
+active minutes. Existing component definitions and five team dimensions remain
+unchanged. Aerial annotations and explicit cross/transition labels are optional
+Event extensions; no aerial annotations means unknown, never zero aerial ability.
+The StatsBomb adapter preserves explicit aerial wins/losses and cross flags.
+
+Expected player component rates shrink pre-match observed counts to pre-cutoff
+role rates with five 90s of prior strength. Recent card rating/75, clipped to
+.65..1.25, moderately scales volume expectations. Attacking opportunities scale
+by recent open-play action share relative to expected share (.6..1.4); defensive
+opportunities use the complementary share. This is a possession proxy, not a
+claim to measure tracking possession. Retention uses actual action opportunities.
+Per-dimension observed-minus-expected signals use Poisson-like variance (xG
+factor .3), tanh(signal/2), and exposure/(exposure+12) confidence. Retention also
+shrinks by actions/(actions+20). The live vector is bounded -1..1 and changes
+prematch card ability by at most four points. Live aerial uses annotated contests
+with attempts/(attempts+10) confidence. Estimated fatigue is
+clip(minutes/110 * (1+(75-stamina)/200) * pressure_intensity,0,1), with intensity
+clipped .8..1.2. It removes at most three points from threat, progression and
+defense. No measured distance or medical fitness is claimed.
+
+The existing team_need function still combines recent output deficits, opponent
+production, score, clock and red cards. Substitutions remaining gate candidate
+availability. Tactical aerial need comes from explicit crosses and late chasing;
+pace/recovery needs use explicit transition labels. Tactical signals are heuristic
+and do not assert that unobserved space or defensive lines were measured.
+
+Generic adjacent-role swaps and late CHASING_SWAP formation changes are disabled
+in the original engine. Demo candidates require the outgoing active role in the
+incoming player's evidence-backed eligibility set; suitability is 1 or .85.
+Both positive gains and losses use existing asymmetric substitution_score, with
+card-point deltas divided by 20. Tactical aerial gain coefficient .1, speed gain
+coefficient .05; all are provisional. Score is multiplied by (.5+.5*minimum
+season reliability), position suitability and remaining minutes/90 (to 94).
+Threshold remains .15. No recommendations before minute 20, at/after minute 94,
+or when substitutions are exhausted. GK recommendations are unsupported.
+Evidence strength is not a probability; no field is named calibrated confidence.
+
+`run_synthetic_demo.py` generates controlled original possessions, passes,
+carries, pressures, recoveries, turnovers, shots, goals and any engine-approved
+substitution. All events are marked synthetic. The exported HTML plays through
+precomputed deterministic checkpoints; it is a local preview, not an Azure live
+service. A deterministic grounded explanation is included; no remote LLM has
+been deployed. A future LLM receives only this JSON and must not create facts.
+
+`benchmark_demo.py` uses match 3754305 and four subsequent Liverpool/Arsenal
+fixtures for research. Cards and baselines stay frozen before 2016-01-13, so no
+future performance leaks into priors. Only players from the definitive 36-player
+dataset are scored; other active players are listed as unavailable_profile_ids.
+No acceptance condition requires any named historical substitution.
+
+The local `serve_demo.py` HTTP/SSE adapter additionally feeds synthetic events to
+a fresh Python engine per viewer and recomputes once per simulated minute.
+It binds only to loopback; **Stream events** uses SSE, while **Play checkpoints**
+uses the exported deterministic snapshots. No cloud deployment is included.
