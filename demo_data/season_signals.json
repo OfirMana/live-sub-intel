@@ -1,0 +1,1208 @@
+{
+  "3380": {
+    "name": "Christian Benteke",
+    "team": "Liverpool",
+    "history_minutes": 1235.7,
+    "appearances": 17,
+    "history_flag": "OK",
+    "threat": {
+      "z": 1.151,
+      "reliability": 0.421
+    },
+    "creation": {
+      "z": 0.238,
+      "reliability": 0.491
+    },
+    "progression": {
+      "z": -0.699,
+      "reliability": 0.836
+    },
+    "retention": {
+      "z": 0.022,
+      "reliability": 0.701
+    },
+    "defense": {
+      "z": -0.92,
+      "reliability": 0.721
+    },
+    "aerial": {
+      "score": 91,
+      "reliability": 0.918,
+      "aerial_duels_p90": 13.77,
+      "aerial_win_rate": 0.504,
+      "headers_p90": 1.68
+    }
+  },
+  "3394": {
+    "name": "Laurent Koscielny",
+    "team": "Arsenal",
+    "history_minutes": 1544.7,
+    "appearances": 17,
+    "history_flag": "OK",
+    "threat": {
+      "z": 1.779,
+      "reliability": 0.381
+    },
+    "creation": {
+      "z": 1.538,
+      "reliability": 0.404
+    },
+    "progression": {
+      "z": 1.355,
+      "reliability": 0.853
+    },
+    "retention": {
+      "z": -0.056,
+      "reliability": 0.593
+    },
+    "defense": {
+      "z": 1.623,
+      "reliability": 0.755
+    },
+    "aerial": {
+      "score": 44.8,
+      "reliability": 0.525,
+      "aerial_duels_p90": 5.54,
+      "aerial_win_rate": 0.635,
+      "headers_p90": 3.61
+    }
+  },
+  "3461": {
+    "name": "Petr Čech",
+    "team": "Arsenal",
+    "history_minutes": 1915.7,
+    "appearances": 20,
+    "history_flag": "OK",
+    "threat": {
+      "z": null,
+      "reliability": null
+    },
+    "creation": {
+      "z": null,
+      "reliability": null
+    },
+    "progression": {
+      "z": -0.645,
+      "reliability": 0.615
+    },
+    "retention": {
+      "z": -0.212,
+      "reliability": 0.474
+    },
+    "defense": {
+      "z": null,
+      "reliability": null
+    },
+    "aerial": {
+      "score": null,
+      "reliability": null,
+      "aerial_duels_p90": 0,
+      "aerial_win_rate": 0.5,
+      "headers_p90": 0
+    }
+  },
+  "3473": {
+    "name": "James Milner",
+    "team": "Liverpool",
+    "history_minutes": 1418.8,
+    "appearances": 15,
+    "history_flag": "OK",
+    "threat": {
+      "z": 1.055,
+      "reliability": 0.584
+    },
+    "creation": {
+      "z": 1.681,
+      "reliability": 0.631
+    },
+    "progression": {
+      "z": 0.488,
+      "reliability": 0.808
+    },
+    "retention": {
+      "z": -0.873,
+      "reliability": 0.604
+    },
+    "defense": {
+      "z": 0.326,
+      "reliability": 0.716
+    },
+    "aerial": {
+      "score": 38,
+      "reliability": 0.552,
+      "aerial_duels_p90": 3.11,
+      "aerial_win_rate": 0.5,
+      "headers_p90": 0.63
+    }
+  },
+  "3475": {
+    "name": "Per Mertesacker",
+    "team": "Arsenal",
+    "history_minutes": 1435.4,
+    "appearances": 15,
+    "history_flag": "OK",
+    "threat": {
+      "z": -0.434,
+      "reliability": 0.365
+    },
+    "creation": {
+      "z": -1.322,
+      "reliability": 0.388
+    },
+    "progression": {
+      "z": 0.428,
+      "reliability": 0.844
+    },
+    "retention": {
+      "z": 1.007,
+      "reliability": 0.571
+    },
+    "defense": {
+      "z": -1.204,
+      "reliability": 0.743
+    },
+    "aerial": {
+      "score": 51.5,
+      "reliability": 0.499,
+      "aerial_duels_p90": 4.64,
+      "aerial_win_rate": 0.67,
+      "headers_p90": 3.14
+    }
+  },
+  "3483": {
+    "name": "Mamadou Sakho",
+    "team": "Liverpool",
+    "history_minutes": 994.9,
+    "appearances": 11,
+    "history_flag": "OK",
+    "threat": {
+      "z": -0.659,
+      "reliability": 0.302
+    },
+    "creation": {
+      "z": -0.72,
+      "reliability": 0.312
+    },
+    "progression": {
+      "z": 1.922,
+      "reliability": 0.791
+    },
+    "retention": {
+      "z": -0.043,
+      "reliability": 0.516
+    },
+    "defense": {
+      "z": 1.081,
+      "reliability": 0.672
+    },
+    "aerial": {
+      "score": 89,
+      "reliability": 0.457,
+      "aerial_duels_p90": 7.51,
+      "aerial_win_rate": 0.667,
+      "headers_p90": 4.16
+    }
+  },
+  "3493": {
+    "name": "Emre Can",
+    "team": "Liverpool",
+    "history_minutes": 1642.5,
+    "appearances": 19,
+    "history_flag": "OK",
+    "threat": {
+      "z": 0.042,
+      "reliability": 0.603
+    },
+    "creation": {
+      "z": 0.17,
+      "reliability": 0.658
+    },
+    "progression": {
+      "z": 1.255,
+      "reliability": 0.829
+    },
+    "retention": {
+      "z": -0.762,
+      "reliability": 0.656
+    },
+    "defense": {
+      "z": 0.755,
+      "reliability": 0.739
+    },
+    "aerial": {
+      "score": 77.9,
+      "reliability": 0.589,
+      "aerial_duels_p90": 4.22,
+      "aerial_win_rate": 0.527,
+      "headers_p90": 1.1
+    }
+  },
+  "3496": {
+    "name": "Mesut Özil",
+    "team": "Arsenal",
+    "history_minutes": 1719.2,
+    "appearances": 19,
+    "history_flag": "OK",
+    "threat": {
+      "z": 0.344,
+      "reliability": 0.552
+    },
+    "creation": {
+      "z": 3.01,
+      "reliability": 0.784
+    },
+    "progression": {
+      "z": 1.218,
+      "reliability": 0.9
+    },
+    "retention": {
+      "z": 1.646,
+      "reliability": 0.855
+    },
+    "defense": {
+      "z": -0.616,
+      "reliability": 0.872
+    },
+    "aerial": {
+      "score": 30.4,
+      "reliability": 0.578,
+      "aerial_duels_p90": 0.73,
+      "aerial_win_rate": 0.318,
+      "headers_p90": 0.1
+    }
+  },
+  "3498": {
+    "name": "Nacho Monreal",
+    "team": "Arsenal",
+    "history_minutes": 1833.6,
+    "appearances": 20,
+    "history_flag": "OK",
+    "threat": {
+      "z": -0.109,
+      "reliability": 0.508
+    },
+    "creation": {
+      "z": 1.027,
+      "reliability": 0.528
+    },
+    "progression": {
+      "z": 0.072,
+      "reliability": 0.876
+    },
+    "retention": {
+      "z": 1.633,
+      "reliability": 0.699
+    },
+    "defense": {
+      "z": 0.35,
+      "reliability": 0.76
+    },
+    "aerial": {
+      "score": 69.6,
+      "reliability": 0.573,
+      "aerial_duels_p90": 3.63,
+      "aerial_win_rate": 0.561,
+      "headers_p90": 1.47
+    }
+  },
+  "3511": {
+    "name": "Héctor Bellerín",
+    "team": "Arsenal",
+    "history_minutes": 1723.6,
+    "appearances": 18,
+    "history_flag": "OK",
+    "threat": {
+      "z": -0.135,
+      "reliability": 0.498
+    },
+    "creation": {
+      "z": 0.173,
+      "reliability": 0.514
+    },
+    "progression": {
+      "z": 0.204,
+      "reliability": 0.869
+    },
+    "retention": {
+      "z": -0.362,
+      "reliability": 0.664
+    },
+    "defense": {
+      "z": -0.668,
+      "reliability": 0.749
+    },
+    "aerial": {
+      "score": 26.2,
+      "reliability": 0.538,
+      "aerial_duels_p90": 2.25,
+      "aerial_win_rate": 0.539,
+      "headers_p90": 0.84
+    }
+  },
+  "3515": {
+    "name": "Alberto Moreno",
+    "team": "Liverpool",
+    "history_minutes": 1503.9,
+    "appearances": 19,
+    "history_flag": "OK",
+    "threat": {
+      "z": 0.773,
+      "reliability": 0.477
+    },
+    "creation": {
+      "z": 2.513,
+      "reliability": 0.484
+    },
+    "progression": {
+      "z": 0.407,
+      "reliability": 0.853
+    },
+    "retention": {
+      "z": -0.261,
+      "reliability": 0.635
+    },
+    "defense": {
+      "z": 1.82,
+      "reliability": 0.725
+    },
+    "aerial": {
+      "score": 16,
+      "reliability": 0.507,
+      "aerial_duels_p90": 1.56,
+      "aerial_win_rate": 0.54,
+      "headers_p90": 0.84
+    }
+  },
+  "3517": {
+    "name": "Aaron Ramsey",
+    "team": "Arsenal",
+    "history_minutes": 1492.6,
+    "appearances": 16,
+    "history_flag": "OK",
+    "threat": {
+      "z": 1.613,
+      "reliability": 0.591
+    },
+    "creation": {
+      "z": -0.115,
+      "reliability": 0.702
+    },
+    "progression": {
+      "z": 1.43,
+      "reliability": 0.873
+    },
+    "retention": {
+      "z": 0.972,
+      "reliability": 0.898
+    },
+    "defense": {
+      "z": 1.736,
+      "reliability": 0.789
+    },
+    "aerial": {
+      "score": 47,
+      "reliability": 0.535,
+      "aerial_duels_p90": 1.87,
+      "aerial_win_rate": 0.358,
+      "headers_p90": 0.36
+    }
+  },
+  "3525": {
+    "name": "Alex Oxlade-Chamberlain",
+    "team": "Arsenal",
+    "history_minutes": 716.1,
+    "appearances": 17,
+    "history_flag": "OK",
+    "threat": {
+      "z": -0.082,
+      "reliability": 0.451
+    },
+    "creation": {
+      "z": 0.447,
+      "reliability": 0.543
+    },
+    "progression": {
+      "z": 1.772,
+      "reliability": 0.768
+    },
+    "retention": {
+      "z": 0.333,
+      "reliability": 0.756
+    },
+    "defense": {
+      "z": 1.024,
+      "reliability": 0.65
+    },
+    "aerial": {
+      "score": 73.8,
+      "reliability": 0.44,
+      "aerial_duels_p90": 2.01,
+      "aerial_win_rate": 0.368,
+      "headers_p90": 0.13
+    }
+  },
+  "3528": {
+    "name": "Kieran Gibbs",
+    "team": "Arsenal",
+    "history_minutes": 295,
+    "appearances": 11,
+    "history_flag": "LOW_MINUTES",
+    "threat": {
+      "z": 0.155,
+      "reliability": 0.284
+    },
+    "creation": {
+      "z": -0.66,
+      "reliability": 0.345
+    },
+    "progression": {
+      "z": -0.627,
+      "reliability": 0.58
+    },
+    "retention": {
+      "z": -0.132,
+      "reliability": 0.587
+    },
+    "defense": {
+      "z": 1.597,
+      "reliability": 0.448
+    },
+    "aerial": {
+      "score": 59.2,
+      "reliability": 0.315,
+      "aerial_duels_p90": 4.88,
+      "aerial_win_rate": 0.343,
+      "headers_p90": 1.22
+    }
+  },
+  "3532": {
+    "name": "Jordan Henderson",
+    "team": "Liverpool",
+    "history_minutes": 537.8,
+    "appearances": 7,
+    "history_flag": "OK",
+    "threat": {
+      "z": 0.797,
+      "reliability": 0.408
+    },
+    "creation": {
+      "z": 1.112,
+      "reliability": 0.45
+    },
+    "progression": {
+      "z": 0.939,
+      "reliability": 0.617
+    },
+    "retention": {
+      "z": 0.617,
+      "reliability": 0.465
+    },
+    "defense": {
+      "z": 0.622,
+      "reliability": 0.534
+    },
+    "aerial": {
+      "score": 36.9,
+      "reliability": 0.4,
+      "aerial_duels_p90": 1.84,
+      "aerial_win_rate": 0.523,
+      "headers_p90": 0.84
+    }
+  },
+  "3535": {
+    "name": "Roberto Firmino",
+    "team": "Liverpool",
+    "history_minutes": 952.2,
+    "appearances": 17,
+    "history_flag": "OK",
+    "threat": {
+      "z": 1.122,
+      "reliability": 0.506
+    },
+    "creation": {
+      "z": 0.305,
+      "reliability": 0.608
+    },
+    "progression": {
+      "z": -0.844,
+      "reliability": 0.815
+    },
+    "retention": {
+      "z": -1.017,
+      "reliability": 0.797
+    },
+    "defense": {
+      "z": 2.827,
+      "reliability": 0.709
+    },
+    "aerial": {
+      "score": 75.6,
+      "reliability": 0.507,
+      "aerial_duels_p90": 4.35,
+      "aerial_win_rate": 0.348,
+      "headers_p90": 0.57
+    }
+  },
+  "3539": {
+    "name": "Simon Mignolet",
+    "team": "Liverpool",
+    "history_minutes": 1842.4,
+    "appearances": 19,
+    "history_flag": "OK",
+    "threat": {
+      "z": null,
+      "reliability": null
+    },
+    "creation": {
+      "z": null,
+      "reliability": null
+    },
+    "progression": {
+      "z": -0.948,
+      "reliability": 0.607
+    },
+    "retention": {
+      "z": 0.469,
+      "reliability": 0.466
+    },
+    "defense": {
+      "z": null,
+      "reliability": null
+    },
+    "aerial": {
+      "score": null,
+      "reliability": null,
+      "aerial_duels_p90": 0,
+      "aerial_win_rate": 0.5,
+      "headers_p90": 0
+    }
+  },
+  "3604": {
+    "name": "Olivier Giroud",
+    "team": "Arsenal",
+    "history_minutes": 1399.5,
+    "appearances": 20,
+    "history_flag": "OK",
+    "threat": {
+      "z": 0.936,
+      "reliability": 0.448
+    },
+    "creation": {
+      "z": 0,
+      "reliability": 0.521
+    },
+    "progression": {
+      "z": -1.039,
+      "reliability": 0.852
+    },
+    "retention": {
+      "z": -0.569,
+      "reliability": 0.719
+    },
+    "defense": {
+      "z": 0.206,
+      "reliability": 0.743
+    },
+    "aerial": {
+      "score": 76,
+      "reliability": 0.905,
+      "aerial_duels_p90": 8.75,
+      "aerial_win_rate": 0.502,
+      "headers_p90": 2.12
+    }
+  },
+  "3635": {
+    "name": "Jordon Ibe",
+    "team": "Liverpool",
+    "history_minutes": 713.7,
+    "appearances": 16,
+    "history_flag": "OK",
+    "threat": {
+      "z": -0.351,
+      "reliability": 0.451
+    },
+    "creation": {
+      "z": 0.027,
+      "reliability": 0.543
+    },
+    "progression": {
+      "z": 0.761,
+      "reliability": 0.768
+    },
+    "retention": {
+      "z": 0.654,
+      "reliability": 0.717
+    },
+    "defense": {
+      "z": -0.115,
+      "reliability": 0.649
+    },
+    "aerial": {
+      "score": 20.6,
+      "reliability": 0.433,
+      "aerial_duels_p90": 1.26,
+      "aerial_win_rate": 0.34,
+      "headers_p90": 0.13
+    }
+  },
+  "3647": {
+    "name": "Alex Iwobi",
+    "team": "Arsenal",
+    "history_minutes": 18.5,
+    "appearances": 3,
+    "history_flag": "VERY_LOW_MINUTES",
+    "threat": {
+      "z": -0.109,
+      "reliability": 0.029
+    },
+    "creation": {
+      "z": 0.035,
+      "reliability": 0.036
+    },
+    "progression": {
+      "z": -0.124,
+      "reliability": 0.082
+    },
+    "retention": {
+      "z": 0.186,
+      "reliability": 0.102
+    },
+    "defense": {
+      "z": -0.274,
+      "reliability": 0.055
+    },
+    "aerial": {
+      "score": 46.9,
+      "reliability": 0.034,
+      "aerial_duels_p90": 0,
+      "aerial_win_rate": 0.348,
+      "headers_p90": 0
+    }
+  },
+  "3668": {
+    "name": "Theo Walcott",
+    "team": "Arsenal",
+    "history_minutes": 970,
+    "appearances": 14,
+    "history_flag": "OK",
+    "threat": {
+      "z": 0.38,
+      "reliability": 0.372
+    },
+    "creation": {
+      "z": -0.184,
+      "reliability": 0.432
+    },
+    "progression": {
+      "z": 0.625,
+      "reliability": 0.8
+    },
+    "retention": {
+      "z": 0.453,
+      "reliability": 0.604
+    },
+    "defense": {
+      "z": -0.066,
+      "reliability": 0.675
+    },
+    "aerial": {
+      "score": 11.2,
+      "reliability": 0.76,
+      "aerial_duels_p90": 2.51,
+      "aerial_win_rate": 0.292,
+      "headers_p90": 0.65
+    }
+  },
+  "3713": {
+    "name": "Calum Chambers",
+    "team": "Arsenal",
+    "history_minutes": 309.7,
+    "appearances": 9,
+    "history_flag": "LOW_MINUTES",
+    "threat": {
+      "z": 0.067,
+      "reliability": 0.139
+    },
+    "creation": {
+      "z": 0.245,
+      "reliability": 0.133
+    },
+    "progression": {
+      "z": -0.329,
+      "reliability": 0.549
+    },
+    "retention": {
+      "z": -1.032,
+      "reliability": 0.217
+    },
+    "defense": {
+      "z": 1.46,
+      "reliability": 0.411
+    },
+    "aerial": {
+      "score": 45.1,
+      "reliability": 0.225,
+      "aerial_duels_p90": 5.52,
+      "aerial_win_rate": 0.651,
+      "headers_p90": 2.32
+    }
+  },
+  "4090": {
+    "name": "Adam Lallana",
+    "team": "Liverpool",
+    "history_minutes": 1163.1,
+    "appearances": 16,
+    "history_flag": "OK",
+    "threat": {
+      "z": 0.299,
+      "reliability": 0.491
+    },
+    "creation": {
+      "z": 0.016,
+      "reliability": 0.714
+    },
+    "progression": {
+      "z": -0.923,
+      "reliability": 0.859
+    },
+    "retention": {
+      "z": -0.696,
+      "reliability": 0.704
+    },
+    "defense": {
+      "z": 1.158,
+      "reliability": 0.823
+    },
+    "aerial": {
+      "score": 59.5,
+      "reliability": 0.592,
+      "aerial_duels_p90": 3.25,
+      "aerial_win_rate": 0.318,
+      "headers_p90": 1.16
+    }
+  },
+  "4590": {
+    "name": "Nathaniel Clyne",
+    "team": "Liverpool",
+    "history_minutes": 1938.8,
+    "appearances": 20,
+    "history_flag": "OK",
+    "threat": {
+      "z": 0.14,
+      "reliability": 0.521
+    },
+    "creation": {
+      "z": 0.061,
+      "reliability": 0.54
+    },
+    "progression": {
+      "z": 1.25,
+      "reliability": 0.881
+    },
+    "retention": {
+      "z": -0.393,
+      "reliability": 0.684
+    },
+    "defense": {
+      "z": 0.538,
+      "reliability": 0.769
+    },
+    "aerial": {
+      "score": 11.9,
+      "reliability": 0.546,
+      "aerial_duels_p90": 1.9,
+      "aerial_win_rate": 0.516,
+      "headers_p90": 1.07
+    }
+  },
+  "5581": {
+    "name": "Joel Campbell",
+    "team": "Arsenal",
+    "history_minutes": 542,
+    "appearances": 10,
+    "history_flag": "OK",
+    "threat": {
+      "z": 0.245,
+      "reliability": 0.396
+    },
+    "creation": {
+      "z": -0.395,
+      "reliability": 0.479
+    },
+    "progression": {
+      "z": -0.938,
+      "reliability": 0.716
+    },
+    "retention": {
+      "z": -0.592,
+      "reliability": 0.64
+    },
+    "defense": {
+      "z": 0.802,
+      "reliability": 0.589
+    },
+    "aerial": {
+      "score": 34.8,
+      "reliability": 0.399,
+      "aerial_duels_p90": 1.99,
+      "aerial_win_rate": 0.344,
+      "headers_p90": 0
+    }
+  },
+  "6631": {
+    "name": "Mathieu Flamini",
+    "team": "Arsenal",
+    "history_minutes": 682.9,
+    "appearances": 10,
+    "history_flag": "OK",
+    "threat": {
+      "z": -0.268,
+      "reliability": 0.687
+    },
+    "creation": {
+      "z": -0.526,
+      "reliability": 0.752
+    },
+    "progression": {
+      "z": -0.128,
+      "reliability": 0.765
+    },
+    "retention": {
+      "z": 1.113,
+      "reliability": 0.58
+    },
+    "defense": {
+      "z": 0.181,
+      "reliability": 0.585
+    },
+    "aerial": {
+      "score": 36.8,
+      "reliability": 0.383,
+      "aerial_duels_p90": 1.98,
+      "aerial_win_rate": 0.527,
+      "headers_p90": 0.79
+    }
+  },
+  "6746": {
+    "name": "Gabriel Paulista",
+    "team": "Arsenal",
+    "history_minutes": 755,
+    "appearances": 8,
+    "history_flag": "OK",
+    "threat": {
+      "z": 0.86,
+      "reliability": 0.259
+    },
+    "creation": {
+      "z": -0.841,
+      "reliability": 0.261
+    },
+    "progression": {
+      "z": -0.339,
+      "reliability": 0.743
+    },
+    "retention": {
+      "z": 0.024,
+      "reliability": 0.424
+    },
+    "defense": {
+      "z": 0.016,
+      "reliability": 0.614
+    },
+    "aerial": {
+      "score": 54.1,
+      "reliability": 0.381,
+      "aerial_duels_p90": 5.13,
+      "aerial_win_rate": 0.661,
+      "headers_p90": 3.93
+    }
+  },
+  "7780": {
+    "name": "Lucas Leiva",
+    "team": "Liverpool",
+    "history_minutes": 1330.9,
+    "appearances": 16,
+    "history_flag": "OK",
+    "threat": {
+      "z": -0.504,
+      "reliability": 0.739
+    },
+    "creation": {
+      "z": -0.044,
+      "reliability": 0.855
+    },
+    "progression": {
+      "z": 0.273,
+      "reliability": 0.863
+    },
+    "retention": {
+      "z": -0.236,
+      "reliability": 0.735
+    },
+    "defense": {
+      "z": 2.315,
+      "reliability": 0.717
+    },
+    "aerial": {
+      "score": 86.5,
+      "reliability": 0.523,
+      "aerial_duels_p90": 4.53,
+      "aerial_win_rate": 0.537,
+      "headers_p90": 1.35
+    }
+  },
+  "9417": {
+    "name": "Matt Macey",
+    "team": "Arsenal",
+    "history_minutes": 0,
+    "appearances": 0,
+    "history_flag": "NO_HISTORY",
+    "threat": {
+      "z": null,
+      "reliability": null
+    },
+    "creation": {
+      "z": null,
+      "reliability": null
+    },
+    "progression": {
+      "z": null,
+      "reliability": null
+    },
+    "retention": {
+      "z": null,
+      "reliability": null
+    },
+    "defense": {
+      "z": null,
+      "reliability": null
+    },
+    "aerial": null
+  },
+  "9914": {
+    "name": "Danny Ward",
+    "team": "Liverpool",
+    "history_minutes": 0,
+    "appearances": 0,
+    "history_flag": "NO_HISTORY",
+    "threat": {
+      "z": null,
+      "reliability": null
+    },
+    "creation": {
+      "z": null,
+      "reliability": null
+    },
+    "progression": {
+      "z": null,
+      "reliability": null
+    },
+    "retention": {
+      "z": null,
+      "reliability": null
+    },
+    "defense": {
+      "z": null,
+      "reliability": null
+    },
+    "aerial": null
+  },
+  "9958": {
+    "name": "Steven Caulker",
+    "team": "Liverpool",
+    "history_minutes": 161.1,
+    "appearances": 3,
+    "history_flag": "LOW_MINUTES",
+    "threat": {
+      "z": 0.808,
+      "reliability": 0.082
+    },
+    "creation": {
+      "z": -0.044,
+      "reliability": 0.076
+    },
+    "progression": {
+      "z": 0.14,
+      "reliability": 0.392
+    },
+    "retention": {
+      "z": -0.33,
+      "reliability": 0.099
+    },
+    "defense": {
+      "z": -0.079,
+      "reliability": 0.274
+    },
+    "aerial": {
+      "score": 55.3,
+      "reliability": 0.14,
+      "aerial_duels_p90": 6.71,
+      "aerial_win_rate": 0.656,
+      "headers_p90": 6.71
+    }
+  },
+  "10326": {
+    "name": "João Carlos Teixeira",
+    "team": "Liverpool",
+    "history_minutes": 0,
+    "appearances": 0,
+    "history_flag": "NO_HISTORY",
+    "threat": {
+      "z": null,
+      "reliability": null
+    },
+    "creation": {
+      "z": null,
+      "reliability": null
+    },
+    "progression": {
+      "z": null,
+      "reliability": null
+    },
+    "retention": {
+      "z": null,
+      "reliability": null
+    },
+    "defense": {
+      "z": null,
+      "reliability": null
+    },
+    "aerial": null
+  },
+  "10931": {
+    "name": "Joe Allen",
+    "team": "Liverpool",
+    "history_minutes": 142.2,
+    "appearances": 6,
+    "history_flag": "LOW_MINUTES",
+    "threat": {
+      "z": 0.483,
+      "reliability": 0.448
+    },
+    "creation": {
+      "z": 1.01,
+      "reliability": 0.39
+    },
+    "progression": {
+      "z": -0.426,
+      "reliability": 0.413
+    },
+    "retention": {
+      "z": -0.461,
+      "reliability": 0.242
+    },
+    "defense": {
+      "z": 0.779,
+      "reliability": 0.249
+    },
+    "aerial": {
+      "score": 53.8,
+      "reliability": 0.156,
+      "aerial_duels_p90": 5.06,
+      "aerial_win_rate": 0.52,
+      "headers_p90": 0.63
+    }
+  },
+  "13448": {
+    "name": "Brad Smith",
+    "team": "Liverpool",
+    "history_minutes": 32.3,
+    "appearances": 1,
+    "history_flag": "VERY_LOW_MINUTES",
+    "threat": {
+      "z": 0.389,
+      "reliability": 0.029
+    },
+    "creation": {
+      "z": 0.478,
+      "reliability": 0.024
+    },
+    "progression": {
+      "z": 0.134,
+      "reliability": 0.123
+    },
+    "retention": {
+      "z": -0.131,
+      "reliability": 0.041
+    },
+    "defense": {
+      "z": 0.672,
+      "reliability": 0.071
+    },
+    "aerial": {
+      "score": 44.1,
+      "reliability": 0.048,
+      "aerial_duels_p90": 5.57,
+      "aerial_win_rate": 0.55,
+      "headers_p90": 0
+    }
+  },
+  "38412": {
+    "name": "Kolo Touré",
+    "team": "Liverpool",
+    "history_minutes": 8.5,
+    "appearances": 3,
+    "history_flag": "VERY_LOW_MINUTES",
+    "threat": {
+      "z": -0.051,
+      "reliability": 0.014
+    },
+    "creation": {
+      "z": -0.041,
+      "reliability": 0.017
+    },
+    "progression": {
+      "z": -0.068,
+      "reliability": 0.039
+    },
+    "retention": {
+      "z": -0.075,
+      "reliability": 0.059
+    },
+    "defense": {
+      "z": 0.015,
+      "reliability": 0.026
+    },
+    "aerial": {
+      "score": 65.3,
+      "reliability": 0.017,
+      "aerial_duels_p90": 10.61,
+      "aerial_win_rate": 0.35,
+      "headers_p90": 10.61
+    }
+  },
+  "42703": {
+    "name": "Mikel Arteta",
+    "team": "Arsenal",
+    "history_minutes": 183.5,
+    "appearances": 7,
+    "history_flag": "LOW_MINUTES",
+    "threat": {
+      "z": -0.406,
+      "reliability": 0.217
+    },
+    "creation": {
+      "z": -0.463,
+      "reliability": 0.272
+    },
+    "progression": {
+      "z": -0.278,
+      "reliability": 0.358
+    },
+    "retention": {
+      "z": 0.28,
+      "reliability": 0.259
+    },
+    "defense": {
+      "z": 0.688,
+      "reliability": 0.313
+    },
+    "aerial": {
+      "score": 92.5,
+      "reliability": 0.246,
+      "aerial_duels_p90": 6.87,
+      "aerial_win_rate": 0.531,
+      "headers_p90": 1.96
+    }
+  }
+}
