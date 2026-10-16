@@ -1,0 +1,470 @@
+{
+  "3380": {
+    "matches": {
+      "3754051": {
+        "minutes": 21.533333333333335,
+        "started": false,
+        "npxg": 0.06644083,
+        "box_presence": 0,
+        "xa": 0,
+        "box_passes": 1,
+        "prog_passes": 2,
+        "prog_carries": 0,
+        "pressures": 0,
+        "def_actions": 0,
+        "ball_actions": 6,
+        "ball_losses": 1,
+        "team": "Liverpool",
+        "name": "Christian Benteke"
+      },
+      "3754255": {
+        "minutes": 95,
+        "started": true,
+        "npxg": 0.617309302,
+        "box_presence": 12,
+        "xa": 0.416757757,
+        "box_passes": 2,
+        "prog_passes": 2,
+        "prog_carries": 2,
+        "pressures": 5,
+        "def_actions": 1,
+        "ball_actions": 33,
+        "ball_losses": 10,
+        "team": "Liverpool",
+        "name": "Christian Benteke"
+      }
+    }
+  },
+  "3473": {
+    "matches": {
+      "3754255": {
+        "minutes": 93.7,
+        "started": true,
+        "npxg": 0.13601110800000002,
+        "box_presence": 4,
+        "xa": 0.13720408,
+        "box_passes": 3,
+        "prog_passes": 11,
+        "prog_carries": 5,
+        "pressures": 24,
+        "def_actions": 8,
+        "ball_actions": 69,
+        "ball_losses": 25,
+        "team": "Liverpool",
+        "name": "James Milner"
+      }
+    }
+  },
+  "3483": {
+    "matches": {
+      "3754051": {
+        "minutes": 95,
+        "started": true,
+        "npxg": 0,
+        "box_presence": 0,
+        "xa": 0,
+        "box_passes": 0,
+        "prog_passes": 7,
+        "prog_carries": 2,
+        "pressures": 10,
+        "def_actions": 13,
+        "ball_actions": 77,
+        "ball_losses": 21,
+        "team": "Liverpool",
+        "name": "Mamadou Sakho"
+      }
+    }
+  },
+  "3493": {
+    "matches": {
+      "3754051": {
+        "minutes": 95,
+        "started": true,
+        "npxg": 0.024402568,
+        "box_presence": 2,
+        "xa": 0.031348545,
+        "box_passes": 0,
+        "prog_passes": 11,
+        "prog_carries": 3,
+        "pressures": 19,
+        "def_actions": 12,
+        "ball_actions": 74,
+        "ball_losses": 23,
+        "team": "Liverpool",
+        "name": "Emre Can"
+      },
+      "3754255": {
+        "minutes": 95,
+        "started": true,
+        "npxg": 0.09656992,
+        "box_presence": 2,
+        "xa": 0.11162649300000001,
+        "box_passes": 2,
+        "prog_passes": 14,
+        "prog_carries": 12,
+        "pressures": 20,
+        "def_actions": 13,
+        "ball_actions": 96,
+        "ball_losses": 16,
+        "team": "Liverpool",
+        "name": "Emre Can"
+      }
+    }
+  },
+  "3515": {
+    "matches": {
+      "3754051": {
+        "minutes": 95,
+        "started": true,
+        "npxg": 0.017939737,
+        "box_presence": 3,
+        "xa": 0.041489333,
+        "box_passes": 1,
+        "prog_passes": 3,
+        "prog_carries": 3,
+        "pressures": 14,
+        "def_actions": 7,
+        "ball_actions": 56,
+        "ball_losses": 16,
+        "team": "Liverpool",
+        "name": "Alberto Moreno"
+      },
+      "3754255": {
+        "minutes": 95,
+        "started": true,
+        "npxg": 0.04855278,
+        "box_presence": 1,
+        "xa": 0.5531899989999999,
+        "box_passes": 3,
+        "prog_passes": 10,
+        "prog_carries": 6,
+        "pressures": 9,
+        "def_actions": 10,
+        "ball_actions": 58,
+        "ball_losses": 16,
+        "team": "Liverpool",
+        "name": "Alberto Moreno"
+      }
+    }
+  },
+  "3532": {
+    "matches": {
+      "3754051": {
+        "minutes": 95,
+        "started": true,
+        "npxg": 0.156431603,
+        "box_presence": 3,
+        "xa": 0.175033675,
+        "box_passes": 3,
+        "prog_passes": 11,
+        "prog_carries": 4,
+        "pressures": 16,
+        "def_actions": 5,
+        "ball_actions": 62,
+        "ball_losses": 24,
+        "team": "Liverpool",
+        "name": "Jordan Henderson"
+      },
+      "3754255": {
+        "minutes": 95,
+        "started": true,
+        "npxg": 0.614076458,
+        "box_presence": 2,
+        "xa": 0,
+        "box_passes": 4,
+        "prog_passes": 14,
+        "prog_carries": 3,
+        "pressures": 9,
+        "def_actions": 9,
+        "ball_actions": 89,
+        "ball_losses": 23,
+        "team": "Liverpool",
+        "name": "Jordan Henderson"
+      }
+    }
+  },
+  "3535": {
+    "matches": {
+      "3754051": {
+        "minutes": 73.46666666666667,
+        "started": true,
+        "npxg": 0,
+        "box_presence": 0,
+        "xa": 0,
+        "box_passes": 0,
+        "prog_passes": 2,
+        "prog_carries": 1,
+        "pressures": 13,
+        "def_actions": 3,
+        "ball_actions": 31,
+        "ball_losses": 10,
+        "team": "Liverpool",
+        "name": "Roberto Firmino"
+      },
+      "3754255": {
+        "minutes": 10.016666666666667,
+        "started": false,
+        "npxg": 0,
+        "box_presence": 0,
+        "xa": 0,
+        "box_passes": 0,
+        "prog_passes": 0,
+        "prog_carries": 0,
+        "pressures": 4,
+        "def_actions": 2,
+        "ball_actions": 8,
+        "ball_losses": 6,
+        "team": "Liverpool",
+        "name": "Roberto Firmino"
+      }
+    }
+  },
+  "3539": {
+    "matches": {
+      "3754255": {
+        "minutes": 95,
+        "started": true,
+        "npxg": 0,
+        "box_presence": 0,
+        "xa": 0,
+        "box_passes": 0,
+        "prog_passes": 0,
+        "prog_carries": 0,
+        "pressures": 0,
+        "def_actions": 6,
+        "ball_actions": 21,
+        "ball_losses": 5,
+        "team": "Liverpool",
+        "name": "Simon Mignolet"
+      }
+    }
+  },
+  "3635": {
+    "matches": {
+      "3754051": {
+        "minutes": 21.7,
+        "started": false,
+        "npxg": 0.064191945,
+        "box_presence": 1,
+        "xa": 0,
+        "box_passes": 0,
+        "prog_passes": 1,
+        "prog_carries": 1,
+        "pressures": 3,
+        "def_actions": 7,
+        "ball_actions": 11,
+        "ball_losses": 2,
+        "team": "Liverpool",
+        "name": "Jordon Ibe"
+      },
+      "3754255": {
+        "minutes": 24.266666666666666,
+        "started": false,
+        "npxg": 0.037843063,
+        "box_presence": 0,
+        "xa": 0.05386488,
+        "box_passes": 0,
+        "prog_passes": 1,
+        "prog_carries": 4,
+        "pressures": 2,
+        "def_actions": 1,
+        "ball_actions": 13,
+        "ball_losses": 4,
+        "team": "Liverpool",
+        "name": "Jordon Ibe"
+      }
+    }
+  },
+  "4090": {
+    "matches": {
+      "3754051": {
+        "minutes": 73.30000000000001,
+        "started": true,
+        "npxg": 0.183403922,
+        "box_presence": 3,
+        "xa": 0,
+        "box_passes": 0,
+        "prog_passes": 4,
+        "prog_carries": 2,
+        "pressures": 14,
+        "def_actions": 4,
+        "ball_actions": 34,
+        "ball_losses": 11,
+        "team": "Liverpool",
+        "name": "Adam Lallana"
+      },
+      "3754255": {
+        "minutes": 84.98333333333333,
+        "started": true,
+        "npxg": 0.40647033,
+        "box_presence": 3,
+        "xa": 0.5834659379999999,
+        "box_passes": 2,
+        "prog_passes": 6,
+        "prog_carries": 2,
+        "pressures": 10,
+        "def_actions": 5,
+        "ball_actions": 44,
+        "ball_losses": 10,
+        "team": "Liverpool",
+        "name": "Adam Lallana"
+      }
+    }
+  },
+  "4590": {
+    "matches": {
+      "3754051": {
+        "minutes": 95,
+        "started": true,
+        "npxg": 0.032369286,
+        "box_presence": 1,
+        "xa": 0,
+        "box_passes": 0,
+        "prog_passes": 9,
+        "prog_carries": 4,
+        "pressures": 14,
+        "def_actions": 6,
+        "ball_actions": 61,
+        "ball_losses": 22,
+        "team": "Liverpool",
+        "name": "Nathaniel Clyne"
+      },
+      "3754255": {
+        "minutes": 95,
+        "started": true,
+        "npxg": 0.035764729999999995,
+        "box_presence": 3,
+        "xa": 0.035521183,
+        "box_passes": 1,
+        "prog_passes": 3,
+        "prog_carries": 5,
+        "pressures": 4,
+        "def_actions": 6,
+        "ball_actions": 70,
+        "ball_losses": 13,
+        "team": "Liverpool",
+        "name": "Nathaniel Clyne"
+      }
+    }
+  },
+  "7780": {
+    "matches": {
+      "3754051": {
+        "minutes": 95,
+        "started": true,
+        "npxg": 0,
+        "box_presence": 0,
+        "xa": 0,
+        "box_passes": 0,
+        "prog_passes": 6,
+        "prog_carries": 0,
+        "pressures": 17,
+        "def_actions": 9,
+        "ball_actions": 63,
+        "ball_losses": 22,
+        "team": "Liverpool",
+        "name": "Lucas Leiva"
+      },
+      "3754255": {
+        "minutes": 0,
+        "started": false,
+        "npxg": 0,
+        "box_presence": 0,
+        "xa": 0,
+        "box_passes": 0,
+        "prog_passes": 0,
+        "prog_carries": 0,
+        "pressures": 0,
+        "def_actions": 0,
+        "ball_actions": 0,
+        "ball_losses": 0,
+        "team": "Liverpool",
+        "name": "Lucas Leiva"
+      }
+    }
+  },
+  "9914": {
+    "matches": {}
+  },
+  "9958": {
+    "matches": {}
+  },
+  "10326": {
+    "matches": {}
+  },
+  "10931": {
+    "matches": {
+      "3754051": {
+        "minutes": 0,
+        "started": false,
+        "npxg": 0,
+        "box_presence": 0,
+        "xa": 0,
+        "box_passes": 0,
+        "prog_passes": 0,
+        "prog_carries": 0,
+        "pressures": 0,
+        "def_actions": 0,
+        "ball_actions": 0,
+        "ball_losses": 0,
+        "team": "Liverpool",
+        "name": "Joe Allen"
+      },
+      "3754255": {
+        "minutes": 0,
+        "started": false,
+        "npxg": 0,
+        "box_presence": 0,
+        "xa": 0,
+        "box_passes": 0,
+        "prog_passes": 0,
+        "prog_carries": 0,
+        "pressures": 0,
+        "def_actions": 0,
+        "ball_actions": 0,
+        "ball_losses": 0,
+        "team": "Liverpool",
+        "name": "Joe Allen"
+      }
+    }
+  },
+  "13448": {
+    "matches": {}
+  },
+  "38412": {
+    "matches": {
+      "3754051": {
+        "minutes": 0,
+        "started": false,
+        "npxg": 0,
+        "box_presence": 0,
+        "xa": 0,
+        "box_passes": 0,
+        "prog_passes": 0,
+        "prog_carries": 0,
+        "pressures": 0,
+        "def_actions": 0,
+        "ball_actions": 0,
+        "ball_losses": 0,
+        "team": "Liverpool",
+        "name": "Kolo Touré"
+      },
+      "3754255": {
+        "minutes": 0,
+        "started": false,
+        "npxg": 0,
+        "box_presence": 0,
+        "xa": 0,
+        "box_passes": 0,
+        "prog_passes": 0,
+        "prog_carries": 0,
+        "pressures": 0,
+        "def_actions": 0,
+        "ball_actions": 0,
+        "ball_losses": 0,
+        "team": "Liverpool",
+        "name": "Kolo Touré"
+      }
+    }
+  }
+}
