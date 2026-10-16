@@ -11,6 +11,40 @@ from .profiles import ProfileBook, Scale, TeamBaseline
 from .schema import Event, EventType, Player, Role
 
 TEAM_IDS = {'Liverpool': '24', 'Arsenal': '1'}
+REFRESH_SCORE_CAP = 1.2  # provisional score units, evaluated in the sensitivity audit
+LOAD_FREE_SHARE = .5
+LOAD_FATIGUE_SPAN = .7
+
+
+def estimated_match_load(played, stamina, pressures, carries, expected_p90, meters_per_minute):
+    """Capability-relative load proxy; inferred movement is not measured distance.
+
+    Sparse on-ball activity never implies that off-ball work did not occur.
+    Excess pressures/carries can increase inferred intensity, capped at 1.25.
+    """
+    def excess(count, rate):
+        expected = rate * played / 90
+        return clamp(count / max(expected, 1) - 1, 0, 1) if played >= 15 else 0
+    intensity = 1 + .15 * excess(pressures, expected_p90['pressures']) + .10 * excess(carries, expected_p90['prog_carries'])
+    capacity = clamp(1 + (stamina - 75) / 150, .8, 1.15)
+    ratio = max(played, 0) / 90 * intensity / capacity
+    fatigue = clamp((ratio - LOAD_FREE_SHARE) / LOAD_FATIGUE_SPAN, 0, 1) ** 1.5
+    return dict(fatigue=round(fatigue, 4), load_ratio=round(ratio, 4), intensity=round(intensity, 4),
+                stamina_capacity=round(capacity, 4),
+                estimated_distance_m=round(meters_per_minute * max(played, 0) * intensity, 1),
+                distance_is_observed=False,
+                load_source='ESTIMATED:minutes+FIFA stamina+pressure/carry proxy; synthetic distance reference')
+
+
+def refresh_value(fatigue, incoming, outgoing):
+    """Freshness has value even with flat tactical needs; ability losses still cost.
+
+    This is the only fatigue reward in candidate scoring. Card deltas exclude
+    fatigue, preventing the same load relief from also entering tactical gains.
+    """
+    relevant = ('threat', 'progression', 'defense')
+    quality = clamp(sum(incoming[d] for d in relevant) / max(sum(outgoing[d] for d in relevant), 1), 0, 1)
+    return REFRESH_SCORE_CAP * fatigue * quality
 
 
 def make_match(dataset, evidence, match_id='synthetic-demo'):
@@ -118,15 +152,13 @@ def live_performance(ms, pid):
     vector['retention'] *= actions / (actions + 20)
     aerial = ms.aerial_window[pid]
     vector['aerial'] = round((aerial['wins'] / aerial['attempts'] - .5) * 2 * aerial['attempts'] / (aerial['attempts'] + 10), 4) if aerial['attempts'] else None
-    stamina = card['physical']['stamina']
-    pressure_rate = ms.live[pid].get('pressures', 0) / max(played, 1) * 90
-    intensity = clamp(pressure_rate / max(rates['pressures'], 1), .8, 1.2)
-    fatigue = clamp(played / 110 * (1 + (75 - stamina) / 200) * intensity, 0, 1)
+    load = estimated_match_load(played, card['physical']['stamina'], ms.live[pid].get('pressures', 0),
+                                ms.live[pid].get('prog_carries', 0), rates,
+                                card['physical']['tracking']['meters_per_minute'])
     return dict(player_id=pid, dimensions=vector, cumulative=dict(ms.live[pid]), recent_window=dict(counts),
                 recent_window_minutes=round(exposure, 3), minutes_played=round(played, 3),
                 expectation_p90=rates, action_share_proxy=round(share, 3),
-                evidence_strength=round(evidence_strength, 3), fatigue=round(fatigue, 3),
-                load_source='ESTIMATED:minutes+pressure intensity+FIFA stamina; no measured distance')
+                evidence_strength=round(evidence_strength, 3), **load)
 
 
 def effective_profile(ms, pid, on_pitch):
@@ -137,8 +169,6 @@ def effective_profile(ms, pid, on_pitch):
         for d, v in live['dimensions'].items():
             if v is not None:
                 result[d] = clamp(result[d] + 4 * v)
-        for d in ('threat', 'progression', 'defense'):
-            result[d] = clamp(result[d] - 3 * live['fatigue'])
     return result
 
 
@@ -167,11 +197,14 @@ def recommend_demo(ms, tid, top=3):
                 speed_out = ms.cards[out_id]['physical']['tracking']['max_speed_kmh']
                 tactical_gain = .1 * tactical['aerial'] * aerial_delta + .05 * (tactical['pace'] + tactical['recovery_pace']) * (speed_in - speed_out) / 5
                 rel = min(sum(card['general']['reliability'].values()) / 6, sum(ms.cards[out_id]['general']['reliability'].values()) / 6)
-                score = (core + tactical_gain) * (.5 + .5 * rel)
+                fatigue = live_performance(ms, out_id)['fatigue']
+                refresh = refresh_value(fatigue, incoming, outgoing)
+                score = (core + tactical_gain + refresh) * (.5 + .5 * rel)
                 fit = card['positions']['suitability'][ms.role(out_id)]
                 benefit = score * fit * max(94 - state.minute, 0) / 90
                 reasons = [f'HIGH_{d.upper()}_NEED' for d, v in needs.needs.items() if v >= .65 and delta[d] > 0]
-                fatigue = live_performance(ms, out_id)['fatigue']
+                if refresh >= .05:
+                    reasons.append('ESTIMATED_FRESHNESS_RELIEF')
                 if fatigue >= .6:
                     reasons.append('CURRENT_PLAYER_ESTIMATED_LOAD')
                 if tactical['aerial'] > .3 and aerial_delta > 0:
@@ -179,6 +212,9 @@ def recommend_demo(ms, tid, top=3):
                 options.append(dict(out_player=dict(id=out_id, name=ms.cards[out_id]['name']),
                                     in_player=dict(id=in_id, name=card['name']), expected_changes={d: round(v, 3) for d, v in delta.items()},
                                     position_fit=fit, evidence_strength=round(rel, 3), reason_codes=reasons,
+                                    score_components=dict(tactical_core=round(core, 4), tactical_support=round(tactical_gain, 4),
+                                                          freshness_relief=round(refresh, 4), outgoing_fatigue=fatigue,
+                                                          evidence_multiplier=round(.5+.5*rel, 4), remaining_time_multiplier=round(max(94-state.minute, 0)/90, 4)),
                                     score=round(score, 4), expected_benefit=round(benefit, 4)))
     options.sort(key=lambda o: (-o['expected_benefit'], o['out_player']['id'], o['in_player']['id']))
     decision = bool(options and options[0]['expected_benefit'] >= RECOMMEND_THRESHOLD)
@@ -186,6 +222,9 @@ def recommend_demo(ms, tid, top=3):
                 recommendation='SUBSTITUTION' if decision else 'NO_SUBSTITUTION',
                 state=state.model_dump(), team_needs=needs.needs, tactical_needs=tactical,
                 threshold=RECOMMEND_THRESHOLD, selected=options[0] if decision else None,
+                physical_need=dict(freshness=max((live_performance(ms, pid)['fatigue'] for pid in ms.on_pitch
+                                                  if pid in ms.cards and ms.players[pid].team_id == tid and ms.role(pid) != 'GK'), default=0),
+                                   source='ESTIMATED_MATCH_LOAD', refresh_score_cap=REFRESH_SCORE_CAP),
                 alternatives=options[:top], player_live=[live_performance(ms, pid) for pid in sorted(ms.on_pitch) if pid in ms.cards and ms.players[pid].team_id == tid],
                 unavailable_profile_ids=[pid for pid in sorted(ms.on_pitch) if ms.players[pid].team_id == tid and pid not in ms.cards],
                 provenance='Deterministic demo model; evidence_strength is not probability')

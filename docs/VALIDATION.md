@@ -17,3 +17,7 @@ Local HTTP/SSE smoke test: 91 minute updates, both decision types, and complete 
 Profiles and team baselines are frozen strictly before 2016-01-13. Later matches are held-out smoke checks, not evidence that the provisional threshold is calibrated. Only the definitive 36-player squad is scored; missing players are disclosed. Match 3754305 does not have to reproduce any historical substitution. No assertion checks for Benteke.
 
 The final event demo is original synthetic data. It automatically applies only deterministic engine-approved swaps. The local preview includes a deterministic explanation; no remote LLM or cloud deployment has been configured. Physical tracking fields remain synthetic, and the FIFA16 snapshot update date is unverified.
+
+Match-load follow-up: 47 tests now pass. `docs/MATCH_LOAD.md` documents the
+separate freshness score, unchanged threshold and sensitivity at caps 0/.6/1.2.
+The first validation record above describes the preceding implementation.

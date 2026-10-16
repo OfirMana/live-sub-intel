@@ -381,3 +381,12 @@ The local `serve_demo.py` HTTP/SSE adapter additionally feeds synthetic events t
 a fresh Python engine per viewer and recomputes once per simulated minute.
 It binds only to loopback; **Stream events** uses SSE, while **Play checkpoints**
 uses the exported deterministic snapshots. No cloud deployment is included.
+
+## Match-load revision
+
+The original linear fatigue/card penalty described above is superseded for
+`demo_live.py` by `docs/MATCH_LOAD.md`. Physical freshness is a separate need and
+score contribution, independent of the five tactical deficits. No fatigue
+penalty is also subtracted from the tactical card vector. Outputs disclose the
+score breakdown and estimated-load inputs. The recommendation threshold stays
+.15. This changes demo scoring, not the legacy rate-based replay fatigue model.

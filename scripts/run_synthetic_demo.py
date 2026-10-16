@@ -74,13 +74,13 @@ def simulate(dataset, evidence):
             tid = '1' if minute == 54 else '24'
             emit(minute, 58, tid, attacker(tid), 'shot', x=111, y=40, xg=.32,
                  success=True, goal=True, on_target=True)
-        if minute in (15, 35, 55, 65, 75, 85, 90):
+        if minute >= 15 and minute % 5 == 0:
             for tid in ('24', '1'):
                 snapshot = recommend_demo(ms, tid)
                 snapshot['event_source'] = 'SYNTHETIC_SCRIPTED_POSSESSIONS'
                 snapshots.append(snapshot)
         # Apply only an engine-approved change, never force a named historical swap.
-        if minute in (35, 65):
+        if 30 <= minute <= 80 and minute % 5 == 0:
             for tid in ('24', '1'):
                 rec = recommend_demo(ms, tid)
                 if rec['selected']:
