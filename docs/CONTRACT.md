@@ -310,3 +310,30 @@ aerial-duel annotations and shot body part, but v0 drops aerial duels in the
 adapter and does not define a reliable aerial-win-rate pairing. Height alone is
 not aerial ability.
 
+## Demo-specific complete player dataset
+
+For the Liverpool–Arsenal hackathon demo, the engine-ready player source is
+`demo_data/demo_player_profiles.json`. This is intentionally more conservative
+and more product-oriented than the stats-only research `ProfileBook`.
+
+- **General capability** is FIFA16-anchored (absolute football ability) and is
+  nudged only slightly by the pre-match StatsBomb season signal. The supplied
+  position-relative 0–100 cards are not used as absolute ability because they
+  produced sanity failures such as elite centre-backs with very low defense.
+- **Recent 5** is calculated from actual StatsBomb events in each team's five
+  league fixtures immediately before 2016-01-13. It moves the General score only
+  by a reliability-weighted amount; it does not replace long-term ability.
+- **Positions** come from FIFA16 / curated football-realistic eligibility.
+  Statistical PROFILE_FIT alone never creates a legal position. This prevents
+  the demo engine from inventing major structural changes.
+- **Physical fields** are deterministic synthetic values based on FIFA16
+  pace/physical attributes plus SkillCorner A-League 2024/25 positional
+  reference distributions. They are explicitly tagged `is_observed=false` and
+  must never be described as measured tracking data.
+- **Aerial** is FIFA/height/role anchored and may receive only a small adjustment
+  from observed StatsBomb aerial evidence.
+
+The original `profiles.py` / `ProfileBook` remains useful as a reproducible
+StatsBomb-only baseline and for team baselines. Do not silently mix its z-score
+dimensions with the 0–95 demo capability scores.
+
