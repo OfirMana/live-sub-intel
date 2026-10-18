@@ -1,52 +1,77 @@
-# Current validation record — 16 October 2026
+# Validation record — 18 October 2026
 
-47 automated tests pass after the separate match-load/freshness revision.
-They cover source cutoff, exact offline card reconstruction, bounded modifiers,
-pooled rates, position artifacts, load sensitivity, window decay, opposition-based
-defense need, specialist scoring, no-sub gates and repeatable synthetic streams.
-Passing tests establishes implementation behavior, not football decision quality.
+52 automated tests pass. This establishes software behavior, not football decision quality.
+Tests cover deterministic rebuilding, pre-cutoff filtering, all 72 players' goal/assist/
+pass/dribble totals independently reconciled against 203 raw match files, bounded
+ratings, pooled rates, monotone load, role eligibility, clock boundaries, match isolation,
+and repeatable synthetic substitutions. A controlled flat-need case allows a three-point
+ability loss for late freshness, refuses it early, and refuses a 25-point loss late.
 
-## Current research benchmarks
+## Five-minute research replay
 
-Refresh-score cap 1.2; recommendation threshold .15 (unchanged). Five checked
-states per match; counts describe snapshots, not distinct executed substitutions.
+12 team-match replays across 10 distinct fixtures; 18 checkpoints each (5,10,...,90),
+216 total. Decisions use only events before the exact checkpoint boundary. No
+recommendation before minute 20 is allowed. First-half minute 45 is checked once;
+added time is consumed before second-half checks. The historical timeline and actual
+substitutions continue: model recommendations are NOT executed in this replay.
 
-| Match | Date | Team evaluated | Qualifying / checked states | Missing active card coverage |
-|---|---|---|---|---|
-| Liverpool vs Arsenal (3754305) | 2016-01-13 | Liverpool | **0 / 5** | 0 |
-| Liverpool vs Manchester United (3754345) | 2016-01-17 | Liverpool | **0 / 5** | 0 |
-| Norwich City vs Liverpool (3754348) | 2016-01-23 | Liverpool | **0 / 5** | 0 |
-| Stoke City vs Arsenal (3754202) | 2016-01-17 | Arsenal | 2 / 5 | 0 |
-| Arsenal vs Chelsea (3754111) | 2016-01-24 | Arsenal | 3 / 5 | 1 |
+| קבוצה | משחק | נקודות שעברו את הסף / 18 | מרב כרטיסים פעילים חסרים |
+|---|---|---:|---:|
+| Liverpool | Liverpool / Arsenal (2016-01-13) | 5 / 18 | 0 |
+| Liverpool | Liverpool / Manchester United (2016-01-17) | 5 / 18 | 0 |
+| Liverpool | Norwich City / Liverpool (2016-01-23) | 9 / 18 | 0 |
+| Arsenal | Liverpool / Arsenal (2016-01-13) | 12 / 18 | 0 |
+| Arsenal | Stoke City / Arsenal (2016-01-17) | 12 / 18 | 0 |
+| Arsenal | Arsenal / Chelsea (2016-01-24) | 10 / 18 | 1 |
+| Chelsea | Chelsea / West Bromwich Albion (2016-01-13) | 7 / 18 | 0 |
+| Chelsea | Chelsea / Everton (2016-01-16) | 6 / 18 | 0 |
+| Chelsea | Arsenal / Chelsea (2016-01-24) | 7 / 18 | 1 |
+| Tottenham Hotspur | Tottenham Hotspur / Leicester City (2016-01-13) | 9 / 18 | 0 |
+| Tottenham Hotspur | Tottenham Hotspur / Sunderland (2016-01-16) | 5 / 18 | 0 |
+| Tottenham Hotspur | Crystal Palace / Tottenham Hotspur (2016-01-23) | 4 / 18 | 2 |
 
-**Liverpool receives no recommendation in all 15 checked states, even after
-adding freshness. This remains a priority investigation, not a validated
-conclusion that no substitutions were warranted.**
+91 positive checkpoints are repeated decisions, not 91 swaps. The original three
+Liverpool replays now have 5,5,9 positive checkpoints. Can -> Allen ranks first at
+minute 80 against Arsenal (.2182); it actually happened at minute 81. Ibe -> Lallana
+ranks first at minute 55 against Norwich (.1793); it happened at minute 58. These are
+qualitative comparisons, not causal validation or a fitted target.
 
-Profiles and team baselines remain frozen before 2016-01-13. Later matches are
-held-out smoke checks; they do not calibrate the threshold. Only the definitive
-36-player squad is scored, with missing active profiles disclosed. No assertion
-requires a named historical substitution. See MATCH_LOAD.md for the score
-breakdown, load formulas and sensitivity at refresh caps 0, .6 and 1.2.
+## Sensitivity
 
-## Local integration and player-card artifacts
+All variants below use the NEW outcome-aware cards and exact five-minute replay.
+Thus the 1.2/90 row isolates the old refresh scoring, not the complete old model.
 
-The earlier local HTTP/SSE smoke check produced 91 minute updates and completion.
-The synthetic scenario remains repeatable under current tests. The browser preview
-and player-card browser were checked without console errors. The card browser's
-search, team/role filters, view selection and player detail were exercised.
-The workbook contains six sheets with filters and frozen identifying columns and
-headers. General and Recent formulas were compared to all supported card ratings;
-all sheets were visually reviewed, with no exported Excel error cells found.
-The workbook and browser are copied unchanged into docs/player-cards for sharing.
+| Refresh cap / horizon | Liverpool v Arsenal | Liverpool v Man Utd | Liverpool v Norwich | Positive / 216 |
+|---|---:|---:|---:|---:|
+| 0 / 90 | 0 | 0 | 2 | 17 |
+| 1.2 / 90 | 0 | 0 | 2 | 32 |
+| 1.2 / 30 | 4 | 1 | 5 | 75 |
+| **1.5 / 30 (current)** | **5** | **5** | **9** | **91** |
+| 1.8 / 30 | 6 | 5 | 10 | 96 |
 
-The demo events are original synthetic data. Current explanations are deterministic;
-no remote LLM, Azure deployment or GitHub Pages hosting is configured. Physical
-tracking remains synthetic, and the FIFA16 snapshot update date is unverified.
+Raw results: [four_team_sensitivity.json](research/four_team_sensitivity.json).
+Threshold stays .15. Parameters remain provisional design choices, not an empirical optimum.
+Son sensitivity: omitting his synthetic card yields Tottenham counts [9,4,4], versus
+[9,5,4] baseline; minus/plus five recent rating points yields [9,4,5] / [9,6,4].
+The existence of Tottenham recommendations does not rely on that one synthetic prior;
+individual timing and choices can still change. See research/son_assumption_sensitivity.json.
 
-## Previous iteration
+## What is still unresolved
 
-Before the separate freshness contribution, the 40-test version produced qualifying
-snapshot counts [0, 0, 0, 2, 1] for the same five matches. The new cap-0 sensitivity
-is a different comparison: it disables the explicit refresh reward after removing
-the old fatigue card penalty. Do not conflate these baselines.
+- Repeated center-back refresh recommendations and early Arsenal recommendations need
+  football review. The scorer has no disruption cost for changing a defensive partnership,
+  and broad FB roles do not enforce left/right side. More recommendations alone is not success.
+- Historical substitutions involving formation changes remain unsupported. Missing profiles
+  for players outside the Jan 13 matchday squads are disclosed, never invented silently.
+- All cards and baselines stay frozen before Jan 13, including later matches. This is a
+  frozen-prior research comparison, not a rolling up-to-date season backtest.
+- Outcome/process weights, FIFA mappings, fatigue and threshold have not been validated
+  against independent expert labels or counterfactual outcomes. No measured live tracking,
+  injury model, halftime recovery, or recovery between fixtures is available.
+- No remote LLM or Azure deployment. This revision's local HTTP/SSE smoke check delivered
+  91 minute updates, completion, and a valid three-substitution budget; refreshed standalone
+  browser artifacts and the deterministic pipeline were also verified.
+- Rich demo JSON still needs alignment with the original Recommendation schema and team UI/API.
+
+Old match_load_audit.json records the Oct 16 five-checkpoint experiment; it is historical,
+not the current 216-checkpoint result.

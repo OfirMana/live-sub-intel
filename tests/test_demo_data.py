@@ -13,15 +13,15 @@ def test_reproducible_and_no_future_leakage():
     evidence = json.loads((ROOT / 'demo_data/source_evidence.json').read_text(encoding='utf-8'))
     anchors = json.loads((ROOT / 'demo_data/fifa16_anchors.json').read_text(encoding='utf-8'))
     actual = {p['player_id']: p for p in load_demo_profiles()['players']}
-    assert len(actual) == 36
-    assert all(sum(p['team'] == t for p in actual.values()) == 18 for t in ('Liverpool', 'Arsenal'))
+    assert len(actual) == 72
+    assert all(sum(p['team'] == t for p in actual.values()) == 18 for t in ('Liverpool', 'Arsenal', 'Chelsea', 'Tottenham Hotspur'))
     for a in anchors:
         assert build_player(a, evidence) == actual[a['player_id']]
     assert all(r['date'] < evidence['cutoff'] for r in evidence['rows'])
     assert '3754305' not in evidence['match_ids']
     assert evidence['team_windows']['Liverpool'] == ['3754251', '3754226', '3754343', '3754051', '3754255']
     assert evidence['team_windows']['Arsenal'] == ['3754069', '3754173', '3754309', '3754296', '3754117']
-    assert len(evidence['starter_positions']) == 22
+    assert len(evidence['starter_positions']) == 44
 
 
 def test_ratings_caps_and_goalkeepers():
@@ -53,7 +53,7 @@ def test_pooled_rates_ignore_inactivity():
         return dict.fromkeys((*COMPONENTS, 'aerial_attempts', 'aerial_wins', 'headed_shots'), 0) | dict(minutes=minutes, npxg=xg, ball_actions=actions, ball_losses=losses)
     rows = [row(10, 1, 10, 2), row(90, 0, 90, 9), row(0, 0, 0, 0)]
     rates = observed_rates(rows)
-    assert rates['threat'] == pytest.approx(.9)
+    assert rates['threat'] == pytest.approx(.63)
     assert rates['retention'] == pytest.approx(.89)
     assert observed_rates([rows[-1]]) == dict.fromkeys(DIMS)
 

@@ -40,12 +40,14 @@ def refresh_fifa():
             anchor['fifa']['source_status'] = 'OBSERVED_FIFA16_REPUBLISHED_SOFIFA_SNAPSHOT'
         else:
             role = ROLE_BY_POSITION[FIFA_POSITION[old['player_positions'].split(',')[0].strip()]].value
-            pool = frame[(frame.overall >= 60) & (frame.overall <= 68) & frame.player_positions.map(
+            low, high = anchor.get('fallback_overall_band', [60, 68])
+            foot = anchor.get('fallback_foot', 'Left')
+            pool = frame[(frame.overall >= low) & (frame.overall <= high) & frame.player_positions.map(
                 lambda s: any(ROLE_BY_POSITION[FIFA_POSITION[p.strip()]].value == role for p in s.split(',')))]
             values = {k: float(pool[k].median()) for k in frame.select_dtypes('number').columns if not pool[k].isna().all()}
-            values.update(player_positions=old['player_positions'], preferred_foot='Left',
+            values.update(player_positions=old['player_positions'], preferred_foot=foot,
                           source_status='SYNTHETIC_FIFA_LIKE_ROLE_COHORT_MEDIAN',
-                          fallback_rule='FIFA16 same-role players with overall 60..68; numeric medians; left foot is a demo assumption',
+                          fallback_rule=f'FIFA16 same-role players with overall {low}..{high}; numeric medians; {foot} foot is a demo assumption',
                           sofifa_id=None, short_name=anchor['name'])
             anchor['fifa'] = values
         anchor['fifa']['source_url'] = 'https://github.com/kushal-gopal/EA-Sports-Fifa/blob/658e9f96cafcfdb636d6ca96fcc9bfdb1c064868/players_16.csv'
@@ -63,7 +65,7 @@ def main():
     anchors = json.loads((DATA / 'fifa16_anchors.json').read_text(encoding='utf-8'))
     evidence = json.loads((DATA / 'source_evidence.json').read_text(encoding='utf-8'))
     players = sorted((build_player(a, evidence) for a in anchors), key=lambda p: (p['team'], p['primary_role'], p['name']))
-    dataset = dict(metadata=dict(target_match_id='3754305', target_date=evidence['cutoff'],
+    dataset = dict(metadata=dict(target_match_id='3754305', target_matches=evidence.get('target_matches'), target_date=evidence['cutoff'],
                                 player_count=len(players), general_adjustment_cap=GENERAL_CAP, recent_adjustment_cap=RECENT_CAP,
                                 mapping=WEIGHTS, source_evidence_sha256=hashlib.sha256((DATA / 'source_evidence.json').read_bytes()).hexdigest(),
                                 team_windows=evidence['team_windows'],
@@ -78,9 +80,11 @@ def main():
                    height_cm=p['identity']['height_cm'], pace=p['physical']['pace'],
                    max_speed_kmh=(p['physical']['tracking'] or {}).get('max_speed_kmh'),
                    stamina=p['physical']['stamina'], strength=p['physical']['strength'])
+        row.update({k: p['season']['totals'][k] for k in ('goals','non_penalty_goals','penalty_goals','assists','dribble_attempts','dribbles_completed','pass_attempts','passes_completed')})
+        row.update(pass_completion=p['season']['pass_completion'], dribble_success=p['season']['dribble_success'])
         rows.append(row)
     with (DATA / 'demo_player_profiles.csv').open('w', encoding='utf-8-sig', newline='') as f:
-        writer = csv.DictWriter(f, fieldnames=list(rows[0]))
+        writer = csv.DictWriter(f, fieldnames=list(rows[0]), lineterminator='\n')
         writer.writeheader()
         writer.writerows(rows)
     print(f'Built {len(players)} reproducible demo profiles')

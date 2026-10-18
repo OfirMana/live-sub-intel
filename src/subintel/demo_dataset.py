@@ -9,6 +9,8 @@ from .physical import PHYSICAL_REFERENCE_BY_ROLE
 from .statsbomb import ROLE_BY_POSITION
 
 DIMS = ('threat', 'creation', 'progression', 'retention', 'defense', 'aerial')
+EXTRA_COUNTS = ('goals', 'non_penalty_goals', 'penalty_goals', 'assists',
+                'dribble_attempts', 'dribbles_completed', 'pass_attempts', 'passes_completed')
 GENERAL_CAP = 6.0
 RECENT_CAP = 6.0
 POSITION_MINUTES = 180.0
@@ -48,7 +50,7 @@ def fifa_prior(fifa):
 
 
 def aggregate(rows):
-    return {k: sum(r.get(k, 0) for r in rows) for k in (*COMPONENTS, 'aerial_attempts', 'aerial_wins', 'headed_shots', 'minutes')}
+    return {k: sum(r.get(k, 0) for r in rows) for k in (*COMPONENTS, *EXTRA_COUNTS, 'aerial_attempts', 'aerial_wins', 'headed_shots', 'minutes')}
 
 
 def observed_rates(rows):
@@ -57,10 +59,13 @@ def observed_rates(rows):
     if not mins:
         return {d: None for d in DIMS}
     rate = lambda c: totals[c] * 90 / mins
-    return dict(threat=rate('npxg') + .05 * rate('box_presence'),
-                creation=rate('xa') + .1 * rate('box_passes'),
-                progression=rate('prog_passes') + rate('prog_carries'),
-                retention=1 - totals['ball_losses'] / totals['ball_actions'] if totals['ball_actions'] else None,
+    pass_completion = totals['passes_completed'] / totals['pass_attempts'] if totals['pass_attempts'] else None
+    ball_retention = 1 - totals['ball_losses'] / totals['ball_actions'] if totals['ball_actions'] else None
+    # Outcome and process share the existing capped signal; no extra uncapped bonus.
+    return dict(threat=.7 * rate('npxg') + .3 * rate('non_penalty_goals') + .05 * rate('box_presence'),
+                creation=.7 * rate('xa') + .3 * rate('assists') + .1 * rate('box_passes'),
+                progression=rate('prog_passes') + rate('prog_carries') + .5 * rate('dribbles_completed'),
+                retention=(.8 * ball_retention + .2 * pass_completion if pass_completion is not None else ball_retention) if ball_retention is not None else None,
                 defense=rate('pressures') + rate('def_actions'),
                 aerial=totals['aerial_wins'] / totals['aerial_attempts'] if totals['aerial_attempts'] else None)
 
@@ -92,7 +97,7 @@ def positions(fifa, rows):
                 broad_roles=eligible, eligibility={r: 1.0 for r in eligible},
                 suitability={r: 1.0 if r == primary_role else .85 for r in eligible},
                 all_positions_played=sorted(historical), minutes_by_position={p: round(m, 3) for p, m in sorted(historical.items())},
-                evidence={p: 'FIFA16_POSITION' if p in static else 'OBSERVED_STATSBOMB_MEANINGFUL_MINUTES' for p in sorted(set(static + meaningful))})
+                evidence={p: ('SYNTHETIC_POSITION_ASSUMPTION' if fifa.get('source_status', '').startswith('SYNTHETIC') else 'FIFA16_POSITION') if p in static else 'OBSERVED_STATSBOMB_MEANINGFUL_MINUTES' for p in sorted(set(static + meaningful))})
 
 
 def physical(fifa, role):
@@ -147,6 +152,10 @@ def build_player(anchor, evidence):
                 fifa16=fifa,
                 general=dict(ratings=general, fifa_prior=prior, statsbomb_adjustment=adjustment,
                              reliability=rel, minutes=round(totals['minutes'], 3), observed_rates=rates),
+                season=dict(totals=totals, p90={k: totals[k] * 90 / totals['minutes'] if totals['minutes'] else None for k in EXTRA_COUNTS},
+                            pass_completion=totals['passes_completed']/totals['pass_attempts'] if totals['pass_attempts'] else None,
+                            dribble_success=totals['dribbles_completed']/totals['dribble_attempts'] if totals['dribble_attempts'] else None,
+                            source='OBSERVED_STATSBOMB_PL_BEFORE_CUTOFF'),
                 recent=dict(ratings=recent, form_delta=delta, reliability=round(sum(recent_rel.values()) / len(DIMS), 4),
                             reliability_by_dimension=recent_rel, minutes=round(recent_totals['minutes'], 3),
                             appearances=sum(r['minutes'] > 0 for r in recent_rows), starts=sum(r['started'] for r in recent_rows),

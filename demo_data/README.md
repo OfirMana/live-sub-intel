@@ -1,6 +1,6 @@
 # Reproducible demo player dataset
 
-Canonical: `demo_player_profiles.json` (36 Liverpool/Arsenal matchday players).
+Canonical: `demo_player_profiles.json` (72 Liverpool/Arsenal/Chelsea/Tottenham matchday players).
 `demo_player_profiles.csv` is the inspection table. The older frozen profile and
 recent-metrics exports were superseded because their event definitions diverged
 from `metrics.py`. Legacy recent-profile helpers remain for compatibility but are
@@ -23,7 +23,7 @@ PYTHONPATH=src python scripts/build_demo_dataset.py
 The collector processes all 203 Premier League matches strictly before
 2016-01-13. Only target-squad player rows, league calibration distributions,
 team baselines and raw SHA256 hashes are committed. Squad membership and starter
-status come from match 3754305; no target-match performance or later positions
+status come from matches 3754305, 3754062 and 3754065; no target-match performance or later positions
 enter the player cards. Historical minutes include stoppage time in both halves.
 The recent window is the five latest TEAM fixtures, including zero-minute rows.
 Rates use pooled counts/minutes; retention uses pooled losses/actions.
@@ -38,13 +38,13 @@ Rates use pooled counts/minutes; retention uses pooled losses/actions.
   These are observed video-game ratings, not observed real-world capabilities.
   The exact SoFIFA update date is unverified: do not claim January 2016 precision.
   Leading numeric values are parsed from change annotations such as `82-1`.
-  35 source records match by SoFIFA id. Brad Smith is absent; numeric medians of
-  FIFA16 fullbacks rated 60..68 provide a generic SYNTHETIC fallback. His left
-  foot is a demo assumption. No individual rating is manually tuned.
+  70 source records match by SoFIFA id. Brad Smith and Son are absent; Brad uses numeric medians of
+  FIFA16 fullbacks rated 60..68 as a generic SYNTHETIC fallback. His left
+  foot is a demo assumption. Son uses same-role medians for overall 75..85 and an assumed right foot. Both bands are explicit assumptions, not observed personal ratings. No individual numeric rating is hand tuned.
 - SkillCorner reference CSV:
   https://github.com/SkillCorner/opendata/blob/4340d274572876239c154c90bc507a9b3250a656/data/aggregates/aus1league_physicalaggregates_20242025.csv
   Arithmetic means by position_group were verified against `physical.py`.
-  A-League 2024/25 references are generation anchors, not Liverpool/Arsenal data.
+  A-League 2024/25 references are generation anchors, not observed player data.
 
 The earlier `player_cards.json` and workbooks were not present in local
 attachments or this repository; they are not represented as verified sources.
@@ -56,7 +56,7 @@ scores and league_baselines.csv.
 All six dimension weight maps are stored in `demo_dataset.WEIGHTS` and the JSON
 metadata. Height contributes only 15% of Aerial; heading, jumping and strength
 supply the rest. Missing detailed attributes fall back to the appropriate FIFA
-category; the committed source supplies detailed attributes for 35 players.
+category; the committed source supplies detailed attributes for 70 players.
 
 For each dimension, season signal is the player's observed rate minus the
 pre-cutoff league role mean, divided by the role standard deviation (cohort
@@ -75,9 +75,10 @@ Recent evidence overlaps the season; this is a descriptive form modifier, not
 an independent validation estimate. Evidence strength is not a probability.
 
 Signals (profile-only; existing engine component meanings are unchanged):
-threat = npxG/90 + .05*box_presence/90; creation = xA/90 + .1*box_passes/90;
-progression = progressive_passes/90 + progressive_carries/90;
-retention = 1-losses/actions; defense = pressures/90 + successful_def_actions/90;
+threat = .7*npxG/90 + .3*non_penalty_goals/90 + .05*box_presence/90;
+creation = .7*xA/90 + .3*assists/90 + .1*box_passes/90;
+progression = progressive_passes/90 + progressive_carries/90 + .5*completed_dribbles/90;
+retention = .8*(1-losses/actions) + .2*pass_completion, if passes are observed; otherwise 1-losses/actions; defense = pressures/90 + successful_def_actions/90;
 aerial = annotated aerial_wins/annotated aerial_attempts. Lost aerial duels and
 explicit aerial_won annotations are counted; unannotated contests are unknown.
 The five core metrics are all extracted through the existing ComponentTracker.
@@ -99,3 +100,5 @@ HSR is 20..25 km/h; sprint >25 km/h. These are calibration assumptions, not a
 validated conversion from FIFA to physical measurements.
 GK outfield dimensions and unsupported GK tracking references are null by design;
 original FIFA goalkeeper attributes are preserved for future goalkeeper logic.
+
+Season totals and p90 values are exposed under `season`. Goals require Shot outcome Goal; penalties are separate; own goals excluded. Assists use StatsBomb pass.goal_assist. Dribble completion uses outcome Complete. Pass completion means no failure outcome. Completion rates are raw, not pressure/difficulty adjusted; all passes include set pieces. No attempts means null rate. Outcome/process weights are provisional and share the existing capped adjustment, not an extra uncapped bonus. See docs/MODEL_UPDATE_HE.md.

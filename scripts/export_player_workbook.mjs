@@ -48,9 +48,9 @@ function build(name,title,headers,rows,widths={},subtitle='Pre-match cards froze
 }
 
 const cardRows=players.map(p=>[p.name,p.team,p.positions.primary,p.primary_role,...dims.map(d=>p.general.ratings[d]??'n.a.'),...dims.map(d=>p.recent.ratings[d]??'n.a.'),p.recent.minutes,p.recent.reliability,p.identity.height_cm,p.physical.pace??'n.a.',p.physical.tracking?.max_speed_kmh??'n.a.',p.physical.stamina,p.physical.strength,p.provenance.fifa.startsWith('SYNTHETIC')?'SYNTHETIC FALLBACK':'FIFA16 anchored']);
-const cards=build('Cards','Liverpool / Arsenal player cards',['Player','Team','Primary position','Role',...dims.map(d=>'General '+d),...dims.map(d=>'Recent '+d),'Recent minutes','Recent evidence','Height (cm)','FIFA pace','Max speed (km/h)*','Stamina','Strength','Ability source'],cardRows,{0:29,1:16,2:30,3:11,23:24});
-cards.getRange('R6:R41').setNumberFormat('0.0%');
-cards.getRange('E6:P41').conditionalFormats.add('colorScale',{colors:['#F5F7FA','#D9E8F5','#7BA8C8'],thresholds:[0,50,100]});
+const cards=build('Cards','Four-club player cards',['Player','Team','Primary position','Role',...dims.map(d=>'General '+d),...dims.map(d=>'Recent '+d),'Recent minutes','Recent evidence','Height (cm)','FIFA pace','Max speed (km/h)*','Stamina','Strength','Ability source'],cardRows,{0:29,1:16,2:30,3:11,23:24});
+cards.getRange(`R6:R${players.length+5}`).setNumberFormat('0.0%');
+cards.getRange(`E6:P${players.length+5}`).conditionalFormats.add('colorScale',{colors:['#F5F7FA','#D9E8F5','#7BA8C8'],thresholds:[0,50,100]});
 const brad=players.findIndex(p=>p.name==='Brad Smith')+6;
 cards.getRange(`X${brad}`).format.fill='#FFF1C9';
 
@@ -73,6 +73,23 @@ for(let i=0;i<players.length;i++)for(let d=0;d<6;d++){
  cards.getRange(`${col(10+d)}${dr}`).formulas=[[`='Rating detail'!H${sr}`]];
 }
 
+
+const seasonKeys=['goals','non_penalty_goals','penalty_goals','assists','dribble_attempts','dribbles_completed','pass_attempts','passes_completed'];
+const seasonRows=players.map(p=>[p.name,p.team,p.season.totals.minutes,...seasonKeys.map(k=>p.season.totals[k]),null,null,null,null]);
+const season=build('Season output','Observed PL output before 13 January 2016',['Player','Team','Season minutes','Goals','Non-penalty goals','Penalty goals','Assists','Dribble attempts','Completed dribbles','Pass attempts','Completed passes','Goals / 90','Assists / 90','Dribble success','Pass completion'],seasonRows,{0:29,1:23,2:18,4:20,7:20,8:23,10:23},'Source: pinned StatsBomb events; PL only, before cutoff. Raw completion percentages are not pressure/difficulty adjusted.');
+for(let i=0;i<seasonRows.length;i++){
+ const r=i+6;
+ season.getRange(`L${r}`).formulas=[[`=IF(C${r}>0,D${r}/C${r}*90,"n.a.")`]];
+ season.getRange(`M${r}`).formulas=[[`=IF(C${r}>0,G${r}/C${r}*90,"n.a.")`]];
+ season.getRange(`N${r}`).formulas=[[`=IF(H${r}>0,I${r}/H${r},"n.a.")`]];
+ season.getRange(`O${r}`).formulas=[[`=IF(J${r}>0,K${r}/J${r},"n.a.")`]];
+}
+season.getRange(`D6:K${players.length+5}`).setNumberFormat('0');
+season.getRange(`L6:M${players.length+5}`).setNumberFormat('0.00');
+season.getRange(`N6:O${players.length+5}`).setNumberFormat('0.0%');
+season.getRange(`L6:O${players.length+5}`).format.horizontalAlignment='right';
+season.getRange(`N6:O${players.length+5}`).format.columnWidth=19;
+
 const physicalRows=players.map(p=>{const f=p.fifa16,t=p.physical.tracking||{};return[p.name,p.team,p.primary_role,p.identity.height_cm,f.weight_kg??'n.a.',p.identity.preferred_foot,p.physical.pace??'n.a.',f.movement_acceleration,f.movement_sprint_speed,f.movement_agility??'n.a.',p.physical.stamina,p.physical.strength,f.power_jumping,t.max_speed_kmh??'n.a.',t.meters_per_minute??'n.a.',t.hsr_distance_90??'n.a.',t.hsr_count_90??'n.a.',t.sprint_distance_90??'n.a.',t.sprint_count_90??'n.a.',t.high_accel_90??'n.a.',t.high_decel_90??'n.a.',false,p.provenance.fifa.startsWith('SYNTHETIC')?'SYNTHETIC identity + ability':'FIFA16 attributes; SYNTHETIC tracking'];});
 build('Physical','Physical capability and synthetic tracking references',['Player','Team','Role','Height (cm)','Weight (kg)','Foot','Pace','Acceleration','Sprint speed','Agility','Stamina','Strength','Jumping','Max km/h*','Meters/min*','HSR m/90*','HSR count/90*','Sprint m/90*','Sprints/90*','High accel/90*','High decel/90*','Tracking observed?','Source'],physicalRows,{0:29,1:16,5:12,22:52},'* Synthetic capability estimates. HSR: 20–25 km/h; sprint: >25 km/h. Unsupported GK tracking is n.a.');
 const positionRows=[];
@@ -90,20 +107,22 @@ const allFields=build('All fields','All stored player-card fields',['Player','Te
 allFields.getRange(`E6:E${fieldRows.length+5}`).setNumberFormat('General');
 
 const guideRows=[
- ['Scope','36 players from Liverpool / Arsenal matchday squads, 13 January 2016. Player cards only; no live-match state.'],
+ ['Scope','72 players: Liverpool, Arsenal, Chelsea and Tottenham matchday squads, 13 January 2016. Player cards only; no live-match state.'],
  ['Reading the cards','General = stable ability. Recent = General + bounded last-five-team-match delta. All ability ratings are 0..100.'],
  ['Evidence strength','0..1 describes sample strength, not a probability that a rating is correct. Zero recent minutes means no recent delta.'],
  ['Missing values','n.a. is unknown / unsupported. GK outfield ratings and tracking are unsupported. Original FIFA goalkeeper ratings are preserved in All fields.'],
- ['Synthetic fallback','Brad Smith is absent from the FIFA16 snapshot. Same-role FIFA16 players rated 60..68 supply numeric medians. Left foot is a demo assumption.'],
+ ['Synthetic fallback','Brad Smith and Son are absent from this FIFA16 CSV. Same-role numeric medians: Brad overall 60..68, Son 75..85. Bands and foot are explicit demo assumptions; not observed personal ratings.'],
  ['FIFA16 source','https://github.com/kushal-gopal/EA-Sports-Fifa/blob/658e9f96cafcfdb636d6ca96fcc9bfdb1c064868/players_16.csv'],
  ['FIFA16 date','The precise SoFIFA update date is unverified. Ratings are video-game source values, not measured football ability.'],
  ['StatsBomb source','https://github.com/hudl/open-data/tree/4b73468fc5b0f1950f9f66fada70ad3a4f9327cb'],
  ['StatsBomb scope','All 203 Premier League matches before 2016-01-13 define the evidence and calibration. No target-match performance enters the cards.'],
  ['Physical reference source','https://github.com/SkillCorner/opendata/blob/4340d274572876239c154c90bc507a9b3250a656/data/aggregates/aus1league_physicalaggregates_20242025.csv'],
- ['Physical source meaning','A-League 2024/25 positional means guide SYNTHETIC estimates. They are not observed Liverpool/Arsenal tracking.'],
+ ['Physical source meaning','A-League 2024/25 positional means guide SYNTHETIC estimates. They are not observed player tracking.'],
  ['General calculation','General = clamp(FIFA prior + 6 × season reliability × tanh(season signal / 2), 0, 100).'],
  ['Recent calculation','Recent = clamp(General + 6 × recent reliability × tanh(recent-vs-season signal / 2), 0, 100).'],
- ['Volume rates','SUM(component) / SUM(minutes) × 90. Retention = 1 − SUM(losses) / SUM(ball actions).'],
+ ['Outcome signals','Threat = .7 npxG/90 + .3 non-penalty goals/90 + .05 box presence/90; creation = .7 xA/90 + .3 assists/90 + .1 box passes/90. Both use the existing +/-6 capped adjustment.'],
+ ['Technical signals','Progression adds .5 completed dribbles/90; retention blends 80% ball retention and 20% raw pass completion, if observed. No pressure/difficulty adjustment.'],
+ ['Volume rates','SUM(component) / SUM(minutes) × 90. Ball retention = 1 − SUM(losses) / SUM(ball actions).'],
  ['Season reliability','minutes / (minutes + 900), additionally constrained by actions/(actions+100) for retention and aerial attempts/(attempts+20) for aerial.'],
  ['Recent reliability','minutes / (minutes + 180), additionally constrained by the same retention/aerial opportunity counts.'],
  ['Recent team fixtures','Liverpool: 3754251, 3754226, 3754343, 3754051, 3754255. Arsenal: 3754069, 3754173, 3754309, 3754296, 3754117.'],
@@ -118,6 +137,13 @@ const guideRows=[
 build('Guide','Definitions, formulas and sources',['Topic','Explanation'],guideRows,{0:32,1:155},'Review assumptions before using these demo cards as football judgments.');
 
 wb.recalculate();
+for(let i=0;i<players.length;i++){
+ const p=players[i], r=i+6;
+ for(const [cell,expected] of [['L',p.season.p90.goals],['M',p.season.p90.assists],['N',p.season.dribble_success],['O',p.season.pass_completion]]){
+  const actual=season.getRange(`${cell}${r}`).values[0][0];
+  if(expected===null ? actual!=='n.a.' : Math.abs(actual-expected)>1e-8)throw Error('Season formula mismatch '+p.name+' '+cell);
+ }
+}
 for(let i=0;i<players.length;i++)for(let d=0;d<6;d++){
  const actual=cards.getRange(`${col(4+d)}${6+i}`).values[0][0];
  const expected=players[i].general.ratings[dims[d]];
@@ -126,9 +152,9 @@ for(let i=0;i<players.length;i++)for(let d=0;d<6;d++){
  if(expected!==null&&Math.abs(recent-players[i].recent.ratings[dims[d]])>.0011)throw Error('Recent mismatch '+players[i].name);
 }
 console.log((await wb.inspect({kind:'match',searchTerm:'#REF!|#DIV/0!|#VALUE!|#NAME\\?|#NUM!|#SPILL!',options:{useRegex:true,maxResults:10},maxChars:1500})).ndjson);
-for(const [name,range] of [['Cards','A1:J13'],['Rating detail','A1:L13'],['Physical','A1:N13'],['Positions','A1:G13'],['All fields','A1:E13'],['Guide','A1:B12']]){
+for(const [name,range] of [['Cards','A1:J13'],['Season output','A1:O13'],['Rating detail','A1:L13'],['Physical','A1:N13'],['Positions','A1:G13'],['All fields','A1:E13'],['Guide','A1:B12']]){
  const png=await wb.render({sheetName:name,range,scale:1.4,format:'png'});
  await fs.writeFile(path.join(qa,`cards-preview-${name.replaceAll(' ','_')}.png`),new Uint8Array(await png.arrayBuffer()));
 }
-await (await SpreadsheetFile.exportXlsx(wb)).save(path.join(out,'Liverpool_Arsenal_Player_Cards.xlsx'));
-console.log(JSON.stringify({players:players.length,sheets:sheets.length,allFields:fieldRows.length,output:path.join(out,'Liverpool_Arsenal_Player_Cards.xlsx')}));
+await (await SpreadsheetFile.exportXlsx(wb)).save(path.join(out,'Four_Club_Player_Cards.xlsx'));
+console.log(JSON.stringify({players:players.length,sheets:sheets.length,allFields:fieldRows.length,output:path.join(out,'Four_Club_Player_Cards.xlsx')}));

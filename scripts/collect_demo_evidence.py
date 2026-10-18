@@ -15,6 +15,10 @@ from subintel.statsbomb import OPEN_DATA, ROLE_BY_POSITION, convert_event
 ROOT = Path(__file__).resolve().parents[1]
 CACHE = ROOT / 'data/raw'
 CUTOFF = '2016-01-13'
+TARGETS = {'Liverpool': '3754305', 'Arsenal': '3754305',
+           'Chelsea': '3754062', 'Tottenham Hotspur': '3754065'}
+EXTRA_COUNTS = ('goals', 'non_penalty_goals', 'penalty_goals', 'assists',
+                'dribble_attempts', 'dribbles_completed', 'pass_attempts', 'passes_completed')
 PINNED_OPEN_DATA = 'https://raw.githubusercontent.com/hudl/open-data/4b73468fc5b0f1950f9f66fada70ad3a4f9327cb/data'
 
 
@@ -48,6 +52,17 @@ def extract(match):
                 counts[c.player_id][c.component] += c.value
         pid = str(e.get('player', {}).get('id', ''))
         kind = e['type']['name']
+        if kind == 'Shot' and e['shot']['outcome']['name'] == 'Goal':
+            penalty = e['shot'].get('type', {}).get('name') == 'Penalty'
+            counts[pid]['goals'] += 1
+            counts[pid]['penalty_goals' if penalty else 'non_penalty_goals'] += 1
+        if kind == 'Pass':
+            counts[pid]['assists'] += int(e['pass'].get('goal_assist', False))
+            counts[pid]['pass_attempts'] += 1
+            counts[pid]['passes_completed'] += int('outcome' not in e['pass'])
+        if kind == 'Dribble':
+            counts[pid]['dribble_attempts'] += 1
+            counts[pid]['dribbles_completed'] += int(e['dribble']['outcome']['name'] == 'Complete')
         # Count annotated aerial wins and lost aerial duels, never pair unrelated events.
         win = any(isinstance(e.get(k), dict) and e[k].get('aerial_won') for k in ('pass', 'shot', 'clearance', 'miscontrol'))
         lost = kind == 'Duel' and e.get('duel', {}).get('type', {}).get('name') == 'Aerial Lost'
@@ -72,7 +87,7 @@ def extract(match):
                        match_id=mid, date=match['match_date'], minutes=minutes,
                        started=bool(p['positions'] and p['positions'][0]['start_reason'] == 'Starting XI'),
                        positions=dict(positions), role=ROLE_BY_POSITION[primary].value if primary else None)
-            row.update({c: counts[pid][c] for c in (*COMPONENTS, 'aerial_attempts', 'aerial_wins', 'headed_shots')})
+            row.update({c: counts[pid][c] for c in (*COMPONENTS, 'aerial_attempts', 'aerial_wins', 'headed_shots', *EXTRA_COUNTS)})
             rows.append(row)
     return rows
 
@@ -80,15 +95,15 @@ def extract(match):
 def main():
     matches = fetch('matches/2/27.json')
     before = sorted((m for m in matches if m['match_date'] < CUTOFF), key=lambda m: (m['match_date'], m['match_id']))
-    target = fetch('lineups/3754305.json')
+    target = [t for mid in sorted(set(TARGETS.values())) for t in fetch(f'lineups/{mid}.json') if TARGETS.get(t['team_name']) == mid]
     wanted = {str(p['player_id']) for t in target for p in t['lineup']}
     with ThreadPoolExecutor(max_workers=8) as pool:
         batches = list(pool.map(extract, before))
     all_rows = [r for batch in batches for r in batch]
     windows = {}
-    for team in ('Liverpool', 'Arsenal'):
+    for team in TARGETS:
         windows[team] = [str(m['match_id']) for m in reversed(before) if team in (m['home_team']['home_team_name'], m['away_team']['away_team_name'])][:5]
-    evidence = dict(cutoff=CUTOFF, target_match_id='3754305', team_windows=windows,
+    evidence = dict(cutoff=CUTOFF, target_match_id='3754305', target_matches=TARGETS, team_windows=windows,
                     starter_positions={str(p['player_id']): ROLE_BY_POSITION[p['positions'][0]['position']].value
                                        for t in target for p in t['lineup'] if p['positions'] and p['positions'][0]['start_reason'] == 'Starting XI'},
                     match_ids=[str(m['match_id']) for m in before],
@@ -139,7 +154,7 @@ def main():
         conceded = {c: sum(other[mid]['totals'][c] for oid, other in team_games.items() if oid != tid for mid in games if mid in other) / minutes * 90 for c in COMPONENTS}
         evidence['team_baselines'][tid] = dict(p90=own, conceded_p90=conceded,
                                                loss_rate=own['ball_losses'] / max(own['ball_actions'], 1))
-    used_paths = [CACHE/'matches/2/27.json', CACHE/'lineups/3754305.json']
+    used_paths = [CACHE/'matches/2/27.json', *[CACHE/f'lineups/{mid}.json' for mid in sorted(set(TARGETS.values()))]]
     used_paths += [CACHE/f'{kind}/{m["match_id"]}.json' for m in before for kind in ('events', 'lineups')]
     evidence['raw_sha256'] = {str(p.relative_to(CACHE)).replace('\\', '/'): hashlib.sha256(p.read_bytes()).hexdigest()
                               for p in sorted(used_paths)}

@@ -1,4 +1,4 @@
-"""Loader for the frozen Liverpool-Arsenal hackathon demo profiles."""
+"""Loader for the frozen four-team hackathon demo profiles."""
 
 from __future__ import annotations
 

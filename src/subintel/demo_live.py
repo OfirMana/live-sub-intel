@@ -10,8 +10,9 @@ from .metrics import DIMENSIONS, VOLUME_COMPONENTS
 from .profiles import ProfileBook, Scale, TeamBaseline
 from .schema import Event, EventType, Player, Role
 
-TEAM_IDS = {'Liverpool': '24', 'Arsenal': '1'}
-REFRESH_SCORE_CAP = 1.2  # provisional score units, evaluated in the sensitivity audit
+TEAM_IDS = {'Liverpool': '24', 'Arsenal': '1', 'Chelsea': '33', 'Tottenham Hotspur': '38'}
+REFRESH_SCORE_CAP = 1.5  # provisional; see audit_match_load.py, not fitted to named swaps
+REFRESH_HORIZON_MINUTES = 30.0
 LOAD_FREE_SHARE = .5
 LOAD_FATIGUE_SPAN = .7
 
@@ -47,9 +48,9 @@ def refresh_value(fatigue, incoming, outgoing):
     return REFRESH_SCORE_CAP * fatigue * quality
 
 
-def make_match(dataset, evidence, match_id='synthetic-demo'):
+def make_match(dataset, evidence, match_id='synthetic-demo', teams=('Liverpool', 'Arsenal')):
     cards = {str(p['player_id']): p for p in dataset['players']}
-    players = [Player(player_id=pid, name=p['name'], team_id=TEAM_IDS[p['team']], role=Role(p['primary_role'])) for pid, p in cards.items()]
+    players = [Player(player_id=pid, name=p['name'], team_id=TEAM_IDS[p['team']], role=Role(p['primary_role'])) for pid, p in cards.items() if p['team'] in teams]
     # Use initial target-match positions only; never the later tactical shifts.
     starter_positions = evidence.get('starter_positions', {})
     for p in players:
@@ -57,7 +58,7 @@ def make_match(dataset, evidence, match_id='synthetic-demo'):
             p.role = Role(starter_positions[p.player_id])
     book = ProfileBook(players={}, teams={tid: TeamBaseline(team_id=tid, **evidence['team_baselines'][tid]) for tid in TEAM_IDS.values()},
                        scale=Scale(mean={}, std={}, dimension_values={}))
-    starters = {pid for pid, p in cards.items() if p['matchday_status'] == 'Starter'}
+    starters = {p.player_id for p in players if cards[p.player_id]['matchday_status'] == 'Starter'}
     ms = DemoMatchState(match_id, players, starters, book)
     ms.cards, ms.evidence = cards, evidence
     return ms
@@ -201,7 +202,12 @@ def recommend_demo(ms, tid, top=3):
                 refresh = refresh_value(fatigue, incoming, outgoing)
                 score = (core + tactical_gain + refresh) * (.5 + .5 * rel)
                 fit = card['positions']['suitability'][ms.role(out_id)]
-                benefit = score * fit * max(94 - state.minute, 0) / 90
+                remaining = max(94 - state.minute, 0)
+                # Tactical differences accumulate over the remaining match.
+                # Refresh addresses the next ~30 minutes, not a second full 90.
+                tactical_horizon = remaining / 90
+                refresh_horizon = min(remaining / REFRESH_HORIZON_MINUTES, 1)
+                benefit = fit * (.5 + .5 * rel) * ((core + tactical_gain) * tactical_horizon + refresh * refresh_horizon)
                 reasons = [f'HIGH_{d.upper()}_NEED' for d, v in needs.needs.items() if v >= .65 and delta[d] > 0]
                 if refresh >= .05:
                     reasons.append('ESTIMATED_FRESHNESS_RELIEF')
@@ -214,7 +220,8 @@ def recommend_demo(ms, tid, top=3):
                                     position_fit=fit, evidence_strength=round(rel, 3), reason_codes=reasons,
                                     score_components=dict(tactical_core=round(core, 4), tactical_support=round(tactical_gain, 4),
                                                           freshness_relief=round(refresh, 4), outgoing_fatigue=fatigue,
-                                                          evidence_multiplier=round(.5+.5*rel, 4), remaining_time_multiplier=round(max(94-state.minute, 0)/90, 4)),
+                                                          evidence_multiplier=round(.5+.5*rel, 4), remaining_time_multiplier=round(tactical_horizon, 4),
+                                                          freshness_time_multiplier=round(refresh_horizon, 4)),
                                     score=round(score, 4), expected_benefit=round(benefit, 4)))
     options.sort(key=lambda o: (-o['expected_benefit'], o['out_player']['id'], o['in_player']['id']))
     decision = bool(options and options[0]['expected_benefit'] >= RECOMMEND_THRESHOLD)

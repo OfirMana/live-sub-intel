@@ -342,10 +342,9 @@ Per-dimension observed-minus-expected signals use Poisson-like variance (xG
 factor .3), tanh(signal/2), and exposure/(exposure+12) confidence. Retention also
 shrinks by actions/(actions+20). The live vector is bounded -1..1 and changes
 prematch card ability by at most four points. Live aerial uses annotated contests
-with attempts/(attempts+10) confidence. Estimated fatigue is
-clip(minutes/110 * (1+(75-stamina)/200) * pressure_intensity,0,1), with intensity
-clipped .8..1.2. It removes at most three points from threat, progression and
-defense. No measured distance or medical fitness is claimed.
+with attempts/(attempts+10) confidence. Estimated match load and a separate
+freshness contribution are defined in MATCH_LOAD.md; no fatigue penalty is also
+subtracted from the tactical card. No measured distance or medical fitness is claimed.
 
 The existing team_need function still combines recent output deficits, opponent
 production, score, clock and red cards. Substitutions remaining gate candidate
@@ -358,8 +357,9 @@ in the original engine. Demo candidates require the outgoing active role in the
 incoming player's evidence-backed eligibility set; suitability is 1 or .85.
 Both positive gains and losses use existing asymmetric substitution_score, with
 card-point deltas divided by 20. Tactical aerial gain coefficient .1, speed gain
-coefficient .05; all are provisional. Score is multiplied by (.5+.5*minimum
-season reliability), position suitability and remaining minutes/90 (to 94).
+coefficient .05; all are provisional. Benefit uses (.5+.5*minimum season
+reliability), position suitability, remaining minutes/90 for tactical terms,
+and min(remaining minutes/30,1) for the separate 1.5-cap freshness term.
 Threshold remains .15. No recommendations before minute 20, at/after minute 94,
 or when substitutions are exhausted. GK recommendations are unsupported.
 Evidence strength is not a probability; no field is named calibrated confidence.
@@ -371,9 +371,10 @@ precomputed deterministic checkpoints; it is a local preview, not an Azure live
 service. A deterministic grounded explanation is included; no remote LLM has
 been deployed. A future LLM receives only this JSON and must not create facts.
 
-`benchmark_demo.py` uses match 3754305 and four subsequent Liverpool/Arsenal
-fixtures for research. Cards and baselines stay frozen before 2016-01-13, so no
-future performance leaks into priors. Only players from the definitive 36-player
+`benchmark_demo.py` evaluates the first three fixtures on/after Jan 13 for each
+of Liverpool, Arsenal, Chelsea and Tottenham: 12 team replays, 10 distinct matches,
+18 exact five-minute checkpoints each (5..90). Cards/baselines stay frozen before
+2016-01-13, so no future performance leaks into priors. Only the definitive 72-player
 dataset are scored; other active players are listed as unavailable_profile_ids.
 No acceptance condition requires any named historical substitution.
 
@@ -390,3 +391,17 @@ score contribution, independent of the five tactical deficits. No fatigue
 penalty is also subtracted from the tactical card vector. Outputs disclose the
 score breakdown and estimated-load inputs. The recommendation threshold stays
 .15. This changes demo scoring, not the legacy rate-based replay fatigue model.
+
+## Four-team outcome-aware cards — 18 October 2026
+
+Seventy observed FIFA16 records plus disclosed synthetic Brad Smith and Son fallbacks
+cover four Jan 13 matchday squads. Historical PL goals (non-penalty/penalty separated),
+StatsBomb goal assists, completed dribbles and pass completion are stored under season.
+Threat blends .7 npxG/90 and .3 non-penalty goals/90 plus box presence; creation blends
+.7 xA/90 and .3 assists/90 plus box passes. Progression adds .5 completed dribbles/90;
+retention blends .8 ball retention and .2 pass completion when available. Role calibration
+uses the same new signals across the pre-cutoff league. Existing live event-component
+definitions are unchanged. Process/outcome signals share the same bounded +/-6 season
+and recent adjustments; they do not add an uncapped scoring bonus. Counts, p90 and raw
+percentages are visible; zero attempts gives null percentage. No pass-difficulty adjustment
+is claimed. See MODEL_UPDATE_HE.md and VALIDATION.md for assumptions and current limits.

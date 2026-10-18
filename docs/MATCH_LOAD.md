@@ -1,89 +1,63 @@
-# Match-load and freshness revision
+# Match load, freshness and score horizons — 18 October 2026
 
-The first card scorer subtracted up to three ability points for fatigue. Its
-asymmetric tactical scoring gives positive gains credit only when the related
-team need exceeds .5. Freshness therefore had little independent value with
-flat tactical needs. Early linear fatigue also applied from the first minutes.
+The earlier scorer used freshness cap 1.2 and discounted the whole candidate by
+remaining_minutes/90. At ordinary intensity and stamina 75, even perfect equal-quality
+refresh peaked near .083 before evidence penalties, below the .15 decision threshold.
+That explained a structural suppression of ordinary refresh substitutions.
 
-## Separate physical need
+## Load proxy (unchanged)
 
-The five tactical needs keep their existing meanings. `physical_need.freshness`
-is a separate 0..1 load estimate, not a sixth ability score. It is the highest
-estimated fatigue among supported active outfield players. Individual outgoing
-fatigue determines each candidate's freshness score. Unused bench players are
-assumed available and fresh; injuries and prior-week recovery are not modeled.
+For played minutes >=15, excess(count,rate) = clip(count/max(rate*minutes/90,1)-1,0,1);
+before 15 it is zero. Intensity = 1 + .15 excess(pressures) + .10 excess(progressive carries),
+bounded 1..1.25. Low observed on-ball activity never implies zero off-ball work.
+Capacity = clip(1+(FIFA stamina-75)/150,.8,1.15).
+Load ratio = minutes/90 * intensity/capacity.
+Fatigue = clip((load_ratio-.5)/.7,0,1)^1.5.
 
-## Deterministic estimate
+For stamina 75/ordinary intensity, fatigue is 0 through 45, .116 at 60, .329 at 75,
+.604 at 90. This is a model index, not measured exhaustion. Synthetic metres/minute
+times played time/intensity is displayed as an estimated distance and supplies no extra
+evidence to the score. No measured tracking, physiology or recovery is inferred.
 
-1. Expected pressures and progressive carries use the existing player/role
-   expectation. Positive excess action rates can increase inferred intensity:
-   `1 + .15*clip(pressure_ratio-1,0,1) + .10*clip(carry_ratio-1,0,1)`.
-   No action evidence means intensity 1, never zero off-ball work. Excess is
-   ignored before 15 minutes; intensity is at most 1.25.
-2. Stamina capacity = `clip(1+(FIFA_stamina-75)/150,.8,1.15)`.
-3. Load ratio = `(minutes_played/90)*intensity/stamina_capacity`.
-4. Fatigue = `clip((load_ratio-.5)/.7,0,1)^1.5`.
+## Candidate calculation
 
-The .5 onset, .7 span, exponent, capacity scaling and action coefficients are
-explicit provisional demo assumptions, not experimentally measured constants.
-For stamina 75 and ordinary intensity, the fatigue signal is 0 through minute
-45, .116 at 60, .329 at 75 and .604 at 90. At minute 75, stamina 55 yields .535
-and stamina 90 yields .223. This is an index, not the percentage of a person's
-real physical capability that is exhausted.
+Core dimensions are Threat, Creation, Progression, Retention, Defense. Recent ratings
+plus 4 times bounded live dimension evidence form outgoing ability. Incoming ability is
+Recent. There is no extra fatigue subtraction from these cards.
 
-Synthetic profile metres/minute times minutes and intensity supplies a labelled
-estimated distance for inspection. It is NOT independent evidence for fatigue
-and does not separately amplify the load ratio. Pace, height and strength do
-not automatically imply greater exhaustion. No real sprint/HSR/tracking stream
-is available; halftime recovery and individual physiology are not modeled.
+For each dimension, delta = (incoming-outgoing)/20.
+Positive delta earns 2*max(need-.5,0)*delta; negative delta costs
+.5*game-state importance*abs(delta). Sum gives tactical_core.
+Tactical support = .1*aerial_need*(aerial difference/20)
++ .05*(pace_need+recovery_need)*(estimated speed difference/5).
 
-## Candidate score and avoidance of double counting
+Quality preservation = clip(sum incoming Threat+Progression+Defense /
+sum outgoing Threat+Progression+Defense,0,1).
+Freshness relief = **1.5 * outgoing fatigue * quality preservation**.
+All ability-loss penalties still enter core. Freshness is counted once.
 
-The tactical profile uses recent card ratings plus bounded live evidence and
-no longer subtracts a separate fatigue penalty. All tactical gains and ability
-losses still enter the original asymmetric score, divided by 20 card points.
+Evidence multiplier = .5 + .5*min(mean incoming general reliability,
+mean outgoing general reliability). This is not a probability.
+Position fit = 1 primary broad role, .85 verified secondary broad role.
+Remaining = max(94-minute,0).
+Tactical horizon = remaining/90.
+Freshness horizon = min(remaining/30,1).
 
-Freshness score = `1.2 * outgoing_fatigue * quality_preservation`, where quality
-preservation is the ratio of incoming to outgoing threat+progression+defense,
-clipped 0..1. This does not excuse other ability losses: they still cost in the
-tactical score. The 1.2 cap is provisional and is exposed in output/config.
+**Benefit = position_fit * evidence_multiplier *
+((tactical_core+tactical_support)*tactical_horizon + freshness_relief*freshness_horizon).**
 
-Final benefit = `(tactical_core + tactical_support + freshness_score)`
-`* evidence_multiplier * position_fit * remaining_minutes/90`.
+The shorter freshness horizon treats relief as a near-term contribution; it avoids
+discounting a newly tired player as if the relief needed another 90 minutes to matter.
+Both terms vanish near the end. Thirty minutes and cap 1.5 are explicit heuristic
+assumptions. The prior 1.2/90, 1.2/30 and nearby 1.8/30 are published for comparison.
+No parameter names a player, team, historical swap or desired substitution count.
 
-Output exposes every term under `score_components`, plus physical_need and
-reason codes. Position compatibility, available substitutions, the early-game
-gate and the unchanged .15 recommendation threshold still apply. A comparable
-fresh replacement can now qualify without a tactical deficit. A much weaker
-bench player cannot erase a large ability loss just by being fresh.
+The output's score is the pre-horizon sum times evidence; expected_benefit is the
+decision quantity with the separate horizons above. score_components exposes both
+horizons, core, support, relief, fatigue and evidence. The .15 threshold, same-role
+eligibility, available bench, minute>=20 and three-substitution historical rule remain.
 
-## Sensitivity and limits
-
-`scripts/audit_match_load.py` replays the same five research matches at refresh
-caps 0, .6 and 1.2. Counts of qualifying snapshots (five per match):
-
-| Match | Cap 0 | Cap .6 | Cap 1.2 |
-|---|---:|---:|---:|
-| Liverpool-Arsenal 3754305 | 0 | 0 | 0 |
-| Liverpool-Manchester United 3754345 | 0 | 0 | 0 |
-| Norwich-Liverpool 3754348 | 0 | 0 | 0 |
-| Stoke-Arsenal 3754202 | 0 | 2 | 2 |
-| Arsenal-Chelsea 3754111 | 1 | 1 | 3 |
-
-These are repeated snapshots, not distinct substitutions or proof of quality.
-Cap 0 disables the new explicit freshness reward; it is not the original model
-with its old fatigue penalty. The prior model produced [0,0,0,2,1]. Do not infer
-that fatigue fixes Liverpool's absence of recommendations: it does not in these
-checks. Ability trade-offs, low sample strength, broad-role constraints and the
-remaining-time multiplier can still keep candidates below threshold.
-
-For example, near minute 65 in the target Liverpool benchmark, the best eligible
-candidate has tactical core -.2129, support -.0021 and freshness +.3182. After
-evidence multiplier .5759 and remaining-time factor .3333, benefit is .0198,
-below .15. This explains a rejected candidate without forcing a historical swap.
-
-47 tests pass, including delayed/monotone load, stamina/intensity sensitivity,
-flat-tactical-need freshness benefit, refusal of large quality losses, no-sub
-gates, role constraints and repeatable synthetic events. Next calibration must
-examine football judgments across more player squads and scenarios, not merely
-target a desired number of recommendations.
+The controlled test allows a slightly worse fresh player late with flat tactical needs,
+refuses the same swap early, and refuses a much worse player late. It does not claim all
+three-point losses are worthwhile under all evidence or positions. See VALIDATION.md
+for observed sensitivity and remaining football limitations, particularly center-back bias.
