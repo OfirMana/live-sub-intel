@@ -101,7 +101,7 @@ standalone HTML. The server binds only to 127.0.0.1 and is not publicly deployed
 
 72 matchday player cards cover Liverpool, Arsenal, Chelsea and Tottenham. Observed
 pre-cutoff goals/assists and technical output now enter capped profile signals.
-Freshness uses a separate near-term horizon; threshold stays .15. 52 tests pass.
+Freshness uses a separate near-term horizon; threshold stays .15. 54 Python tests and 3 Node tests pass.
 The 12 team-match research replays have 216 five-minute checkpoints; Liverpool
 now receives recommendations in all three checked fixtures. This is not evidence
 that the football decisions are validated: center-back/early-swap biases remain.
@@ -110,6 +110,7 @@ that the football decisions are validated: center-back/early-swap biases remain.
 - [Calculation details and limitations](docs/MODEL_UPDATE_HE.md)
 - [Player browser, workbook and offline ZIP](docs/player-cards/README.md)
 - [Interactive five-minute research report](docs/research/README.md)
+- [Step-by-step match replay UI and offline download](docs/match-replay/README.md)
 - [Validation and sensitivity](docs/VALIDATION.md)
 
 Work is on the fork branch feature/demo-player-dataset. Upstream main is unchanged.

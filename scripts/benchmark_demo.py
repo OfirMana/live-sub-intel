@@ -14,7 +14,7 @@ from subintel.statsbomb import ROLE_BY_POSITION, convert_event
 ROOT = Path(__file__).resolve().parents[1]
 
 
-def replay(mid, target_tid, dataset, evidence):
+def replay(mid, target_tid, dataset, evidence, top_options=3):
     raw = fetch(f'events/{mid}.json')
     lineup = fetch(f'lineups/{mid}.json')
     ms = make_match(dataset, evidence, str(mid))
@@ -65,7 +65,7 @@ def replay(mid, target_tid, dataset, evidence):
                                candidate=candidate,
                                comparison='CANDIDATE_AT_PRECEDING_CHECKPOINT' if candidate else 'NOT_AVAILABLE_OR_ROLE_UNSUPPORTED_AT_PRECEDING_CHECKPOINT'))
     for snapshot in result:
-        snapshot['alternatives'] = snapshot['alternatives'][:3]
+        snapshot['alternatives'] = snapshot['alternatives'][:top_options]
     return dict(match_id=mid, team_id=target_tid, research_only=True,
                 evidence_cutoff=evidence['cutoff'], profiles_frozen=True,
                 historical_substitutions=historical, snapshots=result)

@@ -1,6 +1,6 @@
 # Validation record — 18 October 2026
 
-52 automated tests pass. This establishes software behavior, not football decision quality.
+54 Python tests and 3 Node UI-logic tests pass. This establishes software behavior, not football decision quality.
 Tests cover deterministic rebuilding, pre-cutoff filtering, all 72 players' goal/assist/
 pass/dribble totals independently reconciled against 203 raw match files, bounded
 ratings, pooled rates, monotone load, role eligibility, clock boundaries, match isolation,
@@ -75,3 +75,16 @@ individual timing and choices can still change. See research/son_assumption_sens
 
 Old match_load_audit.json records the Oct 16 five-checkpoint experiment; it is historical,
 not the current 216-checkpoint result.
+
+## Step-by-step viewer
+
+The offline matchweek 21 UI covers four perspectives across three fixtures. It starts
+at kickoff, advances in five-minute steps, and reveals analysis only on request. All
+legal candidates are available, including below-threshold options and profile comparisons.
+The viewer includes shots, goals, cards, actual substitutions and period markers; extra
+time after minute 90 is a separate final stage. Duplicate provider half markers are
+deduplicated for display. Score at every checkpoint is independently reconciled with the
+model snapshot. Three Node tests cover event boundaries, clocks and threshold/profile
+calculations. Browser checks cover stepping, rejected/accepted options, candidate selection,
+late-goal visibility and switching fixtures. These are historical replays, not counterfactual
+simulations; the existing model parameters and decisions remain unchanged.
