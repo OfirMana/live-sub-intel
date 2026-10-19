@@ -1,5 +1,15 @@
 # Live Substitution Intelligence
 
+## Coach room experiment — 19 October 2026
+
+The isolated `feature/coach-match-room` branch adds real coach controls for
+stance, result objective, target formation and freshness sensitivity. It shows
+the observed and proposed XI with real shirt numbers on a schematic pitch.
+This is a separate research scorer; the shared engine and teammate LLM/demo
+are unchanged. Start `python scripts/serve_coach_room.py --port 8774` and open
+http://127.0.0.1:8774/. See [formulas, experiments and integration](docs/COACH_ROOM.md)
+or the [Hebrew teammate handoff](docs/COACH_HANDOFF_HE.md).
+
 Microsoft × Premier League "Inside the Game" hackathon. Team: Thomas, Tal, Ofir.
 
 An explainable live layer that reads a match event stream, works out what the

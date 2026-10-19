@@ -1,0 +1,20 @@
+<!doctype html><html lang="he" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>חדר המאמן — מערכים והחלטות</title><link rel="stylesheet" href="/styles.css"></head>
+<body><header><strong>LIVE SUB INTEL <span>חדר המאמן</span></strong><small>מחזור 21 · 2015/16 · סביבת מחקר</small></header>
+<main><div class="intro"><div><p class="eyebrow">המטרה שלך. ההרכב שלך. החלטה שקופה.</p><h1>מה הקבוצה צריכה עכשיו?</h1><p class="muted">שחק עם הגישה, היעד והמערך — ובדוק מה משתנה.</p></div><label>נקודת מבט ומשחק<select id="team" aria-label="נקודת מבט ומשחק"></select></label></div>
+<section class="scoreboard"><h2 id="home">טוען…</h2><div><strong id="score">0 : 0</strong><p id="clock">00:00</p></div><h2 id="away"></h2></section>
+<section class="card transport"><div class="rail"><div id="rail"></div></div><div class="controls"><button id="next" class="primary">התקדם 5 דקות ←</button><button id="finish" hidden>השלם את המקטע</button><button id="back">5 דקות אחורה</button><button id="reset">התחל מחדש</button><label>קצב<select id="speed"><option value="4000">רגיל</option><option value="1500">מהיר</option><option value="0">מיידי</option></select></label><span id="status" role="status">טוען את חדר המאמן…</span></div></section>
+<section class="card coach"><div class="section-title"><h2>לוח המאמן</h2><span class="badge">משפיע על החישוב בפועל</span></div><div class="coach-controls">
+<label>גישה עכשיו<select id="stance"><option value="balanced">מאוזן</option><option value="attack">יותר התקפה</option><option value="defend">יותר הגנה</option></select></label>
+<label>מה אני רוצה מהמשחק?<select id="objective"><option value="competitive">להישאר תחרותיים / להימנע מהפסד</option><option value="win">לכוון לניצחון</option><option value="draw">תיקו מספיק</option><option value="limit_damage">לצמצם נזק ולשחק זהיר</option></select></label>
+<label>מערך לבדיקה<select id="formation"><option value="observed">המערך ההיסטורי ברגע הזה</option></select></label>
+<label>משקל רענון — ניסוי<select id="freshness"><option value="0">0 · ללא רענון</option><option value="0.5">0.5 · נמוך</option><option value="1" selected>1.0 · ברירת מחדל של main</option><option value="1.5">1.5 · גבוה</option></select></label></div>
+<p class="muted small">היעד הוא העדפת המאמן, לא תחזית. ״תיקו מספיק״ לא מבקש לוותר על יתרון. ״צמצום נזק״ מאפשר גישה זהירה גם בפיגור. שינויי המערך נבחנים רק בתפקידים נתמכים.</p>
+<div id="needs" class="needs"></div><p class="small"><a id="share" href="/">קישור ישיר למשחק ולבחירות הנוכחיות</a></p><details><summary>איך בחירת המאמן משנה את המשקולות?</summary><div id="weights"></div></details></section>
+<section class="pitch-section"><div class="card"><div class="section-title"><h2>ההרכב על המגרש</h2><span id="observedFormation" class="badge"></span></div><p id="initialFormation" class="muted small"></p><div id="pitchCurrent" class="pitch"></div><p id="shiftInfo" class="muted small"></p></div>
+<div class="card"><div class="section-title"><h2>לוח התכנון</h2><span id="planFormation" class="badge"></span></div><p id="planLabel" class="muted small">בחר מערך ובדוק חלופות.</p><div id="pitchPlan" class="pitch"></div><div id="moves" class="small"></div></div></section>
+<div class="workspace"><section class="card"><div class="section-title"><h2>החלטת הספסל</h2><button id="check" class="primary" disabled>בדוק חילופים</button></div><p id="hint" class="muted small">מתקדמים לנקודת בדיקה ובוחרים מתי לחשוף את ההחלטה.</p>
+<div id="analysis" hidden><div id="verdict" role="status"></div><div id="candidates"></div><div id="comparison"></div><details><summary>JSON לחיבור שכבת ההסבר של הצוות</summary><pre id="raw"></pre></details></div>
+<button id="sensitivity">השווה רענון בנקודה הזאת</button><div id="sensitivityResult"></div></section>
+<section class="card"><h2>מה קרה במשחק עד עכשיו?</h2><ol id="events"></ol></section></div>
+<footer>אירועים והרכבים מ־StatsBomb Open Data. המגרש הוא תרשים עמדות, לא מיקום נמדד של שחקנים. העומס משוער, משקולות התפקיד והמאמן דורשות כיול. בדיקת חלופה אינה מבצעת חילוף ואינה משנה את ההיסטוריה או חוזה תוצאה חלופית.</footer>
+</main><script src="/app.js"></script></body></html>
