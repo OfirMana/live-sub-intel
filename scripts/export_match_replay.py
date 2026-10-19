@@ -78,16 +78,23 @@ def build_payload():
                 source='StatsBomb Open Data · historical events, deterministic model recommendations')
 
 
-def main():
-    payload=build_payload()
+def render_html(payload,explain_api=None):
+    """One self-contained page. explain_api enables the explanation panel (server only)."""
     web=ROOT/'web/match-replay'
-    out=ROOT/'docs/match-replay'
-    out.mkdir(exist_ok=True)
     html=(web/'index.html').read_text(encoding='utf-8')
     html=html.replace('/* STYLES */',(web/'styles.css').read_text(encoding='utf-8'))
     html=html.replace('/* PAYLOAD */',json.dumps(payload,ensure_ascii=False,separators=(',',':')).replace('</','<\\/'))
-    html=html.replace('/* APP */',(web/'app.js').read_text(encoding='utf-8'))
-    (out/'index.html').write_text(html,encoding='utf-8',newline='\n')
+    app=(web/'app.js').read_text(encoding='utf-8')
+    if explain_api:
+        app=f'window.EXPLAIN_API={json.dumps(explain_api)};\n'+app
+    return html.replace('/* APP */',app)
+
+
+def main():
+    payload=build_payload()
+    out=ROOT/'docs/match-replay'
+    out.mkdir(exist_ok=True)
+    (out/'index.html').write_text(render_html(payload),encoding='utf-8',newline='\n')
     with ZipFile(out/'match-replay.zip','w',ZIP_DEFLATED) as z:
         z.write(out/'index.html','index.html')
         z.writestr('READ_ME_FIRST.txt','חלצו ופתחו index.html. בחרו קבוצה, התקדמו חמש דקות ולחצו בדוק חילופים.\nשחזור היסטורי של מחזור 21; המלצות אינן משנות את האירועים.\n'.encode('utf-8'))
