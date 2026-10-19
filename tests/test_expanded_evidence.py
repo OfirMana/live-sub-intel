@@ -23,8 +23,8 @@ def test_source_goal_assist_and_completion_reconciliation():
     # Independent raw-event totals, not a comparison against the extractor itself.
     e = evidence()
     raw_root = ROOT/'data/raw'
-    if not raw_root.exists():
-        pytest.skip('Optional pinned raw cache not downloaded')
+    if not all((raw_root/f'events/{mid}.json').exists() for mid in e['match_ids']):
+        pytest.skip('Optional pinned raw cache not (fully) downloaded')
     counts = defaultdict(lambda: defaultdict(int))
     for mid in e['match_ids']:
         for event in json.loads((raw_root/f'events/{mid}.json').read_text(encoding='utf-8')):
@@ -95,10 +95,15 @@ def controlled_candidate(minute, loss):
     return next(c for c in options if c['out_player']['id']==out_id and c['in_player']['id']==in_id)
 
 
-def test_moderate_ability_loss_can_be_worth_late_refresh_but_not_early():
+def test_freshness_does_not_carry_a_moderate_ability_loss():
+    # Under the 1.5 freshness cap this late swap cleared the threshold on freshness alone;
+    # a tactically harmful change is now never recommended (see recommend_demo).
     assert controlled_candidate(30, 3)['expected_benefit'] < .15
-    assert controlled_candidate(75, 3)['expected_benefit'] >= .15
+    assert controlled_candidate(75, 3)['score_components']['tactical_benefit'] < 0
     assert controlled_candidate(75, 25)['expected_benefit'] < .15
+    equal = controlled_candidate(75, 0)
+    assert equal['score_components']['tactical_benefit'] == 0
+    assert equal['decision_basis'] == 'FRESH_LEGS'
 
 
 def test_five_minute_replay_boundaries_and_legal_recommendations():

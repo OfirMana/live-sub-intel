@@ -405,3 +405,41 @@ definitions are unchanged. Process/outcome signals share the same bounded +/-6 s
 and recent adjustments; they do not add an uncapped scoring bonus. Counts, p90 and raw
 percentages are visible; zero attempts gives null percentage. No pass-difficulty adjustment
 is claimed. See MODEL_UPDATE_HE.md and VALIDATION.md for assumptions and current limits.
+
+## Decision rules revision — 19 October 2026
+
+Supersedes the freshness cap and candidate rules above for `demo_live.py`, and the
+need formula in section 7 for both engines.
+
+**Urgency in team needs (`engine.team_needs`).** In a dimension the game state
+makes urgent (importance > 1), only a performance deficit moves the need; a
+surplus no longer cancels it. A team one goal down at 80' needs a goal however
+well it is attacking. Before: Liverpool, 2–3 down to Arsenal and attacking well
+above their norm, had threat need 0.35 at 80'. Now 0.60–0.65 while trailing.
+In non-urgent dimensions surpluses still lower the need.
+
+**Freshness (`REFRESH_SCORE_CAP` 1.5 → 0.5).** At 1.5, freshness led 72 of 92
+recommendations on the 216-point benchmark and 29 top picks had a negative
+tactical part. At 0.5 it is comparable in size to tactical gains.
+
+**Freshness gate.** A candidate is recommended only if `expected_benefit >= .15`
+and `tactical_benefit >= 0`: fresh legs may tip a change that does not hurt the
+team, never justify one that does. Each option now reports `tactical_benefit`,
+`freshness_benefit` and `decision_basis` (`TACTICAL` or `FRESH_LEGS`).
+
+**Chasing formation change.** Trailing, a midfielder (from 60') or a defender
+(from 75') may be replaced by a striker or attacking midfielder/winger at
+position fit .75, labelled `change_type: FORMATION_CHANGE`. The fit discount and
+the defensive losses already charged by `substitution_score` are the structural
+cost; who moves where inside the new shape is not modelled.
+
+**Reason for no recommendation.** `no_substitution_reason` is one of
+`NO_SUBSTITUTIONS_LEFT`, `OUTSIDE_DECISION_WINDOW`, `NO_ELIGIBLE_CANDIDATE`,
+`BELOW_THRESHOLD`, `ONLY_TACTICALLY_HARMFUL_OPTIONS_CLEAR_THRESHOLD`.
+
+Benchmark (same 216 points, frozen cards): 92 → 32 recommendations; 26 tactical,
+6 fresh legs; none with a negative tactical part. Liverpool v Arsenal now gets no
+recommendation: on the FIFA-anchored cards Benteke out-rates Milner by only 7
+threat points but loses 40 defense points, so Klopp's Milner → Benteke change
+(now a legal candidate) ranks 14th. The card base, not these rules, is the
+remaining blocker for the chasing scenario.
