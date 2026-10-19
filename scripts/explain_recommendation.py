@@ -13,7 +13,9 @@ from pathlib import Path
 from benchmark_demo import replay
 from subintel.demo_data import load_demo_profiles
 from subintel.demo_live import TEAM_IDS
-from subintel.narrative import AUDIENCES, LANGUAGES, explain
+import os
+
+from subintel.narrative import AUDIENCES, LANGUAGES, explain, v1_base_url
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -33,6 +35,9 @@ def main():
     snapshot = next((s for s in report['snapshots'] if s['checkpoint_minute'] == args.minute), None)
     if snapshot is None:
         raise SystemExit(f'No checkpoint at minute {args.minute}; use a multiple of 5 between 5 and 90.')
+    if os.environ.get('FOUNDRY_ENDPOINT'):
+        print(f"Foundry: {v1_base_url(os.environ['FOUNDRY_ENDPOINT'])} · deployment "
+              f"{os.environ.get('FOUNDRY_DEPLOYMENT', '(missing)')} · key {'set' if os.environ.get('FOUNDRY_API_KEY') else 'MISSING'}\n")
     audiences = AUDIENCES if args.audience == 'all' else (args.audience,)
     for i, audience in enumerate(audiences):
         result = explain(snapshot, audience, args.lang)

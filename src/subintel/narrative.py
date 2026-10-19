@@ -195,6 +195,15 @@ def v1_base_url(endpoint: str) -> str:
     return base + '/openai/v1/'
 
 
+def _describe(error: Exception) -> str:
+    """Error type, message and underlying cause (e.g. DNS or TLS), without request headers."""
+    text = f'{type(error).__name__}: {error}'
+    cause = error.__cause__ or error.__context__
+    if cause is not None:
+        text += f' <- {type(cause).__name__}: {cause}'
+    return text[:300]
+
+
 def explain(snapshot: dict, audience: str = 'fan', lang: str = 'he', client=None, deployment: str | None = None) -> dict:
     """Explanation text plus where it came from. Falls back to the template, never to silence."""
     if audience not in AUDIENCES or lang not in LANGUAGES:
@@ -214,7 +223,7 @@ def explain(snapshot: dict, audience: str = 'fan', lang: str = 'he', client=None
             )
             text = (response.choices[0].message.content or '').strip()
         except Exception as error:  # network, auth, quota: the demo must keep explaining
-            return dict(result, text=template(fact_sheet, audience, lang), source='template', llm_error=type(error).__name__)
+            return dict(result, text=template(fact_sheet, audience, lang), source='template', llm_error=_describe(error))
         invented = invented_numbers(text, fact_sheet)
         if text and not invented:
             return dict(result, text=text, source='llm')
