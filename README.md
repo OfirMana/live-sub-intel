@@ -113,6 +113,27 @@ that the football decisions are validated: center-back/early-swap biases remain.
 - [Step-by-step match replay UI and offline download](docs/match-replay/README.md)
 - [Validation and sensitivity](docs/VALIDATION.md)
 
-Work is on the fork branch feature/demo-player-dataset. Upstream main is unchanged.
-GitHub Pages, remote LLM and Azure are not configured. Download the offline bundles
-to view HTML, or serve docs locally. Rich demo JSON still needs UI/API alignment.
+The four-team work was merged into upstream main on 19 October. Download the
+offline bundles to view HTML, or serve docs locally. GitHub Pages and Azure
+hosting are not configured.
+
+## Evidence-bound LLM integration — 19 October 2026
+
+An isolated Azure OpenAI v1 explanation adapter now accepts both engine JSON
+formats, with English/Hebrew and coach/analyst/fan modes. The LLM selects and
+orders existing evidence; code renders the facts and preserves the decision.
+Provider failures are labelled deterministic fallback. No Azure account,
+resource or model deployment exists for this work yet; live quality is untested.
+
+```bash
+pip install -e ".[dev,narrative]"
+python scripts/serve_narrative.py --port 8772
+# After Azure configuration:
+python scripts/serve_narrative.py --provider azure --port 8772
+```
+
+Open http://127.0.0.1:8772/. This is a separate integration preview using the
+existing synthetic engine, ready to connect to the teammate's final UI.
+
+- [Integration contract, Azure setup and limitations](docs/LLM_INTEGRATION.md)
+- [Hackathon requirements, deadlines and outstanding submission work](docs/HACKATHON_READINESS.md)

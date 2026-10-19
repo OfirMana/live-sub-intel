@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Live Substitution Intelligence · Evidence explanations</title>
+<style>
+body{margin:0;background:#0c1725;color:#e9eff7;font:16px system-ui}main{max-width:1080px;margin:auto;padding:32px 20px}h1{font-size:34px;margin-bottom:8px}small,.muted{color:#b0c1d4}section{background:#17283d;padding:22px;border-radius:14px;margin:20px 0}label{display:inline-flex;flex-direction:column;gap:6px;margin:8px 12px 8px 0}select,button{font:inherit;padding:10px;border-radius:7px;border:1px solid #5a708b;background:#102034;color:#fff}button{background:#9ce6c6;color:#102034;font-weight:700;cursor:pointer}button:disabled{opacity:.5}pre{white-space:pre-wrap;max-height:350px;overflow:auto;font-size:13px}.badge{color:#ffce8f}li{margin:10px 0}#headline{font-size:24px}.columns{display:grid;grid-template-columns:1fr 1fr;gap:20px}@media(max-width:750px){.columns{grid-template-columns:1fr}}a{color:#9ce6c6}
+</style>
+<main><small>LIVE SUBSTITUTION INTELLIGENCE · EXPLANATION INTEGRATION</small>
+<h1>The same decision. Evidence for your audience.</h1>
+<p class="muted">Synthetic engine checkpoints · English / עברית · Coach, analyst or fan</p>
+<section><label>Checkpoint<select id="checkpoint"></select></label>
+<label>Language<select id="language"><option value="en">English</option><option value="he">עברית</option></select></label>
+<label>Audience<select id="audience"><option value="analyst">Analyst · score detail</option><option value="coach">Coach · trade-offs</option><option value="fan">Fan · short context</option></select></label>
+<button id="explain" disabled>Explain this decision</button><p id="status" role="status">Loading synthetic checkpoints…</p>
+<p class="muted">The engine chooses the substitution. Azure, when configured on the server, selects and orders existing evidence; code renders every factual sentence. No alternative match outcome is simulated.</p></section>
+<section id="narrative" aria-live="polite"><p class="badge" id="provider"></p><h2 id="headline">Choose a checkpoint to begin</h2><ul id="reasons"></ul><h3 id="tradeoffLabel">Trade-offs</h3><ul id="tradeoffs"></ul><div class="muted" id="caveats"></div></section>
+<div class="columns"><section><h2>Unchanged engine JSON</h2><pre id="engine"></pre></section><section><h2>Evidence and provider metadata</h2><pre id="evidence"></pre></section></div>
+</main><script>
+let examples=[];let sequence=0;
+const $=id=>document.getElementById(id);
+function showEngine(){sequence++;$('engine').textContent=JSON.stringify(examples[$('checkpoint').value],null,2);$('headline').textContent='Press Explain for this selection';$('reasons').replaceChildren();$('tradeoffs').replaceChildren();$('caveats').replaceChildren();$('provider').textContent='';$('evidence').textContent='';}
+function list(id,items){$(id).replaceChildren(...items.map(text=>{const li=document.createElement('li');li.textContent=text;return li}));}
+async function explain(){const token=++sequence;const rec=examples[$('checkpoint').value];const lang=$('language').value;$('explain').disabled=true;$('status').textContent='Preparing evidence…';try{const response=await fetch('/api/explain',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({recommendation:rec,language:lang,audience:$('audience').value})});if(!response.ok)throw Error('Explanation request failed');const r=await response.json();if(token!==sequence)return;$('narrative').dir=lang==='he'?'rtl':'ltr';$('headline').textContent=r.headline;list('reasons',r.reasons);list('tradeoffs',r.tradeoffs);$('tradeoffLabel').textContent=lang==='he'?'מחירים ופשרות':'Trade-offs';$('caveats').replaceChildren(...r.caveats.map(text=>{const p=document.createElement('p');p.textContent=text;return p}));$('provider').textContent=r.source==='azure_openai'?'Azure OpenAI · evidence plan':'Deterministic fallback · '+r.fallback_reason;$('evidence').textContent=JSON.stringify(r,null,2);$('status').textContent=(r.cached?'Cached · ':'')+r.latency_ms+' ms · '+r.source;}catch(error){if(token===sequence)$('status').textContent='Could not load the explanation. The engine decision is unchanged.';}finally{$('explain').disabled=false;}}
+$('explain').onclick=explain;['checkpoint','language','audience'].forEach(id=>$(id).onchange=showEngine);
+fetch('/api/examples').then(r=>{if(!r.ok)throw Error();return r.json()}).then(rows=>{examples=rows;rows.forEach((r,i)=>$('checkpoint').add(new Option((r.team_id==='24'?'Liverpool':'Arsenal')+' · '+r.state.minute+'′ · '+r.recommendation,i)));$('explain').disabled=!rows.length;$('status').textContent='Ready · synthetic checkpoints from the existing engine';if(rows.length)showEngine();}).catch(()=>$('status').textContent='Start scripts/serve_narrative.py to open this demo.');
+</script></html>

@@ -1,0 +1,337 @@
+{
+  "kind": "OFFLINE_CONTRACT_AUDIT_NOT_LIVE_LLM_QUALITY",
+  "team_match_replays": 12,
+  "checkpoints": 216,
+  "cases": 1296,
+  "modes": {
+    "en_analyst": 216,
+    "en_coach": 216,
+    "en_fan": 216,
+    "he_analyst": 216,
+    "he_coach": 216,
+    "he_fan": 216
+  },
+  "live_azure_calls": 0,
+  "decision_preserved": true,
+  "inputs_unchanged": true,
+  "examples": {
+    "NO_SUBSTITUTION_en": {
+      "version": "evidence-plan-v1",
+      "context_id": "6db0e232f071e9e48a2fd8044c87f50f252eb24f363a1e444748feb07bb82012",
+      "match_id": "3754305",
+      "team_id": "24",
+      "minute": 5,
+      "decision": "NO_SUBSTITUTION",
+      "language": "en",
+      "audience": "analyst",
+      "source": "deterministic_fallback",
+      "fallback_reason": "PROVIDER_DISABLED",
+      "cached": false,
+      "latency_ms": 0,
+      "headline": "The engine recommends no substitution.",
+      "reasons": [
+        "The engine supplied no eligible candidates for this checkpoint.",
+        "At minute 5, the analysed team is level; 3 substitutions remain.",
+        "The engine need index for threat is 0.594 (a model index, not a probability).",
+        "The engine need index for creation is 0.569 (a model index, not a probability)."
+      ],
+      "tradeoffs": [],
+      "caveats": [
+        "Event provenance must be read from the caller; this explanation does not certify synthetic input.",
+        "Model scores are provisional. Match load is estimated, and the explanation does not establish that the substitution improves the result."
+      ],
+      "evidence": [
+        {
+          "fact_id": "decision",
+          "text": "The engine recommends no substitution."
+        },
+        {
+          "fact_id": "availability",
+          "text": "The engine supplied no eligible candidates for this checkpoint."
+        },
+        {
+          "fact_id": "state",
+          "text": "At minute 5, the analysed team is level; 3 substitutions remain."
+        },
+        {
+          "fact_id": "need_threat",
+          "text": "The engine need index for threat is 0.594 (a model index, not a probability)."
+        },
+        {
+          "fact_id": "need_creation",
+          "text": "The engine need index for creation is 0.569 (a model index, not a probability)."
+        },
+        {
+          "fact_id": "source",
+          "text": "Event provenance must be read from the caller; this explanation does not certify synthetic input."
+        },
+        {
+          "fact_id": "limitations",
+          "text": "Model scores are provisional. Match load is estimated, and the explanation does not establish that the substitution improves the result."
+        }
+      ],
+      "plan": {
+        "decision": "NO_SUBSTITUTION",
+        "out_player_id": null,
+        "in_player_id": null,
+        "reason_fact_ids": [
+          "decision",
+          "availability",
+          "state",
+          "need_threat",
+          "need_creation"
+        ],
+        "tradeoff_fact_ids": []
+      },
+      "text": "The engine recommends no substitution.\nThe engine supplied no eligible candidates for this checkpoint.\nAt minute 5, the analysed team is level; 3 substitutions remain.\nThe engine need index for threat is 0.594 (a model index, not a probability).\nThe engine need index for creation is 0.569 (a model index, not a probability).\nEvent provenance must be read from the caller; this explanation does not certify synthetic input.\nModel scores are provisional. Match load is estimated, and the explanation does not establish that the substitution improves the result."
+    },
+    "NO_SUBSTITUTION_he": {
+      "version": "evidence-plan-v1",
+      "context_id": "c2a198d2ada19adab1bc1d0dea2d362b9471fa35343b4cc3855c835e32363f9b",
+      "match_id": "3754305",
+      "team_id": "24",
+      "minute": 5,
+      "decision": "NO_SUBSTITUTION",
+      "language": "he",
+      "audience": "analyst",
+      "source": "deterministic_fallback",
+      "fallback_reason": "PROVIDER_DISABLED",
+      "cached": false,
+      "latency_ms": 0,
+      "headline": "המנוע אינו ממליץ על חילוף.",
+      "reasons": [
+        "המנוע לא סיפק מועמדים חוקיים בנקודת הזמן הזאת.",
+        "בדקה 5 הקבוצה בתיקו; נותרו 3 חילופים.",
+        "מדד הצורך של המנוע עבור איום על השער הוא 0.594; זהו מדד מודל, לא הסתברות.",
+        "מדד הצורך של המנוע עבור יצירת מצבים הוא 0.569; זהו מדד מודל, לא הסתברות."
+      ],
+      "tradeoffs": [],
+      "caveats": [
+        "יש לבדוק את מקור האירועים אצל המערכת הקוראת; ההסבר אינו מאשר שהקלט סינתטי.",
+        "ציוני המודל עדיין דורשים כיול. עומס המשחק הוא אומדן, וההסבר אינו מוכיח שהחילוף משפר את התוצאה."
+      ],
+      "evidence": [
+        {
+          "fact_id": "decision",
+          "text": "המנוע אינו ממליץ על חילוף."
+        },
+        {
+          "fact_id": "availability",
+          "text": "המנוע לא סיפק מועמדים חוקיים בנקודת הזמן הזאת."
+        },
+        {
+          "fact_id": "state",
+          "text": "בדקה 5 הקבוצה בתיקו; נותרו 3 חילופים."
+        },
+        {
+          "fact_id": "need_threat",
+          "text": "מדד הצורך של המנוע עבור איום על השער הוא 0.594; זהו מדד מודל, לא הסתברות."
+        },
+        {
+          "fact_id": "need_creation",
+          "text": "מדד הצורך של המנוע עבור יצירת מצבים הוא 0.569; זהו מדד מודל, לא הסתברות."
+        },
+        {
+          "fact_id": "source",
+          "text": "יש לבדוק את מקור האירועים אצל המערכת הקוראת; ההסבר אינו מאשר שהקלט סינתטי."
+        },
+        {
+          "fact_id": "limitations",
+          "text": "ציוני המודל עדיין דורשים כיול. עומס המשחק הוא אומדן, וההסבר אינו מוכיח שהחילוף משפר את התוצאה."
+        }
+      ],
+      "plan": {
+        "decision": "NO_SUBSTITUTION",
+        "out_player_id": null,
+        "in_player_id": null,
+        "reason_fact_ids": [
+          "decision",
+          "availability",
+          "state",
+          "need_threat",
+          "need_creation"
+        ],
+        "tradeoff_fact_ids": []
+      },
+      "text": "המנוע אינו ממליץ על חילוף.\nהמנוע לא סיפק מועמדים חוקיים בנקודת הזמן הזאת.\nבדקה 5 הקבוצה בתיקו; נותרו 3 חילופים.\nמדד הצורך של המנוע עבור איום על השער הוא 0.594; זהו מדד מודל, לא הסתברות.\nמדד הצורך של המנוע עבור יצירת מצבים הוא 0.569; זהו מדד מודל, לא הסתברות.\nיש לבדוק את מקור האירועים אצל המערכת הקוראת; ההסבר אינו מאשר שהקלט סינתטי.\nציוני המודל עדיין דורשים כיול. עומס המשחק הוא אומדן, וההסבר אינו מוכיח שהחילוף משפר את התוצאה."
+    },
+    "SUBSTITUTION_en": {
+      "version": "evidence-plan-v1",
+      "context_id": "4a19d5e3103bf2f6a766f1a707ceac9c83309f883224207b922c70feee4dcf7f",
+      "match_id": "3754305",
+      "team_id": "24",
+      "minute": 65,
+      "decision": "SUBSTITUTION",
+      "language": "en",
+      "audience": "analyst",
+      "source": "deterministic_fallback",
+      "fallback_reason": "PROVIDER_DISABLED",
+      "cached": false,
+      "latency_ms": 0,
+      "headline": "The engine recommends João Carlos Teixeira for Jordon Ibe.",
+      "reasons": [
+        "The selected option scores 0.2360 and clears the threshold 0.1500.",
+        "Estimated freshness contributes more than the tactical terms; this is primarily a refresh-driven engine decision.",
+        "At minute 65, the analysed team is behind by 1; 3 substitutions remain.",
+        "After time, fit and evidence factors, tactical contribution is -0.0978 and estimated freshness contribution is 0.3338."
+      ],
+      "tradeoffs": [
+        "The supplied ability difference in threat is -1.884 rating points; it is not a forecast event count.",
+        "The supplied ability difference in retention is -3.000 rating points; it is not a forecast event count."
+      ],
+      "caveats": [
+        "Event provenance must be read from the caller; this explanation does not certify synthetic input.",
+        "Evidence strength: 0.000; it is not a calibrated success probability.",
+        "Model scores are provisional. Match load is estimated, and the explanation does not establish that the substitution improves the result."
+      ],
+      "evidence": [
+        {
+          "fact_id": "decision",
+          "text": "The engine recommends João Carlos Teixeira for Jordon Ibe."
+        },
+        {
+          "fact_id": "threshold",
+          "text": "The selected option scores 0.2360 and clears the threshold 0.1500."
+        },
+        {
+          "fact_id": "freshness_dominant",
+          "text": "Estimated freshness contributes more than the tactical terms; this is primarily a refresh-driven engine decision."
+        },
+        {
+          "fact_id": "state",
+          "text": "At minute 65, the analysed team is behind by 1; 3 substitutions remain."
+        },
+        {
+          "fact_id": "components",
+          "text": "After time, fit and evidence factors, tactical contribution is -0.0978 and estimated freshness contribution is 0.3338."
+        },
+        {
+          "fact_id": "delta_threat",
+          "text": "The supplied ability difference in threat is -1.884 rating points; it is not a forecast event count."
+        },
+        {
+          "fact_id": "delta_retention",
+          "text": "The supplied ability difference in retention is -3.000 rating points; it is not a forecast event count."
+        },
+        {
+          "fact_id": "source",
+          "text": "Event provenance must be read from the caller; this explanation does not certify synthetic input."
+        },
+        {
+          "fact_id": "evidence",
+          "text": "Evidence strength: 0.000; it is not a calibrated success probability."
+        },
+        {
+          "fact_id": "limitations",
+          "text": "Model scores are provisional. Match load is estimated, and the explanation does not establish that the substitution improves the result."
+        }
+      ],
+      "plan": {
+        "decision": "SUBSTITUTION",
+        "out_player_id": "3635",
+        "in_player_id": "10326",
+        "reason_fact_ids": [
+          "decision",
+          "threshold",
+          "freshness_dominant",
+          "state",
+          "components"
+        ],
+        "tradeoff_fact_ids": [
+          "delta_threat",
+          "delta_retention"
+        ]
+      },
+      "text": "The engine recommends João Carlos Teixeira for Jordon Ibe.\nThe selected option scores 0.2360 and clears the threshold 0.1500.\nEstimated freshness contributes more than the tactical terms; this is primarily a refresh-driven engine decision.\nAt minute 65, the analysed team is behind by 1; 3 substitutions remain.\nAfter time, fit and evidence factors, tactical contribution is -0.0978 and estimated freshness contribution is 0.3338.\nThe supplied ability difference in threat is -1.884 rating points; it is not a forecast event count.\nThe supplied ability difference in retention is -3.000 rating points; it is not a forecast event count.\nEvent provenance must be read from the caller; this explanation does not certify synthetic input.\nEvidence strength: 0.000; it is not a calibrated success probability.\nModel scores are provisional. Match load is estimated, and the explanation does not establish that the substitution improves the result."
+    },
+    "SUBSTITUTION_he": {
+      "version": "evidence-plan-v1",
+      "context_id": "53d7075b27baa38eba95f3c7e2d07f73beaa439332f17ac06edb5f5b02e5cd66",
+      "match_id": "3754305",
+      "team_id": "24",
+      "minute": 65,
+      "decision": "SUBSTITUTION",
+      "language": "he",
+      "audience": "analyst",
+      "source": "deterministic_fallback",
+      "fallback_reason": "PROVIDER_DISABLED",
+      "cached": false,
+      "latency_ms": 0,
+      "headline": "המנוע ממליץ להכניס את João Carlos Teixeira במקום Jordon Ibe.",
+      "reasons": [
+        "ציון האפשרות הנבחרת הוא 0.2360; הוא עובר את הסף 0.1500.",
+        "הרענון המשוער תורם יותר מהרכיבים הטקטיים; החלטת המנוע הזאת מונעת בעיקר מרענון.",
+        "בדקה 65 הקבוצה בפיגור של 1; נותרו 3 חילופים.",
+        "לאחר מקדמי זמן, התאמה וראיות: התרומה הטקטית היא -0.0978, ותרומת הרענון המשוער היא 0.3338."
+      ],
+      "tradeoffs": [
+        "הפרש היכולת שנמסר עבור איום על השער הוא -1.884 נקודות דירוג; זו אינה תחזית למספר אירועים.",
+        "הפרש היכולת שנמסר עבור שמירת כדור הוא -3.000 נקודות דירוג; זו אינה תחזית למספר אירועים."
+      ],
+      "caveats": [
+        "יש לבדוק את מקור האירועים אצל המערכת הקוראת; ההסבר אינו מאשר שהקלט סינתטי.",
+        "חוזק הראיות: 0.000; זו אינה הסתברות הצלחה מכוילת.",
+        "ציוני המודל עדיין דורשים כיול. עומס המשחק הוא אומדן, וההסבר אינו מוכיח שהחילוף משפר את התוצאה."
+      ],
+      "evidence": [
+        {
+          "fact_id": "decision",
+          "text": "המנוע ממליץ להכניס את João Carlos Teixeira במקום Jordon Ibe."
+        },
+        {
+          "fact_id": "threshold",
+          "text": "ציון האפשרות הנבחרת הוא 0.2360; הוא עובר את הסף 0.1500."
+        },
+        {
+          "fact_id": "freshness_dominant",
+          "text": "הרענון המשוער תורם יותר מהרכיבים הטקטיים; החלטת המנוע הזאת מונעת בעיקר מרענון."
+        },
+        {
+          "fact_id": "state",
+          "text": "בדקה 65 הקבוצה בפיגור של 1; נותרו 3 חילופים."
+        },
+        {
+          "fact_id": "components",
+          "text": "לאחר מקדמי זמן, התאמה וראיות: התרומה הטקטית היא -0.0978, ותרומת הרענון המשוער היא 0.3338."
+        },
+        {
+          "fact_id": "delta_threat",
+          "text": "הפרש היכולת שנמסר עבור איום על השער הוא -1.884 נקודות דירוג; זו אינה תחזית למספר אירועים."
+        },
+        {
+          "fact_id": "delta_retention",
+          "text": "הפרש היכולת שנמסר עבור שמירת כדור הוא -3.000 נקודות דירוג; זו אינה תחזית למספר אירועים."
+        },
+        {
+          "fact_id": "source",
+          "text": "יש לבדוק את מקור האירועים אצל המערכת הקוראת; ההסבר אינו מאשר שהקלט סינתטי."
+        },
+        {
+          "fact_id": "evidence",
+          "text": "חוזק הראיות: 0.000; זו אינה הסתברות הצלחה מכוילת."
+        },
+        {
+          "fact_id": "limitations",
+          "text": "ציוני המודל עדיין דורשים כיול. עומס המשחק הוא אומדן, וההסבר אינו מוכיח שהחילוף משפר את התוצאה."
+        }
+      ],
+      "plan": {
+        "decision": "SUBSTITUTION",
+        "out_player_id": "3635",
+        "in_player_id": "10326",
+        "reason_fact_ids": [
+          "decision",
+          "threshold",
+          "freshness_dominant",
+          "state",
+          "components"
+        ],
+        "tradeoff_fact_ids": [
+          "delta_threat",
+          "delta_retention"
+        ]
+      },
+      "text": "המנוע ממליץ להכניס את João Carlos Teixeira במקום Jordon Ibe.\nציון האפשרות הנבחרת הוא 0.2360; הוא עובר את הסף 0.1500.\nהרענון המשוער תורם יותר מהרכיבים הטקטיים; החלטת המנוע הזאת מונעת בעיקר מרענון.\nבדקה 65 הקבוצה בפיגור של 1; נותרו 3 חילופים.\nלאחר מקדמי זמן, התאמה וראיות: התרומה הטקטית היא -0.0978, ותרומת הרענון המשוער היא 0.3338.\nהפרש היכולת שנמסר עבור איום על השער הוא -1.884 נקודות דירוג; זו אינה תחזית למספר אירועים.\nהפרש היכולת שנמסר עבור שמירת כדור הוא -3.000 נקודות דירוג; זו אינה תחזית למספר אירועים.\nיש לבדוק את מקור האירועים אצל המערכת הקוראת; ההסבר אינו מאשר שהקלט סינתטי.\nחוזק הראיות: 0.000; זו אינה הסתברות הצלחה מכוילת.\nציוני המודל עדיין דורשים כיול. עומס המשחק הוא אומדן, וההסבר אינו מוכיח שהחילוף משפר את התוצאה."
+    }
+  }
+}
