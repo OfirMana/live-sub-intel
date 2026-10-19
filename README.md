@@ -59,3 +59,60 @@ StatsBomb Open Data (https://github.com/hudl/open-data), Premier League 2015/16
 (competition 2, season 27). Raw files are not committed. Their terms ask anyone
 publishing analysis based on the data to name StatsBomb as the source and use
 their logo.
+
+## Reproducible player cards and synthetic demo
+
+```
+PYTHONPATH=src python scripts/build_demo_dataset.py
+PYTHONPATH=src python scripts/run_synthetic_demo.py
+python -m http.server 8765 --directory data/synthetic_demo
+```
+
+Open http://localhost:8765 and select team/minute, or press Play. This is an
+interactive playback of deterministic checkpoints from original synthetic events.
+Outputs: `events.jsonl`, `recommendations.json`, `index.html`. The explanatory
+text is deterministic; a remote LLM/API/Azure service is not required or deployed.
+Player source data, formulas, caveats and the complete acceptance table are in
+`demo_data/README.md` and `demo_data/player_acceptance_table.md`.
+
+Research validation (requires network for cached real StatsBomb events):
+
+```
+PYTHONPATH=src python scripts/benchmark_demo.py
+```
+
+Existing team metrics are preserved. Demo recommendations use the new 0..100
+cards, supported positions and bounded live adjustments; the older replay CLI
+still uses the legacy rate profiles. Neither engine permits generic formation
+changes. Recommendation thresholds and physical mappings remain provisional.
+
+For actual event-by-event streaming, run:
+
+```
+PYTHONPATH=src python scripts/serve_demo.py --port 8765
+```
+
+Open the local URL and press **Stream events**. Each viewer gets a fresh Python
+engine; synthetic events feed sequentially over SSE and recommendations recompute
+after each simulated minute. **Play checkpoints** also works from the exported
+standalone HTML. The server binds only to 127.0.0.1 and is not publicly deployed.
+
+## Current four-team revision — 18 October 2026
+
+72 matchday player cards cover Liverpool, Arsenal, Chelsea and Tottenham. Observed
+pre-cutoff goals/assists and technical output now enter capped profile signals.
+Freshness uses a separate near-term horizon; threshold stays .15. 54 Python tests and 3 Node tests pass.
+The 12 team-match research replays have 216 five-minute checkpoints; Liverpool
+now receives recommendations in all three checked fixtures. This is not evidence
+that the football decisions are validated: center-back/early-swap biases remain.
+
+- [Hebrew team handoff](docs/TEAM_HANDOFF_HE.md)
+- [Calculation details and limitations](docs/MODEL_UPDATE_HE.md)
+- [Player browser, workbook and offline ZIP](docs/player-cards/README.md)
+- [Interactive five-minute research report](docs/research/README.md)
+- [Step-by-step match replay UI and offline download](docs/match-replay/README.md)
+- [Validation and sensitivity](docs/VALIDATION.md)
+
+Work is on the fork branch feature/demo-player-dataset. Upstream main is unchanged.
+GitHub Pages, remote LLM and Azure are not configured. Download the offline bundles
+to view HTML, or serve docs locally. Rich demo JSON still needs UI/API alignment.

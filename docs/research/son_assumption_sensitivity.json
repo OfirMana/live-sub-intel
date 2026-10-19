@@ -1,0 +1,3468 @@
+{
+  "warning": "Sensitivity to a synthetic prior, not a confidence interval",
+  "scenarios": [
+    {
+      "scenario": "omit_synthetic_son",
+      "matches": [
+        {
+          "match_id": "3754065",
+          "snapshots": [
+            {
+              "minute": 5,
+              "decision": "NO_SUBSTITUTION",
+              "selected": null
+            },
+            {
+              "minute": 10,
+              "decision": "NO_SUBSTITUTION",
+              "selected": null
+            },
+            {
+              "minute": 15,
+              "decision": "NO_SUBSTITUTION",
+              "selected": null
+            },
+            {
+              "minute": 20,
+              "decision": "NO_SUBSTITUTION",
+              "selected": null
+            },
+            {
+              "minute": 25,
+              "decision": "SUBSTITUTION",
+              "selected": {
+                "out_player": {
+                  "id": "10956",
+                  "name": "Eric Dier"
+                },
+                "in_player": {
+                  "id": "3037",
+                  "name": "Mousa Dembélé"
+                },
+                "expected_changes": {
+                  "threat": 12.454,
+                  "creation": 10.056,
+                  "progression": 16.9,
+                  "retention": 20.212,
+                  "defense": -2.488
+                },
+                "position_fit": 1.0,
+                "evidence_strength": 0.562,
+                "reason_codes": [],
+                "score_components": {
+                  "tactical_core": 0.3431,
+                  "tactical_support": 0.0,
+                  "freshness_relief": 0.0,
+                  "outgoing_fatigue": 0.0,
+                  "evidence_multiplier": 0.781,
+                  "remaining_time_multiplier": 0.7667,
+                  "freshness_time_multiplier": 1
+                },
+                "score": 0.268,
+                "expected_benefit": 0.2054
+              }
+            },
+            {
+              "minute": 30,
+              "decision": "NO_SUBSTITUTION",
+              "selected": null
+            },
+            {
+              "minute": 35,
+              "decision": "NO_SUBSTITUTION",
+              "selected": null
+            },
+            {
+              "minute": 40,
+              "decision": "NO_SUBSTITUTION",
+              "selected": null
+            },
+            {
+              "minute": 45,
+              "decision": "NO_SUBSTITUTION",
+              "selected": null
+            },
+            {
+              "minute": 50,
+              "decision": "SUBSTITUTION",
+              "selected": {
+                "out_player": {
+                  "id": "3310",
+                  "name": "Tom Carroll"
+                },
+                "in_player": {
+                  "id": "3037",
+                  "name": "Mousa Dembélé"
+                },
+                "expected_changes": {
+                  "threat": 8.589,
+                  "creation": -0.485,
+                  "progression": 8.857,
+                  "retention": 10.916,
+                  "defense": 18.289
+                },
+                "position_fit": 1.0,
+                "evidence_strength": 0.262,
+                "reason_codes": [
+                  "ESTIMATED_FRESHNESS_RELIEF"
+                ],
+                "score_components": {
+                  "tactical_core": 0.0201,
+                  "tactical_support": 0.0,
+                  "freshness_relief": 0.2577,
+                  "outgoing_fatigue": 0.1718,
+                  "evidence_multiplier": 0.631,
+                  "remaining_time_multiplier": 0.4889,
+                  "freshness_time_multiplier": 1
+                },
+                "score": 0.1753,
+                "expected_benefit": 0.1688
+              }
+            },
+            {
+              "minute": 55,
+              "decision": "SUBSTITUTION",
+              "selected": {
+                "out_player": {
+                  "id": "3310",
+                  "name": "Tom Carroll"
+                },
+                "in_player": {
+                  "id": "3037",
+                  "name": "Mousa Dembélé"
+                },
+                "expected_changes": {
+                  "threat": 8.589,
+                  "creation": -0.336,
+                  "progression": 9.249,
+                  "retention": 10.785,
+                  "defense": 18.175
+                },
+                "position_fit": 1.0,
+                "evidence_strength": 0.262,
+                "reason_codes": [
+                  "ESTIMATED_FRESHNESS_RELIEF"
+                ],
+                "score_components": {
+                  "tactical_core": -0.0084,
+                  "tactical_support": 0.0,
+                  "freshness_relief": 0.3719,
+                  "outgoing_fatigue": 0.2479,
+                  "evidence_multiplier": 0.631,
+                  "remaining_time_multiplier": 0.4333,
+                  "freshness_time_multiplier": 1
+                },
+                "score": 0.2293,
+                "expected_benefit": 0.2323
+              }
+            },
+            {
+              "minute": 60,
+              "decision": "SUBSTITUTION",
+              "selected": {
+                "out_player": {
+                  "id": "3310",
+                  "name": "Tom Carroll"
+                },
+                "in_player": {
+                  "id": "3037",
+                  "name": "Mousa Dembélé"
+                },
+                "expected_changes": {
+                  "threat": 8.587,
+                  "creation": -0.223,
+                  "progression": 9.531,
+                  "retention": 10.793,
+                  "defense": 18.768
+                },
+                "position_fit": 1.0,
+                "evidence_strength": 0.262,
+                "reason_codes": [
+                  "ESTIMATED_FRESHNESS_RELIEF"
+                ],
+                "score_components": {
+                  "tactical_core": 0.0376,
+                  "tactical_support": 0.0,
+                  "freshness_relief": 0.4992,
+                  "outgoing_fatigue": 0.3328,
+                  "evidence_multiplier": 0.631,
+                  "remaining_time_multiplier": 0.3778,
+                  "freshness_time_multiplier": 1
+                },
+                "score": 0.3387,
+                "expected_benefit": 0.3239
+              }
+            },
+            {
+              "minute": 65,
+              "decision": "SUBSTITUTION",
+              "selected": {
+                "out_player": {
+                  "id": "3310",
+                  "name": "Tom Carroll"
+                },
+                "in_player": {
+                  "id": "3037",
+                  "name": "Mousa Dembélé"
+                },
+                "expected_changes": {
+                  "threat": 8.549,
+                  "creation": -0.131,
+                  "progression": 9.803,
+                  "retention": 10.852,
+                  "defense": 18.937
+                },
+                "position_fit": 1.0,
+                "evidence_strength": 0.262,
+                "reason_codes": [
+                  "ESTIMATED_FRESHNESS_RELIEF"
+                ],
+                "score_components": {
+                  "tactical_core": 0.0298,
+                  "tactical_support": 0.0,
+                  "freshness_relief": 0.6386,
+                  "outgoing_fatigue": 0.4257,
+                  "evidence_multiplier": 0.631,
+                  "remaining_time_multiplier": 0.3222,
+                  "freshness_time_multiplier": 0.9667
+                },
+                "score": 0.4217,
+                "expected_benefit": 0.3955
+              }
+            },
+            {
+              "minute": 70,
+              "decision": "SUBSTITUTION",
+              "selected": {
+                "out_player": {
+                  "id": "3310",
+                  "name": "Tom Carroll"
+                },
+                "in_player": {
+                  "id": "3037",
+                  "name": "Mousa Dembélé"
+                },
+                "expected_changes": {
+                  "threat": 7.827,
+                  "creation": -0.057,
+                  "progression": 9.711,
+                  "retention": 10.864,
+                  "defense": 18.689
+                },
+                "position_fit": 1.0,
+                "evidence_strength": 0.262,
+                "reason_codes": [
+                  "ESTIMATED_FRESHNESS_RELIEF"
+                ],
+                "score_components": {
+                  "tactical_core": 0.0181,
+                  "tactical_support": 0.0,
+                  "freshness_relief": 0.7889,
+                  "outgoing_fatigue": 0.5259,
+                  "evidence_multiplier": 0.631,
+                  "remaining_time_multiplier": 0.2667,
+                  "freshness_time_multiplier": 0.8
+                },
+                "score": 0.5092,
+                "expected_benefit": 0.4012
+              }
+            },
+            {
+              "minute": 75,
+              "decision": "SUBSTITUTION",
+              "selected": {
+                "out_player": {
+                  "id": "3086",
+                  "name": "Ben Davies"
+                },
+                "in_player": {
+                  "id": "3594",
+                  "name": "Danny Rose"
+                },
+                "expected_changes": {
+                  "threat": 10.009,
+                  "creation": -2.214,
+                  "progression": -0.422,
+                  "retention": 0.51,
+                  "defense": 2.043
+                },
+                "position_fit": 1.0,
+                "evidence_strength": 0.512,
+                "reason_codes": [
+                  "ESTIMATED_FRESHNESS_RELIEF"
+                ],
+                "score_components": {
+                  "tactical_core": -0.0636,
+                  "tactical_support": 0.0,
+                  "freshness_relief": 0.6043,
+                  "outgoing_fatigue": 0.4029,
+                  "evidence_multiplier": 0.756,
+                  "remaining_time_multiplier": 0.2111,
+                  "freshness_time_multiplier": 0.6333
+                },
+                "score": 0.4088,
+                "expected_benefit": 0.2792
+              }
+            },
+            {
+              "minute": 80,
+              "decision": "SUBSTITUTION",
+              "selected": {
+                "out_player": {
+                  "id": "3086",
+                  "name": "Ben Davies"
+                },
+                "in_player": {
+                  "id": "3594",
+                  "name": "Danny Rose"
+                },
+                "expected_changes": {
+                  "threat": 10.006,
+                  "creation": -1.919,
+                  "progression": 0.007,
+                  "retention": 0.485,
+                  "defense": 2.256
+                },
+                "position_fit": 1.0,
+                "evidence_strength": 0.512,
+                "reason_codes": [
+                  "ESTIMATED_FRESHNESS_RELIEF"
+                ],
+                "score_components": {
+                  "tactical_core": -0.0431,
+                  "tactical_support": 0.0,
+                  "freshness_relief": 0.7471,
+                  "outgoing_fatigue": 0.4981,
+                  "evidence_multiplier": 0.756,
+                  "remaining_time_multiplier": 0.1556,
+                  "freshness_time_multiplier": 0.4667
+                },
+                "score": 0.5323,
+                "expected_benefit": 0.2585
+              }
+            },
+            {
+              "minute": 85,
+              "decision": "SUBSTITUTION",
+              "selected": {
+                "out_player": {
+                  "id": "3086",
+                  "name": "Ben Davies"
+                },
+                "in_player": {
+                  "id": "3594",
+                  "name": "Danny Rose"
+                },
+                "expected_changes": {
+                  "threat": 10.005,
+                  "creation": -1.665,
+                  "progression": -0.253,
+                  "retention": 0.785,
+                  "defense": 1.863
+                },
+                "position_fit": 1.0,
+                "evidence_strength": 0.512,
+                "reason_codes": [
+                  "ESTIMATED_FRESHNESS_RELIEF"
+                ],
+                "score_components": {
+                  "tactical_core": 0.0545,
+                  "tactical_support": -0.0023,
+                  "freshness_relief": 0.8999,
+                  "outgoing_fatigue": 0.5999,
+                  "evidence_multiplier": 0.756,
+                  "remaining_time_multiplier": 0.1,
+                  "freshness_time_multiplier": 0.3
+                },
+                "score": 0.7197,
+                "expected_benefit": 0.208
+              }
+            },
+            {
+              "minute": 90,
+              "decision": "NO_SUBSTITUTION",
+              "selected": null
+            }
+          ]
+        },
+        {
+          "match_id": "3754027",
+          "snapshots": [
+            {
+              "minute": 5,
+              "decision": "NO_SUBSTITUTION",
+              "selected": null
+            },
+            {
+              "minute": 10,
+              "decision": "NO_SUBSTITUTION",
+              "selected": null
+            },
+            {
+              "minute": 15,
+              "decision": "NO_SUBSTITUTION",
+              "selected": null
+            },
+            {
+              "minute": 20,
+              "decision": "NO_SUBSTITUTION",
+              "selected": null
+            },
+            {
+              "minute": 25,
+              "decision": "NO_SUBSTITUTION",
+              "selected": null
+            },
+            {
+              "minute": 30,
+              "decision": "NO_SUBSTITUTION",
+              "selected": null
+            },
+            {
+              "minute": 35,
+              "decision": "NO_SUBSTITUTION",
+              "selected": null
+            },
+            {
+              "minute": 40,
+              "decision": "NO_SUBSTITUTION",
+              "selected": null
+            },
+            {
+              "minute": 45,
+              "decision": "NO_SUBSTITUTION",
+              "selected": null
+            },
+            {
+              "minute": 50,
+              "decision": "NO_SUBSTITUTION",
+              "selected": null
+            },
+            {
+              "minute": 55,
+              "decision": "NO_SUBSTITUTION",
+              "selected": null
+            },
+            {
+              "minute": 60,
+              "decision": "NO_SUBSTITUTION",
+              "selected": null
+            },
+            {
+              "minute": 65,
+              "decision": "SUBSTITUTION",
+              "selected": {
+                "out_player": {
+                  "id": "3308",
+                  "name": "Kieran Trippier"
+                },
+                "in_player": {
+                  "id": "3086",
+                  "name": "Ben Davies"
+                },
+                "expected_changes": {
+                  "threat": -6.017,
+                  "creation": -3.789,
+                  "progression": 0.069,
+                  "retention": 3.101,
+                  "defense": -1.326
+                },
+                "position_fit": 1.0,
+                "evidence_strength": 0.105,
+                "reason_codes": [
+                  "ESTIMATED_FRESHNESS_RELIEF"
+                ],
+                "score_components": {
+                  "tactical_core": -0.2511,
+                  "tactical_support": -0.0,
+                  "freshness_relief": 0.3923,
+                  "outgoing_fatigue": 0.2711,
+                  "evidence_multiplier": 0.5525,
+                  "remaining_time_multiplier": 0.3222,
+                  "freshness_time_multiplier": 0.9667
+                },
+                "score": 0.078,
+                "expected_benefit": 0.1648
+              }
+            },
+            {
+              "minute": 70,
+              "decision": "SUBSTITUTION",
+              "selected": {
+                "out_player": {
+                  "id": "3308",
+                  "name": "Kieran Trippier"
+                },
+                "in_player": {
+                  "id": "3086",
+                  "name": "Ben Davies"
+                },
+                "expected_changes": {
+                  "threat": -6.026,
+                  "creation": -3.808,
+                  "progression": 0.394,
+                  "retention": 3.19,
+                  "defense": -1.592
+                },
+                "position_fit": 1.0,
+                "evidence_strength": 0.105,
+                "reason_codes": [
+                  "ESTIMATED_FRESHNESS_RELIEF"
+                ],
+                "score_components": {
+                  "tactical_core": -0.2481,
+                  "tactical_support": -0.0,
+                  "freshness_relief": 0.5218,
+                  "outgoing_fatigue": 0.3605,
+                  "evidence_multiplier": 0.5525,
+                  "remaining_time_multiplier": 0.2667,
+                  "freshness_time_multiplier": 0.8
+                },
+                "score": 0.1513,
+                "expected_benefit": 0.1941
+              }
+            },
+            {
+              "minute": 75,
+              "decision": "SUBSTITUTION",
+              "selected": {
+                "out_player": {
+                  "id": "10956",
+                  "name": "Eric Dier"
+                },
+                "in_player": {
+                  "id": "3310",
+                  "name": "Tom Carroll"
+                },
+                "expected_changes": {
+                  "threat": 3.978,
+                  "creation": 9.996,
+                  "progression": 5.462,
+                  "retention": 9.38,
+                  "defense": -23.329
+                },
+                "position_fit": 1.0,
+                "evidence_strength": 0.262,
+                "reason_codes": [
+                  "ESTIMATED_FRESHNESS_RELIEF"
+                ],
+                "score_components": {
+                  "tactical_core": -0.7757,
+                  "tactical_support": -0.0,
+                  "freshness_relief": 0.7768,
+                  "outgoing_fatigue": 0.5564,
+                  "evidence_multiplier": 0.631,
+                  "remaining_time_multiplier": 0.2111,
+                  "freshness_time_multiplier": 0.6333
+                },
+                "score": 0.0007,
+                "expected_benefit": 0.2071
+              }
+            },
+            {
+              "minute": 80,
+              "decision": "SUBSTITUTION",
+              "selected": {
+                "out_player": {
+                  "id": "3308",
+                  "name": "Kieran Trippier"
+                },
+                "in_player": {
+                  "id": "3086",
+                  "name": "Ben Davies"
+                },
+                "expected_changes": {
+                  "threat": -6.027,
+                  "creation": -3.81,
+                  "progression": 1.355,
+                  "retention": 3.484,
+                  "defense": -1.01
+                },
+                "position_fit": 1.0,
+                "evidence_strength": 0.105,
+                "reason_codes": [
+                  "ESTIMATED_FRESHNESS_RELIEF"
+                ],
+                "score_components": {
+                  "tactical_core": -0.2224,
+                  "tactical_support": -0.0,
+                  "freshness_relief": 0.7905,
+                  "outgoing_fatigue": 0.542,
+                  "evidence_multiplier": 0.5525,
+                  "remaining_time_multiplier": 0.1556,
+                  "freshness_time_multiplier": 0.4667
+                },
+                "score": 0.3139,
+                "expected_benefit": 0.1847
+              }
+            },
+            {
+              "minute": 85,
+              "decision": "NO_SUBSTITUTION",
+              "selected": null
+            },
+            {
+              "minute": 90,
+              "decision": "NO_SUBSTITUTION",
+              "selected": null
+            }
+          ]
+        },
+        {
+          "match_id": "3754179",
+          "snapshots": [
+            {
+              "minute": 5,
+              "decision": "NO_SUBSTITUTION",
+              "selected": null
+            },
+            {
+              "minute": 10,
+              "decision": "NO_SUBSTITUTION",
+              "selected": null
+            },
+            {
+              "minute": 15,
+              "decision": "NO_SUBSTITUTION",
+              "selected": null
+            },
+            {
+              "minute": 20,
+              "decision": "NO_SUBSTITUTION",
+              "selected": null
+            },
+            {
+              "minute": 25,
+              "decision": "NO_SUBSTITUTION",
+              "selected": null
+            },
+            {
+              "minute": 30,
+              "decision": "NO_SUBSTITUTION",
+              "selected": null
+            },
+            {
+              "minute": 35,
+              "decision": "NO_SUBSTITUTION",
+              "selected": null
+            },
+            {
+              "minute": 40,
+              "decision": "NO_SUBSTITUTION",
+              "selected": null
+            },
+            {
+              "minute": 45,
+              "decision": "NO_SUBSTITUTION",
+              "selected": null
+            },
+            {
+              "minute": 50,
+              "decision": "NO_SUBSTITUTION",
+              "selected": null
+            },
+            {
+              "minute": 55,
+              "decision": "NO_SUBSTITUTION",
+              "selected": null
+            },
+            {
+              "minute": 60,
+              "decision": "NO_SUBSTITUTION",
+              "selected": null
+            },
+            {
+              "minute": 65,
+              "decision": "NO_SUBSTITUTION",
+              "selected": null
+            },
+            {
+              "minute": 70,
+              "decision": "SUBSTITUTION",
+              "selected": {
+                "out_player": {
+                  "id": "3094",
+                  "name": "Dele Alli"
+                },
+                "in_player": {
+                  "id": "3585",
+                  "name": "Erik Lamela"
+                },
+                "expected_changes": {
+                  "threat": 3.647,
+                  "creation": 7.299,
+                  "progression": 9.674,
+                  "retention": 12.843,
+                  "defense": -27.127
+                },
+                "position_fit": 1.0,
+                "evidence_strength": 0.592,
+                "reason_codes": [
+                  "ESTIMATED_FRESHNESS_RELIEF"
+                ],
+                "score_components": {
+                  "tactical_core": -0.6782,
+                  "tactical_support": 0.0,
+                  "freshness_relief": 0.5035,
+                  "outgoing_fatigue": 0.3604,
+                  "evidence_multiplier": 0.7962,
+                  "remaining_time_multiplier": 0.2667,
+                  "freshness_time_multiplier": 0.8
+                },
+                "score": -0.1391,
+                "expected_benefit": 0.1767
+              }
+            },
+            {
+              "minute": 75,
+              "decision": "SUBSTITUTION",
+              "selected": {
+                "out_player": {
+                  "id": "3094",
+                  "name": "Dele Alli"
+                },
+                "in_player": {
+                  "id": "3585",
+                  "name": "Erik Lamela"
+                },
+                "expected_changes": {
+                  "threat": 3.699,
+                  "creation": 7.303,
+                  "progression": 9.573,
+                  "retention": 12.979,
+                  "defense": -26.931
+                },
+                "position_fit": 1.0,
+                "evidence_strength": 0.592,
+                "reason_codes": [
+                  "ESTIMATED_FRESHNESS_RELIEF"
+                ],
+                "score_components": {
+                  "tactical_core": -0.5872,
+                  "tactical_support": 0.0,
+                  "freshness_relief": 0.6252,
+                  "outgoing_fatigue": 0.4472,
+                  "evidence_multiplier": 0.7962,
+                  "remaining_time_multiplier": 0.2111,
+                  "freshness_time_multiplier": 0.6333
+                },
+                "score": 0.0302,
+                "expected_benefit": 0.2165
+              }
+            },
+            {
+              "minute": 80,
+              "decision": "SUBSTITUTION",
+              "selected": {
+                "out_player": {
+                  "id": "3094",
+                  "name": "Dele Alli"
+                },
+                "in_player": {
+                  "id": "3585",
+                  "name": "Erik Lamela"
+                },
+                "expected_changes": {
+                  "threat": 3.735,
+                  "creation": 7.304,
+                  "progression": 9.916,
+                  "retention": 13.047,
+                  "defense": -26.372
+                },
+                "position_fit": 1.0,
+                "evidence_strength": 0.592,
+                "reason_codes": [
+                  "ESTIMATED_FRESHNESS_RELIEF"
+                ],
+                "score_components": {
+                  "tactical_core": -0.4893,
+                  "tactical_support": 0.0,
+                  "freshness_relief": 0.7326,
+                  "outgoing_fatigue": 0.5216,
+                  "evidence_multiplier": 0.7962,
+                  "remaining_time_multiplier": 0.1556,
+                  "freshness_time_multiplier": 0.4667
+                },
+                "score": 0.1937,
+                "expected_benefit": 0.2116
+              }
+            },
+            {
+              "minute": 85,
+              "decision": "SUBSTITUTION",
+              "selected": {
+                "out_player": {
+                  "id": "3094",
+                  "name": "Dele Alli"
+                },
+                "in_player": {
+                  "id": "3585",
+                  "name": "Erik Lamela"
+                },
+                "expected_changes": {
+                  "threat": 3.727,
+                  "creation": 7.265,
+                  "progression": 9.791,
+                  "retention": 12.885,
+                  "defense": -26.579
+                },
+                "position_fit": 1.0,
+                "evidence_strength": 0.592,
+                "reason_codes": [
+                  "HIGH_RETENTION_NEED",
+                  "ESTIMATED_FRESHNESS_RELIEF"
+                ],
+                "score_components": {
+                  "tactical_core": -0.5658,
+                  "tactical_support": 0.0,
+                  "freshness_relief": 0.841,
+                  "outgoing_fatigue": 0.5998,
+                  "evidence_multiplier": 0.7962,
+                  "remaining_time_multiplier": 0.1,
+                  "freshness_time_multiplier": 0.3
+                },
+                "score": 0.2192,
+                "expected_benefit": 0.1558
+              }
+            },
+            {
+              "minute": 90,
+              "decision": "NO_SUBSTITUTION",
+              "selected": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "scenario": "son_ratings_minus_5",
+      "matches": [
+        {
+          "match_id": "3754065",
+          "snapshots": [
+            {
+              "minute": 5,
+              "decision": "NO_SUBSTITUTION",
+              "selected": null
+            },
+            {
+              "minute": 10,
+              "decision": "NO_SUBSTITUTION",
+              "selected": null
+            },
+            {
+              "minute": 15,
+              "decision": "NO_SUBSTITUTION",
+              "selected": null
+            },
+            {
+              "minute": 20,
+              "decision": "NO_SUBSTITUTION",
+              "selected": null
+            },
+            {
+              "minute": 25,
+              "decision": "SUBSTITUTION",
+              "selected": {
+                "out_player": {
+                  "id": "10956",
+                  "name": "Eric Dier"
+                },
+                "in_player": {
+                  "id": "3037",
+                  "name": "Mousa Dembélé"
+                },
+                "expected_changes": {
+                  "threat": 12.454,
+                  "creation": 10.056,
+                  "progression": 16.9,
+                  "retention": 20.212,
+                  "defense": -2.488
+                },
+                "position_fit": 1.0,
+                "evidence_strength": 0.562,
+                "reason_codes": [],
+                "score_components": {
+                  "tactical_core": 0.3431,
+                  "tactical_support": 0.0,
+                  "freshness_relief": 0.0,
+                  "outgoing_fatigue": 0.0,
+                  "evidence_multiplier": 0.781,
+                  "remaining_time_multiplier": 0.7667,
+                  "freshness_time_multiplier": 1
+                },
+                "score": 0.268,
+                "expected_benefit": 0.2054
+              }
+            },
+            {
+              "minute": 30,
+              "decision": "NO_SUBSTITUTION",
+              "selected": null
+            },
+            {
+              "minute": 35,
+              "decision": "NO_SUBSTITUTION",
+              "selected": null
+            },
+            {
+              "minute": 40,
+              "decision": "NO_SUBSTITUTION",
+              "selected": null
+            },
+            {
+              "minute": 45,
+              "decision": "NO_SUBSTITUTION",
+              "selected": null
+            },
+            {
+              "minute": 50,
+              "decision": "SUBSTITUTION",
+              "selected": {
+                "out_player": {
+                  "id": "3310",
+                  "name": "Tom Carroll"
+                },
+                "in_player": {
+                  "id": "3037",
+                  "name": "Mousa Dembélé"
+                },
+                "expected_changes": {
+                  "threat": 8.589,
+                  "creation": -0.485,
+                  "progression": 8.857,
+                  "retention": 10.916,
+                  "defense": 18.289
+                },
+                "position_fit": 1.0,
+                "evidence_strength": 0.262,
+                "reason_codes": [
+                  "ESTIMATED_FRESHNESS_RELIEF"
+                ],
+                "score_components": {
+                  "tactical_core": 0.0201,
+                  "tactical_support": 0.0,
+                  "freshness_relief": 0.2577,
+                  "outgoing_fatigue": 0.1718,
+                  "evidence_multiplier": 0.631,
+                  "remaining_time_multiplier": 0.4889,
+                  "freshness_time_multiplier": 1
+                },
+                "score": 0.1753,
+                "expected_benefit": 0.1688
+              }
+            },
+            {
+              "minute": 55,
+              "decision": "SUBSTITUTION",
+              "selected": {
+                "out_player": {
+                  "id": "3310",
+                  "name": "Tom Carroll"
+                },
+                "in_player": {
+                  "id": "3037",
+                  "name": "Mousa Dembélé"
+                },
+                "expected_changes": {
+                  "threat": 8.589,
+                  "creation": -0.336,
+                  "progression": 9.249,
+                  "retention": 10.785,
+                  "defense": 18.175
+                },
+                "position_fit": 1.0,
+                "evidence_strength": 0.262,
+                "reason_codes": [
+                  "ESTIMATED_FRESHNESS_RELIEF"
+                ],
+                "score_components": {
+                  "tactical_core": -0.0084,
+                  "tactical_support": 0.0,
+                  "freshness_relief": 0.3719,
+                  "outgoing_fatigue": 0.2479,
+                  "evidence_multiplier": 0.631,
+                  "remaining_time_multiplier": 0.4333,
+                  "freshness_time_multiplier": 1
+                },
+                "score": 0.2293,
+                "expected_benefit": 0.2323
+              }
+            },
+            {
+              "minute": 60,
+              "decision": "SUBSTITUTION",
+              "selected": {
+                "out_player": {
+                  "id": "3310",
+                  "name": "Tom Carroll"
+                },
+                "in_player": {
+                  "id": "3037",
+                  "name": "Mousa Dembélé"
+                },
+                "expected_changes": {
+                  "threat": 8.587,
+                  "creation": -0.223,
+                  "progression": 9.531,
+                  "retention": 10.793,
+                  "defense": 18.768
+                },
+                "position_fit": 1.0,
+                "evidence_strength": 0.262,
+                "reason_codes": [
+                  "ESTIMATED_FRESHNESS_RELIEF"
+                ],
+                "score_components": {
+                  "tactical_core": 0.0376,
+                  "tactical_support": 0.0,
+                  "freshness_relief": 0.4992,
+                  "outgoing_fatigue": 0.3328,
+                  "evidence_multiplier": 0.631,
+                  "remaining_time_multiplier": 0.3778,
+                  "freshness_time_multiplier": 1
+                },
+                "score": 0.3387,
+                "expected_benefit": 0.3239
+              }
+            },
+            {
+              "minute": 65,
+              "decision": "SUBSTITUTION",
+              "selected": {
+                "out_player": {
+                  "id": "3310",
+                  "name": "Tom Carroll"
+                },
+                "in_player": {
+                  "id": "3037",
+                  "name": "Mousa Dembélé"
+                },
+                "expected_changes": {
+                  "threat": 8.549,
+                  "creation": -0.131,
+                  "progression": 9.803,
+                  "retention": 10.852,
+                  "defense": 18.937
+                },
+                "position_fit": 1.0,
+                "evidence_strength": 0.262,
+                "reason_codes": [
+                  "ESTIMATED_FRESHNESS_RELIEF"
+                ],
+                "score_components": {
+                  "tactical_core": 0.0298,
+                  "tactical_support": 0.0,
+                  "freshness_relief": 0.6386,
+                  "outgoing_fatigue": 0.4257,
+                  "evidence_multiplier": 0.631,
+                  "remaining_time_multiplier": 0.3222,
+                  "freshness_time_multiplier": 0.9667
+                },
+                "score": 0.4217,
+                "expected_benefit": 0.3955
+              }
+            },
+            {
+              "minute": 70,
+              "decision": "SUBSTITUTION",
+              "selected": {
+                "out_player": {
+                  "id": "3310",
+                  "name": "Tom Carroll"
+                },
+                "in_player": {
+                  "id": "3037",
+                  "name": "Mousa Dembélé"
+                },
+                "expected_changes": {
+                  "threat": 7.827,
+                  "creation": -0.057,
+                  "progression": 9.711,
+                  "retention": 10.864,
+                  "defense": 18.689
+                },
+                "position_fit": 1.0,
+                "evidence_strength": 0.262,
+                "reason_codes": [
+                  "ESTIMATED_FRESHNESS_RELIEF"
+                ],
+                "score_components": {
+                  "tactical_core": 0.0181,
+                  "tactical_support": 0.0,
+                  "freshness_relief": 0.7889,
+                  "outgoing_fatigue": 0.5259,
+                  "evidence_multiplier": 0.631,
+                  "remaining_time_multiplier": 0.2667,
+                  "freshness_time_multiplier": 0.8
+                },
+                "score": 0.5092,
+                "expected_benefit": 0.4012
+              }
+            },
+            {
+              "minute": 75,
+              "decision": "SUBSTITUTION",
+              "selected": {
+                "out_player": {
+                  "id": "3086",
+                  "name": "Ben Davies"
+                },
+                "in_player": {
+                  "id": "3594",
+                  "name": "Danny Rose"
+                },
+                "expected_changes": {
+                  "threat": 10.009,
+                  "creation": -2.214,
+                  "progression": -0.422,
+                  "retention": 0.51,
+                  "defense": 2.043
+                },
+                "position_fit": 1.0,
+                "evidence_strength": 0.512,
+                "reason_codes": [
+                  "ESTIMATED_FRESHNESS_RELIEF"
+                ],
+                "score_components": {
+                  "tactical_core": -0.0636,
+                  "tactical_support": 0.0,
+                  "freshness_relief": 0.6043,
+                  "outgoing_fatigue": 0.4029,
+                  "evidence_multiplier": 0.756,
+                  "remaining_time_multiplier": 0.2111,
+                  "freshness_time_multiplier": 0.6333
+                },
+                "score": 0.4088,
+                "expected_benefit": 0.2792
+              }
+            },
+            {
+              "minute": 80,
+              "decision": "SUBSTITUTION",
+              "selected": {
+                "out_player": {
+                  "id": "3086",
+                  "name": "Ben Davies"
+                },
+                "in_player": {
+                  "id": "3594",
+                  "name": "Danny Rose"
+                },
+                "expected_changes": {
+                  "threat": 10.006,
+                  "creation": -1.919,
+                  "progression": 0.007,
+                  "retention": 0.485,
+                  "defense": 2.256
+                },
+                "position_fit": 1.0,
+                "evidence_strength": 0.512,
+                "reason_codes": [
+                  "ESTIMATED_FRESHNESS_RELIEF"
+                ],
+                "score_components": {
+                  "tactical_core": -0.0431,
+                  "tactical_support": 0.0,
+                  "freshness_relief": 0.7471,
+                  "outgoing_fatigue": 0.4981,
+                  "evidence_multiplier": 0.756,
+                  "remaining_time_multiplier": 0.1556,
+                  "freshness_time_multiplier": 0.4667
+                },
+                "score": 0.5323,
+                "expected_benefit": 0.2585
+              }
+            },
+            {
+              "minute": 85,
+              "decision": "SUBSTITUTION",
+              "selected": {
+                "out_player": {
+                  "id": "3086",
+                  "name": "Ben Davies"
+                },
+                "in_player": {
+                  "id": "3594",
+                  "name": "Danny Rose"
+                },
+                "expected_changes": {
+                  "threat": 10.005,
+                  "creation": -1.665,
+                  "progression": -0.253,
+                  "retention": 0.785,
+                  "defense": 1.863
+                },
+                "position_fit": 1.0,
+                "evidence_strength": 0.512,
+                "reason_codes": [
+                  "ESTIMATED_FRESHNESS_RELIEF"
+                ],
+                "score_components": {
+                  "tactical_core": 0.0545,
+                  "tactical_support": -0.0023,
+                  "freshness_relief": 0.8999,
+                  "outgoing_fatigue": 0.5999,
+                  "evidence_multiplier": 0.756,
+                  "remaining_time_multiplier": 0.1,
+                  "freshness_time_multiplier": 0.3
+                },
+                "score": 0.7197,
+                "expected_benefit": 0.208
+              }
+            },
+            {
+              "minute": 90,
+              "decision": "NO_SUBSTITUTION",
+              "selected": null
+            }
+          ]
+        },
+        {
+          "match_id": "3754027",
+          "snapshots": [
+            {
+              "minute": 5,
+              "decision": "NO_SUBSTITUTION",
+              "selected": null
+            },
+            {
+              "minute": 10,
+              "decision": "NO_SUBSTITUTION",
+              "selected": null
+            },
+            {
+              "minute": 15,
+              "decision": "NO_SUBSTITUTION",
+              "selected": null
+            },
+            {
+              "minute": 20,
+              "decision": "NO_SUBSTITUTION",
+              "selected": null
+            },
+            {
+              "minute": 25,
+              "decision": "NO_SUBSTITUTION",
+              "selected": null
+            },
+            {
+              "minute": 30,
+              "decision": "NO_SUBSTITUTION",
+              "selected": null
+            },
+            {
+              "minute": 35,
+              "decision": "NO_SUBSTITUTION",
+              "selected": null
+            },
+            {
+              "minute": 40,
+              "decision": "NO_SUBSTITUTION",
+              "selected": null
+            },
+            {
+              "minute": 45,
+              "decision": "NO_SUBSTITUTION",
+              "selected": null
+            },
+            {
+              "minute": 50,
+              "decision": "NO_SUBSTITUTION",
+              "selected": null
+            },
+            {
+              "minute": 55,
+              "decision": "NO_SUBSTITUTION",
+              "selected": null
+            },
+            {
+              "minute": 60,
+              "decision": "NO_SUBSTITUTION",
+              "selected": null
+            },
+            {
+              "minute": 65,
+              "decision": "SUBSTITUTION",
+              "selected": {
+                "out_player": {
+                  "id": "3308",
+                  "name": "Kieran Trippier"
+                },
+                "in_player": {
+                  "id": "3086",
+                  "name": "Ben Davies"
+                },
+                "expected_changes": {
+                  "threat": -6.017,
+                  "creation": -3.789,
+                  "progression": 0.069,
+                  "retention": 3.101,
+                  "defense": -1.326
+                },
+                "position_fit": 1.0,
+                "evidence_strength": 0.105,
+                "reason_codes": [
+                  "ESTIMATED_FRESHNESS_RELIEF"
+                ],
+                "score_components": {
+                  "tactical_core": -0.2511,
+                  "tactical_support": -0.0,
+                  "freshness_relief": 0.3923,
+                  "outgoing_fatigue": 0.2711,
+                  "evidence_multiplier": 0.5525,
+                  "remaining_time_multiplier": 0.3222,
+                  "freshness_time_multiplier": 0.9667
+                },
+                "score": 0.078,
+                "expected_benefit": 0.1648
+              }
+            },
+            {
+              "minute": 70,
+              "decision": "SUBSTITUTION",
+              "selected": {
+                "out_player": {
+                  "id": "3585",
+                  "name": "Erik Lamela"
+                },
+                "in_player": {
+                  "id": "3083",
+                  "name": "Son Heung-Min"
+                },
+                "expected_changes": {
+                  "threat": -6.686,
+                  "creation": -7.644,
+                  "progression": -9.485,
+                  "retention": -6.293,
+                  "defense": 9.898
+                },
+                "position_fit": 1.0,
+                "evidence_strength": 0.369,
+                "reason_codes": [
+                  "ESTIMATED_FRESHNESS_RELIEF"
+                ],
+                "score_components": {
+                  "tactical_core": -0.6206,
+                  "tactical_support": 0.0,
+                  "freshness_relief": 0.6381,
+                  "outgoing_fatigue": 0.4401,
+                  "evidence_multiplier": 0.6846,
+                  "remaining_time_multiplier": 0.2667,
+                  "freshness_time_multiplier": 0.8
+                },
+                "score": 0.012,
+                "expected_benefit": 0.2362
+              }
+            },
+            {
+              "minute": 75,
+              "decision": "SUBSTITUTION",
+              "selected": {
+                "out_player": {
+                  "id": "10956",
+                  "name": "Eric Dier"
+                },
+                "in_player": {
+                  "id": "3310",
+                  "name": "Tom Carroll"
+                },
+                "expected_changes": {
+                  "threat": 3.978,
+                  "creation": 9.996,
+                  "progression": 5.462,
+                  "retention": 9.38,
+                  "defense": -23.329
+                },
+                "position_fit": 1.0,
+                "evidence_strength": 0.262,
+                "reason_codes": [
+                  "ESTIMATED_FRESHNESS_RELIEF"
+                ],
+                "score_components": {
+                  "tactical_core": -0.7757,
+                  "tactical_support": -0.0,
+                  "freshness_relief": 0.7768,
+                  "outgoing_fatigue": 0.5564,
+                  "evidence_multiplier": 0.631,
+                  "remaining_time_multiplier": 0.2111,
+                  "freshness_time_multiplier": 0.6333
+                },
+                "score": 0.0007,
+                "expected_benefit": 0.2071
+              }
+            },
+            {
+              "minute": 80,
+              "decision": "SUBSTITUTION",
+              "selected": {
+                "out_player": {
+                  "id": "3308",
+                  "name": "Kieran Trippier"
+                },
+                "in_player": {
+                  "id": "3086",
+                  "name": "Ben Davies"
+                },
+                "expected_changes": {
+                  "threat": -6.027,
+                  "creation": -3.81,
+                  "progression": 1.355,
+                  "retention": 3.484,
+                  "defense": -1.01
+                },
+                "position_fit": 1.0,
+                "evidence_strength": 0.105,
+                "reason_codes": [
+                  "ESTIMATED_FRESHNESS_RELIEF"
+                ],
+                "score_components": {
+                  "tactical_core": -0.2224,
+                  "tactical_support": -0.0,
+                  "freshness_relief": 0.7905,
+                  "outgoing_fatigue": 0.542,
+                  "evidence_multiplier": 0.5525,
+                  "remaining_time_multiplier": 0.1556,
+                  "freshness_time_multiplier": 0.4667
+                },
+                "score": 0.3139,
+                "expected_benefit": 0.1847
+              }
+            },
+            {
+              "minute": 85,
+              "decision": "NO_SUBSTITUTION",
+              "selected": null
+            },
+            {
+              "minute": 90,
+              "decision": "NO_SUBSTITUTION",
+              "selected": null
+            }
+          ]
+        },
+        {
+          "match_id": "3754179",
+          "snapshots": [
+            {
+              "minute": 5,
+              "decision": "NO_SUBSTITUTION",
+              "selected": null
+            },
+            {
+              "minute": 10,
+              "decision": "NO_SUBSTITUTION",
+              "selected": null
+            },
+            {
+              "minute": 15,
+              "decision": "NO_SUBSTITUTION",
+              "selected": null
+            },
+            {
+              "minute": 20,
+              "decision": "NO_SUBSTITUTION",
+              "selected": null
+            },
+            {
+              "minute": 25,
+              "decision": "NO_SUBSTITUTION",
+              "selected": null
+            },
+            {
+              "minute": 30,
+              "decision": "NO_SUBSTITUTION",
+              "selected": null
+            },
+            {
+              "minute": 35,
+              "decision": "NO_SUBSTITUTION",
+              "selected": null
+            },
+            {
+              "minute": 40,
+              "decision": "NO_SUBSTITUTION",
+              "selected": null
+            },
+            {
+              "minute": 45,
+              "decision": "NO_SUBSTITUTION",
+              "selected": null
+            },
+            {
+              "minute": 50,
+              "decision": "NO_SUBSTITUTION",
+              "selected": null
+            },
+            {
+              "minute": 55,
+              "decision": "NO_SUBSTITUTION",
+              "selected": null
+            },
+            {
+              "minute": 60,
+              "decision": "NO_SUBSTITUTION",
+              "selected": null
+            },
+            {
+              "minute": 65,
+              "decision": "SUBSTITUTION",
+              "selected": {
+                "out_player": {
+                  "id": "3083",
+                  "name": "Son Heung-Min"
+                },
+                "in_player": {
+                  "id": "3585",
+                  "name": "Erik Lamela"
+                },
+                "expected_changes": {
+                  "threat": 7.391,
+                  "creation": 7.672,
+                  "progression": 9.425,
+                  "retention": 5.997,
+                  "defense": -11.812
+                },
+                "position_fit": 1.0,
+                "evidence_strength": 0.369,
+                "reason_codes": [
+                  "ESTIMATED_FRESHNESS_RELIEF"
+                ],
+                "score_components": {
+                  "tactical_core": -0.2953,
+                  "tactical_support": 0.0,
+                  "freshness_relief": 0.3584,
+                  "outgoing_fatigue": 0.2389,
+                  "evidence_multiplier": 0.6846,
+                  "remaining_time_multiplier": 0.3222,
+                  "freshness_time_multiplier": 0.9667
+                },
+                "score": 0.0432,
+                "expected_benefit": 0.172
+              }
+            },
+            {
+              "minute": 70,
+              "decision": "SUBSTITUTION",
+              "selected": {
+                "out_player": {
+                  "id": "3083",
+                  "name": "Son Heung-Min"
+                },
+                "in_player": {
+                  "id": "3585",
+                  "name": "Erik Lamela"
+                },
+                "expected_changes": {
+                  "threat": 7.427,
+                  "creation": 7.663,
+                  "progression": 9.072,
+                  "retention": 6.141,
+                  "defense": -11.479
+                },
+                "position_fit": 1.0,
+                "evidence_strength": 0.369,
+                "reason_codes": [
+                  "ESTIMATED_FRESHNESS_RELIEF"
+                ],
+                "score_components": {
+                  "tactical_core": -0.287,
+                  "tactical_support": 0.0,
+                  "freshness_relief": 0.4824,
+                  "outgoing_fatigue": 0.3216,
+                  "evidence_multiplier": 0.6846,
+                  "remaining_time_multiplier": 0.2667,
+                  "freshness_time_multiplier": 0.8
+                },
+                "score": 0.1338,
+                "expected_benefit": 0.2118
+              }
+            },
+            {
+              "minute": 75,
+              "decision": "SUBSTITUTION",
+              "selected": {
+                "out_player": {
+                  "id": "3083",
+                  "name": "Son Heung-Min"
+                },
+                "in_player": {
+                  "id": "3585",
+                  "name": "Erik Lamela"
+                },
+                "expected_changes": {
+                  "threat": 7.475,
+                  "creation": 7.665,
+                  "progression": 9.388,
+                  "retention": 6.172,
+                  "defense": -11.445
+                },
+                "position_fit": 1.0,
+                "evidence_strength": 0.369,
+                "reason_codes": [
+                  "ESTIMATED_FRESHNESS_RELIEF"
+                ],
+                "score_components": {
+                  "tactical_core": -0.2366,
+                  "tactical_support": 0.0,
+                  "freshness_relief": 0.5908,
+                  "outgoing_fatigue": 0.3939,
+                  "evidence_multiplier": 0.6846,
+                  "remaining_time_multiplier": 0.2111,
+                  "freshness_time_multiplier": 0.6333
+                },
+                "score": 0.2425,
+                "expected_benefit": 0.222
+              }
+            },
+            {
+              "minute": 80,
+              "decision": "SUBSTITUTION",
+              "selected": {
+                "out_player": {
+                  "id": "3094",
+                  "name": "Dele Alli"
+                },
+                "in_player": {
+                  "id": "3585",
+                  "name": "Erik Lamela"
+                },
+                "expected_changes": {
+                  "threat": 3.735,
+                  "creation": 7.304,
+                  "progression": 9.916,
+                  "retention": 13.047,
+                  "defense": -26.372
+                },
+                "position_fit": 1.0,
+                "evidence_strength": 0.592,
+                "reason_codes": [
+                  "ESTIMATED_FRESHNESS_RELIEF"
+                ],
+                "score_components": {
+                  "tactical_core": -0.4893,
+                  "tactical_support": 0.0,
+                  "freshness_relief": 0.7326,
+                  "outgoing_fatigue": 0.5216,
+                  "evidence_multiplier": 0.7962,
+                  "remaining_time_multiplier": 0.1556,
+                  "freshness_time_multiplier": 0.4667
+                },
+                "score": 0.1937,
+                "expected_benefit": 0.2116
+              }
+            },
+            {
+              "minute": 85,
+              "decision": "SUBSTITUTION",
+              "selected": {
+                "out_player": {
+                  "id": "3083",
+                  "name": "Son Heung-Min"
+                },
+                "in_player": {
+                  "id": "3585",
+                  "name": "Erik Lamela"
+                },
+                "expected_changes": {
+                  "threat": 7.555,
+                  "creation": 7.678,
+                  "progression": 9.832,
+                  "retention": 5.626,
+                  "defense": -11.04
+                },
+                "position_fit": 1.0,
+                "evidence_strength": 0.369,
+                "reason_codes": [
+                  "HIGH_RETENTION_NEED",
+                  "ESTIMATED_FRESHNESS_RELIEF"
+                ],
+                "score_components": {
+                  "tactical_core": -0.2289,
+                  "tactical_support": 0.0,
+                  "freshness_relief": 0.8592,
+                  "outgoing_fatigue": 0.5728,
+                  "evidence_multiplier": 0.6846,
+                  "remaining_time_multiplier": 0.1,
+                  "freshness_time_multiplier": 0.3
+                },
+                "score": 0.4315,
+                "expected_benefit": 0.1608
+              }
+            },
+            {
+              "minute": 90,
+              "decision": "NO_SUBSTITUTION",
+              "selected": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "scenario": "baseline",
+      "matches": [
+        {
+          "match_id": "3754065",
+          "snapshots": [
+            {
+              "minute": 5,
+              "decision": "NO_SUBSTITUTION",
+              "selected": null
+            },
+            {
+              "minute": 10,
+              "decision": "NO_SUBSTITUTION",
+              "selected": null
+            },
+            {
+              "minute": 15,
+              "decision": "NO_SUBSTITUTION",
+              "selected": null
+            },
+            {
+              "minute": 20,
+              "decision": "NO_SUBSTITUTION",
+              "selected": null
+            },
+            {
+              "minute": 25,
+              "decision": "SUBSTITUTION",
+              "selected": {
+                "out_player": {
+                  "id": "10956",
+                  "name": "Eric Dier"
+                },
+                "in_player": {
+                  "id": "3037",
+                  "name": "Mousa Dembélé"
+                },
+                "expected_changes": {
+                  "threat": 12.454,
+                  "creation": 10.056,
+                  "progression": 16.9,
+                  "retention": 20.212,
+                  "defense": -2.488
+                },
+                "position_fit": 1.0,
+                "evidence_strength": 0.562,
+                "reason_codes": [],
+                "score_components": {
+                  "tactical_core": 0.3431,
+                  "tactical_support": 0.0,
+                  "freshness_relief": 0.0,
+                  "outgoing_fatigue": 0.0,
+                  "evidence_multiplier": 0.781,
+                  "remaining_time_multiplier": 0.7667,
+                  "freshness_time_multiplier": 1
+                },
+                "score": 0.268,
+                "expected_benefit": 0.2054
+              }
+            },
+            {
+              "minute": 30,
+              "decision": "NO_SUBSTITUTION",
+              "selected": null
+            },
+            {
+              "minute": 35,
+              "decision": "NO_SUBSTITUTION",
+              "selected": null
+            },
+            {
+              "minute": 40,
+              "decision": "NO_SUBSTITUTION",
+              "selected": null
+            },
+            {
+              "minute": 45,
+              "decision": "NO_SUBSTITUTION",
+              "selected": null
+            },
+            {
+              "minute": 50,
+              "decision": "SUBSTITUTION",
+              "selected": {
+                "out_player": {
+                  "id": "3310",
+                  "name": "Tom Carroll"
+                },
+                "in_player": {
+                  "id": "3037",
+                  "name": "Mousa Dembélé"
+                },
+                "expected_changes": {
+                  "threat": 8.589,
+                  "creation": -0.485,
+                  "progression": 8.857,
+                  "retention": 10.916,
+                  "defense": 18.289
+                },
+                "position_fit": 1.0,
+                "evidence_strength": 0.262,
+                "reason_codes": [
+                  "ESTIMATED_FRESHNESS_RELIEF"
+                ],
+                "score_components": {
+                  "tactical_core": 0.0201,
+                  "tactical_support": 0.0,
+                  "freshness_relief": 0.2577,
+                  "outgoing_fatigue": 0.1718,
+                  "evidence_multiplier": 0.631,
+                  "remaining_time_multiplier": 0.4889,
+                  "freshness_time_multiplier": 1
+                },
+                "score": 0.1753,
+                "expected_benefit": 0.1688
+              }
+            },
+            {
+              "minute": 55,
+              "decision": "SUBSTITUTION",
+              "selected": {
+                "out_player": {
+                  "id": "3310",
+                  "name": "Tom Carroll"
+                },
+                "in_player": {
+                  "id": "3037",
+                  "name": "Mousa Dembélé"
+                },
+                "expected_changes": {
+                  "threat": 8.589,
+                  "creation": -0.336,
+                  "progression": 9.249,
+                  "retention": 10.785,
+                  "defense": 18.175
+                },
+                "position_fit": 1.0,
+                "evidence_strength": 0.262,
+                "reason_codes": [
+                  "ESTIMATED_FRESHNESS_RELIEF"
+                ],
+                "score_components": {
+                  "tactical_core": -0.0084,
+                  "tactical_support": 0.0,
+                  "freshness_relief": 0.3719,
+                  "outgoing_fatigue": 0.2479,
+                  "evidence_multiplier": 0.631,
+                  "remaining_time_multiplier": 0.4333,
+                  "freshness_time_multiplier": 1
+                },
+                "score": 0.2293,
+                "expected_benefit": 0.2323
+              }
+            },
+            {
+              "minute": 60,
+              "decision": "SUBSTITUTION",
+              "selected": {
+                "out_player": {
+                  "id": "3310",
+                  "name": "Tom Carroll"
+                },
+                "in_player": {
+                  "id": "3037",
+                  "name": "Mousa Dembélé"
+                },
+                "expected_changes": {
+                  "threat": 8.587,
+                  "creation": -0.223,
+                  "progression": 9.531,
+                  "retention": 10.793,
+                  "defense": 18.768
+                },
+                "position_fit": 1.0,
+                "evidence_strength": 0.262,
+                "reason_codes": [
+                  "ESTIMATED_FRESHNESS_RELIEF"
+                ],
+                "score_components": {
+                  "tactical_core": 0.0376,
+                  "tactical_support": 0.0,
+                  "freshness_relief": 0.4992,
+                  "outgoing_fatigue": 0.3328,
+                  "evidence_multiplier": 0.631,
+                  "remaining_time_multiplier": 0.3778,
+                  "freshness_time_multiplier": 1
+                },
+                "score": 0.3387,
+                "expected_benefit": 0.3239
+              }
+            },
+            {
+              "minute": 65,
+              "decision": "SUBSTITUTION",
+              "selected": {
+                "out_player": {
+                  "id": "3310",
+                  "name": "Tom Carroll"
+                },
+                "in_player": {
+                  "id": "3037",
+                  "name": "Mousa Dembélé"
+                },
+                "expected_changes": {
+                  "threat": 8.549,
+                  "creation": -0.131,
+                  "progression": 9.803,
+                  "retention": 10.852,
+                  "defense": 18.937
+                },
+                "position_fit": 1.0,
+                "evidence_strength": 0.262,
+                "reason_codes": [
+                  "ESTIMATED_FRESHNESS_RELIEF"
+                ],
+                "score_components": {
+                  "tactical_core": 0.0298,
+                  "tactical_support": 0.0,
+                  "freshness_relief": 0.6386,
+                  "outgoing_fatigue": 0.4257,
+                  "evidence_multiplier": 0.631,
+                  "remaining_time_multiplier": 0.3222,
+                  "freshness_time_multiplier": 0.9667
+                },
+                "score": 0.4217,
+                "expected_benefit": 0.3955
+              }
+            },
+            {
+              "minute": 70,
+              "decision": "SUBSTITUTION",
+              "selected": {
+                "out_player": {
+                  "id": "3310",
+                  "name": "Tom Carroll"
+                },
+                "in_player": {
+                  "id": "3037",
+                  "name": "Mousa Dembélé"
+                },
+                "expected_changes": {
+                  "threat": 7.827,
+                  "creation": -0.057,
+                  "progression": 9.711,
+                  "retention": 10.864,
+                  "defense": 18.689
+                },
+                "position_fit": 1.0,
+                "evidence_strength": 0.262,
+                "reason_codes": [
+                  "ESTIMATED_FRESHNESS_RELIEF"
+                ],
+                "score_components": {
+                  "tactical_core": 0.0181,
+                  "tactical_support": 0.0,
+                  "freshness_relief": 0.7889,
+                  "outgoing_fatigue": 0.5259,
+                  "evidence_multiplier": 0.631,
+                  "remaining_time_multiplier": 0.2667,
+                  "freshness_time_multiplier": 0.8
+                },
+                "score": 0.5092,
+                "expected_benefit": 0.4012
+              }
+            },
+            {
+              "minute": 75,
+              "decision": "SUBSTITUTION",
+              "selected": {
+                "out_player": {
+                  "id": "3585",
+                  "name": "Erik Lamela"
+                },
+                "in_player": {
+                  "id": "3083",
+                  "name": "Son Heung-Min"
+                },
+                "expected_changes": {
+                  "threat": -3.794,
+                  "creation": -2.921,
+                  "progression": -4.964,
+                  "retention": -0.812,
+                  "defense": 15.775
+                },
+                "position_fit": 1.0,
+                "evidence_strength": 0.369,
+                "reason_codes": [
+                  "ESTIMATED_FRESHNESS_RELIEF"
+                ],
+                "score_components": {
+                  "tactical_core": -0.3123,
+                  "tactical_support": 0.0,
+                  "freshness_relief": 0.8782,
+                  "outgoing_fatigue": 0.5855,
+                  "evidence_multiplier": 0.6846,
+                  "remaining_time_multiplier": 0.2111,
+                  "freshness_time_multiplier": 0.6333
+                },
+                "score": 0.3875,
+                "expected_benefit": 0.3357
+              }
+            },
+            {
+              "minute": 80,
+              "decision": "SUBSTITUTION",
+              "selected": {
+                "out_player": {
+                  "id": "3585",
+                  "name": "Erik Lamela"
+                },
+                "in_player": {
+                  "id": "3083",
+                  "name": "Son Heung-Min"
+                },
+                "expected_changes": {
+                  "threat": -3.456,
+                  "creation": -2.765,
+                  "progression": -4.582,
+                  "retention": -0.671,
+                  "defense": 15.482
+                },
+                "position_fit": 1.0,
+                "evidence_strength": 0.369,
+                "reason_codes": [
+                  "ESTIMATED_FRESHNESS_RELIEF",
+                  "CURRENT_PLAYER_ESTIMATED_LOAD"
+                ],
+                "score_components": {
+                  "tactical_core": -0.2868,
+                  "tactical_support": 0.0,
+                  "freshness_relief": 1.0323,
+                  "outgoing_fatigue": 0.6882,
+                  "evidence_multiplier": 0.6846,
+                  "remaining_time_multiplier": 0.1556,
+                  "freshness_time_multiplier": 0.4667
+                },
+                "score": 0.5104,
+                "expected_benefit": 0.2993
+              }
+            },
+            {
+              "minute": 85,
+              "decision": "SUBSTITUTION",
+              "selected": {
+                "out_player": {
+                  "id": "3086",
+                  "name": "Ben Davies"
+                },
+                "in_player": {
+                  "id": "3594",
+                  "name": "Danny Rose"
+                },
+                "expected_changes": {
+                  "threat": 10.005,
+                  "creation": -1.665,
+                  "progression": -0.253,
+                  "retention": 0.785,
+                  "defense": 1.863
+                },
+                "position_fit": 1.0,
+                "evidence_strength": 0.512,
+                "reason_codes": [
+                  "ESTIMATED_FRESHNESS_RELIEF"
+                ],
+                "score_components": {
+                  "tactical_core": 0.0545,
+                  "tactical_support": -0.0023,
+                  "freshness_relief": 0.8999,
+                  "outgoing_fatigue": 0.5999,
+                  "evidence_multiplier": 0.756,
+                  "remaining_time_multiplier": 0.1,
+                  "freshness_time_multiplier": 0.3
+                },
+                "score": 0.7197,
+                "expected_benefit": 0.208
+              }
+            },
+            {
+              "minute": 90,
+              "decision": "NO_SUBSTITUTION",
+              "selected": null
+            }
+          ]
+        },
+        {
+          "match_id": "3754027",
+          "snapshots": [
+            {
+              "minute": 5,
+              "decision": "NO_SUBSTITUTION",
+              "selected": null
+            },
+            {
+              "minute": 10,
+              "decision": "NO_SUBSTITUTION",
+              "selected": null
+            },
+            {
+              "minute": 15,
+              "decision": "NO_SUBSTITUTION",
+              "selected": null
+            },
+            {
+              "minute": 20,
+              "decision": "NO_SUBSTITUTION",
+              "selected": null
+            },
+            {
+              "minute": 25,
+              "decision": "NO_SUBSTITUTION",
+              "selected": null
+            },
+            {
+              "minute": 30,
+              "decision": "NO_SUBSTITUTION",
+              "selected": null
+            },
+            {
+              "minute": 35,
+              "decision": "NO_SUBSTITUTION",
+              "selected": null
+            },
+            {
+              "minute": 40,
+              "decision": "NO_SUBSTITUTION",
+              "selected": null
+            },
+            {
+              "minute": 45,
+              "decision": "NO_SUBSTITUTION",
+              "selected": null
+            },
+            {
+              "minute": 50,
+              "decision": "NO_SUBSTITUTION",
+              "selected": null
+            },
+            {
+              "minute": 55,
+              "decision": "NO_SUBSTITUTION",
+              "selected": null
+            },
+            {
+              "minute": 60,
+              "decision": "SUBSTITUTION",
+              "selected": {
+                "out_player": {
+                  "id": "3585",
+                  "name": "Erik Lamela"
+                },
+                "in_player": {
+                  "id": "3083",
+                  "name": "Son Heung-Min"
+                },
+                "expected_changes": {
+                  "threat": -1.759,
+                  "creation": -2.953,
+                  "progression": -4.799,
+                  "retention": -0.999,
+                  "defense": 15.525
+                },
+                "position_fit": 1.0,
+                "evidence_strength": 0.369,
+                "reason_codes": [
+                  "ESTIMATED_FRESHNESS_RELIEF"
+                ],
+                "score_components": {
+                  "tactical_core": -0.2405,
+                  "tactical_support": 0.0,
+                  "freshness_relief": 0.311,
+                  "outgoing_fatigue": 0.2073,
+                  "evidence_multiplier": 0.6846,
+                  "remaining_time_multiplier": 0.3778,
+                  "freshness_time_multiplier": 1
+                },
+                "score": 0.0482,
+                "expected_benefit": 0.1507
+              }
+            },
+            {
+              "minute": 65,
+              "decision": "SUBSTITUTION",
+              "selected": {
+                "out_player": {
+                  "id": "3585",
+                  "name": "Erik Lamela"
+                },
+                "in_player": {
+                  "id": "3083",
+                  "name": "Son Heung-Min"
+                },
+                "expected_changes": {
+                  "threat": -1.689,
+                  "creation": -2.755,
+                  "progression": -4.806,
+                  "retention": -1.273,
+                  "defense": 15.089
+                },
+                "position_fit": 1.0,
+                "evidence_strength": 0.369,
+                "reason_codes": [
+                  "ESTIMATED_FRESHNESS_RELIEF"
+                ],
+                "score_components": {
+                  "tactical_core": -0.2316,
+                  "tactical_support": 0.0,
+                  "freshness_relief": 0.4614,
+                  "outgoing_fatigue": 0.3076,
+                  "evidence_multiplier": 0.6846,
+                  "remaining_time_multiplier": 0.3222,
+                  "freshness_time_multiplier": 0.9667
+                },
+                "score": 0.1574,
+                "expected_benefit": 0.2543
+              }
+            },
+            {
+              "minute": 70,
+              "decision": "SUBSTITUTION",
+              "selected": {
+                "out_player": {
+                  "id": "3585",
+                  "name": "Erik Lamela"
+                },
+                "in_player": {
+                  "id": "3083",
+                  "name": "Son Heung-Min"
+                },
+                "expected_changes": {
+                  "threat": -1.686,
+                  "creation": -2.644,
+                  "progression": -4.485,
+                  "retention": -1.293,
+                  "defense": 14.898
+                },
+                "position_fit": 1.0,
+                "evidence_strength": 0.369,
+                "reason_codes": [
+                  "ESTIMATED_FRESHNESS_RELIEF"
+                ],
+                "score_components": {
+                  "tactical_core": -0.1296,
+                  "tactical_support": 0.0,
+                  "freshness_relief": 0.6602,
+                  "outgoing_fatigue": 0.4401,
+                  "evidence_multiplier": 0.6846,
+                  "remaining_time_multiplier": 0.2667,
+                  "freshness_time_multiplier": 0.8
+                },
+                "score": 0.3633,
+                "expected_benefit": 0.3379
+              }
+            },
+            {
+              "minute": 75,
+              "decision": "SUBSTITUTION",
+              "selected": {
+                "out_player": {
+                  "id": "10956",
+                  "name": "Eric Dier"
+                },
+                "in_player": {
+                  "id": "3310",
+                  "name": "Tom Carroll"
+                },
+                "expected_changes": {
+                  "threat": 3.978,
+                  "creation": 9.996,
+                  "progression": 5.462,
+                  "retention": 9.38,
+                  "defense": -23.329
+                },
+                "position_fit": 1.0,
+                "evidence_strength": 0.262,
+                "reason_codes": [
+                  "ESTIMATED_FRESHNESS_RELIEF"
+                ],
+                "score_components": {
+                  "tactical_core": -0.7757,
+                  "tactical_support": -0.0,
+                  "freshness_relief": 0.7768,
+                  "outgoing_fatigue": 0.5564,
+                  "evidence_multiplier": 0.631,
+                  "remaining_time_multiplier": 0.2111,
+                  "freshness_time_multiplier": 0.6333
+                },
+                "score": 0.0007,
+                "expected_benefit": 0.2071
+              }
+            },
+            {
+              "minute": 80,
+              "decision": "SUBSTITUTION",
+              "selected": {
+                "out_player": {
+                  "id": "3043",
+                  "name": "Christian Eriksen"
+                },
+                "in_player": {
+                  "id": "3083",
+                  "name": "Son Heung-Min"
+                },
+                "expected_changes": {
+                  "threat": 1.637,
+                  "creation": -10.643,
+                  "progression": -8.872,
+                  "retention": -5.333,
+                  "defense": 3.02
+                },
+                "position_fit": 1.0,
+                "evidence_strength": 0.369,
+                "reason_codes": [
+                  "ESTIMATED_FRESHNESS_RELIEF"
+                ],
+                "score_components": {
+                  "tactical_core": -0.5628,
+                  "tactical_support": 0.0,
+                  "freshness_relief": 0.7782,
+                  "outgoing_fatigue": 0.5299,
+                  "evidence_multiplier": 0.6846,
+                  "remaining_time_multiplier": 0.1556,
+                  "freshness_time_multiplier": 0.4667
+                },
+                "score": 0.1475,
+                "expected_benefit": 0.1887
+              }
+            },
+            {
+              "minute": 85,
+              "decision": "NO_SUBSTITUTION",
+              "selected": null
+            },
+            {
+              "minute": 90,
+              "decision": "NO_SUBSTITUTION",
+              "selected": null
+            }
+          ]
+        },
+        {
+          "match_id": "3754179",
+          "snapshots": [
+            {
+              "minute": 5,
+              "decision": "NO_SUBSTITUTION",
+              "selected": null
+            },
+            {
+              "minute": 10,
+              "decision": "NO_SUBSTITUTION",
+              "selected": null
+            },
+            {
+              "minute": 15,
+              "decision": "NO_SUBSTITUTION",
+              "selected": null
+            },
+            {
+              "minute": 20,
+              "decision": "NO_SUBSTITUTION",
+              "selected": null
+            },
+            {
+              "minute": 25,
+              "decision": "NO_SUBSTITUTION",
+              "selected": null
+            },
+            {
+              "minute": 30,
+              "decision": "NO_SUBSTITUTION",
+              "selected": null
+            },
+            {
+              "minute": 35,
+              "decision": "NO_SUBSTITUTION",
+              "selected": null
+            },
+            {
+              "minute": 40,
+              "decision": "NO_SUBSTITUTION",
+              "selected": null
+            },
+            {
+              "minute": 45,
+              "decision": "NO_SUBSTITUTION",
+              "selected": null
+            },
+            {
+              "minute": 50,
+              "decision": "NO_SUBSTITUTION",
+              "selected": null
+            },
+            {
+              "minute": 55,
+              "decision": "NO_SUBSTITUTION",
+              "selected": null
+            },
+            {
+              "minute": 60,
+              "decision": "NO_SUBSTITUTION",
+              "selected": null
+            },
+            {
+              "minute": 65,
+              "decision": "NO_SUBSTITUTION",
+              "selected": null
+            },
+            {
+              "minute": 70,
+              "decision": "SUBSTITUTION",
+              "selected": {
+                "out_player": {
+                  "id": "3094",
+                  "name": "Dele Alli"
+                },
+                "in_player": {
+                  "id": "3585",
+                  "name": "Erik Lamela"
+                },
+                "expected_changes": {
+                  "threat": 3.647,
+                  "creation": 7.299,
+                  "progression": 9.674,
+                  "retention": 12.843,
+                  "defense": -27.127
+                },
+                "position_fit": 1.0,
+                "evidence_strength": 0.592,
+                "reason_codes": [
+                  "ESTIMATED_FRESHNESS_RELIEF"
+                ],
+                "score_components": {
+                  "tactical_core": -0.6782,
+                  "tactical_support": 0.0,
+                  "freshness_relief": 0.5035,
+                  "outgoing_fatigue": 0.3604,
+                  "evidence_multiplier": 0.7962,
+                  "remaining_time_multiplier": 0.2667,
+                  "freshness_time_multiplier": 0.8
+                },
+                "score": -0.1391,
+                "expected_benefit": 0.1767
+              }
+            },
+            {
+              "minute": 75,
+              "decision": "SUBSTITUTION",
+              "selected": {
+                "out_player": {
+                  "id": "3094",
+                  "name": "Dele Alli"
+                },
+                "in_player": {
+                  "id": "3585",
+                  "name": "Erik Lamela"
+                },
+                "expected_changes": {
+                  "threat": 3.699,
+                  "creation": 7.303,
+                  "progression": 9.573,
+                  "retention": 12.979,
+                  "defense": -26.931
+                },
+                "position_fit": 1.0,
+                "evidence_strength": 0.592,
+                "reason_codes": [
+                  "ESTIMATED_FRESHNESS_RELIEF"
+                ],
+                "score_components": {
+                  "tactical_core": -0.5872,
+                  "tactical_support": 0.0,
+                  "freshness_relief": 0.6252,
+                  "outgoing_fatigue": 0.4472,
+                  "evidence_multiplier": 0.7962,
+                  "remaining_time_multiplier": 0.2111,
+                  "freshness_time_multiplier": 0.6333
+                },
+                "score": 0.0302,
+                "expected_benefit": 0.2165
+              }
+            },
+            {
+              "minute": 80,
+              "decision": "SUBSTITUTION",
+              "selected": {
+                "out_player": {
+                  "id": "3094",
+                  "name": "Dele Alli"
+                },
+                "in_player": {
+                  "id": "3585",
+                  "name": "Erik Lamela"
+                },
+                "expected_changes": {
+                  "threat": 3.735,
+                  "creation": 7.304,
+                  "progression": 9.916,
+                  "retention": 13.047,
+                  "defense": -26.372
+                },
+                "position_fit": 1.0,
+                "evidence_strength": 0.592,
+                "reason_codes": [
+                  "ESTIMATED_FRESHNESS_RELIEF"
+                ],
+                "score_components": {
+                  "tactical_core": -0.4893,
+                  "tactical_support": 0.0,
+                  "freshness_relief": 0.7326,
+                  "outgoing_fatigue": 0.5216,
+                  "evidence_multiplier": 0.7962,
+                  "remaining_time_multiplier": 0.1556,
+                  "freshness_time_multiplier": 0.4667
+                },
+                "score": 0.1937,
+                "expected_benefit": 0.2116
+              }
+            },
+            {
+              "minute": 85,
+              "decision": "SUBSTITUTION",
+              "selected": {
+                "out_player": {
+                  "id": "3094",
+                  "name": "Dele Alli"
+                },
+                "in_player": {
+                  "id": "3585",
+                  "name": "Erik Lamela"
+                },
+                "expected_changes": {
+                  "threat": 3.727,
+                  "creation": 7.265,
+                  "progression": 9.791,
+                  "retention": 12.885,
+                  "defense": -26.579
+                },
+                "position_fit": 1.0,
+                "evidence_strength": 0.592,
+                "reason_codes": [
+                  "HIGH_RETENTION_NEED",
+                  "ESTIMATED_FRESHNESS_RELIEF"
+                ],
+                "score_components": {
+                  "tactical_core": -0.5658,
+                  "tactical_support": 0.0,
+                  "freshness_relief": 0.841,
+                  "outgoing_fatigue": 0.5998,
+                  "evidence_multiplier": 0.7962,
+                  "remaining_time_multiplier": 0.1,
+                  "freshness_time_multiplier": 0.3
+                },
+                "score": 0.2192,
+                "expected_benefit": 0.1558
+              }
+            },
+            {
+              "minute": 90,
+              "decision": "NO_SUBSTITUTION",
+              "selected": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "scenario": "son_ratings_plus_5",
+      "matches": [
+        {
+          "match_id": "3754065",
+          "snapshots": [
+            {
+              "minute": 5,
+              "decision": "NO_SUBSTITUTION",
+              "selected": null
+            },
+            {
+              "minute": 10,
+              "decision": "NO_SUBSTITUTION",
+              "selected": null
+            },
+            {
+              "minute": 15,
+              "decision": "NO_SUBSTITUTION",
+              "selected": null
+            },
+            {
+              "minute": 20,
+              "decision": "NO_SUBSTITUTION",
+              "selected": null
+            },
+            {
+              "minute": 25,
+              "decision": "SUBSTITUTION",
+              "selected": {
+                "out_player": {
+                  "id": "10956",
+                  "name": "Eric Dier"
+                },
+                "in_player": {
+                  "id": "3037",
+                  "name": "Mousa Dembélé"
+                },
+                "expected_changes": {
+                  "threat": 12.454,
+                  "creation": 10.056,
+                  "progression": 16.9,
+                  "retention": 20.212,
+                  "defense": -2.488
+                },
+                "position_fit": 1.0,
+                "evidence_strength": 0.562,
+                "reason_codes": [],
+                "score_components": {
+                  "tactical_core": 0.3431,
+                  "tactical_support": 0.0,
+                  "freshness_relief": 0.0,
+                  "outgoing_fatigue": 0.0,
+                  "evidence_multiplier": 0.781,
+                  "remaining_time_multiplier": 0.7667,
+                  "freshness_time_multiplier": 1
+                },
+                "score": 0.268,
+                "expected_benefit": 0.2054
+              }
+            },
+            {
+              "minute": 30,
+              "decision": "NO_SUBSTITUTION",
+              "selected": null
+            },
+            {
+              "minute": 35,
+              "decision": "NO_SUBSTITUTION",
+              "selected": null
+            },
+            {
+              "minute": 40,
+              "decision": "NO_SUBSTITUTION",
+              "selected": null
+            },
+            {
+              "minute": 45,
+              "decision": "NO_SUBSTITUTION",
+              "selected": null
+            },
+            {
+              "minute": 50,
+              "decision": "SUBSTITUTION",
+              "selected": {
+                "out_player": {
+                  "id": "3310",
+                  "name": "Tom Carroll"
+                },
+                "in_player": {
+                  "id": "3037",
+                  "name": "Mousa Dembélé"
+                },
+                "expected_changes": {
+                  "threat": 8.589,
+                  "creation": -0.485,
+                  "progression": 8.857,
+                  "retention": 10.916,
+                  "defense": 18.289
+                },
+                "position_fit": 1.0,
+                "evidence_strength": 0.262,
+                "reason_codes": [
+                  "ESTIMATED_FRESHNESS_RELIEF"
+                ],
+                "score_components": {
+                  "tactical_core": 0.0201,
+                  "tactical_support": 0.0,
+                  "freshness_relief": 0.2577,
+                  "outgoing_fatigue": 0.1718,
+                  "evidence_multiplier": 0.631,
+                  "remaining_time_multiplier": 0.4889,
+                  "freshness_time_multiplier": 1
+                },
+                "score": 0.1753,
+                "expected_benefit": 0.1688
+              }
+            },
+            {
+              "minute": 55,
+              "decision": "SUBSTITUTION",
+              "selected": {
+                "out_player": {
+                  "id": "3310",
+                  "name": "Tom Carroll"
+                },
+                "in_player": {
+                  "id": "3037",
+                  "name": "Mousa Dembélé"
+                },
+                "expected_changes": {
+                  "threat": 8.589,
+                  "creation": -0.336,
+                  "progression": 9.249,
+                  "retention": 10.785,
+                  "defense": 18.175
+                },
+                "position_fit": 1.0,
+                "evidence_strength": 0.262,
+                "reason_codes": [
+                  "ESTIMATED_FRESHNESS_RELIEF"
+                ],
+                "score_components": {
+                  "tactical_core": -0.0084,
+                  "tactical_support": 0.0,
+                  "freshness_relief": 0.3719,
+                  "outgoing_fatigue": 0.2479,
+                  "evidence_multiplier": 0.631,
+                  "remaining_time_multiplier": 0.4333,
+                  "freshness_time_multiplier": 1
+                },
+                "score": 0.2293,
+                "expected_benefit": 0.2323
+              }
+            },
+            {
+              "minute": 60,
+              "decision": "SUBSTITUTION",
+              "selected": {
+                "out_player": {
+                  "id": "3310",
+                  "name": "Tom Carroll"
+                },
+                "in_player": {
+                  "id": "3037",
+                  "name": "Mousa Dembélé"
+                },
+                "expected_changes": {
+                  "threat": 8.587,
+                  "creation": -0.223,
+                  "progression": 9.531,
+                  "retention": 10.793,
+                  "defense": 18.768
+                },
+                "position_fit": 1.0,
+                "evidence_strength": 0.262,
+                "reason_codes": [
+                  "ESTIMATED_FRESHNESS_RELIEF"
+                ],
+                "score_components": {
+                  "tactical_core": 0.0376,
+                  "tactical_support": 0.0,
+                  "freshness_relief": 0.4992,
+                  "outgoing_fatigue": 0.3328,
+                  "evidence_multiplier": 0.631,
+                  "remaining_time_multiplier": 0.3778,
+                  "freshness_time_multiplier": 1
+                },
+                "score": 0.3387,
+                "expected_benefit": 0.3239
+              }
+            },
+            {
+              "minute": 65,
+              "decision": "SUBSTITUTION",
+              "selected": {
+                "out_player": {
+                  "id": "3310",
+                  "name": "Tom Carroll"
+                },
+                "in_player": {
+                  "id": "3037",
+                  "name": "Mousa Dembélé"
+                },
+                "expected_changes": {
+                  "threat": 8.549,
+                  "creation": -0.131,
+                  "progression": 9.803,
+                  "retention": 10.852,
+                  "defense": 18.937
+                },
+                "position_fit": 1.0,
+                "evidence_strength": 0.262,
+                "reason_codes": [
+                  "ESTIMATED_FRESHNESS_RELIEF"
+                ],
+                "score_components": {
+                  "tactical_core": 0.0298,
+                  "tactical_support": 0.0,
+                  "freshness_relief": 0.6386,
+                  "outgoing_fatigue": 0.4257,
+                  "evidence_multiplier": 0.631,
+                  "remaining_time_multiplier": 0.3222,
+                  "freshness_time_multiplier": 0.9667
+                },
+                "score": 0.4217,
+                "expected_benefit": 0.3955
+              }
+            },
+            {
+              "minute": 70,
+              "decision": "SUBSTITUTION",
+              "selected": {
+                "out_player": {
+                  "id": "3310",
+                  "name": "Tom Carroll"
+                },
+                "in_player": {
+                  "id": "3037",
+                  "name": "Mousa Dembélé"
+                },
+                "expected_changes": {
+                  "threat": 7.827,
+                  "creation": -0.057,
+                  "progression": 9.711,
+                  "retention": 10.864,
+                  "defense": 18.689
+                },
+                "position_fit": 1.0,
+                "evidence_strength": 0.262,
+                "reason_codes": [
+                  "ESTIMATED_FRESHNESS_RELIEF"
+                ],
+                "score_components": {
+                  "tactical_core": 0.0181,
+                  "tactical_support": 0.0,
+                  "freshness_relief": 0.7889,
+                  "outgoing_fatigue": 0.5259,
+                  "evidence_multiplier": 0.631,
+                  "remaining_time_multiplier": 0.2667,
+                  "freshness_time_multiplier": 0.8
+                },
+                "score": 0.5092,
+                "expected_benefit": 0.4012
+              }
+            },
+            {
+              "minute": 75,
+              "decision": "SUBSTITUTION",
+              "selected": {
+                "out_player": {
+                  "id": "3585",
+                  "name": "Erik Lamela"
+                },
+                "in_player": {
+                  "id": "3083",
+                  "name": "Son Heung-Min"
+                },
+                "expected_changes": {
+                  "threat": 1.206,
+                  "creation": 2.079,
+                  "progression": 0.036,
+                  "retention": 4.188,
+                  "defense": 20.775
+                },
+                "position_fit": 1.0,
+                "evidence_strength": 0.369,
+                "reason_codes": [
+                  "ESTIMATED_FRESHNESS_RELIEF"
+                ],
+                "score_components": {
+                  "tactical_core": 0.0188,
+                  "tactical_support": 0.0,
+                  "freshness_relief": 0.8782,
+                  "outgoing_fatigue": 0.5855,
+                  "evidence_multiplier": 0.6846,
+                  "remaining_time_multiplier": 0.2111,
+                  "freshness_time_multiplier": 0.6333
+                },
+                "score": 0.6142,
+                "expected_benefit": 0.3835
+              }
+            },
+            {
+              "minute": 80,
+              "decision": "SUBSTITUTION",
+              "selected": {
+                "out_player": {
+                  "id": "3585",
+                  "name": "Erik Lamela"
+                },
+                "in_player": {
+                  "id": "3083",
+                  "name": "Son Heung-Min"
+                },
+                "expected_changes": {
+                  "threat": 1.544,
+                  "creation": 2.235,
+                  "progression": 0.418,
+                  "retention": 4.329,
+                  "defense": 20.482
+                },
+                "position_fit": 1.0,
+                "evidence_strength": 0.369,
+                "reason_codes": [
+                  "ESTIMATED_FRESHNESS_RELIEF",
+                  "CURRENT_PLAYER_ESTIMATED_LOAD"
+                ],
+                "score_components": {
+                  "tactical_core": 0.0437,
+                  "tactical_support": 0.0,
+                  "freshness_relief": 1.0323,
+                  "outgoing_fatigue": 0.6882,
+                  "evidence_multiplier": 0.6846,
+                  "remaining_time_multiplier": 0.1556,
+                  "freshness_time_multiplier": 0.4667
+                },
+                "score": 0.7367,
+                "expected_benefit": 0.3345
+              }
+            },
+            {
+              "minute": 85,
+              "decision": "SUBSTITUTION",
+              "selected": {
+                "out_player": {
+                  "id": "3086",
+                  "name": "Ben Davies"
+                },
+                "in_player": {
+                  "id": "3594",
+                  "name": "Danny Rose"
+                },
+                "expected_changes": {
+                  "threat": 10.005,
+                  "creation": -1.665,
+                  "progression": -0.253,
+                  "retention": 0.785,
+                  "defense": 1.863
+                },
+                "position_fit": 1.0,
+                "evidence_strength": 0.512,
+                "reason_codes": [
+                  "ESTIMATED_FRESHNESS_RELIEF"
+                ],
+                "score_components": {
+                  "tactical_core": 0.0545,
+                  "tactical_support": -0.0023,
+                  "freshness_relief": 0.8999,
+                  "outgoing_fatigue": 0.5999,
+                  "evidence_multiplier": 0.756,
+                  "remaining_time_multiplier": 0.1,
+                  "freshness_time_multiplier": 0.3
+                },
+                "score": 0.7197,
+                "expected_benefit": 0.208
+              }
+            },
+            {
+              "minute": 90,
+              "decision": "NO_SUBSTITUTION",
+              "selected": null
+            }
+          ]
+        },
+        {
+          "match_id": "3754027",
+          "snapshots": [
+            {
+              "minute": 5,
+              "decision": "NO_SUBSTITUTION",
+              "selected": null
+            },
+            {
+              "minute": 10,
+              "decision": "NO_SUBSTITUTION",
+              "selected": null
+            },
+            {
+              "minute": 15,
+              "decision": "NO_SUBSTITUTION",
+              "selected": null
+            },
+            {
+              "minute": 20,
+              "decision": "NO_SUBSTITUTION",
+              "selected": null
+            },
+            {
+              "minute": 25,
+              "decision": "NO_SUBSTITUTION",
+              "selected": null
+            },
+            {
+              "minute": 30,
+              "decision": "NO_SUBSTITUTION",
+              "selected": null
+            },
+            {
+              "minute": 35,
+              "decision": "NO_SUBSTITUTION",
+              "selected": null
+            },
+            {
+              "minute": 40,
+              "decision": "NO_SUBSTITUTION",
+              "selected": null
+            },
+            {
+              "minute": 45,
+              "decision": "NO_SUBSTITUTION",
+              "selected": null
+            },
+            {
+              "minute": 50,
+              "decision": "NO_SUBSTITUTION",
+              "selected": null
+            },
+            {
+              "minute": 55,
+              "decision": "NO_SUBSTITUTION",
+              "selected": null
+            },
+            {
+              "minute": 60,
+              "decision": "SUBSTITUTION",
+              "selected": {
+                "out_player": {
+                  "id": "3585",
+                  "name": "Erik Lamela"
+                },
+                "in_player": {
+                  "id": "3083",
+                  "name": "Son Heung-Min"
+                },
+                "expected_changes": {
+                  "threat": 3.241,
+                  "creation": 2.047,
+                  "progression": 0.201,
+                  "retention": 4.001,
+                  "defense": 20.525
+                },
+                "position_fit": 1.0,
+                "evidence_strength": 0.369,
+                "reason_codes": [
+                  "ESTIMATED_FRESHNESS_RELIEF"
+                ],
+                "score_components": {
+                  "tactical_core": 0.0,
+                  "tactical_support": 0.0,
+                  "freshness_relief": 0.311,
+                  "outgoing_fatigue": 0.2073,
+                  "evidence_multiplier": 0.6846,
+                  "remaining_time_multiplier": 0.3778,
+                  "freshness_time_multiplier": 1
+                },
+                "score": 0.2129,
+                "expected_benefit": 0.2129
+              }
+            },
+            {
+              "minute": 65,
+              "decision": "SUBSTITUTION",
+              "selected": {
+                "out_player": {
+                  "id": "3585",
+                  "name": "Erik Lamela"
+                },
+                "in_player": {
+                  "id": "3083",
+                  "name": "Son Heung-Min"
+                },
+                "expected_changes": {
+                  "threat": 3.311,
+                  "creation": 2.245,
+                  "progression": 0.194,
+                  "retention": 3.727,
+                  "defense": 20.089
+                },
+                "position_fit": 1.0,
+                "evidence_strength": 0.369,
+                "reason_codes": [
+                  "ESTIMATED_FRESHNESS_RELIEF"
+                ],
+                "score_components": {
+                  "tactical_core": 0.0121,
+                  "tactical_support": 0.0,
+                  "freshness_relief": 0.4614,
+                  "outgoing_fatigue": 0.3076,
+                  "evidence_multiplier": 0.6846,
+                  "remaining_time_multiplier": 0.3222,
+                  "freshness_time_multiplier": 0.9667
+                },
+                "score": 0.3241,
+                "expected_benefit": 0.308
+              }
+            },
+            {
+              "minute": 70,
+              "decision": "SUBSTITUTION",
+              "selected": {
+                "out_player": {
+                  "id": "3585",
+                  "name": "Erik Lamela"
+                },
+                "in_player": {
+                  "id": "3083",
+                  "name": "Son Heung-Min"
+                },
+                "expected_changes": {
+                  "threat": 3.314,
+                  "creation": 2.356,
+                  "progression": 0.515,
+                  "retention": 3.707,
+                  "defense": 19.898
+                },
+                "position_fit": 1.0,
+                "evidence_strength": 0.369,
+                "reason_codes": [
+                  "ESTIMATED_FRESHNESS_RELIEF"
+                ],
+                "score_components": {
+                  "tactical_core": 0.1234,
+                  "tactical_support": 0.0,
+                  "freshness_relief": 0.6602,
+                  "outgoing_fatigue": 0.4401,
+                  "evidence_multiplier": 0.6846,
+                  "remaining_time_multiplier": 0.2667,
+                  "freshness_time_multiplier": 0.8
+                },
+                "score": 0.5364,
+                "expected_benefit": 0.3841
+              }
+            },
+            {
+              "minute": 75,
+              "decision": "SUBSTITUTION",
+              "selected": {
+                "out_player": {
+                  "id": "3043",
+                  "name": "Christian Eriksen"
+                },
+                "in_player": {
+                  "id": "3083",
+                  "name": "Son Heung-Min"
+                },
+                "expected_changes": {
+                  "threat": 6.612,
+                  "creation": -5.713,
+                  "progression": -3.831,
+                  "retention": -0.317,
+                  "defense": 7.439
+                },
+                "position_fit": 1.0,
+                "evidence_strength": 0.369,
+                "reason_codes": [
+                  "ESTIMATED_FRESHNESS_RELIEF"
+                ],
+                "score_components": {
+                  "tactical_core": -0.176,
+                  "tactical_support": 0.0,
+                  "freshness_relief": 0.6558,
+                  "outgoing_fatigue": 0.4372,
+                  "evidence_multiplier": 0.6846,
+                  "remaining_time_multiplier": 0.2111,
+                  "freshness_time_multiplier": 0.6333
+                },
+                "score": 0.3285,
+                "expected_benefit": 0.2589
+              }
+            },
+            {
+              "minute": 80,
+              "decision": "SUBSTITUTION",
+              "selected": {
+                "out_player": {
+                  "id": "3043",
+                  "name": "Christian Eriksen"
+                },
+                "in_player": {
+                  "id": "3083",
+                  "name": "Son Heung-Min"
+                },
+                "expected_changes": {
+                  "threat": 6.637,
+                  "creation": -5.643,
+                  "progression": -3.872,
+                  "retention": -0.333,
+                  "defense": 8.02
+                },
+                "position_fit": 1.0,
+                "evidence_strength": 0.369,
+                "reason_codes": [
+                  "ESTIMATED_FRESHNESS_RELIEF"
+                ],
+                "score_components": {
+                  "tactical_core": -0.188,
+                  "tactical_support": 0.0,
+                  "freshness_relief": 0.7949,
+                  "outgoing_fatigue": 0.5299,
+                  "evidence_multiplier": 0.6846,
+                  "remaining_time_multiplier": 0.1556,
+                  "freshness_time_multiplier": 0.4667
+                },
+                "score": 0.4155,
+                "expected_benefit": 0.2339
+              }
+            },
+            {
+              "minute": 85,
+              "decision": "SUBSTITUTION",
+              "selected": {
+                "out_player": {
+                  "id": "3043",
+                  "name": "Christian Eriksen"
+                },
+                "in_player": {
+                  "id": "3083",
+                  "name": "Son Heung-Min"
+                },
+                "expected_changes": {
+                  "threat": 5.346,
+                  "creation": -5.7,
+                  "progression": -4.563,
+                  "retention": -0.475,
+                  "defense": 8.472
+                },
+                "position_fit": 1.0,
+                "evidence_strength": 0.369,
+                "reason_codes": [
+                  "ESTIMATED_FRESHNESS_RELIEF",
+                  "CURRENT_PLAYER_ESTIMATED_LOAD"
+                ],
+                "score_components": {
+                  "tactical_core": -0.2222,
+                  "tactical_support": 0.0,
+                  "freshness_relief": 0.9425,
+                  "outgoing_fatigue": 0.6283,
+                  "evidence_multiplier": 0.6846,
+                  "remaining_time_multiplier": 0.1,
+                  "freshness_time_multiplier": 0.3
+                },
+                "score": 0.4931,
+                "expected_benefit": 0.1784
+              }
+            },
+            {
+              "minute": 90,
+              "decision": "NO_SUBSTITUTION",
+              "selected": null
+            }
+          ]
+        },
+        {
+          "match_id": "3754179",
+          "snapshots": [
+            {
+              "minute": 5,
+              "decision": "NO_SUBSTITUTION",
+              "selected": null
+            },
+            {
+              "minute": 10,
+              "decision": "NO_SUBSTITUTION",
+              "selected": null
+            },
+            {
+              "minute": 15,
+              "decision": "NO_SUBSTITUTION",
+              "selected": null
+            },
+            {
+              "minute": 20,
+              "decision": "NO_SUBSTITUTION",
+              "selected": null
+            },
+            {
+              "minute": 25,
+              "decision": "NO_SUBSTITUTION",
+              "selected": null
+            },
+            {
+              "minute": 30,
+              "decision": "NO_SUBSTITUTION",
+              "selected": null
+            },
+            {
+              "minute": 35,
+              "decision": "NO_SUBSTITUTION",
+              "selected": null
+            },
+            {
+              "minute": 40,
+              "decision": "NO_SUBSTITUTION",
+              "selected": null
+            },
+            {
+              "minute": 45,
+              "decision": "NO_SUBSTITUTION",
+              "selected": null
+            },
+            {
+              "minute": 50,
+              "decision": "NO_SUBSTITUTION",
+              "selected": null
+            },
+            {
+              "minute": 55,
+              "decision": "NO_SUBSTITUTION",
+              "selected": null
+            },
+            {
+              "minute": 60,
+              "decision": "NO_SUBSTITUTION",
+              "selected": null
+            },
+            {
+              "minute": 65,
+              "decision": "NO_SUBSTITUTION",
+              "selected": null
+            },
+            {
+              "minute": 70,
+              "decision": "SUBSTITUTION",
+              "selected": {
+                "out_player": {
+                  "id": "3094",
+                  "name": "Dele Alli"
+                },
+                "in_player": {
+                  "id": "3585",
+                  "name": "Erik Lamela"
+                },
+                "expected_changes": {
+                  "threat": 3.647,
+                  "creation": 7.299,
+                  "progression": 9.674,
+                  "retention": 12.843,
+                  "defense": -27.127
+                },
+                "position_fit": 1.0,
+                "evidence_strength": 0.592,
+                "reason_codes": [
+                  "ESTIMATED_FRESHNESS_RELIEF"
+                ],
+                "score_components": {
+                  "tactical_core": -0.6782,
+                  "tactical_support": 0.0,
+                  "freshness_relief": 0.5035,
+                  "outgoing_fatigue": 0.3604,
+                  "evidence_multiplier": 0.7962,
+                  "remaining_time_multiplier": 0.2667,
+                  "freshness_time_multiplier": 0.8
+                },
+                "score": -0.1391,
+                "expected_benefit": 0.1767
+              }
+            },
+            {
+              "minute": 75,
+              "decision": "SUBSTITUTION",
+              "selected": {
+                "out_player": {
+                  "id": "3094",
+                  "name": "Dele Alli"
+                },
+                "in_player": {
+                  "id": "3585",
+                  "name": "Erik Lamela"
+                },
+                "expected_changes": {
+                  "threat": 3.699,
+                  "creation": 7.303,
+                  "progression": 9.573,
+                  "retention": 12.979,
+                  "defense": -26.931
+                },
+                "position_fit": 1.0,
+                "evidence_strength": 0.592,
+                "reason_codes": [
+                  "ESTIMATED_FRESHNESS_RELIEF"
+                ],
+                "score_components": {
+                  "tactical_core": -0.5872,
+                  "tactical_support": 0.0,
+                  "freshness_relief": 0.6252,
+                  "outgoing_fatigue": 0.4472,
+                  "evidence_multiplier": 0.7962,
+                  "remaining_time_multiplier": 0.2111,
+                  "freshness_time_multiplier": 0.6333
+                },
+                "score": 0.0302,
+                "expected_benefit": 0.2165
+              }
+            },
+            {
+              "minute": 80,
+              "decision": "SUBSTITUTION",
+              "selected": {
+                "out_player": {
+                  "id": "3094",
+                  "name": "Dele Alli"
+                },
+                "in_player": {
+                  "id": "3585",
+                  "name": "Erik Lamela"
+                },
+                "expected_changes": {
+                  "threat": 3.735,
+                  "creation": 7.304,
+                  "progression": 9.916,
+                  "retention": 13.047,
+                  "defense": -26.372
+                },
+                "position_fit": 1.0,
+                "evidence_strength": 0.592,
+                "reason_codes": [
+                  "ESTIMATED_FRESHNESS_RELIEF"
+                ],
+                "score_components": {
+                  "tactical_core": -0.4893,
+                  "tactical_support": 0.0,
+                  "freshness_relief": 0.7326,
+                  "outgoing_fatigue": 0.5216,
+                  "evidence_multiplier": 0.7962,
+                  "remaining_time_multiplier": 0.1556,
+                  "freshness_time_multiplier": 0.4667
+                },
+                "score": 0.1937,
+                "expected_benefit": 0.2116
+              }
+            },
+            {
+              "minute": 85,
+              "decision": "SUBSTITUTION",
+              "selected": {
+                "out_player": {
+                  "id": "3094",
+                  "name": "Dele Alli"
+                },
+                "in_player": {
+                  "id": "3585",
+                  "name": "Erik Lamela"
+                },
+                "expected_changes": {
+                  "threat": 3.727,
+                  "creation": 7.265,
+                  "progression": 9.791,
+                  "retention": 12.885,
+                  "defense": -26.579
+                },
+                "position_fit": 1.0,
+                "evidence_strength": 0.592,
+                "reason_codes": [
+                  "HIGH_RETENTION_NEED",
+                  "ESTIMATED_FRESHNESS_RELIEF"
+                ],
+                "score_components": {
+                  "tactical_core": -0.5658,
+                  "tactical_support": 0.0,
+                  "freshness_relief": 0.841,
+                  "outgoing_fatigue": 0.5998,
+                  "evidence_multiplier": 0.7962,
+                  "remaining_time_multiplier": 0.1,
+                  "freshness_time_multiplier": 0.3
+                },
+                "score": 0.2192,
+                "expected_benefit": 0.1558
+              }
+            },
+            {
+              "minute": 90,
+              "decision": "NO_SUBSTITUTION",
+              "selected": null
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

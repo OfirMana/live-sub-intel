@@ -74,6 +74,9 @@ def convert_event(e: dict, match_id: str) -> Event | None:
         y=y,
         possession_id=e.get("possession"),
         under_pressure=bool(e.get("under_pressure")),
+        aerial_contest=bool(any(isinstance(e.get(k), dict) and e[k].get('aerial_won') for k in ('pass', 'shot', 'clearance', 'miscontrol'))),
+        aerial_won=True if any(isinstance(e.get(k), dict) and e[k].get('aerial_won') for k in ('pass', 'shot', 'clearance', 'miscontrol')) else None,
+        cross=bool(e.get('pass', {}).get('cross')),
     )
     if kind == "Pass":
         p = e["pass"]
@@ -104,6 +107,8 @@ def convert_event(e: dict, match_id: str) -> Event | None:
         return Event(**base, type=EventType.PRESSURE)
     if kind == "Duel" and e["duel"]["type"]["name"] == "Tackle":
         return Event(**base, type=EventType.TACKLE, success=e["duel"].get("outcome", {}).get("name") in TACKLE_WON)
+    if kind == 'Duel' and e['duel']['type']['name'] == 'Aerial Lost':
+        return Event(**{**base, 'aerial_contest': True, 'aerial_won': False}, type=EventType.AERIAL, success=False)
     if kind == "Interception":
         return Event(**base, type=EventType.INTERCEPTION, success=e["interception"]["outcome"]["name"] in INTERCEPTION_WON)
     if kind == "Ball Recovery":

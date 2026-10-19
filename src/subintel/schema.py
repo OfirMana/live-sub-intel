@@ -41,6 +41,7 @@ class EventType(StrEnum):
     OWN_GOAL = "own_goal"  # team_id = the team credited with the goal
     PERIOD_START = "period_start"
     PERIOD_END = "period_end"
+    AERIAL = "aerial"
 
 
 class Event(BaseModel):
@@ -61,6 +62,10 @@ class Event(BaseModel):
     success: bool | None = None
     possession_id: int | None = None
     under_pressure: bool = False
+    aerial_contest: bool = False
+    aerial_won: bool | None = None
+    cross: bool = False
+    transition: bool = False  # explicit provider/scenario label, never inferred from coordinates
     # pass
     recipient_id: str | None = None
     set_piece: bool = False

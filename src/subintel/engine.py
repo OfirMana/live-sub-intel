@@ -29,19 +29,9 @@ IMPORTANCE = {
     "level": {d: 1.0 for d in DIMENSIONS},
     "protecting": {"threat": 0.7, "creation": 0.8, "progression": 0.8, "retention": 1.3, "defense": 1.4},
 }
-# Like-for-like, plus the two attacking-midfield neighbours. Our five dimensions do not
-# measure what defenders are for (aerials, box defending, positioning), so any swap that
-# takes a defender off for a non-defender wins on paper; replaying Tottenham 0-1 Leicester
-# recommended Huth -> Inler at 65' until this was restricted. Values are a cost in z units.
-ROLE_DISTANCE = {
-    frozenset({"CB"}): 0.0, frozenset({"FB"}): 0.0, frozenset({"CM"}): 0.0,
-    frozenset({"AM_W"}): 0.0, frozenset({"ST"}): 0.0,
-    frozenset({"CM", "AM_W"}): 0.2, frozenset({"AM_W", "ST"}): 0.2,
-}
-# Chasing late, a defender/midfielder may go off for an attacker (a formation change).
-CHASING_SWAP = {("CB", "ST"), ("CB", "AM_W"), ("FB", "ST"), ("CM", "ST"), ("FB", "AM_W")}
-CHASING_SWAP_COST = 0.6
-CHASING_SWAP_FROM_MINUTE = 70
+# v1 preserves broad roles. Player-specific verified versatility is handled by
+# the demo card scorer; generic adjacent roles and chasing formation changes
+# are intentionally unsupported here.
 
 
 class MatchState:
@@ -60,6 +50,8 @@ class MatchState:
         self.reds: dict[str, int] = defaultdict(int)
         self.subs_made: dict[str, int] = defaultdict(int)
         self.live: dict[str, dict[str, float]] = defaultdict(lambda: defaultdict(float))
+        self.player_window: dict[str, dict[str, float]] = defaultdict(lambda: defaultdict(float))
+        self.player_window_minutes: dict[str, float] = defaultdict(float)
         self.window: dict[str, dict[str, float]] = {t: defaultdict(float) for t in self.team_ids}
         self.window_minutes = 0.0
         self.minute = 0
@@ -87,6 +79,13 @@ class MatchState:
             for w in self.window.values():
                 for k in w:
                     w[k] *= decay
+            for w in self.player_window.values():
+                for k in w:
+                    w[k] *= decay
+            for pid in self.player_window_minutes:
+                self.player_window_minutes[pid] *= decay
+            for pid in self.on_pitch:
+                self.player_window_minutes[pid] += HALF_LIFE_MIN / math.log(2) * (1 - decay)
             self.window_minutes = self.window_minutes * decay + HALF_LIFE_MIN / math.log(2) * (1 - decay)
             for pid in self.on_pitch:
                 self.minutes_played[pid] += dt
@@ -108,6 +107,7 @@ class MatchState:
             self.subs_made[ev.team_id] += 1
         for c in self._tracker.feed(ev):
             self.live[c.player_id][c.component] += c.value
+            self.player_window[c.player_id][c.component] += c.value
             self.window[c.team_id][c.component] += c.value
 
     def game_state(self, team_id: str) -> GameState:
@@ -195,12 +195,7 @@ def substitution_score(needs: TeamNeeds, delta: dict[str, float]) -> float:
 
 def _role_cost(out_role: str, in_role: str, state: GameState) -> float | None:
     """None = not a sensible swap."""
-    cost = ROLE_DISTANCE.get(frozenset({out_role, in_role}))
-    if cost is not None:
-        return cost
-    if state.goal_diff < 0 and state.minute >= CHASING_SWAP_FROM_MINUTE and (out_role, in_role) in CHASING_SWAP:
-        return CHASING_SWAP_COST
-    return None
+    return 0.0 if out_role == in_role and out_role not in (None, 'GK') else None
 
 
 def recommend(ms: MatchState, team_id: str, top: int = 3) -> Recommendation:

@@ -271,3 +271,137 @@ Realistic sequences and coordinates for free, scenario fully controllable.
 - Minutes ignore first-half stoppage time (~1% error).
 - Data: StatsBomb Open Data. Their terms ask anyone publishing analysis based on
   it to name StatsBomb as the source and use their logo.
+
+### Recent profile, playable positions and physical enrichment
+
+The long-term `PlayerProfile` remains the engine's **GeneralProfile**. A separate
+**RecentProfile** is descriptive evidence from the player's five most recent
+actual appearances strictly before the analysed match. Volume rates are computed
+as `SUM(component) / SUM(minutes) * 90`; appearance-level per-90 values are never
+averaged equally. Recent retention uses the existing
+`1 - ball_losses / ball_actions` definition, and recent dimensions reuse the
+same league `Scale` as the GeneralProfile.
+
+Recent evidence exposes sample size and reliability. Reliability uses the same
+prior strengths as the main profile (`n / (n + k)`, with `n = minutes / 90`;
+retention uses ball actions) and means **evidence strength**, not probability of
+correctness. GeneralProfile and RecentProfile stay separate in v0; there is no
+hard-coded `60/40` or other blend yet. The current-match **LiveProfile** remains a
+third, separate concept.
+
+Playable positions are built only from lineup/position spells before the cutoff
+date. The exact position with the most historical minutes is primary. A
+secondary position is exposed when it has at least 90 historical minutes or at
+least 15% of the player's known position minutes. Exact positions also map to
+the existing broad `GK / CB / FB / CM / AM_W / ST` roles using
+`statsbomb.ROLE_BY_POSITION`. The target match may identify the squad and team,
+but its later position assignments are never used to infer pre-match versatility.
+
+Player-specific physical/biographical enrichment is separate again. The
+supported template includes height, preferred foot, top speed, metres/minute,
+HSR, sprint and acceleration/deceleration fields plus source/provenance flags.
+Unknown values remain missing. Position-group means from SkillCorner A-League
+2024/25 are stored only as **synthetic-generation/reference distributions** and
+must never silently populate a Liverpool/Arsenal player's observed physical
+attributes.
+
+Aerial ability remains a TODO. StatsBomb raw data contains useful clues such as
+aerial-duel annotations and shot body part, but v0 drops aerial duels in the
+adapter and does not define a reliable aerial-win-rate pairing. Height alone is
+not aerial ability.
+
+
+## Demo dataset revision (supersedes sections 4 and the earlier recent enrichment for demo cards)
+
+The definitive demo dataset and formulas are documented in `demo_data/README.md`.
+Use `demo_data/demo_player_profiles.json` and `demo_data.load_demo_profiles`.
+General is FIFA16 anchored plus a capped season signal; Recent is General plus
+an explicit capped form delta from the last five TEAM matches. Both reuse
+`metrics.ComponentTracker` for observed event components. Outfield dimensions
+are null for GK. Physical tracking is explicitly synthetic. Source inputs and
+SHA256 evidence are committed; `scripts/build_demo_dataset.py` rebuilds offline.
+The old appearance-based recent helpers remain legacy utilities only.
+The final demo event stream must be synthetic and labelled as such.
+
+## Live demo revision (supersedes formation-change rules in section 8)
+
+`demo_live.py` consumes the canonical cards. `MatchState` now keeps per-player
+cumulative counts, a 12-minute half-life count window, and exponentially weighted
+active minutes. Existing component definitions and five team dimensions remain
+unchanged. Aerial annotations and explicit cross/transition labels are optional
+Event extensions; no aerial annotations means unknown, never zero aerial ability.
+The StatsBomb adapter preserves explicit aerial wins/losses and cross flags.
+
+Expected player component rates shrink pre-match observed counts to pre-cutoff
+role rates with five 90s of prior strength. Recent card rating/75, clipped to
+.65..1.25, moderately scales volume expectations. Attacking opportunities scale
+by recent open-play action share relative to expected share (.6..1.4); defensive
+opportunities use the complementary share. This is a possession proxy, not a
+claim to measure tracking possession. Retention uses actual action opportunities.
+Per-dimension observed-minus-expected signals use Poisson-like variance (xG
+factor .3), tanh(signal/2), and exposure/(exposure+12) confidence. Retention also
+shrinks by actions/(actions+20). The live vector is bounded -1..1 and changes
+prematch card ability by at most four points. Live aerial uses annotated contests
+with attempts/(attempts+10) confidence. Estimated match load and a separate
+freshness contribution are defined in MATCH_LOAD.md; no fatigue penalty is also
+subtracted from the tactical card. No measured distance or medical fitness is claimed.
+
+The existing team_need function still combines recent output deficits, opponent
+production, score, clock and red cards. Substitutions remaining gate candidate
+availability. Tactical aerial need comes from explicit crosses and late chasing;
+pace/recovery needs use explicit transition labels. Tactical signals are heuristic
+and do not assert that unobserved space or defensive lines were measured.
+
+Generic adjacent-role swaps and late CHASING_SWAP formation changes are disabled
+in the original engine. Demo candidates require the outgoing active role in the
+incoming player's evidence-backed eligibility set; suitability is 1 or .85.
+Both positive gains and losses use existing asymmetric substitution_score, with
+card-point deltas divided by 20. Tactical aerial gain coefficient .1, speed gain
+coefficient .05; all are provisional. Benefit uses (.5+.5*minimum season
+reliability), position suitability, remaining minutes/90 for tactical terms,
+and min(remaining minutes/30,1) for the separate 1.5-cap freshness term.
+Threshold remains .15. No recommendations before minute 20, at/after minute 94,
+or when substitutions are exhausted. GK recommendations are unsupported.
+Evidence strength is not a probability; no field is named calibrated confidence.
+
+`run_synthetic_demo.py` generates controlled original possessions, passes,
+carries, pressures, recoveries, turnovers, shots, goals and any engine-approved
+substitution. All events are marked synthetic. The exported HTML plays through
+precomputed deterministic checkpoints; it is a local preview, not an Azure live
+service. A deterministic grounded explanation is included; no remote LLM has
+been deployed. A future LLM receives only this JSON and must not create facts.
+
+`benchmark_demo.py` evaluates the first three fixtures on/after Jan 13 for each
+of Liverpool, Arsenal, Chelsea and Tottenham: 12 team replays, 10 distinct matches,
+18 exact five-minute checkpoints each (5..90). Cards/baselines stay frozen before
+2016-01-13, so no future performance leaks into priors. Only the definitive 72-player
+dataset are scored; other active players are listed as unavailable_profile_ids.
+No acceptance condition requires any named historical substitution.
+
+The local `serve_demo.py` HTTP/SSE adapter additionally feeds synthetic events to
+a fresh Python engine per viewer and recomputes once per simulated minute.
+It binds only to loopback; **Stream events** uses SSE, while **Play checkpoints**
+uses the exported deterministic snapshots. No cloud deployment is included.
+
+## Match-load revision
+
+The original linear fatigue/card penalty described above is superseded for
+`demo_live.py` by `docs/MATCH_LOAD.md`. Physical freshness is a separate need and
+score contribution, independent of the five tactical deficits. No fatigue
+penalty is also subtracted from the tactical card vector. Outputs disclose the
+score breakdown and estimated-load inputs. The recommendation threshold stays
+.15. This changes demo scoring, not the legacy rate-based replay fatigue model.
+
+## Four-team outcome-aware cards — 18 October 2026
+
+Seventy observed FIFA16 records plus disclosed synthetic Brad Smith and Son fallbacks
+cover four Jan 13 matchday squads. Historical PL goals (non-penalty/penalty separated),
+StatsBomb goal assists, completed dribbles and pass completion are stored under season.
+Threat blends .7 npxG/90 and .3 non-penalty goals/90 plus box presence; creation blends
+.7 xA/90 and .3 assists/90 plus box passes. Progression adds .5 completed dribbles/90;
+retention blends .8 ball retention and .2 pass completion when available. Role calibration
+uses the same new signals across the pre-cutoff league. Existing live event-component
+definitions are unchanged. Process/outcome signals share the same bounded +/-6 season
+and recent adjustments; they do not add an uncapped scoring bonus. Counts, p90 and raw
+percentages are visible; zero attempts gives null percentage. No pass-difficulty adjustment
+is claimed. See MODEL_UPDATE_HE.md and VALIDATION.md for assumptions and current limits.
