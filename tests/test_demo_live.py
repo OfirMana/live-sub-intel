@@ -4,7 +4,7 @@ from pathlib import Path
 import pytest
 
 from subintel.demo_data import load_demo_profiles
-from subintel.demo_live import effective_profile, live_performance, make_match, recommend_demo
+from subintel.demo_live import effective_profile, live_performance, make_match, recommend_demo, swap_fit
 from subintel.engine import _role_cost, importance, substitution_score, team_needs
 from subintel.schema import Event, EventType, GameState, TeamNeeds
 from subintel.statsbomb import convert_event
@@ -104,7 +104,7 @@ def test_synthetic_demo_repeatable_and_all_swaps_eligible(inputs):
         if ev.type == EventType.SUBSTITUTION:
             assert ev.player_id in ms.on_pitch
             assert ev.replacement_id not in ms.used
-            assert ms.role(ev.player_id) in cards[ev.replacement_id]['positions']['eligibility']
+            assert swap_fit(ms.game_state(ev.team_id), ms.role(ev.player_id), cards[ev.replacement_id]) is not None
         elif ev.player_id:
             assert ev.player_id in ms.on_pitch
         ms.feed(ev)

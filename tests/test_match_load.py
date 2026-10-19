@@ -2,7 +2,7 @@ import copy
 
 import pytest
 
-from subintel.demo_live import estimated_match_load, refresh_value
+from subintel.demo_live import REFRESH_HORIZON_MINUTES, estimated_match_load, refresh_value
 from subintel.engine import substitution_score
 from subintel.schema import TeamNeeds
 
@@ -31,7 +31,8 @@ def test_freshness_can_justify_like_for_like_change_with_flat_tactical_needs():
     tactical = substitution_score(needs, dict.fromkeys(dims, 0))
     assert tactical == 0
     tired = load(72, stamina=45, pressures=30, carries=12)['fatigue']
-    assert (tactical + refresh_value(tired, equal, equal)) * (94-72)/90 > .15
+    remaining = 94 - 72
+    assert tactical * remaining / 90 + refresh_value(tired, equal, equal) * min(remaining / REFRESH_HORIZON_MINUTES, 1) > .15
     assert refresh_value(load(20)['fatigue'], equal, equal) == 0
 
 

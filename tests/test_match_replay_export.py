@@ -31,7 +31,10 @@ def test_events_and_checkpoints_show_identical_scores_without_future_goals(paylo
         for s in view['snapshots']:
             for c in s['alternatives']:
                 active_role=fixture['active_roles'][c['out_player']['id']]
-                assert active_role in payload['profiles'][c['in_player']['id']]['positions']['eligibility']
+                if c.get('change_type')=='FORMATION_CHANGE':
+                    assert s['state']['goal_diff']<0
+                else:
+                    assert active_role in payload['profiles'][c['in_player']['id']]['positions']['eligibility']
             elapsed=s['minute']+(fixture['first_half_extra'] if s['minute']>45 else 0)
             score={fixture['home']['id']:0,fixture['away']['id']:0}
             for e in fixture['events']:

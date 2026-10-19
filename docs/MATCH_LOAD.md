@@ -33,7 +33,7 @@ Tactical support = .1*aerial_need*(aerial difference/20)
 
 Quality preservation = clip(sum incoming Threat+Progression+Defense /
 sum outgoing Threat+Progression+Defense,0,1).
-Freshness relief = **1.5 * outgoing fatigue * quality preservation**.
+Freshness relief = **0.5 * outgoing fatigue * quality preservation** (1.5 until 19 Oct 2026; see CONTRACT.md, "Decision rules revision").
 All ability-loss penalties still enter core. Freshness is counted once.
 
 Evidence multiplier = .5 + .5*min(mean incoming general reliability,

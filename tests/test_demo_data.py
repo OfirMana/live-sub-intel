@@ -9,6 +9,22 @@ from subintel.demo_dataset import DIMS, GENERAL_CAP, RECENT_CAP, bounded_adjustm
 ROOT = Path(__file__).resolve().parents[1]
 
 
+def assert_close(a, b, path='card'):
+    """Equal up to float summation noise (~1e-16), which differs across numpy builds."""
+    if isinstance(a, dict) and isinstance(b, dict):
+        assert a.keys() == b.keys(), path
+        for k in a:
+            assert_close(a[k], b[k], f'{path}.{k}')
+    elif isinstance(a, list) and isinstance(b, list):
+        assert len(a) == len(b), path
+        for i, (x, y) in enumerate(zip(a, b)):
+            assert_close(x, y, f'{path}[{i}]')
+    elif isinstance(a, float) or isinstance(b, float):
+        assert a == pytest.approx(b, rel=1e-9, abs=1e-12), path
+    else:
+        assert a == b, path
+
+
 def test_reproducible_and_no_future_leakage():
     evidence = json.loads((ROOT / 'demo_data/source_evidence.json').read_text(encoding='utf-8'))
     anchors = json.loads((ROOT / 'demo_data/fifa16_anchors.json').read_text(encoding='utf-8'))
@@ -16,7 +32,7 @@ def test_reproducible_and_no_future_leakage():
     assert len(actual) == 72
     assert all(sum(p['team'] == t for p in actual.values()) == 18 for t in ('Liverpool', 'Arsenal', 'Chelsea', 'Tottenham Hotspur'))
     for a in anchors:
-        assert build_player(a, evidence) == actual[a['player_id']]
+        assert_close(build_player(a, evidence), actual[a['player_id']])
     assert all(r['date'] < evidence['cutoff'] for r in evidence['rows'])
     assert '3754305' not in evidence['match_ids']
     assert evidence['team_windows']['Liverpool'] == ['3754251', '3754226', '3754343', '3754051', '3754255']

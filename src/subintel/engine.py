@@ -135,6 +135,14 @@ def importance(state: GameState) -> dict[str, float]:
 
 
 def team_needs(ms: MatchState, team_id: str) -> TeamNeeds:
+    """Performance deficit plus what the score requires.
+
+    When the game state makes a dimension urgent (importance > 1), producing more than
+    usual does not cancel the need: Liverpool, 2-3 down at 80' against Arsenal, were
+    attacking well above their norm and the old formula read that as threat need 0.35.
+    A goal is still needed until it is scored, so in urgent dimensions only deficits move
+    the need; surpluses still lower it in dimensions the score does not make urgent.
+    """
     base = ms.book.teams[team_id]
     opp = next(t for t in ms.team_ids if t != team_id)
     win, opp_win = ms.window[team_id], ms.window[opp]
@@ -154,7 +162,8 @@ def team_needs(ms: MatchState, team_id: str) -> TeamNeeds:
     deficit = {d: sum(z[c] for c in comps) / len(comps) for d, comps in DIMENSIONS.items() if d != "defense"}
     deficit["defense"] = sum(conceded) / len(conceded)
     w = importance(ms.game_state(team_id))
-    needs = {d: 1 / (1 + math.exp(-(deficit[d] / 1.5 + 2 * math.log(w[d])))) for d in DIMENSIONS}
+    signal = {d: max(deficit[d], 0.0) if w[d] > 1 else deficit[d] for d in DIMENSIONS}
+    needs = {d: 1 / (1 + math.exp(-(signal[d] / 1.5 + 2 * math.log(w[d])))) for d in DIMENSIONS}
     return TeamNeeds(
         team_id=team_id,
         needs={d: round(v, 3) for d, v in needs.items()},

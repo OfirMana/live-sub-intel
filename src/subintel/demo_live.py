@@ -11,8 +11,17 @@ from .profiles import ProfileBook, Scale, TeamBaseline
 from .schema import Event, EventType, Player, Role
 
 TEAM_IDS = {'Liverpool': '24', 'Arsenal': '1', 'Chelsea': '33', 'Tottenham Hotspur': '38'}
-REFRESH_SCORE_CAP = 1.5  # provisional; see audit_match_load.py, not fitted to named swaps
+# Was 1.5: freshness then carried 72 of 92 recommendations on the 216-point benchmark,
+# including 29 with a negative tactical part. At 0.5 its size is comparable to tactical
+# gains (6 of 32 recommendations are freshness-led). Not fitted to named swaps.
+REFRESH_SCORE_CAP = 0.5
 REFRESH_HORIZON_MINUTES = 30.0
+# Trailing, a team may take a defender or midfielder off for an attacker and change shape
+# (Klopp: Milner off, Benteke on, 4-3-3 to 4-4-2 at 65' against Arsenal). Earliest minute
+# per outgoing role; the fit discount stands for the structural cost of the new shape.
+CHASING_FORMATION_FROM = {'CM': 60, 'FB': 75, 'CB': 75}
+CHASING_ATTACK_ROLES = ('ST', 'AM_W')
+CHASING_FORMATION_FIT = .75
 LOAD_FREE_SHARE = .5
 LOAD_FATIGUE_SPAN = .7
 
@@ -173,6 +182,29 @@ def effective_profile(ms, pid, on_pitch):
     return result
 
 
+def swap_fit(state, out_role, card):
+    """(position fit, change type) for a candidate swap, or None when it is not allowed."""
+    if out_role in card['positions']['eligibility']:
+        return card['positions']['suitability'][out_role], 'LIKE_FOR_LIKE'
+    earliest = CHASING_FORMATION_FROM.get(out_role)
+    if (state.goal_diff < 0 and earliest is not None and state.minute >= earliest
+            and card['primary_role'] in CHASING_ATTACK_ROLES):
+        return CHASING_FORMATION_FIT, 'FORMATION_CHANGE'
+    return None
+
+
+def no_substitution_reason(state, options):
+    if state.subs_left <= 0:
+        return 'NO_SUBSTITUTIONS_LEFT'
+    if not 20 <= state.minute < 94:
+        return 'OUTSIDE_DECISION_WINDOW'
+    if not options:
+        return 'NO_ELIGIBLE_CANDIDATE'
+    if any(o['expected_benefit'] >= RECOMMEND_THRESHOLD for o in options):
+        return 'ONLY_TACTICALLY_HARMFUL_OPTIONS_CLEAR_THRESHOLD'
+    return 'BELOW_THRESHOLD'
+
+
 def recommend_demo(ms, tid, top=3):
     needs = team_needs(ms, tid)
     state = ms.game_state(tid)
@@ -188,8 +220,12 @@ def recommend_demo(ms, tid, top=3):
                 continue
             outgoing = effective_profile(ms, out_id, True)
             for in_id, card in sorted(ms.cards.items()):
-                if in_id not in ms.players or in_id in ms.used or ms.players[in_id].team_id != tid or ms.role(out_id) not in card['positions']['eligibility']:
+                if in_id not in ms.players or in_id in ms.used or ms.players[in_id].team_id != tid:
                     continue
+                swap = swap_fit(state, ms.role(out_id), card)
+                if swap is None:
+                    continue
+                fit, change_type = swap
                 incoming = effective_profile(ms, in_id, False)
                 delta = {d: incoming[d] - outgoing[d] for d in DIMENSIONS}
                 core = substitution_score(needs, {d: v / 20 for d, v in delta.items()})
@@ -201,14 +237,17 @@ def recommend_demo(ms, tid, top=3):
                 fatigue = live_performance(ms, out_id)['fatigue']
                 refresh = refresh_value(fatigue, incoming, outgoing)
                 score = (core + tactical_gain + refresh) * (.5 + .5 * rel)
-                fit = card['positions']['suitability'][ms.role(out_id)]
                 remaining = max(94 - state.minute, 0)
                 # Tactical differences accumulate over the remaining match.
                 # Refresh addresses the next ~30 minutes, not a second full 90.
                 tactical_horizon = remaining / 90
                 refresh_horizon = min(remaining / REFRESH_HORIZON_MINUTES, 1)
-                benefit = fit * (.5 + .5 * rel) * ((core + tactical_gain) * tactical_horizon + refresh * refresh_horizon)
+                tactical_benefit = fit * (.5 + .5 * rel) * (core + tactical_gain) * tactical_horizon
+                freshness_benefit = fit * (.5 + .5 * rel) * refresh * refresh_horizon
+                benefit = tactical_benefit + freshness_benefit
                 reasons = [f'HIGH_{d.upper()}_NEED' for d, v in needs.needs.items() if v >= .65 and delta[d] > 0]
+                if change_type == 'FORMATION_CHANGE':
+                    reasons.append('CHASING_FORMATION_CHANGE')
                 if refresh >= .05:
                     reasons.append('ESTIMATED_FRESHNESS_RELIEF')
                 if fatigue >= .6:
@@ -217,18 +256,25 @@ def recommend_demo(ms, tid, top=3):
                     reasons.append('BENCH_PLAYER_AERIAL_ADVANTAGE')
                 options.append(dict(out_player=dict(id=out_id, name=ms.cards[out_id]['name']),
                                     in_player=dict(id=in_id, name=card['name']), expected_changes={d: round(v, 3) for d, v in delta.items()},
-                                    position_fit=fit, evidence_strength=round(rel, 3), reason_codes=reasons,
+                                    position_fit=fit, change_type=change_type, evidence_strength=round(rel, 3), reason_codes=reasons,
                                     score_components=dict(tactical_core=round(core, 4), tactical_support=round(tactical_gain, 4),
                                                           freshness_relief=round(refresh, 4), outgoing_fatigue=fatigue,
                                                           evidence_multiplier=round(.5+.5*rel, 4), remaining_time_multiplier=round(tactical_horizon, 4),
-                                                          freshness_time_multiplier=round(refresh_horizon, 4)),
+                                                          freshness_time_multiplier=round(refresh_horizon, 4),
+                                                          tactical_benefit=round(tactical_benefit, 4),
+                                                          freshness_benefit=round(freshness_benefit, 4)),
+                                    decision_basis='TACTICAL' if tactical_benefit >= freshness_benefit else 'FRESH_LEGS',
                                     score=round(score, 4), expected_benefit=round(benefit, 4)))
     options.sort(key=lambda o: (-o['expected_benefit'], o['out_player']['id'], o['in_player']['id']))
-    decision = bool(options and options[0]['expected_benefit'] >= RECOMMEND_THRESHOLD)
+    # Fresh legs may tip a change that does not hurt the team tactically, never justify one that does.
+    eligible = [o for o in options if o['expected_benefit'] >= RECOMMEND_THRESHOLD
+                and o['score_components']['tactical_benefit'] >= 0]
+    selected = eligible[0] if eligible else None
     return dict(match_id=ms.match_id, minute=state.minute, team_id=tid,
-                recommendation='SUBSTITUTION' if decision else 'NO_SUBSTITUTION',
+                recommendation='SUBSTITUTION' if selected else 'NO_SUBSTITUTION',
+                no_substitution_reason=None if selected else no_substitution_reason(state, options),
                 state=state.model_dump(), team_needs=needs.needs, tactical_needs=tactical,
-                threshold=RECOMMEND_THRESHOLD, selected=options[0] if decision else None,
+                threshold=RECOMMEND_THRESHOLD, selected=selected,
                 physical_need=dict(freshness=max((live_performance(ms, pid)['fatigue'] for pid in ms.on_pitch
                                                   if pid in ms.cards and ms.players[pid].team_id == tid and ms.role(pid) != 'GK'), default=0),
                                    source='ESTIMATED_MATCH_LOAD', refresh_score_cap=REFRESH_SCORE_CAP),

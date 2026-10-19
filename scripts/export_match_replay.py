@@ -70,7 +70,7 @@ def build_payload():
         for s in report['snapshots']:
             live={p['player_id']:{k:p.get(k) for k in ('dimensions','fatigue','minutes_played','evidence_strength')}
                   for p in s['player_live']}
-            snapshots.append({k:s[k] for k in ('minute','state','team_needs','threshold','selected','alternatives','unavailable_profile_ids')}|dict(live=live))
+            snapshots.append({k:s[k] for k in ('minute','state','team_needs','threshold','selected','no_substitution_reason','alternatives','unavailable_profile_ids')}|dict(live=live))
         views.append(dict(team=team,team_id=tid,match_id=mid,snapshots=snapshots))
     profiles={str(p['player_id']):{k:p[k] for k in ('player_id','name','team','primary_role','positions','general','recent','season','physical','provenance')}
               for p in data['players']}
