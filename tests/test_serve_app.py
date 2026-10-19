@@ -100,3 +100,14 @@ def test_template_answers_are_not_cached_and_hide_error_details():
 def test_unknown_path_is_404(llm_app):
     get, _ = llm_app
     assert get('/etc/passwd')[0] == 404
+
+
+def test_fetch_works_when_the_cache_is_read_only(monkeypatch, tmp_path):
+    import collect_demo_evidence as c
+    monkeypatch.setattr(c, 'CACHE', tmp_path / 'raw')
+    monkeypatch.setattr(c.urllib.request, 'urlopen', lambda url, timeout: type('R', (), {'read': lambda self: b'{"ok": 1}'})())
+
+    def read_only(self, data):
+        raise PermissionError('read-only file system')
+    monkeypatch.setattr(c.Path, 'write_bytes', read_only)
+    assert c.fetch('matches/2/27.json') == {'ok': 1}

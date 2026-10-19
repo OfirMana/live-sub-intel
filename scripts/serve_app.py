@@ -14,10 +14,14 @@ import os
 import sys
 import threading
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
+from pathlib import Path
 from urllib.parse import parse_qs, urlparse
 
-from export_match_replay import build_payload, render_html
-from subintel.narrative import AUDIENCES, LANGUAGES, explain
+# Runs without PYTHONPATH or an installed package, e.g. on Azure App Service.
+sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'src'))
+
+from export_match_replay import build_payload, render_html  # noqa: E402
+from subintel.narrative import AUDIENCES, LANGUAGES, explain  # noqa: E402
 
 
 class App:

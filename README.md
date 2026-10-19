@@ -70,6 +70,8 @@ room shows, and model answers are cached, so a public deployment makes at most
 `python scripts/serve_app.py --host 0.0.0.0 --port $PORT`. The offline bundle in
 `docs/match-replay` has no server and hides the explanation panel.
 
+Deploying it to Azure App Service, step by step (Hebrew): [`docs/AZURE_DEPLOY_HE.md`](docs/AZURE_DEPLOY_HE.md).
+
 ## Plan to the 27 October deadline
 
 | Days | Person 1: data, profiles | Person 2: needs, substitutions | Person 3: stream, AI, UI |
