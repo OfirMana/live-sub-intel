@@ -9,6 +9,9 @@ from serve_coach_room import create_room, make_handler
 
 def test_coach_room_http_and_live_lineups_match_past_only_engine():
     bootstrap, evaluate = create_room()
+    assert len(bootstrap['profiles'])==72
+    assert bootstrap['profiles']['10955']['position_suitability']['Center Back']['fit']==0
+    assert bootstrap['version']=='coach-room-v2'
     server = ThreadingHTTPServer(('127.0.0.1',0),make_handler(bootstrap,evaluate))
     thread = threading.Thread(target=server.serve_forever,daemon=True)
     thread.start()

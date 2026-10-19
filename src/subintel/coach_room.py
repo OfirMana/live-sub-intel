@@ -26,7 +26,7 @@ POSITIONS = {
     'Right Defensive Midfield': (63, 61), 'Center Defensive Midfield': (50, 63), 'Left Defensive Midfield': (37, 61),
     'Right Center Midfield': (66, 49), 'Center Midfield': (50, 49), 'Left Center Midfield': (34, 49),
     'Right Midfield': (83, 43), 'Left Midfield': (17, 43),
-    'Right Attacking Midfield': (69, 33), 'Center Attacking Midfield': (50, 32), 'Left Attacking Midfield': (31, 33),
+    'Right Attacking Midfield': (83, 33), 'Center Attacking Midfield': (50, 32), 'Left Attacking Midfield': (17, 33),
     'Right Wing': (83, 24), 'Left Wing': (17, 24),
     'Right Center Forward': (63, 17), 'Center Forward': (50, 17), 'Left Center Forward': (37, 17),
     'Secondary Striker': (50, 27),

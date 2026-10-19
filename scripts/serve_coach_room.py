@@ -11,6 +11,8 @@ from pydantic import BaseModel, ConfigDict, ValidationError
 from collect_demo_evidence import TARGETS, fetch
 from export_match_replay import key_events
 from subintel.coach_room import CoachConfig, CoachReplay, FORMATIONS, slot
+from subintel.auto_plans import AutoConfig, position_fit
+from subintel.coach_room import POSITIONS
 from subintel.demo_data import load_demo_profiles
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -22,11 +24,11 @@ class RoomRequest(BaseModel):
     match_id: str
     team_id: str
     minute: int
-    config: CoachConfig = CoachConfig()
+    config: AutoConfig = AutoConfig()
 
 
 def create_room():
-    from subintel.coach_room import recommend_coach
+    from subintel.auto_plans import recommend_auto
     dataset = load_demo_profiles()
     evidence = json.loads((ROOT/'demo_data/source_evidence.json').read_text(encoding='utf-8'))
     matches = {str(m['match_id']): m for m in fetch('matches/2/27.json')}
@@ -62,11 +64,11 @@ def create_room():
                 away=dict(id=str(match['away_team']['away_team_id']), name=match['away_team']['away_team_name']),
                 events=events, final_elapsed=max(e['minute']+e['second']/60+extra for e in raw if e['period']==2)+.001)
     bootstrap = dict(fixtures=fixtures, views=views, formations=list(FORMATIONS),
-                     profiles={str(p['player_id']):p for p in dataset['players']}, version='coach-room-v1')
+                     profiles={str(p['player_id']):dict(p,position_suitability={position:dict(zip(('fit','source'),position_fit(p,position))) for position in POSITIONS}) for p in dataset['players']}, version='coach-room-v2')
     @lru_cache(maxsize=64)
     def evaluate(mid, tid, minute, config_json):
         ms, observed = replays[mid, tid].state_at(minute)
-        return recommend_coach(ms, tid, observed, replays[mid, tid].roster, CoachConfig.model_validate_json(config_json))
+        return recommend_auto(ms, tid, observed, replays[mid, tid].roster, AutoConfig.model_validate_json(config_json))
     return bootstrap, evaluate
 
 
@@ -87,7 +89,7 @@ def make_handler(bootstrap, evaluate):
             if path == '/api/bootstrap':
                 return self.reply(200, bootstrap)
             if path == '/health':
-                return self.reply(200, dict(status='ok', version='coach-room-v1', llm=False))
+                return self.reply(200, dict(status='ok', version='coach-room-v2', llm=False))
             files = {'/':'index.html', '/app.js':'app.js', '/styles.css':'styles.css'}
             if path in files:
                 mime = 'text/html' if path == '/' else 'text/javascript' if path.endswith('.js') else 'text/css'

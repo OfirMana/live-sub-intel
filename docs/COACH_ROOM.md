@@ -1,3 +1,8 @@
+> **Archived v1 design and experiment.** The current room uses automatic tactical
+> search, two objectives and a revised freshness guard. See
+> [Automatic tactical plans](AUTO_TACTICAL_PLANS.md). Numbers and manual controls
+> below describe the earlier implementation, not the current UI.
+
 # Coach room — isolated research branch, 19 October 2026
 
 Base: upstream main `abbd6ba`, including balanced freshness at cap 1.0 and a
