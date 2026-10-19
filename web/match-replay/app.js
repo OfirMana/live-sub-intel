@@ -108,9 +108,9 @@ function initializeReplay(){
     function frame(now){if(currentToken!==token)return;const t=Math.min((now-began)/duration,1);elapsed=start+(end-start)*t;renderGame();if(t<1)raf=requestAnimationFrame(frame);else complete();}
     raf=requestAnimationFrame(frame);
   }
-  const harmful=c=>(c.score_components?.tactical_benefit??0)<0;
+  const harmful=(c,s)=>(c.score_components?.tactical_benefit??0)<-(s.max_tactical_loss_for_freshness??0);
   const kind=c=>(c.decision_basis==='FRESH_LEGS'?'רענון':'טקטי')+(c.change_type==='FORMATION_CHANGE'?' · שינוי מערך':'');
-  function gapText(c,s){const gap=thresholdGap(c,s.threshold);if(gap>=0&&harmful(c))return 'עובר את הסף רק בזכות רענון, אבל מחליש טקטית';return gap>=0?`עובר את הסף ב־${fmt(gap,4)}`:`חסר לסף ${fmt(-gap,4)}`;}
+  function gapText(c,s){const gap=thresholdGap(c,s.threshold);if(gap>=0&&harmful(c,s))return 'עובר את הסף בזכות רענון, אבל המחליף חלש מדי';return gap>=0?`עובר את הסף ב־${fmt(gap,4)}`:`חסר לסף ${fmt(-gap,4)}`;}
   function showAnalysis(){
     const s=snapshot();if(!s||playing)return;
     if(!$('analysis').hidden){hideAnalysis();renderControls();return;}
@@ -118,7 +118,7 @@ function initializeReplay(){
     $('check').textContent='סגור את בדיקת החילופים';
     const best=s.alternatives[0],yes=!!s.selected;
     $('verdict').className='verdict'+(yes?' yes':'');
-    $('verdict').innerHTML=yes?`<b>מומלץ לבצע חילוף</b><span dir="ltr">${esc(s.selected.out_player.name)} → ${esc(s.selected.in_player.name)}</span><br>סוג: ${kind(s.selected)} · תועלת ${fmt(s.selected.expected_benefit,4)} מול סף ${fmt(s.threshold,4)}`:best?(s.no_substitution_reason==='ONLY_TACTICALLY_HARMFUL_OPTIONS_CLEAR_THRESHOLD'?`<b>אין המלצת חילוף כרגע</b>יש אפשרויות שעוברות את הסף רק בזכות רענון, אבל כולן מחלישות את הקבוצה טקטית.`:`<b>אין המלצת חילוף כרגע</b>האפשרות המובילה: ${gapText(best,s)}. הסף הוא ${fmt(s.threshold,4)}.`):`<b>אין מועמד חוקי בנקודה הזאת</b>${s.minute<20?'המנוע אינו ממליץ על חילופים לפני דקה 20.':s.state.subs_left===0?'כל החילופים הזמינים כבר נוצלו.':'אין מחליף זמין שתואם לתפקידים הנתמכים.'}`;
+    $('verdict').innerHTML=yes?`<b>מומלץ לבצע חילוף</b><span dir="ltr">${esc(s.selected.out_player.name)} → ${esc(s.selected.in_player.name)}</span><br>סוג: ${kind(s.selected)} · תועלת ${fmt(s.selected.expected_benefit,4)} מול סף ${fmt(s.threshold,4)}`:best?(s.no_substitution_reason==='QUALITY_LOSS_TOO_LARGE'?`<b>אין המלצת חילוף כרגע</b>יש אפשרויות שעוברות את הסף בזכות רענון, אבל בכולן המחליף חלש מדי ביחס לשחקן שיוצא.`:`<b>אין המלצת חילוף כרגע</b>האפשרות המובילה: ${gapText(best,s)}. הסף הוא ${fmt(s.threshold,4)}.`):`<b>אין מועמד חוקי בנקודה הזאת</b>${s.minute<20?'המנוע אינו ממליץ על חילופים לפני דקה 20.':s.state.subs_left===0?'כל החילופים הזמינים כבר נוצלו.':'אין מחליף זמין שתואם לתפקידים הנתמכים.'}`;
     if(s.unavailable_profile_ids.length)$('verdict').innerHTML+=`<br>חסרים ${s.unavailable_profile_ids.length} כרטיסים של שחקנים פעילים.`;
     $('needs').innerHTML=Object.entries(s.team_needs).map(([d,v])=>`<span class="need">${dims[d]} ${fmt(v,2)}</span>`).join('');
     $('comparison').hidden=!best;
@@ -128,7 +128,7 @@ function initializeReplay(){
   function renderCandidates(s){
     const previousScroll=$('candidates').scrollTop,hadFocus=$('candidates').contains(document.activeElement);
     $('candidates').innerHTML=s.alternatives.map((c,i)=>{
-      const max=Math.max(s.threshold*1.5,c.expected_benefit*1.1),pass=c.expected_benefit>=s.threshold&&!harmful(c);
+      const max=Math.max(s.threshold*1.5,c.expected_benefit*1.1),pass=c.expected_benefit>=s.threshold&&!harmful(c,s);
       return `<button class="candidate${i===candidateIndex?' chosen':''}${pass?' passes':''}" data-candidate="${i}" aria-pressed="${i===candidateIndex}"><span class="names">${esc(c.out_player.name)} → ${esc(c.in_player.name)}${c.change_type==='FORMATION_CHANGE'?' · שינוי מערך':''}</span><span class="candidate-top"><span class="gap ${pass?'pass':'fail'}">${gapText(c,s)}</span><span class="value">${fmt(c.expected_benefit,4)} / ${fmt(s.threshold,4)}</span></span><span class="gauge"><span class="gauge-fill" style="display:block;width:${Math.max(0,c.expected_benefit)/max*100}%"></span><span class="threshold-marker" style="left:${s.threshold/max*100}%"></span></span></button>`;
     }).join('');
     $('candidates').scrollTop=previousScroll;

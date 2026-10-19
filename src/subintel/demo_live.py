@@ -11,10 +11,14 @@ from .profiles import ProfileBook, Scale, TeamBaseline
 from .schema import Event, EventType, Player, Role
 
 TEAM_IDS = {'Liverpool': '24', 'Arsenal': '1', 'Chelsea': '33', 'Tottenham Hotspur': '38'}
-# Was 1.5: freshness then carried 72 of 92 recommendations on the 216-point benchmark,
-# including 29 with a negative tactical part. At 0.5 its size is comparable to tactical
-# gains (6 of 32 recommendations are freshness-led). Not fitted to named swaps.
-REFRESH_SCORE_CAP = 0.5
+# Balance between fresh legs and quality. At 1.5, freshness bought back any quality loss
+# (28 of 92 recommendations on the 216-point benchmark were tactically negative, some
+# heavily); at 0.5 a tired starter could never make way for a slightly weaker player.
+# 1.0 with a bounded quality loss lets fresh legs justify a somewhat weaker substitute
+# (~5 rating points in the last 20 minutes) but never taking off a star whose
+# replacement is clearly worse. Not fitted to named swaps.
+REFRESH_SCORE_CAP = 1.0
+MAX_TACTICAL_LOSS_FOR_FRESHNESS = 0.1
 REFRESH_HORIZON_MINUTES = 30.0
 # Trailing, a team may take a defender or midfielder off for an attacker and change shape
 # (Klopp: Milner off, Benteke on, 4-3-3 to 4-4-2 at 65' against Arsenal). Earliest minute
@@ -201,7 +205,7 @@ def no_substitution_reason(state, options):
     if not options:
         return 'NO_ELIGIBLE_CANDIDATE'
     if any(o['expected_benefit'] >= RECOMMEND_THRESHOLD for o in options):
-        return 'ONLY_TACTICALLY_HARMFUL_OPTIONS_CLEAR_THRESHOLD'
+        return 'QUALITY_LOSS_TOO_LARGE'
     return 'BELOW_THRESHOLD'
 
 
@@ -266,15 +270,16 @@ def recommend_demo(ms, tid, top=3):
                                     decision_basis='TACTICAL' if tactical_benefit >= freshness_benefit else 'FRESH_LEGS',
                                     score=round(score, 4), expected_benefit=round(benefit, 4)))
     options.sort(key=lambda o: (-o['expected_benefit'], o['out_player']['id'], o['in_player']['id']))
-    # Fresh legs may tip a change that does not hurt the team tactically, never justify one that does.
+    # Fresh legs may justify a somewhat weaker substitute, not a clearly weaker one.
     eligible = [o for o in options if o['expected_benefit'] >= RECOMMEND_THRESHOLD
-                and o['score_components']['tactical_benefit'] >= 0]
+                and o['score_components']['tactical_benefit'] >= -MAX_TACTICAL_LOSS_FOR_FRESHNESS]
     selected = eligible[0] if eligible else None
     return dict(match_id=ms.match_id, minute=state.minute, team_id=tid,
                 recommendation='SUBSTITUTION' if selected else 'NO_SUBSTITUTION',
                 no_substitution_reason=None if selected else no_substitution_reason(state, options),
                 state=state.model_dump(), team_needs=needs.needs, tactical_needs=tactical,
-                threshold=RECOMMEND_THRESHOLD, selected=selected,
+                threshold=RECOMMEND_THRESHOLD, max_tactical_loss_for_freshness=MAX_TACTICAL_LOSS_FOR_FRESHNESS,
+                selected=selected,
                 physical_need=dict(freshness=max((live_performance(ms, pid)['fatigue'] for pid in ms.on_pitch
                                                   if pid in ms.cards and ms.players[pid].team_id == tid and ms.role(pid) != 'GK'), default=0),
                                    source='ESTIMATED_MATCH_LOAD', refresh_score_cap=REFRESH_SCORE_CAP),

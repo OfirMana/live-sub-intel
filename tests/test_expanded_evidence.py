@@ -95,12 +95,12 @@ def controlled_candidate(minute, loss):
     return next(c for c in options if c['out_player']['id']==out_id and c['in_player']['id']==in_id)
 
 
-def test_freshness_does_not_carry_a_moderate_ability_loss():
-    # Under the 1.5 freshness cap this late swap cleared the threshold on freshness alone;
-    # a tactically harmful change is now never recommended (see recommend_demo).
+def test_moderate_ability_loss_is_tolerated_late_but_not_a_large_one():
+    from subintel.demo_live import MAX_TACTICAL_LOSS_FOR_FRESHNESS as max_loss
     assert controlled_candidate(30, 3)['expected_benefit'] < .15
-    assert controlled_candidate(75, 3)['score_components']['tactical_benefit'] < 0
-    assert controlled_candidate(75, 25)['expected_benefit'] < .15
+    late = controlled_candidate(75, 3)['score_components']['tactical_benefit']
+    assert -max_loss <= late < 0  # fresh legs may pay for this
+    assert controlled_candidate(75, 25)['score_components']['tactical_benefit'] < -max_loss
     equal = controlled_candidate(75, 0)
     assert equal['score_components']['tactical_benefit'] == 0
     assert equal['decision_basis'] == 'FRESH_LEGS'
