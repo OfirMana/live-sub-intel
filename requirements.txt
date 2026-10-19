@@ -1,0 +1,6 @@
+# Runtime dependencies for the web app (scripts/serve_app.py), e.g. on Azure App Service.
+# Local development: pip install -e ".[dev,llm]"
+numpy>=1.26
+pandas>=2.1
+pydantic>=2.5
+openai>=1.40

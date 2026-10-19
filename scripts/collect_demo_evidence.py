@@ -24,11 +24,15 @@ PINNED_OPEN_DATA = 'https://raw.githubusercontent.com/hudl/open-data/4b73468fc5b
 
 def fetch(relative):
     path = CACHE / relative
-    if not path.exists():
+    if path.exists():
+        return json.loads(path.read_text(encoding='utf-8'))
+    payload = urllib.request.urlopen(f'{PINNED_OPEN_DATA}/{relative}', timeout=120).read()
+    try:
         path.parent.mkdir(parents=True, exist_ok=True)
-        payload = urllib.request.urlopen(f'{PINNED_OPEN_DATA}/{relative}', timeout=120).read()
         path.write_bytes(payload)
-    return json.loads(path.read_text(encoding='utf-8'))
+    except OSError:  # read-only deployment (e.g. run from package): keep it in memory only
+        pass
+    return json.loads(payload.decode('utf-8'))
 
 
 def clock(value):
