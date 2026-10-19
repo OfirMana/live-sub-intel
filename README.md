@@ -35,9 +35,26 @@ src/subintel/
   metrics.py     Event -> metric components; shared by profiles and the live engine
   profiles.py    pre-match player profiles and team baselines
   engine.py      MatchState, team needs, substitution ranking
-scripts/         build_player_buckets.py, replay_match.py
-docs/            CONTRACT.md, examples/recommendation.json
+  demo_live.py   demo-card scoring, freshness balance, formation changes
+  narrative.py   explanation layer: facts -> LLM (Microsoft Foundry) or template
+scripts/         build_player_buckets.py, replay_match.py, explain_recommendation.py, ...
+docs/            CONTRACT.md, FOUNDRY_HE.md, examples/recommendation.json
 ```
+
+## Explanation layer
+
+The engine decides; the LLM only explains. `narrative.explain(snapshot, audience, lang)`
+sends the model a small facts object and rejects any text containing a number that is
+not in it, falling back to a deterministic template (also used offline). Audiences:
+`fan`, `analyst`, `broadcaster`; languages: `he`, `en`.
+
+```bash
+pip install -e ".[llm]"   # only needed for the LLM; the template works without it
+export FOUNDRY_ENDPOINT=... FOUNDRY_DEPLOYMENT=...   # and FOUNDRY_API_KEY, never committed
+python scripts/explain_recommendation.py --minute 75 --lang he
+```
+
+Microsoft Foundry setup, step by step (Hebrew): [`docs/FOUNDRY_HE.md`](docs/FOUNDRY_HE.md).
 
 ## Plan to the 27 October deadline
 
