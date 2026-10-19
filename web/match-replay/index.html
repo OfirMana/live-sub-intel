@@ -20,13 +20,15 @@
     <section class="card event-panel"><div class="section-top"><h2>מה קורה על הדשא</h2><label class="shot-filter"><input id="showShots" type="checkbox" checked> גם בעיטות</label></div><div id="eventFlash" class="event-flash" hidden aria-live="polite"></div><ol id="events" class="event-list"></ol></section>
     <section class="card decision-panel"><div class="section-top"><h2>החלטת הספסל</h2><span id="decisionMinute" class="pill">ממתין למשחק</span></div><p class="muted">בדוק בזמן שלך אם יש חילוף ששווה לעשות.</p><button id="check" class="primary wide" disabled aria-expanded="false" aria-controls="analysis">בדוק חילופים</button><p id="checkHint" class="muted small">התקדם לנקודת הבדיקה הראשונה.</p>
       <div id="analysis" hidden>
-        <div id="verdict" class="verdict" role="status"></div><div id="needs" class="needs"></div>
+        <div id="verdict" class="verdict" role="status"></div>
+        <div id="explain" class="explain" hidden><div class="explain-controls"><div class="seg" role="group" aria-label="קהל ההסבר"><button data-audience="fan" aria-pressed="true">אוהד</button><button data-audience="analyst" aria-pressed="false">אנליסט</button><button data-audience="broadcaster" aria-pressed="false">שדרן</button></div><select id="explainLang" aria-label="שפת ההסבר"><option value="he">עברית</option><option value="en">English</option></select><button id="explainBtn" class="primary">הסבר את ההחלטה</button></div><p id="explainText" class="explain-text" aria-live="polite"></p><p id="explainSource" class="small muted"></p></div>
+        <div id="needs" class="needs"></div>
         <h3 id="optionsHeading">האפשרויות, מהציון הגבוה לנמוך</h3><div id="candidates" class="candidate-list"></div>
         <div id="comparison" hidden><div class="section-top compare-heading"><h3>מי יוצא, מי נכנס</h3><span id="fit" class="pill"></span></div><div id="players" class="player-pair"></div><div class="table-scroll"><table><thead><tr><th>ממד</th><th>יוצא — כעת</th><th>נכנס — טרי</th><th>הפרש</th></tr></thead><tbody id="deltas"></tbody></table></div><p class="small muted">הציון הנוכחי של היוצא כולל התאמה מהמשחק. עייפות משוקללת בנפרד, ללא הורדה נוספת מהכרטיס.</p><h3>למה זה הציון?</h3><div id="components"></div><details><summary>כרטיסים לפני המשחק</summary><div id="prematch"></div></details><details><summary>הנתונים המלאים של ההחלטה</summary><pre id="raw"></pre></details></div>
       </div>
     </section>
   </div>
-  <footer><p>שחזור אירועים אמיתיים מ־StatsBomb. חילופי המאמן מופיעים בזמן שבו התרחשו; המלצות המודל מוצגות לבדיקה ואינן משנות את המשך המשחק.</p><details><summary>מה עומד מאחורי המספרים?</summary><p>הכרטיסים קפואים לפני 13.01.2016. תועלת החילוף היא ציון מודל, לא הסתברות או מספר שערים. נתוני העומס והמעקב הפיזי הם אומדנים. לבראד סמית׳ ולסון יש חלופת FIFA סינתטית מסומנת. המודל שומר על תפקידים נתמכים ואינו מדמה שינוי מערך. אין המלצות לפני דקה 20.</p></details></footer>
+  <footer><p>שחזור אירועים אמיתיים מ־StatsBomb. חילופי המאמן מופיעים בזמן שבו התרחשו; המלצות המודל מוצגות לבדיקה ואינן משנות את המשך המשחק.</p><details><summary>מה עומד מאחורי המספרים?</summary><p>הכרטיסים קפואים לפני 13.01.2016. תועלת החילוף היא ציון מודל, לא הסתברות או מספר שערים. נתוני העומס והמעקב הפיזי הם אומדנים. לבראד סמית׳ ולסון יש חלופת FIFA סינתטית מסומנת. המודל שומר על תפקידים נתמכים; שינוי מערך נבחן רק בפיגור (קשר מדקה 60, מגן או בלם מדקה 75) ומסומן כך. אין המלצות לפני דקה 20.</p></details></footer>
 </main>
 <script id="replay-data" type="application/json">/* PAYLOAD */</script><script>/* APP */</script>
 </body></html>

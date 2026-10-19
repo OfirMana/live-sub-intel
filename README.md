@@ -56,6 +56,20 @@ python scripts/explain_recommendation.py --minute 75 --lang he
 
 Microsoft Foundry setup, step by step (Hebrew): [`docs/FOUNDRY_HE.md`](docs/FOUNDRY_HE.md).
 
+## Game room with explanations (web app)
+
+```bash
+python scripts/serve_app.py            # http://127.0.0.1:8000
+```
+
+Serves the game room plus `/api/explain` and `/healthz`. Explanations are generated
+server-side (the key never reaches the browser), only for the checkpoints the game
+room shows, and model answers are cached, so a public deployment makes at most
+4 views x 18 checkpoints x 3 audiences x 2 languages model calls. Without the
+`FOUNDRY_*` variables it serves the deterministic template. On a host:
+`python scripts/serve_app.py --host 0.0.0.0 --port $PORT`. The offline bundle in
+`docs/match-replay` has no server and hides the explanation panel.
+
 ## Plan to the 27 October deadline
 
 | Days | Person 1: data, profiles | Person 2: needs, substitutions | Person 3: stream, AI, UI |

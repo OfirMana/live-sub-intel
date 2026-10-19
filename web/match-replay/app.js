@@ -45,6 +45,22 @@ function initializeReplay(){
   $('team').value=new URLSearchParams(location.search).get('team')||'38';
   if(!$('team').value)$('team').value='38';
 
+  const explainApi=window.EXPLAIN_API||null;let audience='fan',explainToken=0;
+  function resetExplain(){explainToken++;$('explainText').textContent='';$('explainSource').textContent='';$('explainBtn').disabled=false;}
+  async function requestExplanation(){
+    const s=snapshot();if(!s||!explainApi)return;
+    const lang=$('explainLang').value,mine=++explainToken;
+    $('explainBtn').disabled=true;$('explainText').dir=lang==='en'?'ltr':'rtl';$('explainText').textContent='מנסח הסבר…';$('explainSource').textContent='';
+    try{
+      const q=new URLSearchParams({match:view.match_id,team:view.team_id,minute:s.minute,audience,lang});
+      const r=await fetch(`${explainApi}?${q}`),body=await r.json();
+      if(mine!==explainToken)return;
+      if(!r.ok)throw new Error(body.error||r.status);
+      $('explainText').textContent=body.text;
+      $('explainSource').textContent=body.source==='llm'?`נכתב על ידי ${body.model||'LLM'} ב־Microsoft Foundry, מתוך נתוני המנוע בלבד.`:`תבנית קבועה (${body.note||'ללא LLM'}).`;
+    }catch(err){if(mine===explainToken)$('explainText').textContent='לא הצלחנו להביא הסבר כרגע. אפשר לנסות שוב.';}
+    finally{if(mine===explainToken)$('explainBtn').disabled=false;}
+  }
   function cancel(){token++;if(raf!==null)cancelAnimationFrame(raf);raf=null;playing=false;}
   function snapshot(){return index>0&&!stages[index].final?view.snapshots.find(s=>s.minute===stages[index].minute):null;}
   function hideAnalysis(){ $('analysis').hidden=true;$('check').setAttribute('aria-expanded','false');candidateIndex=0; }
@@ -114,7 +130,7 @@ function initializeReplay(){
   function showAnalysis(){
     const s=snapshot();if(!s||playing)return;
     if(!$('analysis').hidden){hideAnalysis();renderControls();return;}
-    $('analysis').hidden=false;$('check').setAttribute('aria-expanded','true');
+    $('analysis').hidden=false;$('check').setAttribute('aria-expanded','true');resetExplain();
     $('check').textContent='סגור את בדיקת החילופים';
     const best=s.alternatives[0],yes=!!s.selected;
     $('verdict').className='verdict'+(yes?' yes':'');
@@ -155,5 +171,11 @@ function initializeReplay(){
   $('team').onchange=chooseTeam;$('next').onclick=next;$('finishSegment').onclick=complete;$('back').onclick=()=>goTo(Math.max(0,index-1));$('reset').onclick=()=>goTo(0);$('check').onclick=showAnalysis;$('showShots').onchange=()=>renderEvents();
   $('fixture').onchange=()=>{const nextView=data.views.find(v=>v.match_id===$('fixture').value&&v.team_id===$('team').value)||data.views.find(v=>v.match_id===$('fixture').value);$('team').value=nextView.team_id;chooseTeam();};
   $('candidates').onclick=e=>{const b=e.target.closest('button[data-candidate]');if(b)selectCandidate(Number(b.dataset.candidate));};
+  if(explainApi){
+    $('explain').hidden=false;$('explainBtn').onclick=requestExplanation;
+    $('explain').querySelector('.seg').onclick=e=>{const b=e.target.closest('button[data-audience]');if(!b)return;audience=b.dataset.audience;
+      for(const x of $('explain').querySelectorAll('.seg button'))x.setAttribute('aria-pressed',String(x===b));resetExplain();};
+    $('explainLang').onchange=resetExplain;
+  }
   chooseTeam();
 }
