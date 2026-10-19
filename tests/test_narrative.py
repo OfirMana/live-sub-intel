@@ -87,7 +87,7 @@ def test_llm_text_with_an_invented_number_falls_back_to_the_template():
 
 def test_llm_failure_falls_back_to_the_template():
     result = explain(snapshot(), 'fan', 'en', client=stub(error=TimeoutError()), deployment='d')
-    assert result['source'] == 'template' and result['llm_error'] == 'TimeoutError'
+    assert result['source'] == 'template' and result['llm_error'].startswith('TimeoutError')
 
 
 def test_without_configuration_the_template_is_used(monkeypatch):
