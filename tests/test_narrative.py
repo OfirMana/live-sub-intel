@@ -31,6 +31,16 @@ def test_facts_carry_display_numbers_and_the_decision():
     assert sub['rating_gains'] == {'retention': 7.2, 'progression': 1.1}
     assert sub['rating_tradeoff'] == {'defense': -9.1}
     assert sub['player_off_estimated_fatigue_pct'] == 59
+    assert sub['addresses_needs'] == []  # top need is threat, and Allen does not add threat
+
+
+def test_a_need_is_only_linked_when_the_substitute_improves_it():
+    snap = snapshot(basis='TACTICAL')
+    snap['selected']['expected_changes']['threat'] = 4.0
+    f = facts(snap)
+    assert f['substitution']['addresses_needs'] == ['threat']
+    assert 'איום לשער' in template(f, 'fan', 'he')
+    assert 'איום לשער' not in template(facts(snapshot(basis='TACTICAL')), 'fan', 'he')
 
 
 def test_no_substitution_keeps_the_reason_and_the_best_rejected_option():

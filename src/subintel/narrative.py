@@ -52,6 +52,10 @@ The user message is a JSON object of facts. Rules:
    If decision_basis is FRESH_LEGS, say it is mainly about fresh legs.
    If change_type is FORMATION_CHANGE, say the team changes shape by adding an attacker.
 6. If decision is NO_SUBSTITUTION, explain why from no_substitution_reason.
+7. Only say the change helps with a team need if that need is listed in addresses_needs.
+   If addresses_needs is empty, do not connect the change to the team's needs at all.
+8. Describe changes plainly, without intensifiers such as "significantly" or "dramatically".
+9. LIKE_FOR_LIKE means the substitute plays the same position as the player going off.
 Audience:
 - fan: 2-3 short sentences, everyday words, no model scores.
 - analyst: 3-5 sentences; may cite team needs, rating changes, benefit vs threshold and evidence strength.
@@ -96,6 +100,7 @@ def facts(snapshot: dict) -> dict:
             decision_basis=option.get('decision_basis'),
             change_type=option.get('change_type', 'LIKE_FOR_LIKE'),
             rating_gains={d: changes[d] for d in gains},
+            addresses_needs=[d for d in out['top_needs'] if changes.get(d, 0) > 0],
             rating_tradeoff={d: changes[d] for d in losses},
             player_off_estimated_fatigue_pct=_num(option['score_components']['outgoing_fatigue'] * 100, 0),
             expected_benefit=_num(option['expected_benefit'], 3),
@@ -147,7 +152,7 @@ def template(fact_sheet: dict, audience: str, lang: str) -> str:
     trade = ', '.join(f"{L[d]} {v}" for d, v in sub['rating_tradeoff'].items())
     fresh = sub['decision_basis'] == 'FRESH_LEGS'
     shape = sub['change_type'] == 'FORMATION_CHANGE'
-    need = L[f['top_needs'][0]] if f['top_needs'] else None
+    need = L[sub['addresses_needs'][0]] if sub['addresses_needs'] else None
     if he:
         head = f"דקה {f['minute']}: {sub['player_on']} נכנס במקום {sub['player_off']}."
         why = (f" בעיקר רגליים רעננות: העייפות המשוערת של {sub['player_off']} היא {sub['player_off_estimated_fatigue_pct']}%." if fresh
