@@ -39,8 +39,8 @@ def test_trailing_team_attacking_above_its_norm_still_needs_threat():
     assert team_needs(ms, '24').needs['threat'] < .5  # level score: the surplus lowers the need
 
 
-def gated_recommendation(loss):
-    """Liverpool at 70' with flat needs and a freshness term large enough to clear the threshold."""
+def scenario(out_ratings, in_ratings, minute, fatigue):
+    """Liverpool, level score, flat needs: one starter, one eligible bench player, fixed fatigue."""
     data = copy.deepcopy(load_demo_profiles())
     liverpool = [p for p in data['players'] if p['team'] == 'Liverpool' and p['primary_role'] != 'GK']
     out = next(p for p in liverpool if p['matchday_status'] == 'Starter')
@@ -48,36 +48,50 @@ def gated_recommendation(loss):
     for p in liverpool:
         p['recent']['ratings'] = dict.fromkeys(p['recent']['ratings'], 75.)
         p['general']['reliability'] = dict.fromkeys(p['general']['reliability'], 1.)
-    bench['recent']['ratings'] = dict.fromkeys(bench['recent']['ratings'], 75. - loss)
-    for p in liverpool:
-        if p is not bench and p['matchday_status'] == 'Bench':
+        if p['matchday_status'] == 'Bench':
             p['positions']['eligibility'] = {}
+    out['recent']['ratings'].update(out_ratings)
+    bench['recent']['ratings'].update(in_ratings)
     bench['positions']['eligibility'] = {out['primary_role']: 1.}
     bench['positions']['suitability'] = {out['primary_role']: 1.}
     ms = make_match(data, evidence())
-    tick(ms, 70)
+    tick(ms, minute)
     flat = TeamNeeds(team_id='24', needs=dict.fromkeys(DIMS, .5), deficit_z=dict.fromkeys(DIMS, 0),
                      importance=dict.fromkeys(DIMS, 1))
     with patch.object(live, 'team_needs', return_value=flat), \
             patch.object(live, 'effective_profile', side_effect=lambda state, pid, on: state.cards[pid]['recent']['ratings']), \
-            patch.object(live, 'refresh_value', return_value=3.0):
-        return recommend_demo(ms, '24', top=1000), str(out['player_id']), str(bench['player_id'])
+            patch.object(live, 'live_performance', side_effect=lambda state, pid: {'player_id': pid, 'fatigue': fatigue}):
+        rec = recommend_demo(ms, '24', top=1000)
+    option = next(o for o in rec['alternatives'] if o['out_player']['id'] == str(out['player_id'])
+                  and o['in_player']['id'] == str(bench['player_id']))
+    return rec, option
 
 
-def test_freshness_never_justifies_a_tactically_harmful_change():
-    rec, out_id, in_id = gated_recommendation(loss=3)
-    option = next(o for o in rec['alternatives'] if o['out_player']['id'] == out_id and o['in_player']['id'] == in_id)
-    assert option['expected_benefit'] >= rec['threshold']
-    assert option['score_components']['tactical_benefit'] < 0
+STAR = dict(threat=92., creation=90., progression=93., retention=88., defense=35.)
+GOOD_SUB = dict(threat=80., creation=80., progression=82., retention=80., defense=40.)
+
+
+def test_a_tired_star_is_not_taken_off_for_a_clearly_weaker_player():
+    rec, option = scenario(STAR, GOOD_SUB, minute=75, fatigue=1.)
+    assert option['expected_benefit'] >= rec['threshold']  # freshness alone would clear it
+    assert option['score_components']['tactical_benefit'] < -live.MAX_TACTICAL_LOSS_FOR_FRESHNESS
     assert rec['selected'] is None
-    assert rec['no_substitution_reason'] == 'ONLY_TACTICALLY_HARMFUL_OPTIONS_CLEAR_THRESHOLD'
+    assert rec['no_substitution_reason'] == 'QUALITY_LOSS_TOO_LARGE'
 
 
-def test_fresh_legs_for_an_equal_player_is_recommended_and_labelled():
-    rec, out_id, in_id = gated_recommendation(loss=0)
-    assert rec['selected']['in_player']['id'] == in_id
+def test_fresh_legs_can_bring_on_a_slightly_weaker_player_late():
+    rec, option = scenario({}, dict.fromkeys(DIMS, 72.), minute=75, fatigue=1.)
+    assert option['score_components']['tactical_benefit'] < 0  # the substitute is weaker...
+    # ...and still recommended (another tired starter in the same role may tie for the slot).
+    assert rec['selected']['in_player'] == option['in_player']
+    assert rec['selected']['score_components']['tactical_benefit'] < 0
     assert rec['selected']['decision_basis'] == 'FRESH_LEGS'
-    assert rec['no_substitution_reason'] is None
+
+
+def test_the_same_weaker_player_costs_too_much_early():
+    rec, option = scenario({}, dict.fromkeys(DIMS, 72.), minute=40, fatigue=1.)
+    assert option['score_components']['tactical_benefit'] < -live.MAX_TACTICAL_LOSS_FOR_FRESHNESS
+    assert rec['selected'] is None
 
 
 def card(role):
