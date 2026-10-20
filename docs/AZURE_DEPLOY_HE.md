@@ -59,6 +59,15 @@ python scripts/serve_app.py --host 0.0.0.0
 
 אם משהו לא עובד: **Monitoring ← Log stream** מציג את יומן השרת, כולל שגיאות של Foundry.
 
+## מה למדנו בפריסה הראשונה (20.10.2026)
+
+- **West Europe לא קיבל לקוחות חדשים** ("The selected region is currently not accepting new customers"). עברנו ל־**Sweden Central**.
+  כתובת האפליקציה: https://live-sub-intel-fcfudheze9b5ewfz.swedencentral-01.azurewebsites.net/
+- **ההרצה הראשונה של ה־workflow נכשלה ב־Login to Azure** עם `No subscriptions found`. ההרשאה של GitHub ב־Azure עוד לא התעדכנה. אחרי כמה דקות, **Re-run failed jobs** עבר.
+- **כפתור Browse ב־Overview נפתח ל־`about:blank#blocked`**, כי Chrome חסם חלון חדש. פותחים את הכתובת ידנית בכרטיסייה חדשה.
+- **`llm_configured: true` לא מוכיח שהמודל עונה.** אם ההסבר מסומן כתבנית, פותחים **Monitoring ← Log stream**, לוחצים "הסבר", ומחפשים שורה `Explanation failed: type=... cause=...`.
+  - הערכים של `FOUNDRY_*` מנוקים מרווחים בתחילתם ובסופם, כי רווח בסוף מפתח שהודבק פוסל כל קריאה.
+
 ## בסיום ההאקתון
 
 כדי שלא להמשיך לשלם, מוחקים את ה־Web App ואת ה־App Service plan, או את כל קבוצת המשאבים.

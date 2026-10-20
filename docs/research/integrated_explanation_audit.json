@@ -1,0 +1,15 @@
+{
+  "kind": "OFFLINE_CONTRACT_COVERAGE_NOT_TACTICAL_ACCURACY",
+  "counts": {
+    "checkpoints": 72,
+    "plan_contexts": 2070,
+    "rendered_explanations": 12420
+  },
+  "decisions": {
+    "NO_SUBSTITUTION": 24,
+    "SUBSTITUTION": 30,
+    "TACTICAL_ADJUSTMENT": 18
+  },
+  "provider_calls": 0,
+  "scope": "Four team views, 18 checkpoints, every offered pair/tactical/wait plan, 3 audiences and 2 languages"
+}

@@ -184,7 +184,10 @@ def template(fact_sheet: dict, audience: str, lang: str) -> str:
 
 def foundry_client_from_env():
     """(client, deployment) for Microsoft Foundry, or None when not configured."""
-    endpoint, key, deployment = (os.environ.get(k) for k in ('FOUNDRY_ENDPOINT', 'FOUNDRY_API_KEY', 'FOUNDRY_DEPLOYMENT'))
+    # strip(): values pasted into a portal often carry a stray space or newline, which
+    # makes the key an invalid header and fails every call as a "connection error".
+    endpoint, key, deployment = ((os.environ.get(k) or '').strip()
+                                 for k in ('FOUNDRY_ENDPOINT', 'FOUNDRY_API_KEY', 'FOUNDRY_DEPLOYMENT'))
     if not (endpoint and key and deployment):
         return None
     from openai import OpenAI  # optional dependency: pip install -e ".[llm]"

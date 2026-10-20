@@ -1,4 +1,39 @@
+# Integrated coach room
+
+**Live demo (Azure App Service):** https://live-sub-intel-fcfudheze9b5ewfz.swedencentral-01.azurewebsites.net/
+· deployed automatically from `main` by `.github/workflows/main_live-sub-intel.yml`
+(tests run before every deployment).
+
+English-default interface with Hebrew/RTL, automatic full-XI tactical plans and
+explanations of the alternative you inspect. Run:
+
+```bash
+pip install -e ".[dev,llm]"
+python scripts/serve_app.py --port 8778
+```
+
+Open http://127.0.0.1:8778/. The same startup entry point is used on Azure.
+[Integration details and limits](docs/INTEGRATED_ROOM.md) ·
+[Prompt for the teammate's Claude to diagnose Foundry](docs/CLAUDE_FOUNDRY_HANDOFF.md).
+The model selects verified facts; the app renders the explanation. Without
+Foundry configuration the source is explicitly labelled as a verified template.
+The older project notes below describe earlier entry points and experiments.
+
 # Live Substitution Intelligence
+
+## Automatic tactical plans — 19 October 2026
+
+The isolated `feature/coach-match-room` branch automatically compares every
+available outfield substitution pair, supported formations and complete XI
+assignments, including repositioning without a substitution. The coach sets
+stance and a win/draw objective; no formation choice is required. Both pitches
+show names, shirt numbers and the selected plan's position changes.
+
+Start `python scripts/serve_coach_room.py --port 8775` and open
+http://127.0.0.1:8775/. See [current algorithm, evidence and integration](docs/AUTO_TACTICAL_PLANS.md)
+or the [Hebrew teammate handoff](docs/COACH_HANDOFF_HE.md).
+This remains a separate research scorer with heuristic position suitability;
+the shared engine and teammate LLM/demo are unchanged.
 
 Microsoft × Premier League "Inside the Game" hackathon. Team: Thomas, Tal, Ofir.
 

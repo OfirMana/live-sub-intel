@@ -1,0 +1,90 @@
+{
+  "version": "coach-room-v2",
+  "kind": "RESEARCH_COVERAGE_AND_SENSITIVITY_NOT_ACCURACY",
+  "default_policy": {
+    "freshness_cap": 1.0,
+    "max_absolute_tactical_loss": 0.1,
+    "max_loss_fraction_of_freshness": 0.35
+  },
+  "default": {
+    "cases": 216,
+    "NO_SUBSTITUTION": 110,
+    "SUBSTITUTION": 79,
+    "negative_incremental_tactics": 11,
+    "with_repositioning": 60,
+    "formation_changes": 6,
+    "freshness_led": 40,
+    "TACTICAL_ADJUSTMENT": 27,
+    "latency_ms": {
+      "median": 172.7,
+      "p95": 277.69,
+      "max": 415.8
+    }
+  },
+  "paired": {
+    "0.0": {
+      "cases": 16,
+      "TACTICAL_ADJUSTMENT": 9,
+      "NO_SUBSTITUTION": 5,
+      "SUBSTITUTION": 2,
+      "negative_incremental_tactics": 0,
+      "with_repositioning": 1,
+      "formation_changes": 0,
+      "freshness_led": 0,
+      "latency_ms": {
+        "median": 221.74,
+        "p95": 251.57,
+        "max": 251.57
+      }
+    },
+    "0.5": {
+      "cases": 16,
+      "TACTICAL_ADJUSTMENT": 6,
+      "SUBSTITUTION": 6,
+      "negative_incremental_tactics": 0,
+      "with_repositioning": 4,
+      "formation_changes": 0,
+      "freshness_led": 2,
+      "NO_SUBSTITUTION": 4,
+      "latency_ms": {
+        "median": 169.78,
+        "p95": 231.87,
+        "max": 231.87
+      }
+    },
+    "1.0": {
+      "cases": 16,
+      "SUBSTITUTION": 11,
+      "negative_incremental_tactics": 2,
+      "with_repositioning": 7,
+      "formation_changes": 0,
+      "freshness_led": 9,
+      "TACTICAL_ADJUSTMENT": 3,
+      "NO_SUBSTITUTION": 2,
+      "latency_ms": {
+        "median": 221.3,
+        "p95": 328.16,
+        "max": 328.16
+      }
+    },
+    "1.5": {
+      "cases": 16,
+      "SUBSTITUTION": 16,
+      "negative_incremental_tactics": 7,
+      "with_repositioning": 12,
+      "formation_changes": 2,
+      "freshness_led": 15,
+      "latency_ms": {
+        "median": 176.88,
+        "p95": 317.17,
+        "max": 317.17
+      }
+    }
+  },
+  "total_evaluations": 264,
+  "limitations": [
+    "No expert-labelled accuracy, no causal result prediction.",
+    "Timing is local CPU scoring, not network latency.",
+    "The search is exact within the supported position/template catalog, not every imaginable football shape."
+  ]
+}

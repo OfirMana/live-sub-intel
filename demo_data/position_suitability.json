@@ -1,0 +1,7574 @@
+{
+  "version": "position-fit-v1",
+  "kind": "HEURISTIC_NOT_MEASURED_CHEMISTRY",
+  "source_profile_sha256": "88675d732f44faa02d1319932316de150b79b2d5c841ebaac687ffd71028ec77",
+  "rules": {
+    "primary": 1.0,
+    "supported_secondary": 0.85,
+    "supported_broad_only": 0.75,
+    "unsupported": 0.0,
+    "observed_minutes_for_secondary": 180
+  },
+  "players": {
+    "3525": {
+      "name": "Alex Oxlade-Chamberlain",
+      "positions": {
+        "Goalkeeper": {
+          "fit": 0.0,
+          "source": "BLOCKED"
+        },
+        "Right Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Center Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Center Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Wing Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Wing Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Defensive Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Defensive Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Defensive Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Center Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Center Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Midfield": {
+          "fit": 0.85,
+          "source": "SUPPORTED_SECONDARY"
+        },
+        "Left Midfield": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Right Attacking Midfield": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Center Attacking Midfield": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Left Attacking Midfield": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Right Wing": {
+          "fit": 1.0,
+          "source": "PRIMARY_POSITION"
+        },
+        "Left Wing": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Right Center Forward": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Forward": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Center Forward": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Secondary Striker": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        }
+      }
+    },
+    "5581": {
+      "name": "Joel Campbell",
+      "positions": {
+        "Goalkeeper": {
+          "fit": 0.0,
+          "source": "BLOCKED"
+        },
+        "Right Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Center Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Center Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Wing Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Wing Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Defensive Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Defensive Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Defensive Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Center Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Center Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Midfield": {
+          "fit": 0.85,
+          "source": "SUPPORTED_SECONDARY"
+        },
+        "Left Midfield": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Right Attacking Midfield": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Center Attacking Midfield": {
+          "fit": 0.85,
+          "source": "SUPPORTED_SECONDARY"
+        },
+        "Left Attacking Midfield": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Right Wing": {
+          "fit": 1.0,
+          "source": "PRIMARY_POSITION"
+        },
+        "Left Wing": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Right Center Forward": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Center Forward": {
+          "fit": 0.85,
+          "source": "SUPPORTED_SECONDARY"
+        },
+        "Left Center Forward": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Secondary Striker": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        }
+      }
+    },
+    "3496": {
+      "name": "Mesut Özil",
+      "positions": {
+        "Goalkeeper": {
+          "fit": 0.0,
+          "source": "BLOCKED"
+        },
+        "Right Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Center Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Center Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Wing Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Wing Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Defensive Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Defensive Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Defensive Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Center Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Center Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Midfield": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Left Midfield": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Right Attacking Midfield": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Center Attacking Midfield": {
+          "fit": 1.0,
+          "source": "PRIMARY_POSITION"
+        },
+        "Left Attacking Midfield": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Right Wing": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Left Wing": {
+          "fit": 0.85,
+          "source": "SUPPORTED_SECONDARY"
+        },
+        "Right Center Forward": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Forward": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Center Forward": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Secondary Striker": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        }
+      }
+    },
+    "3668": {
+      "name": "Theo Walcott",
+      "positions": {
+        "Goalkeeper": {
+          "fit": 0.0,
+          "source": "BLOCKED"
+        },
+        "Right Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Center Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Center Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Wing Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Wing Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Defensive Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Defensive Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Defensive Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Center Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Center Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Midfield": {
+          "fit": 0.85,
+          "source": "SUPPORTED_SECONDARY"
+        },
+        "Left Midfield": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Right Attacking Midfield": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Center Attacking Midfield": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Left Attacking Midfield": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Right Wing": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Left Wing": {
+          "fit": 1.0,
+          "source": "PRIMARY_POSITION"
+        },
+        "Right Center Forward": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Center Forward": {
+          "fit": 0.85,
+          "source": "SUPPORTED_SECONDARY"
+        },
+        "Left Center Forward": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Secondary Striker": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        }
+      }
+    },
+    "6746": {
+      "name": "Gabriel Paulista",
+      "positions": {
+        "Goalkeeper": {
+          "fit": 0.0,
+          "source": "BLOCKED"
+        },
+        "Right Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Center Back": {
+          "fit": 0.85,
+          "source": "SUPPORTED_SECONDARY"
+        },
+        "Center Back": {
+          "fit": 0.85,
+          "source": "SUPPORTED_SECONDARY"
+        },
+        "Left Center Back": {
+          "fit": 1.0,
+          "source": "PRIMARY_POSITION"
+        },
+        "Right Wing Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Wing Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Defensive Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Defensive Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Defensive Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Center Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Center Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Attacking Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Attacking Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Attacking Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Wing": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Wing": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Center Forward": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Forward": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Center Forward": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Secondary Striker": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        }
+      }
+    },
+    "3394": {
+      "name": "Laurent Koscielny",
+      "positions": {
+        "Goalkeeper": {
+          "fit": 0.0,
+          "source": "BLOCKED"
+        },
+        "Right Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Center Back": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Center Back": {
+          "fit": 0.85,
+          "source": "SUPPORTED_SECONDARY"
+        },
+        "Left Center Back": {
+          "fit": 1.0,
+          "source": "PRIMARY_POSITION"
+        },
+        "Right Wing Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Wing Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Defensive Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Defensive Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Defensive Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Center Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Center Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Attacking Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Attacking Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Attacking Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Wing": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Wing": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Center Forward": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Forward": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Center Forward": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Secondary Striker": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        }
+      }
+    },
+    "3475": {
+      "name": "Per Mertesacker",
+      "positions": {
+        "Goalkeeper": {
+          "fit": 0.0,
+          "source": "BLOCKED"
+        },
+        "Right Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Center Back": {
+          "fit": 1.0,
+          "source": "PRIMARY_POSITION"
+        },
+        "Center Back": {
+          "fit": 0.85,
+          "source": "SUPPORTED_SECONDARY"
+        },
+        "Left Center Back": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Right Wing Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Wing Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Defensive Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Defensive Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Defensive Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Center Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Center Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Attacking Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Attacking Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Attacking Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Wing": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Wing": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Center Forward": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Forward": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Center Forward": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Secondary Striker": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        }
+      }
+    },
+    "3517": {
+      "name": "Aaron Ramsey",
+      "positions": {
+        "Goalkeeper": {
+          "fit": 0.0,
+          "source": "BLOCKED"
+        },
+        "Right Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Center Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Center Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Wing Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Wing Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Defensive Midfield": {
+          "fit": 0.85,
+          "source": "SUPPORTED_SECONDARY"
+        },
+        "Center Defensive Midfield": {
+          "fit": 0.85,
+          "source": "SUPPORTED_SECONDARY"
+        },
+        "Left Defensive Midfield": {
+          "fit": 0.85,
+          "source": "OBSERVED_180_MINUTES"
+        },
+        "Right Center Midfield": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Center Midfield": {
+          "fit": 0.85,
+          "source": "SUPPORTED_SECONDARY"
+        },
+        "Left Center Midfield": {
+          "fit": 1.0,
+          "source": "PRIMARY_POSITION"
+        },
+        "Right Midfield": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Left Midfield": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Right Attacking Midfield": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Center Attacking Midfield": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Left Attacking Midfield": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Right Wing": {
+          "fit": 0.85,
+          "source": "SUPPORTED_SECONDARY"
+        },
+        "Left Wing": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Right Center Forward": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Forward": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Center Forward": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Secondary Striker": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        }
+      }
+    },
+    "6631": {
+      "name": "Mathieu Flamini",
+      "positions": {
+        "Goalkeeper": {
+          "fit": 0.0,
+          "source": "BLOCKED"
+        },
+        "Right Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Center Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Center Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Wing Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Wing Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Defensive Midfield": {
+          "fit": 1.0,
+          "source": "PRIMARY_POSITION"
+        },
+        "Center Defensive Midfield": {
+          "fit": 0.85,
+          "source": "SUPPORTED_SECONDARY"
+        },
+        "Left Defensive Midfield": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Right Center Midfield": {
+          "fit": 0.85,
+          "source": "SUPPORTED_SECONDARY"
+        },
+        "Center Midfield": {
+          "fit": 0.85,
+          "source": "SUPPORTED_SECONDARY"
+        },
+        "Left Center Midfield": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Right Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Attacking Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Attacking Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Attacking Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Wing": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Wing": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Center Forward": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Forward": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Center Forward": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Secondary Striker": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        }
+      }
+    },
+    "42703": {
+      "name": "Mikel Arteta",
+      "positions": {
+        "Goalkeeper": {
+          "fit": 0.0,
+          "source": "BLOCKED"
+        },
+        "Right Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Center Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Center Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Wing Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Wing Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Defensive Midfield": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Center Defensive Midfield": {
+          "fit": 0.85,
+          "source": "SUPPORTED_SECONDARY"
+        },
+        "Left Defensive Midfield": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Right Center Midfield": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Center Midfield": {
+          "fit": 1.0,
+          "source": "PRIMARY_POSITION"
+        },
+        "Left Center Midfield": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Right Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Attacking Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Attacking Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Attacking Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Wing": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Wing": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Center Forward": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Forward": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Center Forward": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Secondary Striker": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        }
+      }
+    },
+    "3713": {
+      "name": "Calum Chambers",
+      "positions": {
+        "Goalkeeper": {
+          "fit": 0.0,
+          "source": "BLOCKED"
+        },
+        "Right Back": {
+          "fit": 1.0,
+          "source": "PRIMARY_POSITION"
+        },
+        "Left Back": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Right Center Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Center Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Wing Back": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Left Wing Back": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Right Defensive Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Defensive Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Defensive Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Center Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Center Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Attacking Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Attacking Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Attacking Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Wing": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Wing": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Center Forward": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Forward": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Center Forward": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Secondary Striker": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        }
+      }
+    },
+    "3511": {
+      "name": "Héctor Bellerín",
+      "positions": {
+        "Goalkeeper": {
+          "fit": 0.0,
+          "source": "BLOCKED"
+        },
+        "Right Back": {
+          "fit": 1.0,
+          "source": "PRIMARY_POSITION"
+        },
+        "Left Back": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Right Center Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Center Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Wing Back": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Left Wing Back": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Right Defensive Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Defensive Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Defensive Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Center Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Center Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Attacking Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Attacking Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Attacking Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Wing": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Wing": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Center Forward": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Forward": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Center Forward": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Secondary Striker": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        }
+      }
+    },
+    "3528": {
+      "name": "Kieran Gibbs",
+      "positions": {
+        "Goalkeeper": {
+          "fit": 0.0,
+          "source": "BLOCKED"
+        },
+        "Right Back": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Left Back": {
+          "fit": 1.0,
+          "source": "PRIMARY_POSITION"
+        },
+        "Right Center Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Center Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Wing Back": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Left Wing Back": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Right Defensive Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Defensive Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Defensive Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Center Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Center Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Attacking Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Attacking Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Attacking Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Wing": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Wing": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Center Forward": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Forward": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Center Forward": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Secondary Striker": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        }
+      }
+    },
+    "3498": {
+      "name": "Nacho Monreal",
+      "positions": {
+        "Goalkeeper": {
+          "fit": 0.0,
+          "source": "BLOCKED"
+        },
+        "Right Back": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Left Back": {
+          "fit": 1.0,
+          "source": "PRIMARY_POSITION"
+        },
+        "Right Center Back": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Center Back": {
+          "fit": 0.85,
+          "source": "SUPPORTED_SECONDARY"
+        },
+        "Left Center Back": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Right Wing Back": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Left Wing Back": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Right Defensive Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Defensive Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Defensive Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Center Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Center Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Attacking Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Attacking Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Attacking Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Wing": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Wing": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Center Forward": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Forward": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Center Forward": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Secondary Striker": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        }
+      }
+    },
+    "9417": {
+      "name": "Matt Macey",
+      "positions": {
+        "Goalkeeper": {
+          "fit": 1.0,
+          "source": "GOALKEEPER"
+        },
+        "Right Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Center Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Center Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Wing Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Wing Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Defensive Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Defensive Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Defensive Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Center Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Center Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Attacking Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Attacking Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Attacking Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Wing": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Wing": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Center Forward": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Forward": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Center Forward": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Secondary Striker": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        }
+      }
+    },
+    "3461": {
+      "name": "Petr Čech",
+      "positions": {
+        "Goalkeeper": {
+          "fit": 1.0,
+          "source": "GOALKEEPER"
+        },
+        "Right Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Center Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Center Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Wing Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Wing Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Defensive Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Defensive Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Defensive Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Center Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Center Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Attacking Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Attacking Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Attacking Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Wing": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Wing": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Center Forward": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Forward": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Center Forward": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Secondary Striker": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        }
+      }
+    },
+    "3647": {
+      "name": "Alex Iwobi",
+      "positions": {
+        "Goalkeeper": {
+          "fit": 0.0,
+          "source": "BLOCKED"
+        },
+        "Right Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Center Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Center Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Wing Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Wing Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Defensive Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Defensive Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Defensive Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Center Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Center Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Midfield": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Left Midfield": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Right Attacking Midfield": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Center Attacking Midfield": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Left Attacking Midfield": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Right Wing": {
+          "fit": 0.85,
+          "source": "SUPPORTED_SECONDARY"
+        },
+        "Left Wing": {
+          "fit": 0.85,
+          "source": "SUPPORTED_SECONDARY"
+        },
+        "Right Center Forward": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Center Forward": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Left Center Forward": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Secondary Striker": {
+          "fit": 1.0,
+          "source": "PRIMARY_POSITION"
+        }
+      }
+    },
+    "3604": {
+      "name": "Olivier Giroud",
+      "positions": {
+        "Goalkeeper": {
+          "fit": 0.0,
+          "source": "BLOCKED"
+        },
+        "Right Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Center Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Center Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Wing Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Wing Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Defensive Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Defensive Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Defensive Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Center Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Center Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Attacking Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Attacking Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Attacking Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Wing": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Wing": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Center Forward": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Center Forward": {
+          "fit": 1.0,
+          "source": "PRIMARY_POSITION"
+        },
+        "Left Center Forward": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Secondary Striker": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        }
+      }
+    },
+    "40122": {
+      "name": "Oscar",
+      "positions": {
+        "Goalkeeper": {
+          "fit": 0.0,
+          "source": "BLOCKED"
+        },
+        "Right Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Center Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Center Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Wing Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Wing Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Defensive Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Defensive Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Defensive Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Center Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Center Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Midfield": {
+          "fit": 0.85,
+          "source": "SUPPORTED_SECONDARY"
+        },
+        "Left Midfield": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Right Attacking Midfield": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Center Attacking Midfield": {
+          "fit": 1.0,
+          "source": "PRIMARY_POSITION"
+        },
+        "Left Attacking Midfield": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Right Wing": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Left Wing": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Right Center Forward": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Forward": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Center Forward": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Secondary Striker": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        }
+      }
+    },
+    "3958": {
+      "name": "Pedro",
+      "positions": {
+        "Goalkeeper": {
+          "fit": 0.0,
+          "source": "BLOCKED"
+        },
+        "Right Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Center Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Center Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Wing Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Wing Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Defensive Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Defensive Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Defensive Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Center Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Center Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Midfield": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Left Midfield": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Right Attacking Midfield": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Center Attacking Midfield": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Left Attacking Midfield": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Right Wing": {
+          "fit": 0.85,
+          "source": "SUPPORTED_SECONDARY"
+        },
+        "Left Wing": {
+          "fit": 1.0,
+          "source": "PRIMARY_POSITION"
+        },
+        "Right Center Forward": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Forward": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Center Forward": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Secondary Striker": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        }
+      }
+    },
+    "3472": {
+      "name": "Willian",
+      "positions": {
+        "Goalkeeper": {
+          "fit": 0.0,
+          "source": "BLOCKED"
+        },
+        "Right Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Center Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Center Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Wing Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Wing Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Defensive Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Defensive Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Defensive Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Center Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Center Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Midfield": {
+          "fit": 0.85,
+          "source": "SUPPORTED_SECONDARY"
+        },
+        "Left Midfield": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Right Attacking Midfield": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Center Attacking Midfield": {
+          "fit": 0.85,
+          "source": "SUPPORTED_SECONDARY"
+        },
+        "Left Attacking Midfield": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Right Wing": {
+          "fit": 1.0,
+          "source": "PRIMARY_POSITION"
+        },
+        "Left Wing": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Right Center Forward": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Forward": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Center Forward": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Secondary Striker": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        }
+      }
+    },
+    "3645": {
+      "name": "Gary Cahill",
+      "positions": {
+        "Goalkeeper": {
+          "fit": 0.0,
+          "source": "BLOCKED"
+        },
+        "Right Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Center Back": {
+          "fit": 1.0,
+          "source": "PRIMARY_POSITION"
+        },
+        "Center Back": {
+          "fit": 0.85,
+          "source": "SUPPORTED_SECONDARY"
+        },
+        "Left Center Back": {
+          "fit": 0.85,
+          "source": "SUPPORTED_SECONDARY"
+        },
+        "Right Wing Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Wing Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Defensive Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Defensive Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Defensive Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Center Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Center Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Attacking Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Attacking Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Attacking Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Wing": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Wing": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Center Forward": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Forward": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Center Forward": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Secondary Striker": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        }
+      }
+    },
+    "20287": {
+      "name": "John Terry",
+      "positions": {
+        "Goalkeeper": {
+          "fit": 0.0,
+          "source": "BLOCKED"
+        },
+        "Right Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Center Back": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Center Back": {
+          "fit": 0.85,
+          "source": "SUPPORTED_SECONDARY"
+        },
+        "Left Center Back": {
+          "fit": 1.0,
+          "source": "PRIMARY_POSITION"
+        },
+        "Right Wing Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Wing Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Defensive Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Defensive Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Defensive Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Center Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Center Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Attacking Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Attacking Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Attacking Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Wing": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Wing": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Center Forward": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Forward": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Center Forward": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Secondary Striker": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        }
+      }
+    },
+    "3456": {
+      "name": "Kurt Zouma",
+      "positions": {
+        "Goalkeeper": {
+          "fit": 0.0,
+          "source": "BLOCKED"
+        },
+        "Right Back": {
+          "fit": 0.85,
+          "source": "SUPPORTED_SECONDARY"
+        },
+        "Left Back": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Right Center Back": {
+          "fit": 1.0,
+          "source": "PRIMARY_POSITION"
+        },
+        "Center Back": {
+          "fit": 0.85,
+          "source": "SUPPORTED_SECONDARY"
+        },
+        "Left Center Back": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Right Wing Back": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Left Wing Back": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Right Defensive Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Defensive Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Defensive Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Center Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Center Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Attacking Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Attacking Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Attacking Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Wing": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Wing": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Center Forward": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Forward": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Center Forward": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Secondary Striker": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        }
+      }
+    },
+    "3478": {
+      "name": "Cesc Fàbregas",
+      "positions": {
+        "Goalkeeper": {
+          "fit": 0.0,
+          "source": "BLOCKED"
+        },
+        "Right Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Center Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Center Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Wing Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Wing Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Defensive Midfield": {
+          "fit": 1.0,
+          "source": "PRIMARY_POSITION"
+        },
+        "Center Defensive Midfield": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Left Defensive Midfield": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Right Center Midfield": {
+          "fit": 0.85,
+          "source": "SUPPORTED_SECONDARY"
+        },
+        "Center Midfield": {
+          "fit": 0.85,
+          "source": "SUPPORTED_SECONDARY"
+        },
+        "Left Center Midfield": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Right Midfield": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Left Midfield": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Right Attacking Midfield": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Center Attacking Midfield": {
+          "fit": 0.85,
+          "source": "SUPPORTED_SECONDARY"
+        },
+        "Left Attacking Midfield": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Right Wing": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Left Wing": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Right Center Forward": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Forward": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Center Forward": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Secondary Striker": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        }
+      }
+    },
+    "5475": {
+      "name": "John Obi Mikel",
+      "positions": {
+        "Goalkeeper": {
+          "fit": 0.0,
+          "source": "BLOCKED"
+        },
+        "Right Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Center Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Center Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Wing Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Wing Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Defensive Midfield": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Center Defensive Midfield": {
+          "fit": 1.0,
+          "source": "PRIMARY_POSITION"
+        },
+        "Left Defensive Midfield": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Right Center Midfield": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Center Midfield": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Left Center Midfield": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Right Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Attacking Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Attacking Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Attacking Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Wing": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Wing": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Center Forward": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Forward": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Center Forward": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Secondary Striker": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        }
+      }
+    },
+    "3381": {
+      "name": "Nemanja Matić",
+      "positions": {
+        "Goalkeeper": {
+          "fit": 0.0,
+          "source": "BLOCKED"
+        },
+        "Right Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Center Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Center Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Wing Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Wing Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Defensive Midfield": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Center Defensive Midfield": {
+          "fit": 0.85,
+          "source": "SUPPORTED_SECONDARY"
+        },
+        "Left Defensive Midfield": {
+          "fit": 1.0,
+          "source": "PRIMARY_POSITION"
+        },
+        "Right Center Midfield": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Center Midfield": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Left Center Midfield": {
+          "fit": 0.85,
+          "source": "SUPPORTED_SECONDARY"
+        },
+        "Right Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Attacking Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Attacking Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Attacking Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Wing": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Wing": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Center Forward": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Forward": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Center Forward": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Secondary Striker": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        }
+      }
+    },
+    "28100": {
+      "name": "Ramires",
+      "positions": {
+        "Goalkeeper": {
+          "fit": 0.0,
+          "source": "BLOCKED"
+        },
+        "Right Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Center Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Center Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Wing Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Wing Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Defensive Midfield": {
+          "fit": 1.0,
+          "source": "PRIMARY_POSITION"
+        },
+        "Center Defensive Midfield": {
+          "fit": 0.85,
+          "source": "SUPPORTED_SECONDARY"
+        },
+        "Left Defensive Midfield": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Right Center Midfield": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Center Midfield": {
+          "fit": 0.85,
+          "source": "SUPPORTED_SECONDARY"
+        },
+        "Left Center Midfield": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Right Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Attacking Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Attacking Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Attacking Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Wing": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Wing": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Center Forward": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Forward": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Center Forward": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Secondary Striker": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        }
+      }
+    },
+    "3504": {
+      "name": "Ruben Loftus-Cheek",
+      "positions": {
+        "Goalkeeper": {
+          "fit": 0.0,
+          "source": "BLOCKED"
+        },
+        "Right Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Center Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Center Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Wing Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Wing Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Defensive Midfield": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Center Defensive Midfield": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Left Defensive Midfield": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Right Center Midfield": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Center Midfield": {
+          "fit": 1.0,
+          "source": "PRIMARY_POSITION"
+        },
+        "Left Center Midfield": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Right Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Attacking Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Attacking Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Attacking Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Wing": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Wing": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Center Forward": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Forward": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Center Forward": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Secondary Striker": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        }
+      }
+    },
+    "5594": {
+      "name": "Branislav Ivanović",
+      "positions": {
+        "Goalkeeper": {
+          "fit": 0.0,
+          "source": "BLOCKED"
+        },
+        "Right Back": {
+          "fit": 1.0,
+          "source": "PRIMARY_POSITION"
+        },
+        "Left Back": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Right Center Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Center Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Wing Back": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Left Wing Back": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Right Defensive Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Defensive Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Defensive Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Center Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Center Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Attacking Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Attacking Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Attacking Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Wing": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Wing": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Center Forward": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Forward": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Center Forward": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Secondary Striker": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        }
+      }
+    },
+    "3957": {
+      "name": "César Azpilicueta",
+      "positions": {
+        "Goalkeeper": {
+          "fit": 0.0,
+          "source": "BLOCKED"
+        },
+        "Right Back": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Left Back": {
+          "fit": 1.0,
+          "source": "PRIMARY_POSITION"
+        },
+        "Right Center Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Center Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Wing Back": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Left Wing Back": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Right Defensive Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Defensive Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Defensive Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Center Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Center Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Attacking Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Attacking Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Attacking Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Wing": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Wing": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Center Forward": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Forward": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Center Forward": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Secondary Striker": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        }
+      }
+    },
+    "3339": {
+      "name": "Asmir Begović",
+      "positions": {
+        "Goalkeeper": {
+          "fit": 1.0,
+          "source": "GOALKEEPER"
+        },
+        "Right Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Center Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Center Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Wing Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Wing Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Defensive Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Defensive Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Defensive Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Center Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Center Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Attacking Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Attacking Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Attacking Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Wing": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Wing": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Center Forward": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Forward": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Center Forward": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Secondary Striker": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        }
+      }
+    },
+    "3509": {
+      "name": "Thibaut Courtois",
+      "positions": {
+        "Goalkeeper": {
+          "fit": 1.0,
+          "source": "GOALKEEPER"
+        },
+        "Right Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Center Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Center Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Wing Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Wing Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Defensive Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Defensive Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Defensive Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Center Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Center Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Attacking Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Attacking Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Attacking Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Wing": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Wing": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Center Forward": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Forward": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Center Forward": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Secondary Striker": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        }
+      }
+    },
+    "5198": {
+      "name": "Diego Costa",
+      "positions": {
+        "Goalkeeper": {
+          "fit": 0.0,
+          "source": "BLOCKED"
+        },
+        "Right Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Center Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Center Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Wing Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Wing Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Defensive Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Defensive Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Defensive Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Center Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Center Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Attacking Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Attacking Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Attacking Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Wing": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Wing": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Center Forward": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Center Forward": {
+          "fit": 1.0,
+          "source": "PRIMARY_POSITION"
+        },
+        "Left Center Forward": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Secondary Striker": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        }
+      }
+    },
+    "3666": {
+      "name": "Kenedy",
+      "positions": {
+        "Goalkeeper": {
+          "fit": 0.0,
+          "source": "BLOCKED"
+        },
+        "Right Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Center Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Center Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Wing Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Wing Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Defensive Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Defensive Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Defensive Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Center Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Center Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Attacking Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Attacking Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Attacking Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Wing": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Wing": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Center Forward": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Center Forward": {
+          "fit": 1.0,
+          "source": "PRIMARY_POSITION"
+        },
+        "Left Center Forward": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Secondary Striker": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        }
+      }
+    },
+    "6623": {
+      "name": "Loïc Rémy",
+      "positions": {
+        "Goalkeeper": {
+          "fit": 0.0,
+          "source": "BLOCKED"
+        },
+        "Right Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Center Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Center Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Wing Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Wing Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Defensive Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Defensive Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Defensive Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Center Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Center Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Attacking Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Attacking Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Attacking Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Wing": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Wing": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Center Forward": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Center Forward": {
+          "fit": 1.0,
+          "source": "PRIMARY_POSITION"
+        },
+        "Left Center Forward": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Secondary Striker": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        }
+      }
+    },
+    "4090": {
+      "name": "Adam Lallana",
+      "positions": {
+        "Goalkeeper": {
+          "fit": 0.0,
+          "source": "BLOCKED"
+        },
+        "Right Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Center Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Center Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Wing Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Wing Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Defensive Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Defensive Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Defensive Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Center Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Center Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Midfield": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Left Midfield": {
+          "fit": 0.85,
+          "source": "SUPPORTED_SECONDARY"
+        },
+        "Right Attacking Midfield": {
+          "fit": 0.85,
+          "source": "SUPPORTED_SECONDARY"
+        },
+        "Center Attacking Midfield": {
+          "fit": 1.0,
+          "source": "PRIMARY_POSITION"
+        },
+        "Left Attacking Midfield": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Right Wing": {
+          "fit": 0.85,
+          "source": "SUPPORTED_SECONDARY"
+        },
+        "Left Wing": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Right Center Forward": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Forward": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Center Forward": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Secondary Striker": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        }
+      }
+    },
+    "3635": {
+      "name": "Jordon Ibe",
+      "positions": {
+        "Goalkeeper": {
+          "fit": 0.0,
+          "source": "BLOCKED"
+        },
+        "Right Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Center Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Center Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Wing Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Wing Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Defensive Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Defensive Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Defensive Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Center Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Center Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Midfield": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Left Midfield": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Right Attacking Midfield": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Center Attacking Midfield": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Left Attacking Midfield": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Right Wing": {
+          "fit": 1.0,
+          "source": "PRIMARY_POSITION"
+        },
+        "Left Wing": {
+          "fit": 0.85,
+          "source": "SUPPORTED_SECONDARY"
+        },
+        "Right Center Forward": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Forward": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Center Forward": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Secondary Striker": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        }
+      }
+    },
+    "10326": {
+      "name": "João Carlos Teixeira",
+      "positions": {
+        "Goalkeeper": {
+          "fit": 0.0,
+          "source": "BLOCKED"
+        },
+        "Right Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Center Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Center Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Wing Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Wing Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Defensive Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Defensive Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Defensive Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Center Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Center Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Midfield": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Left Midfield": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Right Attacking Midfield": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Center Attacking Midfield": {
+          "fit": 1.0,
+          "source": "PRIMARY_POSITION"
+        },
+        "Left Attacking Midfield": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Right Wing": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Left Wing": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Right Center Forward": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Forward": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Center Forward": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Secondary Striker": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        }
+      }
+    },
+    "3535": {
+      "name": "Roberto Firmino",
+      "positions": {
+        "Goalkeeper": {
+          "fit": 0.0,
+          "source": "BLOCKED"
+        },
+        "Right Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Center Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Center Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Wing Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Wing Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Defensive Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Defensive Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Defensive Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Center Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Center Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Midfield": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Left Midfield": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Right Attacking Midfield": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Center Attacking Midfield": {
+          "fit": 1.0,
+          "source": "PRIMARY_POSITION"
+        },
+        "Left Attacking Midfield": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Right Wing": {
+          "fit": 0.85,
+          "source": "SUPPORTED_SECONDARY"
+        },
+        "Left Wing": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Right Center Forward": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Center Forward": {
+          "fit": 0.85,
+          "source": "SUPPORTED_SECONDARY"
+        },
+        "Left Center Forward": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Secondary Striker": {
+          "fit": 0.85,
+          "source": "SUPPORTED_SECONDARY"
+        }
+      }
+    },
+    "38412": {
+      "name": "Kolo Touré",
+      "positions": {
+        "Goalkeeper": {
+          "fit": 0.0,
+          "source": "BLOCKED"
+        },
+        "Right Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Center Back": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Center Back": {
+          "fit": 1.0,
+          "source": "PRIMARY_POSITION"
+        },
+        "Left Center Back": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Right Wing Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Wing Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Defensive Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Defensive Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Defensive Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Center Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Center Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Attacking Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Attacking Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Attacking Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Wing": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Wing": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Center Forward": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Forward": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Center Forward": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Secondary Striker": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        }
+      }
+    },
+    "3483": {
+      "name": "Mamadou Sakho",
+      "positions": {
+        "Goalkeeper": {
+          "fit": 0.0,
+          "source": "BLOCKED"
+        },
+        "Right Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Center Back": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Center Back": {
+          "fit": 0.85,
+          "source": "SUPPORTED_SECONDARY"
+        },
+        "Left Center Back": {
+          "fit": 1.0,
+          "source": "PRIMARY_POSITION"
+        },
+        "Right Wing Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Wing Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Defensive Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Defensive Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Defensive Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Center Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Center Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Attacking Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Attacking Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Attacking Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Wing": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Wing": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Center Forward": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Forward": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Center Forward": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Secondary Striker": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        }
+      }
+    },
+    "9958": {
+      "name": "Steven Caulker",
+      "positions": {
+        "Goalkeeper": {
+          "fit": 0.0,
+          "source": "BLOCKED"
+        },
+        "Right Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Center Back": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Center Back": {
+          "fit": 1.0,
+          "source": "PRIMARY_POSITION"
+        },
+        "Left Center Back": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Right Wing Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Wing Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Defensive Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Defensive Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Defensive Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Center Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Center Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Attacking Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Attacking Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Attacking Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Wing": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Wing": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Center Forward": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Forward": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Center Forward": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Secondary Striker": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        }
+      }
+    },
+    "3493": {
+      "name": "Emre Can",
+      "positions": {
+        "Goalkeeper": {
+          "fit": 0.0,
+          "source": "BLOCKED"
+        },
+        "Right Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Center Back": {
+          "fit": 0.85,
+          "source": "SUPPORTED_SECONDARY"
+        },
+        "Center Back": {
+          "fit": 0.85,
+          "source": "SUPPORTED_SECONDARY"
+        },
+        "Left Center Back": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Right Wing Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Wing Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Defensive Midfield": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Center Defensive Midfield": {
+          "fit": 0.85,
+          "source": "SUPPORTED_SECONDARY"
+        },
+        "Left Defensive Midfield": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Right Center Midfield": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Center Midfield": {
+          "fit": 0.85,
+          "source": "SUPPORTED_SECONDARY"
+        },
+        "Left Center Midfield": {
+          "fit": 1.0,
+          "source": "PRIMARY_POSITION"
+        },
+        "Right Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Attacking Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Attacking Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Attacking Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Wing": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Wing": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Center Forward": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Forward": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Center Forward": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Secondary Striker": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        }
+      }
+    },
+    "3473": {
+      "name": "James Milner",
+      "positions": {
+        "Goalkeeper": {
+          "fit": 0.0,
+          "source": "BLOCKED"
+        },
+        "Right Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Center Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Center Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Wing Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Wing Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Defensive Midfield": {
+          "fit": 0.85,
+          "source": "SUPPORTED_SECONDARY"
+        },
+        "Center Defensive Midfield": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Left Defensive Midfield": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Right Center Midfield": {
+          "fit": 1.0,
+          "source": "PRIMARY_POSITION"
+        },
+        "Center Midfield": {
+          "fit": 0.85,
+          "source": "SUPPORTED_SECONDARY"
+        },
+        "Left Center Midfield": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Right Midfield": {
+          "fit": 0.85,
+          "source": "SUPPORTED_SECONDARY"
+        },
+        "Left Midfield": {
+          "fit": 0.85,
+          "source": "SUPPORTED_SECONDARY"
+        },
+        "Right Attacking Midfield": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Center Attacking Midfield": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Left Attacking Midfield": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Right Wing": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Left Wing": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Right Center Forward": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Forward": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Center Forward": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Secondary Striker": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        }
+      }
+    },
+    "10931": {
+      "name": "Joe Allen",
+      "positions": {
+        "Goalkeeper": {
+          "fit": 0.0,
+          "source": "BLOCKED"
+        },
+        "Right Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Center Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Center Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Wing Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Wing Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Defensive Midfield": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Center Defensive Midfield": {
+          "fit": 0.85,
+          "source": "SUPPORTED_SECONDARY"
+        },
+        "Left Defensive Midfield": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Right Center Midfield": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Center Midfield": {
+          "fit": 1.0,
+          "source": "PRIMARY_POSITION"
+        },
+        "Left Center Midfield": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Right Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Attacking Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Attacking Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Attacking Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Wing": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Wing": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Center Forward": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Forward": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Center Forward": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Secondary Striker": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        }
+      }
+    },
+    "3532": {
+      "name": "Jordan Henderson",
+      "positions": {
+        "Goalkeeper": {
+          "fit": 0.0,
+          "source": "BLOCKED"
+        },
+        "Right Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Center Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Center Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Wing Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Wing Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Defensive Midfield": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Center Defensive Midfield": {
+          "fit": 0.85,
+          "source": "SUPPORTED_SECONDARY"
+        },
+        "Left Defensive Midfield": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Right Center Midfield": {
+          "fit": 1.0,
+          "source": "PRIMARY_POSITION"
+        },
+        "Center Midfield": {
+          "fit": 0.85,
+          "source": "SUPPORTED_SECONDARY"
+        },
+        "Left Center Midfield": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Right Midfield": {
+          "fit": 0.85,
+          "source": "SUPPORTED_SECONDARY"
+        },
+        "Left Midfield": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Right Attacking Midfield": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Center Attacking Midfield": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Left Attacking Midfield": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Right Wing": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Left Wing": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Right Center Forward": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Forward": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Center Forward": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Secondary Striker": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        }
+      }
+    },
+    "7780": {
+      "name": "Lucas Leiva",
+      "positions": {
+        "Goalkeeper": {
+          "fit": 0.0,
+          "source": "BLOCKED"
+        },
+        "Right Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Center Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Center Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Wing Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Wing Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Defensive Midfield": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Center Defensive Midfield": {
+          "fit": 1.0,
+          "source": "PRIMARY_POSITION"
+        },
+        "Left Defensive Midfield": {
+          "fit": 0.85,
+          "source": "SUPPORTED_SECONDARY"
+        },
+        "Right Center Midfield": {
+          "fit": 0.85,
+          "source": "OBSERVED_180_MINUTES"
+        },
+        "Center Midfield": {
+          "fit": 0.85,
+          "source": "SUPPORTED_SECONDARY"
+        },
+        "Left Center Midfield": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Right Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Attacking Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Attacking Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Attacking Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Wing": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Wing": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Center Forward": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Forward": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Center Forward": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Secondary Striker": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        }
+      }
+    },
+    "3515": {
+      "name": "Alberto Moreno",
+      "positions": {
+        "Goalkeeper": {
+          "fit": 0.0,
+          "source": "BLOCKED"
+        },
+        "Right Back": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Left Back": {
+          "fit": 1.0,
+          "source": "PRIMARY_POSITION"
+        },
+        "Right Center Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Center Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Wing Back": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Left Wing Back": {
+          "fit": 0.85,
+          "source": "SUPPORTED_SECONDARY"
+        },
+        "Right Defensive Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Defensive Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Defensive Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Center Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Center Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Midfield": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Left Midfield": {
+          "fit": 0.85,
+          "source": "SUPPORTED_SECONDARY"
+        },
+        "Right Attacking Midfield": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Center Attacking Midfield": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Left Attacking Midfield": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Right Wing": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Left Wing": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Right Center Forward": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Forward": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Center Forward": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Secondary Striker": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        }
+      }
+    },
+    "13448": {
+      "name": "Brad Smith",
+      "positions": {
+        "Goalkeeper": {
+          "fit": 0.0,
+          "source": "BLOCKED"
+        },
+        "Right Back": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Left Back": {
+          "fit": 1.0,
+          "source": "PRIMARY_POSITION"
+        },
+        "Right Center Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Center Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Wing Back": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Left Wing Back": {
+          "fit": 0.85,
+          "source": "SUPPORTED_SECONDARY"
+        },
+        "Right Defensive Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Defensive Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Defensive Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Center Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Center Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Attacking Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Attacking Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Attacking Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Wing": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Wing": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Center Forward": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Forward": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Center Forward": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Secondary Striker": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        }
+      }
+    },
+    "4590": {
+      "name": "Nathaniel Clyne",
+      "positions": {
+        "Goalkeeper": {
+          "fit": 0.0,
+          "source": "BLOCKED"
+        },
+        "Right Back": {
+          "fit": 1.0,
+          "source": "PRIMARY_POSITION"
+        },
+        "Left Back": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Right Center Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Center Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Wing Back": {
+          "fit": 0.85,
+          "source": "SUPPORTED_SECONDARY"
+        },
+        "Left Wing Back": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Right Defensive Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Defensive Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Defensive Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Center Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Center Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Attacking Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Attacking Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Attacking Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Wing": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Wing": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Center Forward": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Forward": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Center Forward": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Secondary Striker": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        }
+      }
+    },
+    "9914": {
+      "name": "Danny Ward",
+      "positions": {
+        "Goalkeeper": {
+          "fit": 1.0,
+          "source": "GOALKEEPER"
+        },
+        "Right Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Center Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Center Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Wing Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Wing Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Defensive Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Defensive Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Defensive Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Center Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Center Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Attacking Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Attacking Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Attacking Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Wing": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Wing": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Center Forward": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Forward": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Center Forward": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Secondary Striker": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        }
+      }
+    },
+    "3539": {
+      "name": "Simon Mignolet",
+      "positions": {
+        "Goalkeeper": {
+          "fit": 1.0,
+          "source": "GOALKEEPER"
+        },
+        "Right Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Center Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Center Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Wing Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Wing Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Defensive Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Defensive Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Defensive Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Center Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Center Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Attacking Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Attacking Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Attacking Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Wing": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Wing": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Center Forward": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Forward": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Center Forward": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Secondary Striker": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        }
+      }
+    },
+    "3380": {
+      "name": "Christian Benteke",
+      "positions": {
+        "Goalkeeper": {
+          "fit": 0.0,
+          "source": "BLOCKED"
+        },
+        "Right Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Center Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Center Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Wing Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Wing Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Defensive Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Defensive Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Defensive Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Center Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Center Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Attacking Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Attacking Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Attacking Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Wing": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Wing": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Center Forward": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Center Forward": {
+          "fit": 1.0,
+          "source": "PRIMARY_POSITION"
+        },
+        "Left Center Forward": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Secondary Striker": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        }
+      }
+    },
+    "3043": {
+      "name": "Christian Eriksen",
+      "positions": {
+        "Goalkeeper": {
+          "fit": 0.0,
+          "source": "BLOCKED"
+        },
+        "Right Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Center Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Center Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Wing Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Wing Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Defensive Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Defensive Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Defensive Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Center Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Center Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Midfield": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Left Midfield": {
+          "fit": 0.85,
+          "source": "SUPPORTED_SECONDARY"
+        },
+        "Right Attacking Midfield": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Center Attacking Midfield": {
+          "fit": 0.85,
+          "source": "SUPPORTED_SECONDARY"
+        },
+        "Left Attacking Midfield": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Right Wing": {
+          "fit": 0.85,
+          "source": "OBSERVED_180_MINUTES"
+        },
+        "Left Wing": {
+          "fit": 1.0,
+          "source": "PRIMARY_POSITION"
+        },
+        "Right Center Forward": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Forward": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Center Forward": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Secondary Striker": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        }
+      }
+    },
+    "3585": {
+      "name": "Erik Lamela",
+      "positions": {
+        "Goalkeeper": {
+          "fit": 0.0,
+          "source": "BLOCKED"
+        },
+        "Right Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Center Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Center Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Wing Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Wing Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Defensive Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Defensive Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Defensive Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Center Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Center Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Midfield": {
+          "fit": 0.85,
+          "source": "SUPPORTED_SECONDARY"
+        },
+        "Left Midfield": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Right Attacking Midfield": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Center Attacking Midfield": {
+          "fit": 0.85,
+          "source": "SUPPORTED_SECONDARY"
+        },
+        "Left Attacking Midfield": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Right Wing": {
+          "fit": 1.0,
+          "source": "PRIMARY_POSITION"
+        },
+        "Left Wing": {
+          "fit": 0.85,
+          "source": "OBSERVED_180_MINUTES"
+        },
+        "Right Center Forward": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Forward": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Center Forward": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Secondary Striker": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        }
+      }
+    },
+    "16067": {
+      "name": "Josh Onomah",
+      "positions": {
+        "Goalkeeper": {
+          "fit": 0.0,
+          "source": "BLOCKED"
+        },
+        "Right Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Center Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Center Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Wing Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Wing Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Defensive Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Defensive Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Defensive Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Center Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Center Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Midfield": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Left Midfield": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Right Attacking Midfield": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Center Attacking Midfield": {
+          "fit": 1.0,
+          "source": "PRIMARY_POSITION"
+        },
+        "Left Attacking Midfield": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Right Wing": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Left Wing": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Right Center Forward": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Forward": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Center Forward": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Secondary Striker": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        }
+      }
+    },
+    "3083": {
+      "name": "Son Heung-Min",
+      "positions": {
+        "Goalkeeper": {
+          "fit": 0.0,
+          "source": "BLOCKED"
+        },
+        "Right Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Center Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Center Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Wing Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Wing Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Defensive Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Defensive Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Defensive Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Center Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Center Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Midfield": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Left Midfield": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Right Attacking Midfield": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Center Attacking Midfield": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Left Attacking Midfield": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Right Wing": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Left Wing": {
+          "fit": 1.0,
+          "source": "PRIMARY_POSITION"
+        },
+        "Right Center Forward": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Forward": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Center Forward": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Secondary Striker": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        }
+      }
+    },
+    "10956": {
+      "name": "Eric Dier",
+      "positions": {
+        "Goalkeeper": {
+          "fit": 0.0,
+          "source": "BLOCKED"
+        },
+        "Right Back": {
+          "fit": 0.85,
+          "source": "SUPPORTED_SECONDARY"
+        },
+        "Left Back": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Right Center Back": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Center Back": {
+          "fit": 1.0,
+          "source": "PRIMARY_POSITION"
+        },
+        "Left Center Back": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Right Wing Back": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Left Wing Back": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Right Defensive Midfield": {
+          "fit": 0.85,
+          "source": "SUPPORTED_SECONDARY"
+        },
+        "Center Defensive Midfield": {
+          "fit": 0.85,
+          "source": "SUPPORTED_SECONDARY"
+        },
+        "Left Defensive Midfield": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Right Center Midfield": {
+          "fit": 0.85,
+          "source": "SUPPORTED_SECONDARY"
+        },
+        "Center Midfield": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Left Center Midfield": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Right Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Attacking Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Attacking Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Attacking Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Wing": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Wing": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Center Forward": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Forward": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Center Forward": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Secondary Striker": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        }
+      }
+    },
+    "3077": {
+      "name": "Jan Vertonghen",
+      "positions": {
+        "Goalkeeper": {
+          "fit": 0.0,
+          "source": "BLOCKED"
+        },
+        "Right Back": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Left Back": {
+          "fit": 0.85,
+          "source": "SUPPORTED_SECONDARY"
+        },
+        "Right Center Back": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Center Back": {
+          "fit": 0.85,
+          "source": "SUPPORTED_SECONDARY"
+        },
+        "Left Center Back": {
+          "fit": 1.0,
+          "source": "PRIMARY_POSITION"
+        },
+        "Right Wing Back": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Left Wing Back": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Right Defensive Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Defensive Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Defensive Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Center Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Center Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Attacking Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Attacking Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Attacking Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Wing": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Wing": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Center Forward": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Forward": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Center Forward": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Secondary Striker": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        }
+      }
+    },
+    "3611": {
+      "name": "Kevin Wimmer",
+      "positions": {
+        "Goalkeeper": {
+          "fit": 0.0,
+          "source": "BLOCKED"
+        },
+        "Right Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Center Back": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Center Back": {
+          "fit": 1.0,
+          "source": "PRIMARY_POSITION"
+        },
+        "Left Center Back": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Right Wing Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Wing Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Defensive Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Defensive Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Defensive Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Center Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Center Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Attacking Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Attacking Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Attacking Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Wing": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Wing": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Center Forward": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Forward": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Center Forward": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Secondary Striker": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        }
+      }
+    },
+    "20005": {
+      "name": "Toby Alderweireld",
+      "positions": {
+        "Goalkeeper": {
+          "fit": 0.0,
+          "source": "BLOCKED"
+        },
+        "Right Back": {
+          "fit": 0.85,
+          "source": "SUPPORTED_SECONDARY"
+        },
+        "Left Back": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Right Center Back": {
+          "fit": 1.0,
+          "source": "PRIMARY_POSITION"
+        },
+        "Center Back": {
+          "fit": 0.85,
+          "source": "SUPPORTED_SECONDARY"
+        },
+        "Left Center Back": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Right Wing Back": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Left Wing Back": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Right Defensive Midfield": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Center Defensive Midfield": {
+          "fit": 0.85,
+          "source": "SUPPORTED_SECONDARY"
+        },
+        "Left Defensive Midfield": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Right Center Midfield": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Center Midfield": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Left Center Midfield": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Right Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Attacking Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Attacking Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Attacking Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Wing": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Wing": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Center Forward": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Forward": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Center Forward": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Secondary Striker": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        }
+      }
+    },
+    "3094": {
+      "name": "Dele Alli",
+      "positions": {
+        "Goalkeeper": {
+          "fit": 0.0,
+          "source": "BLOCKED"
+        },
+        "Right Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Center Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Center Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Wing Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Wing Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Defensive Midfield": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Center Defensive Midfield": {
+          "fit": 0.85,
+          "source": "SUPPORTED_SECONDARY"
+        },
+        "Left Defensive Midfield": {
+          "fit": 0.85,
+          "source": "SUPPORTED_SECONDARY"
+        },
+        "Right Center Midfield": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Center Midfield": {
+          "fit": 0.85,
+          "source": "SUPPORTED_SECONDARY"
+        },
+        "Left Center Midfield": {
+          "fit": 1.0,
+          "source": "PRIMARY_POSITION"
+        },
+        "Right Midfield": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Left Midfield": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Right Attacking Midfield": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Center Attacking Midfield": {
+          "fit": 0.85,
+          "source": "SUPPORTED_SECONDARY"
+        },
+        "Left Attacking Midfield": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Right Wing": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Left Wing": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Right Center Forward": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Forward": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Center Forward": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Secondary Striker": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        }
+      }
+    },
+    "3037": {
+      "name": "Mousa Dembélé",
+      "positions": {
+        "Goalkeeper": {
+          "fit": 0.0,
+          "source": "BLOCKED"
+        },
+        "Right Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Center Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Center Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Wing Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Wing Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Defensive Midfield": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Center Defensive Midfield": {
+          "fit": 0.85,
+          "source": "SUPPORTED_SECONDARY"
+        },
+        "Left Defensive Midfield": {
+          "fit": 1.0,
+          "source": "PRIMARY_POSITION"
+        },
+        "Right Center Midfield": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Center Midfield": {
+          "fit": 0.85,
+          "source": "SUPPORTED_SECONDARY"
+        },
+        "Left Center Midfield": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Right Midfield": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Left Midfield": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Right Attacking Midfield": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Center Attacking Midfield": {
+          "fit": 0.85,
+          "source": "SUPPORTED_SECONDARY"
+        },
+        "Left Attacking Midfield": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Right Wing": {
+          "fit": 0.85,
+          "source": "SUPPORTED_SECONDARY"
+        },
+        "Left Wing": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Right Center Forward": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Forward": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Center Forward": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Secondary Striker": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        }
+      }
+    },
+    "3310": {
+      "name": "Tom Carroll",
+      "positions": {
+        "Goalkeeper": {
+          "fit": 0.0,
+          "source": "BLOCKED"
+        },
+        "Right Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Center Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Center Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Wing Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Wing Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Defensive Midfield": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Center Defensive Midfield": {
+          "fit": 0.85,
+          "source": "SUPPORTED_SECONDARY"
+        },
+        "Left Defensive Midfield": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Right Center Midfield": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Center Midfield": {
+          "fit": 1.0,
+          "source": "PRIMARY_POSITION"
+        },
+        "Left Center Midfield": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Right Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Attacking Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Attacking Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Attacking Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Wing": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Wing": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Center Forward": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Forward": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Center Forward": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Secondary Striker": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        }
+      }
+    },
+    "3086": {
+      "name": "Ben Davies",
+      "positions": {
+        "Goalkeeper": {
+          "fit": 0.0,
+          "source": "BLOCKED"
+        },
+        "Right Back": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Left Back": {
+          "fit": 1.0,
+          "source": "PRIMARY_POSITION"
+        },
+        "Right Center Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Center Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Wing Back": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Left Wing Back": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Right Defensive Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Defensive Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Defensive Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Center Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Center Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Attacking Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Attacking Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Attacking Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Wing": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Wing": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Center Forward": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Forward": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Center Forward": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Secondary Striker": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        }
+      }
+    },
+    "3594": {
+      "name": "Danny Rose",
+      "positions": {
+        "Goalkeeper": {
+          "fit": 0.0,
+          "source": "BLOCKED"
+        },
+        "Right Back": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Left Back": {
+          "fit": 1.0,
+          "source": "PRIMARY_POSITION"
+        },
+        "Right Center Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Center Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Wing Back": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Left Wing Back": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Right Defensive Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Defensive Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Defensive Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Center Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Center Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Attacking Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Attacking Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Attacking Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Wing": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Wing": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Center Forward": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Forward": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Center Forward": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Secondary Striker": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        }
+      }
+    },
+    "3308": {
+      "name": "Kieran Trippier",
+      "positions": {
+        "Goalkeeper": {
+          "fit": 0.0,
+          "source": "BLOCKED"
+        },
+        "Right Back": {
+          "fit": 1.0,
+          "source": "PRIMARY_POSITION"
+        },
+        "Left Back": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Right Center Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Center Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Wing Back": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Left Wing Back": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Right Defensive Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Defensive Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Defensive Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Center Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Center Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Attacking Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Attacking Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Attacking Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Wing": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Wing": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Center Forward": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Forward": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Center Forward": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Secondary Striker": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        }
+      }
+    },
+    "3205": {
+      "name": "Kyle Walker",
+      "positions": {
+        "Goalkeeper": {
+          "fit": 0.0,
+          "source": "BLOCKED"
+        },
+        "Right Back": {
+          "fit": 1.0,
+          "source": "PRIMARY_POSITION"
+        },
+        "Left Back": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Right Center Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Center Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Wing Back": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Left Wing Back": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Right Defensive Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Defensive Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Defensive Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Center Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Center Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Attacking Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Attacking Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Attacking Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Wing": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Wing": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Center Forward": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Forward": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Center Forward": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Secondary Striker": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        }
+      }
+    },
+    "3099": {
+      "name": "Hugo Lloris",
+      "positions": {
+        "Goalkeeper": {
+          "fit": 1.0,
+          "source": "GOALKEEPER"
+        },
+        "Right Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Center Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Center Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Wing Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Wing Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Defensive Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Defensive Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Defensive Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Center Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Center Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Attacking Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Attacking Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Attacking Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Wing": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Wing": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Center Forward": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Forward": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Center Forward": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Secondary Striker": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        }
+      }
+    },
+    "3609": {
+      "name": "Michel Vorm",
+      "positions": {
+        "Goalkeeper": {
+          "fit": 1.0,
+          "source": "GOALKEEPER"
+        },
+        "Right Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Center Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Center Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Wing Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Wing Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Defensive Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Defensive Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Defensive Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Center Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Center Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Attacking Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Attacking Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Attacking Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Wing": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Wing": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Center Forward": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Forward": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Center Forward": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Secondary Striker": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        }
+      }
+    },
+    "10955": {
+      "name": "Harry Kane",
+      "positions": {
+        "Goalkeeper": {
+          "fit": 0.0,
+          "source": "BLOCKED"
+        },
+        "Right Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Center Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Center Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Wing Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Wing Back": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Defensive Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Defensive Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Defensive Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Center Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Center Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Attacking Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Center Attacking Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Attacking Midfield": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Wing": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Left Wing": {
+          "fit": 0.0,
+          "source": "BLOCKED_ROLE"
+        },
+        "Right Center Forward": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Center Forward": {
+          "fit": 1.0,
+          "source": "PRIMARY_POSITION"
+        },
+        "Left Center Forward": {
+          "fit": 0.75,
+          "source": "SUPPORTED_BROAD_ROLE_ONLY"
+        },
+        "Secondary Striker": {
+          "fit": 0.85,
+          "source": "SUPPORTED_SECONDARY"
+        }
+      }
+    }
+  }
+}
