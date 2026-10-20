@@ -16,9 +16,10 @@ ROOT=Path(__file__).resolve().parents[1]
 
 @pytest.fixture(scope='module')
 def replay():
-    def read(path): return json.loads((ROOT/path).read_text(encoding='utf-8'))
-    return CoachReplay(load_demo_profiles(),read('demo_data/source_evidence.json'),
-        read('data/raw/events/3754305.json'),read('data/raw/lineups/3754305.json'),'3754305','24')
+    from collect_demo_evidence import fetch  # downloads the pinned file when data/raw is absent (CI)
+    evidence=json.loads((ROOT/'demo_data/source_evidence.json').read_text(encoding='utf-8'))
+    return CoachReplay(load_demo_profiles(),evidence,
+        fetch('events/3754305.json'),fetch('lineups/3754305.json'),'3754305','24')
 
 
 def test_position_matrix_blocks_kane_at_center_back_and_does_not_invent_lamela_striker():

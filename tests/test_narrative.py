@@ -117,3 +117,14 @@ def test_v1_base_url_from_resource_endpoint(endpoint):
 def test_v1_base_url_from_project_endpoint():
     assert v1_base_url('https://my-res.services.ai.azure.com/api/projects/live-sub-intel') == \
         'https://my-res.services.ai.azure.com/openai/v1/'
+
+
+def test_foundry_settings_are_stripped(monkeypatch):
+    pytest.importorskip('openai')
+    from subintel.narrative import foundry_client_from_env
+    monkeypatch.setenv('FOUNDRY_ENDPOINT', ' https://my-res.openai.azure.com/ \n')
+    monkeypatch.setenv('FOUNDRY_API_KEY', 'abc123 \n')
+    monkeypatch.setenv('FOUNDRY_DEPLOYMENT', ' gpt-4.1-mini ')
+    client, deployment = foundry_client_from_env()
+    assert client.api_key == 'abc123' and deployment == 'gpt-4.1-mini'
+    assert str(client.base_url) == 'https://my-res.openai.azure.com/openai/v1/'

@@ -187,7 +187,9 @@ def explain_plan(snapshot, plan_id, audience='fan', lang='en', client=None, depl
             source,note='llm',None
     except Exception as error:
         # No keys, response bodies or arbitrary model text in public diagnostics.
-        LOG.warning('Explanation failed: type=%s status=%s code=%s',type(error).__name__,getattr(error,'status_code',None),getattr(error,'code',None))
+        cause=error.__cause__ or error.__context__
+        LOG.warning('Explanation failed: type=%s status=%s code=%s cause=%s',type(error).__name__,getattr(error,'status_code',None),
+                    getattr(error,'code',None),f'{type(cause).__name__}: {str(cause)[:200]}' if cause else None)
         note='LLM_TEXT_REJECTED' if isinstance(error,(ValueError,KeyError,TypeError)) else 'LLM_UNAVAILABLE'
     return dict(text=' '.join(bank[k] for k in ids), source=source,note=note,
                 audience=audience,lang=lang,plan_id=plan_id,facts=bundle,fact_ids=ids,
