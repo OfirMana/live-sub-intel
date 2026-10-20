@@ -93,15 +93,10 @@ def make_handler(app: App):
 
 
 def main():
-    ap = argparse.ArgumentParser()
-    ap.add_argument('--host', default='127.0.0.1')
-    ap.add_argument('--port', type=int, default=int(os.environ.get('PORT', 8000)))
-    args = ap.parse_args()
-    print('Preparing the game room (replays three matches)...', flush=True)
-    app = App(build_payload())
-    llm = 'on' if all(os.environ.get(k) for k in ('FOUNDRY_ENDPOINT', 'FOUNDRY_API_KEY', 'FOUNDRY_DEPLOYMENT')) else 'off (template only)'
-    print(f'Game room: http://{args.host}:{args.port}  ·  LLM explanations: {llm}', flush=True)
-    ThreadingHTTPServer((args.host, args.port), make_handler(app)).serve_forever()
+    # Keep legacy App/make_handler imports for offline compatibility/tests.
+    # The deployed entry point now serves automatic full-XI plans.
+    from integrated_app import main as integrated_main
+    integrated_main()
 
 
 if __name__ == '__main__':

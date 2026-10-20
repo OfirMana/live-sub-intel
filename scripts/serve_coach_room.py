@@ -115,12 +115,8 @@ def make_handler(bootstrap, evaluate):
 
 
 def main():
-    parser = argparse.ArgumentParser()
-    parser.add_argument('--port', type=int, default=8774)
-    args = parser.parse_args()
-    bootstrap, evaluate = create_room()
-    print(f'Coach room: http://127.0.0.1:{args.port}/ · historical research, schematic pitch, no LLM', flush=True)
-    ThreadingHTTPServer(('127.0.0.1', args.port), make_handler(bootstrap, evaluate)).serve_forever()
+    from integrated_app import main as integrated_main
+    integrated_main()
 
 
 if __name__ == '__main__':

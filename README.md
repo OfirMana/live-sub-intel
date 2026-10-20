@@ -1,3 +1,20 @@
+# Integrated coach room — current branch
+
+English-default interface with Hebrew/RTL, automatic full-XI tactical plans and
+explanations of the alternative you inspect. Run:
+
+```bash
+pip install -e ".[dev,llm]"
+python scripts/serve_app.py --port 8778
+```
+
+Open http://127.0.0.1:8778/. The same startup entry point is used on Azure.
+[Integration details and limits](docs/INTEGRATED_ROOM.md) ·
+[Prompt for the teammate's Claude to diagnose Foundry](docs/CLAUDE_FOUNDRY_HANDOFF.md).
+The model selects verified facts; the app renders the explanation. Without
+Foundry configuration the source is explicitly labelled as a verified template.
+The older project notes below describe earlier entry points and experiments.
+
 # Live Substitution Intelligence
 
 ## Automatic tactical plans — 19 October 2026

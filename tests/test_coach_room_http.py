@@ -37,6 +37,6 @@ def test_coach_room_http_and_live_lineups_match_past_only_engine():
         assert request(65,freshness_cap=999)[0]==400
         assert request(67)[0]==400
         with urlopen(base+'/') as response:
-            assert 'חדר המאמן' in response.read().decode('utf-8')
+            assert '<html lang="en" dir="ltr">' in response.read().decode('utf-8')
     finally:
         server.shutdown();server.server_close();thread.join(timeout=2)

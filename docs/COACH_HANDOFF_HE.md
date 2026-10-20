@@ -1,3 +1,9 @@
+> עדכון 20.10: האינטגרציה עם ההסברים והממשק הדו־לשוני נמצאת בבראנץ׳
+> `feature/integrated-coach-explanations`. אנגלית היא ברירת המחדל, וההסבר קשור
+> לחלופה שנבחרה. פירוט עדכני: [INTEGRATED_ROOM.md](INTEGRATED_ROOM.md).
+> פרומפט לקלוד שמטפל ב־Foundry: [CLAUDE_FOUNDRY_HANDOFF.md](CLAUDE_FOUNDRY_HANDOFF.md).
+> הסיכום להלן מתאר את שלב החיפוש הטקטי שקדם לאינטגרציה.
+
 # העברה לצוות — חיפוש טקטי אוטומטי, 19.10.2026
 
 הבראנץ׳: `feature/coach-match-room`. הבסיס הוא main ב־`abbd6ba`.
