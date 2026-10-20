@@ -1,4 +1,8 @@
-# Integrated coach room — current branch
+# Integrated coach room
+
+**Live demo (Azure App Service):** https://live-sub-intel-fcfudheze9b5ewfz.swedencentral-01.azurewebsites.net/
+· deployed automatically from `main` by `.github/workflows/main_live-sub-intel.yml`
+(tests run before every deployment).
 
 English-default interface with Hebrew/RTL, automatic full-XI tactical plans and
 explanations of the alternative you inspect. Run:
