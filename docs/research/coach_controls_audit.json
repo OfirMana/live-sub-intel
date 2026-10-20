@@ -1,0 +1,120 @@
+{
+  "kind": "PAIRED_RESEARCH_SENSITIVITY_NOT_FOOTBALL_ACCURACY",
+  "checkpoints": 216,
+  "cases": 2592,
+  "profiles_frozen": true,
+  "formation": "observed",
+  "summary": {
+    "balanced/competitive/0.0": {
+      "checkpoints": 216,
+      "recommendations": 13,
+      "TACTICAL": 13,
+      "negative_tactical": 0,
+      "CB_out": 5,
+      "before_60": 13
+    },
+    "balanced/competitive/0.5": {
+      "checkpoints": 216,
+      "recommendations": 27,
+      "TACTICAL": 18,
+      "negative_tactical": 0,
+      "CB_out": 9,
+      "before_60": 15,
+      "FRESH_LEGS": 9
+    },
+    "balanced/competitive/1.0": {
+      "checkpoints": 216,
+      "recommendations": 55,
+      "FRESH_LEGS": 40,
+      "negative_tactical": 8,
+      "CB_out": 29,
+      "before_60": 20,
+      "TACTICAL": 15
+    },
+    "balanced/competitive/1.5": {
+      "checkpoints": 216,
+      "recommendations": 78,
+      "FRESH_LEGS": 63,
+      "negative_tactical": 21,
+      "CB_out": 41,
+      "before_60": 27,
+      "TACTICAL": 15
+    },
+    "attack/win/0.0": {
+      "checkpoints": 216,
+      "recommendations": 64,
+      "TACTICAL": 64,
+      "negative_tactical": 0,
+      "CB_out": 17,
+      "before_60": 54
+    },
+    "attack/win/0.5": {
+      "checkpoints": 216,
+      "recommendations": 82,
+      "TACTICAL": 75,
+      "negative_tactical": 0,
+      "CB_out": 32,
+      "before_60": 56,
+      "FRESH_LEGS": 7
+    },
+    "attack/win/1.0": {
+      "checkpoints": 216,
+      "recommendations": 102,
+      "FRESH_LEGS": 39,
+      "negative_tactical": 5,
+      "CB_out": 37,
+      "before_60": 56,
+      "TACTICAL": 63
+    },
+    "attack/win/1.5": {
+      "checkpoints": 216,
+      "recommendations": 112,
+      "FRESH_LEGS": 54,
+      "negative_tactical": 12,
+      "CB_out": 38,
+      "before_60": 58,
+      "TACTICAL": 58
+    },
+    "defend/draw/0.0": {
+      "checkpoints": 216,
+      "recommendations": 35,
+      "TACTICAL": 35,
+      "negative_tactical": 0,
+      "CB_out": 6,
+      "before_60": 34
+    },
+    "defend/draw/0.5": {
+      "checkpoints": 216,
+      "recommendations": 61,
+      "TACTICAL": 48,
+      "negative_tactical": 0,
+      "CB_out": 22,
+      "before_60": 41,
+      "FRESH_LEGS": 13
+    },
+    "defend/draw/1.0": {
+      "checkpoints": 216,
+      "recommendations": 77,
+      "FRESH_LEGS": 40,
+      "negative_tactical": 6,
+      "CB_out": 33,
+      "before_60": 42,
+      "TACTICAL": 37
+    },
+    "defend/draw/1.5": {
+      "checkpoints": 216,
+      "recommendations": 95,
+      "FRESH_LEGS": 59,
+      "negative_tactical": 19,
+      "CB_out": 44,
+      "before_60": 45,
+      "TACTICAL": 36
+    }
+  },
+  "limitations": [
+    "Counts are repeated checkpoints, not distinct swaps.",
+    "The coach model adds role exposure and observed tactical shifts; this is not a controlled comparison to the old engine.",
+    "Within each coach setting only freshness cap changes. No named historical substitution is a target."
+  ],
+  "cases_file": "coach_controls_cases.json.gz"
+}

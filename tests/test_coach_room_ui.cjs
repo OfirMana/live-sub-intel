@@ -1,0 +1,5 @@
+const test=require('node:test');const assert=require('node:assert/strict');
+const {visibleTimeline,scoreAt,contextKey}=require('../web/coach-room/app.js');
+test('observed shape changes only after its event, including backward seeking',()=>{const t=[{elapsed:0,formation:'433'},{elapsed:66.2,formation:'442'}];assert.equal(visibleTimeline(t,65).formation,'433');assert.equal(visibleTimeline(t,66.2).formation,'433');assert.equal(visibleTimeline(t,70).formation,'442');assert.equal(visibleTimeline(t,60).formation,'433');});
+test('future goals do not leak into the displayed result',()=>{const f={home:{id:'a'},away:{id:'b'},events:[{elapsed:40,kind:'goal',team_id:'b'}]};assert.deepEqual(scoreAt(f,40),{a:0,b:0});assert.deepEqual(scoreAt(f,41),{a:0,b:1});});
+test('coach changes and checkpoint changes invalidate asynchronous response context',()=>{const v={match_id:'m',team_id:'a'};assert.notEqual(contextKey(v,65,{stance:'attack'}),contextKey(v,65,{stance:'defend'}));assert.notEqual(contextKey(v,65,{}),contextKey(v,70,{}));});
