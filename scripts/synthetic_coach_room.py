@@ -28,17 +28,18 @@ def create_synthetic_room(seed=DEFAULT_SEED):
     events = tuple(Event.model_validate(e) for e in raw)
     key_events = []
     for e in events:
-        if e.type not in (EventType.SHOT, EventType.PRESSURE, EventType.TACKLE, EventType.RECOVERY, EventType.PERIOD_START, EventType.PERIOD_END):
+        if e.type not in (EventType.CARD, EventType.SHOT, EventType.PRESSURE, EventType.TACKLE, EventType.RECOVERY, EventType.PERIOD_START, EventType.PERIOD_END):
             continue
         key_events.append(dict(id=e.event_id, kind='goal' if e.goal else e.type.value,
             period=e.period, minute=e.minute, second=e.second, elapsed=e.minute+e.second/60,
             team_id=e.team_id, player_id=e.player_id, player=roster.get(e.player_id,{}).get('name'),
-            replacement=None, replacement_id=None, card=None, xg=e.xg,
+            replacement=None, replacement_id=None, card=e.card, xg=e.xg,
             source='SYNTHETIC_SCRIPTED_POSSESSIONS'))
     key_events.append(dict(id='synthetic-full-time',kind='period_end',period=2,minute=91,
         second=0,elapsed=91,team_id='24',player_id=None,player=None,replacement=None,xg=None))
     fixture = dict(id=MATCH_ID, date='Synthetic scenario', first_half_extra=0,
         home=dict(id='24',name='Liverpool'), away=dict(id='1',name='Arsenal'),
+        stat_events=[dict(id=e.event_id,kind='goal' if e.goal else e.type.value,elapsed=e.minute+e.second/60,team_id=e.team_id,player_id=e.player_id,success=e.success,recipient_id=e.recipient_id,key_pass_id=e.key_pass_id,xg=e.xg,on_target=e.on_target,card=e.card) for e in events],
         events=key_events, final_elapsed=91.001, source='SYNTHETIC_SCRIPTED_POSSESSIONS')
     views = [dict(team=t['name'],team_id=tid,match_id=MATCH_ID,
         lineup_timeline=[dict(elapsed=0,formation=t['formation'],lineup=t['lineup'])])

@@ -12,3 +12,40 @@ test('English base and Hebrew cover the same interface with interpolation and fa
  assert.equal(translate('en','ready',{minute:65}),'Ready · 65′');
  assert.match(translate('he','ready',{minute:65}),/65/);
 });
+
+const {matchStatsAt}=require('../web/coach-room/app.js');
+const statFixture={home:{id:'h'},away:{id:'a'},stat_events:[
+ {id:'p1',kind:'pass',elapsed:10,team_id:'h',player_id:'creator',recipient_id:'scorer',success:true},
+ {id:'p2',kind:'pass',elapsed:11,team_id:'a',player_id:'opponent',success:false},
+ {id:'s1',kind:'shot',elapsed:12,team_id:'a',player_id:'opponent',xg:.2,on_target:false},
+ {id:'g1',kind:'goal',elapsed:13,team_id:'h',player_id:'scorer',xg:.3,on_target:true,key_pass_id:'p1'},
+ {id:'y1',kind:'card',elapsed:14,team_id:'h',player_id:'creator',card:'yellow'},
+ {id:'r1',kind:'card',elapsed:16,team_id:'h',player_id:'creator',card:'second_yellow'}
+]};
+test('match totals and player markers include only past events and rewind cleanly',()=>{
+ const early=matchStatsAt(statFixture,13);
+ assert.equal(early.teams.h.shots,0);assert.equal(early.teams.a.shots,1);assert.deepEqual(early.players,{});
+ const scored=matchStatsAt(statFixture,14);
+ assert.equal(scored.teams.h.xg,.3);assert.equal(scored.teams.h.onTarget,1);
+ assert.equal(scored.players.scorer.goals,1);assert.equal(scored.players.creator.assists,1);
+ assert.equal(scored.players.creator.yellows,0);
+ assert.equal(matchStatsAt(statFixture,15).players.creator.yellows,1);
+ assert.equal(matchStatsAt(statFixture,16).players.creator.red,false);
+ const red=matchStatsAt(statFixture,17).players.creator;
+ assert.equal(red.red,true);assert.equal(red.yellows,2);
+ assert.deepEqual(matchStatsAt(statFixture,13),early);
+});
+test('pass accuracy and pass-share proxy are distinct and zero attempts remain unknown',()=>{
+ const empty=matchStatsAt(statFixture,0);assert.equal(empty.teams.h.accuracy,null);assert.equal(empty.teams.h.possessionProxy,null);
+ const stats=matchStatsAt(statFixture,15);
+ assert.equal(stats.teams.h.accuracy,100);assert.equal(stats.teams.a.accuracy,0);
+ assert.equal(stats.teams.h.possessionProxy,50);assert.equal(stats.teams.a.possessionProxy,50);
+});
+test('duplicate records and invalid assist links cannot inflate player achievements',()=>{
+ const f={...statFixture,stat_events:[...statFixture.stat_events,statFixture.stat_events[3],
+  {id:'g2',kind:'goal',elapsed:18,team_id:'a',player_id:'opponent',xg:.1,key_pass_id:'p1'},
+  {id:'g3',kind:'goal',elapsed:19,team_id:'h',player_id:'creator',xg:.1,key_pass_id:'p1'}]};
+ const stats=matchStatsAt(f,20);
+ assert.equal(stats.players.scorer.goals,1);assert.equal(stats.players.creator.assists,1);
+ assert.equal(stats.players.opponent.assists,0);
+});

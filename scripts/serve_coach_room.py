@@ -13,6 +13,7 @@ from export_match_replay import key_events
 from subintel.coach_room import CoachConfig, CoachReplay, FORMATIONS, slot
 from subintel.auto_plans import AutoConfig, position_fit
 from subintel.coach_room import POSITIONS
+from subintel.statsbomb import convert_event
 from subintel.demo_data import load_demo_profiles
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -62,6 +63,7 @@ def create_room():
             fixtures[mid] = dict(id=mid, date=match['match_date'], first_half_extra=extra,
                 home=dict(id=str(match['home_team']['home_team_id']), name=match['home_team']['home_team_name']),
                 away=dict(id=str(match['away_team']['away_team_id']), name=match['away_team']['away_team_name']),
+                stat_events=[dict(id=e.event_id,kind='goal' if e.goal else e.type.value,elapsed=e.minute+e.second/60+(extra if e.period==2 else 0),team_id=e.team_id,player_id=e.player_id,success=e.success,recipient_id=e.recipient_id,key_pass_id=e.key_pass_id,xg=e.xg,on_target=e.on_target,card=e.card) for item in raw if (e:=convert_event(item,mid)) is not None and e.period in (1,2)],
                 events=events, final_elapsed=max(e['minute']+e['second']/60+extra for e in raw if e['period']==2)+.001)
     bootstrap = dict(fixtures=fixtures, views=views, formations=list(FORMATIONS),
                      profiles={str(p['player_id']):dict(p,position_suitability={position:dict(zip(('fit','source'),position_fit(p,position))) for position in POSITIONS}) for p in dataset['players']}, version='coach-room-v2')

@@ -1,9 +1,28 @@
 "use strict";
 function visibleTimeline(timeline,elapsed){return timeline.filter((t,i)=>i===0||t.elapsed<elapsed).at(-1);}
 function scoreAt(fixture,elapsed){const s={[fixture.home.id]:0,[fixture.away.id]:0};for(const e of fixture.events)if(e.elapsed<elapsed&&['goal','own_goal'].includes(e.kind))s[e.team_id]++;return s;}
+function matchStatsAt(fixture,elapsed){
+ const teams=Object.fromEntries([fixture.home.id,fixture.away.id].map(id=>[id,{shots:0,onTarget:0,xg:0,passes:0,completed:0,accuracy:null,possessionProxy:null}])),players={},passes=new Map(),seen=new Set();
+ const player=id=>players[id]||(players[id]={goals:0,assists:0,yellows:0,red:false});
+ for(const e of fixture.stat_events||[]){
+  if(e.elapsed>=elapsed||seen.has(e.id))continue;seen.add(e.id);
+  const team=teams[e.team_id];if(!team)continue;
+  if(e.kind==='pass'){team.passes++;if(e.success===true)team.completed++;passes.set(e.id,e);}
+  if(['shot','goal'].includes(e.kind)){team.shots++;team.xg+=Number(e.xg)||0;if(e.on_target===true||e.kind==='goal')team.onTarget++;}
+  if(e.kind==='goal'&&e.player_id){
+   player(e.player_id).goals++;
+   const pass=passes.get(e.key_pass_id);
+   if(pass&&pass.success===true&&pass.team_id===e.team_id&&pass.player_id&&pass.player_id!==e.player_id&&pass.recipient_id===e.player_id)player(pass.player_id).assists++;
+  }
+  if(e.kind==='card'&&e.player_id){const p=player(e.player_id);if(e.card==='yellow'||e.card==='second_yellow')p.yellows++;if(e.card==='red'||e.card==='second_yellow')p.red=true;}
+ }
+ const total=Object.values(teams).reduce((sum,t)=>sum+t.passes,0);
+ for(const t of Object.values(teams)){t.accuracy=t.passes?100*t.completed/t.passes:null;t.possessionProxy=total?100*t.passes/total:null;}
+ return {teams,players};
+}
 function contextKey(view,minute,config){return JSON.stringify([view.match_id,view.team_id,minute,config]);}
 function explanationKey(context,planId,audience,lang){return JSON.stringify([context,planId,audience,lang]);}
-if(typeof module!=='undefined')module.exports={visibleTimeline,scoreAt,contextKey,explanationKey};
+if(typeof module!=='undefined')module.exports={visibleTimeline,scoreAt,matchStatsAt,contextKey,explanationKey};
 if(typeof document!=='undefined')initialize();
 
 function initialize(){
@@ -23,14 +42,29 @@ function initialize(){
   document.querySelectorAll('[data-i18n]').forEach(e=>e.textContent=t(data?.data_mode==='synthetic'&&['research','caveat'].includes(e.dataset.i18n)?'synthetic_'+e.dataset.i18n:e.dataset.i18n));
   $('language').setAttribute('aria-label',t('language'));$('team').setAttribute('aria-label',t('perspective'));document.querySelector('.explain').setAttribute('aria-label',t('explanation'));
  }
+ function badges(id,stats){
+  const p=stats.players[id];if(!p)return '';
+  const badge=(kind,label,text)=>`<span class="player-badge ${kind}" title="${esc(label)}" aria-label="${esc(label)}">${text}</span>`;
+  return `<span class="player-badges">${p.yellows?badge('yellow-card',t('yellowCards',{n:p.yellows}),p.yellows>1?p.yellows:''):''}${p.red?badge('red-card',t('sentOff'),''):''}${p.goals?badge('goal-badge',t('goalCount',{n:p.goals}),'⚽'+(p.goals>1?p.goals:'')):''}${p.assists?badge('assist-badge',t('assistCount',{n:p.assists}),'A'+(p.assists>1?p.assists:'')):''}</span>`;
+ }
+ function renderStats(stats){
+  const ids=[fixture.home.id,fixture.away.id];
+  const rows=[['xgTotal','xg',2],['totalShots','shots',0],['shotsOnTarget','onTarget',0],['passAttempts','passes',0],['passAccuracy','accuracy',1],['possessionProxy','possessionProxy',1]];
+  $('matchStats').innerHTML='<table><tr><th>'+esc(fixture.home.name)+'</th><th>'+t('statistic')+'</th><th>'+esc(fixture.away.name)+'</th></tr>'+rows.map(([label,key,n])=>'<tr>'+`<td class="num">${stats.teams[ids[0]][key]==null?'—':fmt(stats.teams[ids[0]][key],n)+(n===1?'%':'')}</td><th>${t(label)}</th><td class="num">${stats.teams[ids[1]][key]==null?'—':fmt(stats.teams[ids[1]][key],n)+(n===1?'%':'')}</td></tr>`).join('')+'</table>';
+  const dismissed=Object.entries(stats.players).filter(([id,p])=>p.red&&data.profiles[id]?.team===view.team);
+  $('dismissedPlayers').innerHTML=dismissed.length?`<strong>${t('sentOff')}</strong> `+dismissed.map(([id])=>`<span class="dismissed-player"><span class="dismissed-shirt" aria-hidden="true">👕</span>${esc(data.profiles[id]?.name||id)} ${badges(id,stats)}</span>`).join(' '):'';
+ }
  function renderPitch(id,lineup,incoming=null,moved=[],outgoing=null){
-  $(id).innerHTML='<div class="field-lines"><span class="center-circle"></span><span class="box-top"></span><span class="box-bottom"></span></div>'+(lineup||[]).map(p=>`<div class="footballer ${p.role==='GK'?'gk':''} ${p.player_id===incoming?'incoming':''} ${moved.includes(p.player_id)?'moved':''}" style="left:${p.x}%;top:${p.y}%" title="${esc(p.name)} · ${esc(pos(p.position))}"><div class="jersey"><svg viewBox="0 0 60 56" aria-hidden="true"><path d="M18 3L8 7 1 21l11 7 5-6v31h26V22l5 6 11-7L52 7 42 3Q30 11 18 3Z" fill="${p.role==='GK'?'#ce8a32':p.player_id===outgoing?'#ffadb0':p.player_id===incoming?'#ffe27b':'#f6fafb'}" stroke="#d1dedf" stroke-width="1.5"/></svg><span class="shirt-number">${esc(p.number??'?')}</span></div><span class="player-name">${esc(p.name)}</span><span class="position-label">${esc(pos(p.position))}</span></div>`).join('');
+  const stats=matchStatsAt(fixture,elapsed);
+  $(id).innerHTML='<div class="field-lines"><span class="center-circle"></span><span class="box-top"></span><span class="box-bottom"></span></div>'+(lineup||[]).filter(p=>!stats.players[p.player_id]?.red).map(p=>`<div class="footballer ${p.role==='GK'?'gk':''} ${p.player_id===incoming?'incoming':''} ${moved.includes(p.player_id)?'moved':''}" style="left:${p.x}%;top:${p.y}%" title="${esc(p.name)} · ${esc(pos(p.position))}"><div class="jersey"><svg viewBox="0 0 60 56" aria-hidden="true"><path d="M18 3L8 7 1 21l11 7 5-6v31h26V22l5 6 11-7L52 7 42 3Q30 11 18 3Z" fill="${p.role==='GK'?'#ce8a32':p.player_id===outgoing?'#ffadb0':p.player_id===incoming?'#ffe27b':'#f6fafb'}" stroke="#d1dedf" stroke-width="1.5"/></svg><span class="shirt-number">${esc(p.number??'?')}</span>${badges(p.player_id,stats)}</div><span class="player-name">${esc(p.name)}</span><span class="position-label">${esc(pos(p.position))}</span></div>`).join('');
  }
  function renderGame(){
+  renderStats(matchStatsAt(fixture,elapsed));
   const score=scoreAt(fixture,elapsed);$('score').textContent=`${score[fixture.home.id]} : ${score[fixture.away.id]}`;
   const half=elapsed>=45+fixture.first_half_extra,clock=elapsed-(half?fixture.first_half_extra:0),total=Math.floor(clock*60+1e-5),m=Math.floor(total/60),s=String(total%60).padStart(2,'0'),limit=half?90:45;
   $('clock').textContent=elapsed?`${m>=limit?limit+'+'+(m-limit):String(m).padStart(2,'0')}:${s}`:'00:00';$('rail').style.width=Math.min(elapsed/fixture.final_elapsed,1)*100+'%';
   const observed=visibleTimeline(view.lineup_timeline,elapsed);renderPitch('pitchCurrent',observed.lineup);$('observedFormation').textContent=observed.formation;$('initialFormation').textContent=t(data.data_mode==='synthetic'?'synthetic_initial':'initial',{shape:view.lineup_timeline[0].formation});
+  if(record)renderPitch('pitchPlan',chosen?.proposed_lineup||record.observed.lineup,chosen?.in_player?.id,chosen?.repositioned.map(p=>p.player_id)||[]);
   $('events').innerHTML=fixture.events.filter(e=>e.elapsed<elapsed&&($('eventFilter').value==='all'||!['pressure','tackle','recovery'].includes(e.kind))).reverse().map(e=>`<li class="${e.kind}"><time>${e.minute}:${String(e.second).padStart(2,'0')}</time>${esc(t(e.kind))} ${esc(e.player||'')}${e.replacement?' → '+esc(e.replacement):''}${e.xg!=null?' · xG '+fmt(e.xg,2):''}</li>`).join('')||`<li class="muted">${t('emptyEvents')}</li>`;
  }
  function controls(){

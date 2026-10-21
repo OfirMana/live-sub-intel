@@ -18,7 +18,7 @@ ROOT = Path(__file__).resolve().parents[1]
 
 
 DEFAULT_SEED = 20261021
-GENERATOR_VERSION = 'seeded-possessions-v2'
+GENERATOR_VERSION = 'seeded-possessions-v3-badges'
 
 
 def simulate(dataset, evidence, *, apply_substitutions=True, collect_snapshots=True, seed=DEFAULT_SEED):
@@ -29,6 +29,7 @@ def simulate(dataset, evidence, *, apply_substitutions=True, collect_snapshots=T
     supplied to the recommendation engine.
     """
     rng = random.Random(seed)
+    annotations_rng = random.Random(seed + 31)
     ms = make_match(dataset, evidence)
     events, snapshots = [], []
     sequence = 0
@@ -95,9 +96,16 @@ def simulate(dataset, evidence, *, apply_substitutions=True, collect_snapshots=T
                      on_target=rng.random()<.4,key_pass_id=assist)
         if minute in (54,78,82):
             tid='1' if minute==54 else '24'
-            emit(minute,rng.randint(8,56),tid,shooter(tid),'shot',
+            pid=shooter(tid)
+            second=rng.randint(8,56)
+            creator=annotations_rng.choice([p for p in actors(tid) if p!=pid])
+            assist=emit(minute,second-1,tid,creator,'pass',x=94,y=35,end_x=108,end_y=40,success=True,recipient_id=pid)
+            emit(minute,second,tid,pid,'shot',
                  x=round(rng.uniform(104,114),2),y=round(rng.uniform(30,50),2),
-                 xg=round(rng.uniform(.14,.46),3),success=True,goal=True,on_target=True)
+                 xg=round(rng.uniform(.14,.46),3),success=True,goal=True,on_target=True,key_pass_id=assist)
+        if minute in (32,61):
+            tid='24' if minute==32 else '1'
+            emit(minute,annotations_rng.randint(8,56),tid,annotations_rng.choice(actors(tid)),'card',card='yellow')
         for ev in sorted(pending,key=lambda e:(e.minute,e.second)):
             events.append(ev.model_dump(mode='json'))
             ms.feed(ev)

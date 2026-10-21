@@ -91,3 +91,23 @@ def test_visible_actions_and_seed_provenance_and_no_future_leakage(room):
     assert altered['team_needs']==r['team_needs']
     assert altered['selected']==r['selected']
     assert altered['alternatives']==r['alternatives']
+
+
+def test_match_stat_stream_preserves_pass_links_cards_and_visible_goal_totals(room):
+    bootstrap,_=room
+    fixture=bootstrap['fixtures'][MATCH_ID]
+    stats=fixture['stat_events']
+    assert len({e['id'] for e in stats})==len(stats)
+    passes={e['id']:e for e in stats if e['kind']=='pass'}
+    goals=[e for e in stats if e['kind']=='goal']
+    assert len(goals)==3
+    for goal in goals:
+        assist=passes[goal['key_pass_id']]
+        assert assist['elapsed']<goal['elapsed']
+        assert assist['team_id']==goal['team_id']
+        assert assist['recipient_id']==goal['player_id']
+        assert assist['player_id']!=goal['player_id']
+        assert assist['success'] is True
+    cards=[e for e in stats if e['kind']=='card']
+    assert len(cards)==2 and all(e['card']=='yellow' for e in cards)
+    assert {e['id'] for e in goals}=={e['id'] for e in fixture['events'] if e['kind']=='goal'}
