@@ -116,6 +116,7 @@ function initialize(){
   $('weights').innerHTML=`<table><tr><th>${t('dimension')}</th><th>${t('metricWeight')}</th><th>${t('deficit')}</th></tr>`+Object.keys(record.team_needs).map(d=>`<tr><td>${t(d)}</td><td class="num">${fmt(record.importance[d],3)}</td><td class="num">${fmt(record.performance_deficit_z[d],3)}</td></tr>`).join('')+'</table>';
   $('shiftInfo').textContent=record.observed.shifts.length?t('observedShift',{shifts:record.observed.shifts.map(s=>`${s.minute}:${String(s.second).padStart(2,'0')} → ${s.formation}`).join(' · ')}):t('noShift');
   $('searchStats').textContent=t('search',{pairs:record.search.pairs_considered,trials:record.search.formation_trials,feasible:record.search.feasible_plans,ms:record.search.elapsed_ms});$('policy').textContent=t('policy',{cap:config().freshness_cap});
+  $('latePolicy').textContent=record.late_game_policy?.active?t('latePolicy',{time:fmt(record.late_game_policy.tactical_time,3),loss:fmt(record.late_game_policy.defensive_downside_multiplier,2)}):t('standardLatePolicy');
   renderAnalysis();updateShare();
  }
  async function analyze(){

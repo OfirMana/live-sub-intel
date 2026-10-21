@@ -53,9 +53,23 @@ def _core(delta, gain, loss):
     return sum((gain[i] if v >= 0 else loss[i])*v/20 for i, v in enumerate(delta))
 
 
+def late_game_weights(state, config, enabled=True):
+    """Bounded immediate-impact policy, not a forecast of stoppage time or goals."""
+    remaining=max(94-state.minute,0)
+    base=remaining/90
+    chase=enabled and config.objective=='win' and state.goal_diff<=0 and state.minute<94
+    urgency=max(0.,min(1.,(state.minute-70)/20)) if chase else 0.
+    immediate=min(remaining,30)/30
+    return dict(version='late-win-v1',active=urgency>0,urgency=urgency,
+                assumed_end_minute=94,assumed_remaining_minutes=remaining,
+                baseline_tactical_time=base,tactical_time=base+urgency*(immediate-base),
+                defensive_downside_multiplier=1-.25*urgency)
+
+
 def optimize_assignment(members, positions, cards, roster, ratings, reference, needs,
                         old_positions, formation, observed_formation, evidence_factor=1.,
-                        tactical_time=1., freshness_base=0., incoming_id=None, quality_reference=None):
+                        tactical_time=1., freshness_base=0., incoming_id=None, quality_reference=None,
+                        defensive_downside_multiplier=1.):
     """Exact branch-and-bound over admissible final-position assignments.
 
     The upper bound sums independent remaining maxima per dimension, ignores
@@ -66,7 +80,7 @@ def optimize_assignment(members, positions, cards, roster, ratings, reference, n
     if len(members) != n or len(set(members)) != n:
         return None, dict(nodes=0, leaves=0, pruned=0)
     gain = [max(needs.needs[d]-.5, 0)*2 for d in DIMS]
-    loss = [.5*needs.importance[d] for d in DIMS]
+    loss = [.5*needs.importance[d]*(defensive_downside_multiplier if d in ('retention','defense') else 1.) for d in DIMS]
     reference_vec = [reference[d] for d in DIMS]
     candidates = []
     for j, pos in enumerate(positions):
@@ -142,7 +156,7 @@ def optimize_assignment(members, positions, cards, roster, ratings, reference, n
     return best,stats
 
 
-def recommend_auto(ms, tid, observed, roster, config:AutoConfig):
+def recommend_auto(ms, tid, observed, roster, config:AutoConfig, *, late_policy_enabled=True):
     started=time.perf_counter()
     state=ms.game_state(tid)
     needs=coach_needs(ms,tid,config)
@@ -165,7 +179,8 @@ def recommend_auto(ms, tid, observed, roster, config:AutoConfig):
         shapes += [(f,positions) for f,positions in FORMATIONS.items() if positions!=shapes[0][1]]
     elif config.formation!='observed':
         shapes=[(config.formation,FORMATIONS[config.formation])]
-    horizon=max(94-state.minute,0)/90
+    late_policy=late_game_weights(state,config,late_policy_enabled)
+    horizon=late_policy['tactical_time']
     fresh_horizon=min(max(94-state.minute,0)/30,1)
     stats=Counter(pairs_considered=0,formation_trials=0,feasible_plans=0,nodes=0,leaves=0,pruned=0)
     no_sub_plans=[]
@@ -179,13 +194,14 @@ def recommend_auto(ms, tid, observed, roster, config:AutoConfig):
         raw_refresh=config.freshness_cap*live[out_id]['fatigue']*quality if out_id else 0.
         result, counts=optimize_assignment(members,positions,cards,roster,ratings,reference,needs,old_positions,
             formation,observed['formation'],evidence,horizon,evidence*raw_refresh*fresh_horizon,in_id,
-            baseline if in_id else None)
+            baseline if in_id else None,defensive_downside_multiplier=late_policy['defensive_downside_multiplier'])
         stats.update(counts)
         if result is None and in_id:
             # Retain the best rejected plan for inspection. An unsafe numerical
             # optimum never hides a lower-scoring assignment that passes safety.
             result, counts=optimize_assignment(members,positions,cards,roster,ratings,reference,needs,old_positions,
-                formation,observed['formation'],evidence,horizon,evidence*raw_refresh*fresh_horizon,in_id)
+                formation,observed['formation'],evidence,horizon,evidence*raw_refresh*fresh_horizon,in_id,
+                defensive_downside_multiplier=late_policy['defensive_downside_multiplier'])
             stats.update(counts)
         if result is None:
             return None
@@ -206,6 +222,8 @@ def recommend_auto(ms, tid, observed, roster, config:AutoConfig):
             lineup_changes={d:round(v,4) for d,v in result['delta'].items()},
             score_components=dict(tactical_core=result['core'],tactical_support=-result['disruption'],
                 evidence_multiplier=evidence,remaining_time_multiplier=horizon,freshness_time_multiplier=fresh_horizon,
+                baseline_time_multiplier=late_policy['baseline_tactical_time'],
+                defensive_downside_multiplier=late_policy['defensive_downside_multiplier'],
                 freshness_relief=raw_refresh,outgoing_fatigue=live[out_id]['fatigue'] if out_id else 0.,
                 freshness_benefit=result['freshness'],tactical_benefit=result['tactical']))
     if valid and 20<=state.minute<94:
@@ -262,7 +280,7 @@ def recommend_auto(ms, tid, observed, roster, config:AutoConfig):
     reason=None if selected else 'FORMATION_ONLY_SUFFICIENT' if adjustment else 'OUTSIDE_DECISION_WINDOW' if state.minute<20 else 'MISSING_PLAYER_PROFILES' if missing else 'UNSUPPORTED_PLAYER_COUNT' if not valid else 'NO_SUBSTITUTIONS_LEFT' if state.subs_left<=0 else 'NO_FEASIBLE_PLAN' if not alternatives else 'QUALITY_LOSS_TOO_LARGE' if any(p['clears_threshold'] for p in alternatives) else 'BELOW_THRESHOLD'
     stats['elapsed_ms']=round((time.perf_counter()-started)*1000,2)
     return dict(version='coach-room-v2',match_id=ms.match_id,team_id=tid,minute=state.minute,state=state.model_dump(),
-        coach_config=config.model_dump(),recommendation=decision,selected=selected,selected_plan=selected or adjustment,
+        coach_config=config.model_dump(),late_game_policy=late_policy,recommendation=decision,selected=selected,selected_plan=selected or adjustment,
         no_substitution_reason=reason,alternatives=alternatives,threshold=RECOMMEND_THRESHOLD,
         max_tactical_loss_for_freshness=MAX_TACTICAL_LOSS_FOR_FRESHNESS,refresh_loss_share=MAX_REFRESH_LOSS_SHARE,
         team_needs={d:round(v,4) for d,v in needs.needs.items()},importance=needs.importance,performance_deficit_z=needs.deficit_z,

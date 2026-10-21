@@ -1,0 +1,981 @@
+{
+  "kind": "SENSITIVITY_NOT_TACTICAL_ACCURACY",
+  "summary": {
+    "checkpoints": 32,
+    "active": 11,
+    "decisions_before": {
+      "TACTICAL_ADJUSTMENT": 10,
+      "SUBSTITUTION": 12,
+      "NO_SUBSTITUTION": 10
+    },
+    "decisions_after": {
+      "TACTICAL_ADJUSTMENT": 13,
+      "SUBSTITUTION": 11,
+      "NO_SUBSTITUTION": 8
+    },
+    "changed_decisions": 3,
+    "unchanged_inactive": true
+  },
+  "rows": [
+    {
+      "team": "Liverpool",
+      "minute": 75,
+      "objective": "win",
+      "goal_diff": -1,
+      "policy": {
+        "version": "late-win-v1",
+        "active": true,
+        "urgency": 0.25,
+        "assumed_end_minute": 94,
+        "assumed_remaining_minutes": 19,
+        "baseline_tactical_time": 0.2111111111111111,
+        "tactical_time": 0.31666666666666665,
+        "defensive_downside_multiplier": 0.9375
+      },
+      "before": {
+        "decision": "TACTICAL_ADJUSTMENT",
+        "recommended_pairs": 0,
+        "selected": null,
+        "selected_benefit": null,
+        "top_benefit": 0.22851
+      },
+      "after": {
+        "decision": "TACTICAL_ADJUSTMENT",
+        "recommended_pairs": 0,
+        "selected": null,
+        "selected_benefit": null,
+        "top_benefit": 0.17683
+      }
+    },
+    {
+      "team": "Liverpool",
+      "minute": 75,
+      "objective": "draw",
+      "goal_diff": -1,
+      "policy": {
+        "version": "late-win-v1",
+        "active": false,
+        "urgency": 0.0,
+        "assumed_end_minute": 94,
+        "assumed_remaining_minutes": 19,
+        "baseline_tactical_time": 0.2111111111111111,
+        "tactical_time": 0.2111111111111111,
+        "defensive_downside_multiplier": 1.0
+      },
+      "before": {
+        "decision": "TACTICAL_ADJUSTMENT",
+        "recommended_pairs": 0,
+        "selected": null,
+        "selected_benefit": null,
+        "top_benefit": 0.22851
+      },
+      "after": {
+        "decision": "TACTICAL_ADJUSTMENT",
+        "recommended_pairs": 0,
+        "selected": null,
+        "selected_benefit": null,
+        "top_benefit": 0.22851
+      }
+    },
+    {
+      "team": "Liverpool",
+      "minute": 80,
+      "objective": "win",
+      "goal_diff": -1,
+      "policy": {
+        "version": "late-win-v1",
+        "active": true,
+        "urgency": 0.5,
+        "assumed_end_minute": 94,
+        "assumed_remaining_minutes": 14,
+        "baseline_tactical_time": 0.15555555555555556,
+        "tactical_time": 0.3111111111111111,
+        "defensive_downside_multiplier": 0.875
+      },
+      "before": {
+        "decision": "SUBSTITUTION",
+        "recommended_pairs": 1,
+        "selected": "Jordon Ibe -> Lucas Leiva",
+        "selected_benefit": 0.20803,
+        "top_benefit": 0.20803
+      },
+      "after": {
+        "decision": "TACTICAL_ADJUSTMENT",
+        "recommended_pairs": 0,
+        "selected": null,
+        "selected_benefit": null,
+        "top_benefit": 0.12755
+      }
+    },
+    {
+      "team": "Liverpool",
+      "minute": 80,
+      "objective": "draw",
+      "goal_diff": -1,
+      "policy": {
+        "version": "late-win-v1",
+        "active": false,
+        "urgency": 0.0,
+        "assumed_end_minute": 94,
+        "assumed_remaining_minutes": 14,
+        "baseline_tactical_time": 0.15555555555555556,
+        "tactical_time": 0.15555555555555556,
+        "defensive_downside_multiplier": 1.0
+      },
+      "before": {
+        "decision": "SUBSTITUTION",
+        "recommended_pairs": 1,
+        "selected": "Jordon Ibe -> Lucas Leiva",
+        "selected_benefit": 0.20803,
+        "top_benefit": 0.20803
+      },
+      "after": {
+        "decision": "SUBSTITUTION",
+        "recommended_pairs": 1,
+        "selected": "Jordon Ibe -> Lucas Leiva",
+        "selected_benefit": 0.20803,
+        "top_benefit": 0.20803
+      }
+    },
+    {
+      "team": "Liverpool",
+      "minute": 85,
+      "objective": "win",
+      "goal_diff": -1,
+      "policy": {
+        "version": "late-win-v1",
+        "active": true,
+        "urgency": 0.75,
+        "assumed_end_minute": 94,
+        "assumed_remaining_minutes": 9,
+        "baseline_tactical_time": 0.1,
+        "tactical_time": 0.25,
+        "defensive_downside_multiplier": 0.8125
+      },
+      "before": {
+        "decision": "NO_SUBSTITUTION",
+        "recommended_pairs": 0,
+        "selected": null,
+        "selected_benefit": null,
+        "top_benefit": 0.08778
+      },
+      "after": {
+        "decision": "TACTICAL_ADJUSTMENT",
+        "recommended_pairs": 0,
+        "selected": null,
+        "selected_benefit": null,
+        "top_benefit": -0.03115
+      }
+    },
+    {
+      "team": "Liverpool",
+      "minute": 85,
+      "objective": "draw",
+      "goal_diff": -1,
+      "policy": {
+        "version": "late-win-v1",
+        "active": false,
+        "urgency": 0.0,
+        "assumed_end_minute": 94,
+        "assumed_remaining_minutes": 9,
+        "baseline_tactical_time": 0.1,
+        "tactical_time": 0.1,
+        "defensive_downside_multiplier": 1.0
+      },
+      "before": {
+        "decision": "NO_SUBSTITUTION",
+        "recommended_pairs": 0,
+        "selected": null,
+        "selected_benefit": null,
+        "top_benefit": 0.08778
+      },
+      "after": {
+        "decision": "NO_SUBSTITUTION",
+        "recommended_pairs": 0,
+        "selected": null,
+        "selected_benefit": null,
+        "top_benefit": 0.08778
+      }
+    },
+    {
+      "team": "Liverpool",
+      "minute": 90,
+      "objective": "win",
+      "goal_diff": 0,
+      "policy": {
+        "version": "late-win-v1",
+        "active": true,
+        "urgency": 1.0,
+        "assumed_end_minute": 94,
+        "assumed_remaining_minutes": 4,
+        "baseline_tactical_time": 0.044444444444444446,
+        "tactical_time": 0.13333333333333333,
+        "defensive_downside_multiplier": 0.75
+      },
+      "before": {
+        "decision": "NO_SUBSTITUTION",
+        "recommended_pairs": 0,
+        "selected": null,
+        "selected_benefit": null,
+        "top_benefit": null
+      },
+      "after": {
+        "decision": "NO_SUBSTITUTION",
+        "recommended_pairs": 0,
+        "selected": null,
+        "selected_benefit": null,
+        "top_benefit": null
+      }
+    },
+    {
+      "team": "Liverpool",
+      "minute": 90,
+      "objective": "draw",
+      "goal_diff": 0,
+      "policy": {
+        "version": "late-win-v1",
+        "active": false,
+        "urgency": 0.0,
+        "assumed_end_minute": 94,
+        "assumed_remaining_minutes": 4,
+        "baseline_tactical_time": 0.044444444444444446,
+        "tactical_time": 0.044444444444444446,
+        "defensive_downside_multiplier": 1.0
+      },
+      "before": {
+        "decision": "NO_SUBSTITUTION",
+        "recommended_pairs": 0,
+        "selected": null,
+        "selected_benefit": null,
+        "top_benefit": null
+      },
+      "after": {
+        "decision": "NO_SUBSTITUTION",
+        "recommended_pairs": 0,
+        "selected": null,
+        "selected_benefit": null,
+        "top_benefit": null
+      }
+    },
+    {
+      "team": "Arsenal",
+      "minute": 75,
+      "objective": "win",
+      "goal_diff": 1,
+      "policy": {
+        "version": "late-win-v1",
+        "active": false,
+        "urgency": 0.0,
+        "assumed_end_minute": 94,
+        "assumed_remaining_minutes": 19,
+        "baseline_tactical_time": 0.2111111111111111,
+        "tactical_time": 0.2111111111111111,
+        "defensive_downside_multiplier": 1.0
+      },
+      "before": {
+        "decision": "TACTICAL_ADJUSTMENT",
+        "recommended_pairs": 0,
+        "selected": null,
+        "selected_benefit": null,
+        "top_benefit": 0.10672
+      },
+      "after": {
+        "decision": "TACTICAL_ADJUSTMENT",
+        "recommended_pairs": 0,
+        "selected": null,
+        "selected_benefit": null,
+        "top_benefit": 0.10672
+      }
+    },
+    {
+      "team": "Arsenal",
+      "minute": 75,
+      "objective": "draw",
+      "goal_diff": 1,
+      "policy": {
+        "version": "late-win-v1",
+        "active": false,
+        "urgency": 0.0,
+        "assumed_end_minute": 94,
+        "assumed_remaining_minutes": 19,
+        "baseline_tactical_time": 0.2111111111111111,
+        "tactical_time": 0.2111111111111111,
+        "defensive_downside_multiplier": 1.0
+      },
+      "before": {
+        "decision": "TACTICAL_ADJUSTMENT",
+        "recommended_pairs": 0,
+        "selected": null,
+        "selected_benefit": null,
+        "top_benefit": 0.10672
+      },
+      "after": {
+        "decision": "TACTICAL_ADJUSTMENT",
+        "recommended_pairs": 0,
+        "selected": null,
+        "selected_benefit": null,
+        "top_benefit": 0.10672
+      }
+    },
+    {
+      "team": "Arsenal",
+      "minute": 80,
+      "objective": "win",
+      "goal_diff": 1,
+      "policy": {
+        "version": "late-win-v1",
+        "active": false,
+        "urgency": 0.0,
+        "assumed_end_minute": 94,
+        "assumed_remaining_minutes": 14,
+        "baseline_tactical_time": 0.15555555555555556,
+        "tactical_time": 0.15555555555555556,
+        "defensive_downside_multiplier": 1.0
+      },
+      "before": {
+        "decision": "TACTICAL_ADJUSTMENT",
+        "recommended_pairs": 0,
+        "selected": null,
+        "selected_benefit": null,
+        "top_benefit": 0.14601
+      },
+      "after": {
+        "decision": "TACTICAL_ADJUSTMENT",
+        "recommended_pairs": 0,
+        "selected": null,
+        "selected_benefit": null,
+        "top_benefit": 0.14601
+      }
+    },
+    {
+      "team": "Arsenal",
+      "minute": 80,
+      "objective": "draw",
+      "goal_diff": 1,
+      "policy": {
+        "version": "late-win-v1",
+        "active": false,
+        "urgency": 0.0,
+        "assumed_end_minute": 94,
+        "assumed_remaining_minutes": 14,
+        "baseline_tactical_time": 0.15555555555555556,
+        "tactical_time": 0.15555555555555556,
+        "defensive_downside_multiplier": 1.0
+      },
+      "before": {
+        "decision": "TACTICAL_ADJUSTMENT",
+        "recommended_pairs": 0,
+        "selected": null,
+        "selected_benefit": null,
+        "top_benefit": 0.14601
+      },
+      "after": {
+        "decision": "TACTICAL_ADJUSTMENT",
+        "recommended_pairs": 0,
+        "selected": null,
+        "selected_benefit": null,
+        "top_benefit": 0.14601
+      }
+    },
+    {
+      "team": "Arsenal",
+      "minute": 85,
+      "objective": "win",
+      "goal_diff": 1,
+      "policy": {
+        "version": "late-win-v1",
+        "active": false,
+        "urgency": 0.0,
+        "assumed_end_minute": 94,
+        "assumed_remaining_minutes": 9,
+        "baseline_tactical_time": 0.1,
+        "tactical_time": 0.1,
+        "defensive_downside_multiplier": 1.0
+      },
+      "before": {
+        "decision": "NO_SUBSTITUTION",
+        "recommended_pairs": 0,
+        "selected": null,
+        "selected_benefit": null,
+        "top_benefit": 0.09628
+      },
+      "after": {
+        "decision": "NO_SUBSTITUTION",
+        "recommended_pairs": 0,
+        "selected": null,
+        "selected_benefit": null,
+        "top_benefit": 0.09628
+      }
+    },
+    {
+      "team": "Arsenal",
+      "minute": 85,
+      "objective": "draw",
+      "goal_diff": 1,
+      "policy": {
+        "version": "late-win-v1",
+        "active": false,
+        "urgency": 0.0,
+        "assumed_end_minute": 94,
+        "assumed_remaining_minutes": 9,
+        "baseline_tactical_time": 0.1,
+        "tactical_time": 0.1,
+        "defensive_downside_multiplier": 1.0
+      },
+      "before": {
+        "decision": "NO_SUBSTITUTION",
+        "recommended_pairs": 0,
+        "selected": null,
+        "selected_benefit": null,
+        "top_benefit": 0.09628
+      },
+      "after": {
+        "decision": "NO_SUBSTITUTION",
+        "recommended_pairs": 0,
+        "selected": null,
+        "selected_benefit": null,
+        "top_benefit": 0.09628
+      }
+    },
+    {
+      "team": "Arsenal",
+      "minute": 90,
+      "objective": "win",
+      "goal_diff": 0,
+      "policy": {
+        "version": "late-win-v1",
+        "active": true,
+        "urgency": 1.0,
+        "assumed_end_minute": 94,
+        "assumed_remaining_minutes": 4,
+        "baseline_tactical_time": 0.044444444444444446,
+        "tactical_time": 0.13333333333333333,
+        "defensive_downside_multiplier": 0.75
+      },
+      "before": {
+        "decision": "TACTICAL_ADJUSTMENT",
+        "recommended_pairs": 0,
+        "selected": null,
+        "selected_benefit": null,
+        "top_benefit": null
+      },
+      "after": {
+        "decision": "TACTICAL_ADJUSTMENT",
+        "recommended_pairs": 0,
+        "selected": null,
+        "selected_benefit": null,
+        "top_benefit": null
+      }
+    },
+    {
+      "team": "Arsenal",
+      "minute": 90,
+      "objective": "draw",
+      "goal_diff": 0,
+      "policy": {
+        "version": "late-win-v1",
+        "active": false,
+        "urgency": 0.0,
+        "assumed_end_minute": 94,
+        "assumed_remaining_minutes": 4,
+        "baseline_tactical_time": 0.044444444444444446,
+        "tactical_time": 0.044444444444444446,
+        "defensive_downside_multiplier": 1.0
+      },
+      "before": {
+        "decision": "TACTICAL_ADJUSTMENT",
+        "recommended_pairs": 0,
+        "selected": null,
+        "selected_benefit": null,
+        "top_benefit": null
+      },
+      "after": {
+        "decision": "TACTICAL_ADJUSTMENT",
+        "recommended_pairs": 0,
+        "selected": null,
+        "selected_benefit": null,
+        "top_benefit": null
+      }
+    },
+    {
+      "team": "Chelsea",
+      "minute": 75,
+      "objective": "win",
+      "goal_diff": 1,
+      "policy": {
+        "version": "late-win-v1",
+        "active": false,
+        "urgency": 0.0,
+        "assumed_end_minute": 94,
+        "assumed_remaining_minutes": 19,
+        "baseline_tactical_time": 0.2111111111111111,
+        "tactical_time": 0.2111111111111111,
+        "defensive_downside_multiplier": 1.0
+      },
+      "before": {
+        "decision": "SUBSTITUTION",
+        "recommended_pairs": 1,
+        "selected": "Kurt Zouma -> Gary Cahill",
+        "selected_benefit": 0.24599,
+        "top_benefit": 0.24599
+      },
+      "after": {
+        "decision": "SUBSTITUTION",
+        "recommended_pairs": 1,
+        "selected": "Kurt Zouma -> Gary Cahill",
+        "selected_benefit": 0.24599,
+        "top_benefit": 0.24599
+      }
+    },
+    {
+      "team": "Chelsea",
+      "minute": 75,
+      "objective": "draw",
+      "goal_diff": 1,
+      "policy": {
+        "version": "late-win-v1",
+        "active": false,
+        "urgency": 0.0,
+        "assumed_end_minute": 94,
+        "assumed_remaining_minutes": 19,
+        "baseline_tactical_time": 0.2111111111111111,
+        "tactical_time": 0.2111111111111111,
+        "defensive_downside_multiplier": 1.0
+      },
+      "before": {
+        "decision": "SUBSTITUTION",
+        "recommended_pairs": 1,
+        "selected": "Kurt Zouma -> Gary Cahill",
+        "selected_benefit": 0.24599,
+        "top_benefit": 0.24599
+      },
+      "after": {
+        "decision": "SUBSTITUTION",
+        "recommended_pairs": 1,
+        "selected": "Kurt Zouma -> Gary Cahill",
+        "selected_benefit": 0.24599,
+        "top_benefit": 0.24599
+      }
+    },
+    {
+      "team": "Chelsea",
+      "minute": 80,
+      "objective": "win",
+      "goal_diff": 1,
+      "policy": {
+        "version": "late-win-v1",
+        "active": false,
+        "urgency": 0.0,
+        "assumed_end_minute": 94,
+        "assumed_remaining_minutes": 14,
+        "baseline_tactical_time": 0.15555555555555556,
+        "tactical_time": 0.15555555555555556,
+        "defensive_downside_multiplier": 1.0
+      },
+      "before": {
+        "decision": "SUBSTITUTION",
+        "recommended_pairs": 1,
+        "selected": "Kurt Zouma -> Gary Cahill",
+        "selected_benefit": 0.21335,
+        "top_benefit": 0.21335
+      },
+      "after": {
+        "decision": "SUBSTITUTION",
+        "recommended_pairs": 1,
+        "selected": "Kurt Zouma -> Gary Cahill",
+        "selected_benefit": 0.21335,
+        "top_benefit": 0.21335
+      }
+    },
+    {
+      "team": "Chelsea",
+      "minute": 80,
+      "objective": "draw",
+      "goal_diff": 1,
+      "policy": {
+        "version": "late-win-v1",
+        "active": false,
+        "urgency": 0.0,
+        "assumed_end_minute": 94,
+        "assumed_remaining_minutes": 14,
+        "baseline_tactical_time": 0.15555555555555556,
+        "tactical_time": 0.15555555555555556,
+        "defensive_downside_multiplier": 1.0
+      },
+      "before": {
+        "decision": "SUBSTITUTION",
+        "recommended_pairs": 1,
+        "selected": "Kurt Zouma -> Gary Cahill",
+        "selected_benefit": 0.21335,
+        "top_benefit": 0.21335
+      },
+      "after": {
+        "decision": "SUBSTITUTION",
+        "recommended_pairs": 1,
+        "selected": "Kurt Zouma -> Gary Cahill",
+        "selected_benefit": 0.21335,
+        "top_benefit": 0.21335
+      }
+    },
+    {
+      "team": "Chelsea",
+      "minute": 85,
+      "objective": "win",
+      "goal_diff": 0,
+      "policy": {
+        "version": "late-win-v1",
+        "active": true,
+        "urgency": 0.75,
+        "assumed_end_minute": 94,
+        "assumed_remaining_minutes": 9,
+        "baseline_tactical_time": 0.1,
+        "tactical_time": 0.25,
+        "defensive_downside_multiplier": 0.8125
+      },
+      "before": {
+        "decision": "SUBSTITUTION",
+        "recommended_pairs": 1,
+        "selected": "Kurt Zouma -> Gary Cahill",
+        "selected_benefit": 0.17688,
+        "top_benefit": 0.17688
+      },
+      "after": {
+        "decision": "SUBSTITUTION",
+        "recommended_pairs": 1,
+        "selected": "Kurt Zouma -> Gary Cahill",
+        "selected_benefit": 0.19821,
+        "top_benefit": 0.19821
+      }
+    },
+    {
+      "team": "Chelsea",
+      "minute": 85,
+      "objective": "draw",
+      "goal_diff": 0,
+      "policy": {
+        "version": "late-win-v1",
+        "active": false,
+        "urgency": 0.0,
+        "assumed_end_minute": 94,
+        "assumed_remaining_minutes": 9,
+        "baseline_tactical_time": 0.1,
+        "tactical_time": 0.1,
+        "defensive_downside_multiplier": 1.0
+      },
+      "before": {
+        "decision": "SUBSTITUTION",
+        "recommended_pairs": 1,
+        "selected": "Kurt Zouma -> Gary Cahill",
+        "selected_benefit": 0.18109,
+        "top_benefit": 0.18109
+      },
+      "after": {
+        "decision": "SUBSTITUTION",
+        "recommended_pairs": 1,
+        "selected": "Kurt Zouma -> Gary Cahill",
+        "selected_benefit": 0.18109,
+        "top_benefit": 0.18109
+      }
+    },
+    {
+      "team": "Chelsea",
+      "minute": 90,
+      "objective": "win",
+      "goal_diff": 0,
+      "policy": {
+        "version": "late-win-v1",
+        "active": true,
+        "urgency": 1.0,
+        "assumed_end_minute": 94,
+        "assumed_remaining_minutes": 4,
+        "baseline_tactical_time": 0.044444444444444446,
+        "tactical_time": 0.13333333333333333,
+        "defensive_downside_multiplier": 0.75
+      },
+      "before": {
+        "decision": "NO_SUBSTITUTION",
+        "recommended_pairs": 0,
+        "selected": null,
+        "selected_benefit": null,
+        "top_benefit": 0.09043
+      },
+      "after": {
+        "decision": "NO_SUBSTITUTION",
+        "recommended_pairs": 0,
+        "selected": null,
+        "selected_benefit": null,
+        "top_benefit": 0.09797
+      }
+    },
+    {
+      "team": "Chelsea",
+      "minute": 90,
+      "objective": "draw",
+      "goal_diff": 0,
+      "policy": {
+        "version": "late-win-v1",
+        "active": false,
+        "urgency": 0.0,
+        "assumed_end_minute": 94,
+        "assumed_remaining_minutes": 4,
+        "baseline_tactical_time": 0.044444444444444446,
+        "tactical_time": 0.044444444444444446,
+        "defensive_downside_multiplier": 1.0
+      },
+      "before": {
+        "decision": "NO_SUBSTITUTION",
+        "recommended_pairs": 0,
+        "selected": null,
+        "selected_benefit": null,
+        "top_benefit": 0.09292
+      },
+      "after": {
+        "decision": "NO_SUBSTITUTION",
+        "recommended_pairs": 0,
+        "selected": null,
+        "selected_benefit": null,
+        "top_benefit": 0.09292
+      }
+    },
+    {
+      "team": "Tottenham Hotspur",
+      "minute": 75,
+      "objective": "win",
+      "goal_diff": 0,
+      "policy": {
+        "version": "late-win-v1",
+        "active": true,
+        "urgency": 0.25,
+        "assumed_end_minute": 94,
+        "assumed_remaining_minutes": 19,
+        "baseline_tactical_time": 0.2111111111111111,
+        "tactical_time": 0.31666666666666665,
+        "defensive_downside_multiplier": 0.9375
+      },
+      "before": {
+        "decision": "SUBSTITUTION",
+        "recommended_pairs": 6,
+        "selected": "Tom Carroll -> Son Heung-Min",
+        "selected_benefit": 0.43572,
+        "top_benefit": 0.43572
+      },
+      "after": {
+        "decision": "SUBSTITUTION",
+        "recommended_pairs": 5,
+        "selected": "Tom Carroll -> Son Heung-Min",
+        "selected_benefit": 0.52715,
+        "top_benefit": 0.52715
+      }
+    },
+    {
+      "team": "Tottenham Hotspur",
+      "minute": 75,
+      "objective": "draw",
+      "goal_diff": 0,
+      "policy": {
+        "version": "late-win-v1",
+        "active": false,
+        "urgency": 0.0,
+        "assumed_end_minute": 94,
+        "assumed_remaining_minutes": 19,
+        "baseline_tactical_time": 0.2111111111111111,
+        "tactical_time": 0.2111111111111111,
+        "defensive_downside_multiplier": 1.0
+      },
+      "before": {
+        "decision": "SUBSTITUTION",
+        "recommended_pairs": 6,
+        "selected": "Tom Carroll -> Son Heung-Min",
+        "selected_benefit": 0.3161,
+        "top_benefit": 0.3161
+      },
+      "after": {
+        "decision": "SUBSTITUTION",
+        "recommended_pairs": 6,
+        "selected": "Tom Carroll -> Son Heung-Min",
+        "selected_benefit": 0.3161,
+        "top_benefit": 0.3161
+      }
+    },
+    {
+      "team": "Tottenham Hotspur",
+      "minute": 80,
+      "objective": "win",
+      "goal_diff": 0,
+      "policy": {
+        "version": "late-win-v1",
+        "active": true,
+        "urgency": 0.5,
+        "assumed_end_minute": 94,
+        "assumed_remaining_minutes": 14,
+        "baseline_tactical_time": 0.15555555555555556,
+        "tactical_time": 0.3111111111111111,
+        "defensive_downside_multiplier": 0.875
+      },
+      "before": {
+        "decision": "SUBSTITUTION",
+        "recommended_pairs": 6,
+        "selected": "Tom Carroll -> Son Heung-Min",
+        "selected_benefit": 0.37887,
+        "top_benefit": 0.37887
+      },
+      "after": {
+        "decision": "SUBSTITUTION",
+        "recommended_pairs": 8,
+        "selected": "Tom Carroll -> Son Heung-Min",
+        "selected_benefit": 0.53799,
+        "top_benefit": 0.53799
+      }
+    },
+    {
+      "team": "Tottenham Hotspur",
+      "minute": 80,
+      "objective": "draw",
+      "goal_diff": 0,
+      "policy": {
+        "version": "late-win-v1",
+        "active": false,
+        "urgency": 0.0,
+        "assumed_end_minute": 94,
+        "assumed_remaining_minutes": 14,
+        "baseline_tactical_time": 0.15555555555555556,
+        "tactical_time": 0.15555555555555556,
+        "defensive_downside_multiplier": 1.0
+      },
+      "before": {
+        "decision": "SUBSTITUTION",
+        "recommended_pairs": 6,
+        "selected": "Tom Carroll -> Son Heung-Min",
+        "selected_benefit": 0.29005,
+        "top_benefit": 0.29005
+      },
+      "after": {
+        "decision": "SUBSTITUTION",
+        "recommended_pairs": 6,
+        "selected": "Tom Carroll -> Son Heung-Min",
+        "selected_benefit": 0.29005,
+        "top_benefit": 0.29005
+      }
+    },
+    {
+      "team": "Tottenham Hotspur",
+      "minute": 85,
+      "objective": "win",
+      "goal_diff": -1,
+      "policy": {
+        "version": "late-win-v1",
+        "active": true,
+        "urgency": 0.75,
+        "assumed_end_minute": 94,
+        "assumed_remaining_minutes": 9,
+        "baseline_tactical_time": 0.1,
+        "tactical_time": 0.25,
+        "defensive_downside_multiplier": 0.8125
+      },
+      "before": {
+        "decision": "TACTICAL_ADJUSTMENT",
+        "recommended_pairs": 0,
+        "selected": null,
+        "selected_benefit": null,
+        "top_benefit": 0.09304
+      },
+      "after": {
+        "decision": "TACTICAL_ADJUSTMENT",
+        "recommended_pairs": 0,
+        "selected": null,
+        "selected_benefit": null,
+        "top_benefit": 0.02853
+      }
+    },
+    {
+      "team": "Tottenham Hotspur",
+      "minute": 85,
+      "objective": "draw",
+      "goal_diff": -1,
+      "policy": {
+        "version": "late-win-v1",
+        "active": false,
+        "urgency": 0.0,
+        "assumed_end_minute": 94,
+        "assumed_remaining_minutes": 9,
+        "baseline_tactical_time": 0.1,
+        "tactical_time": 0.1,
+        "defensive_downside_multiplier": 1.0
+      },
+      "before": {
+        "decision": "TACTICAL_ADJUSTMENT",
+        "recommended_pairs": 0,
+        "selected": null,
+        "selected_benefit": null,
+        "top_benefit": 0.09304
+      },
+      "after": {
+        "decision": "TACTICAL_ADJUSTMENT",
+        "recommended_pairs": 0,
+        "selected": null,
+        "selected_benefit": null,
+        "top_benefit": 0.09304
+      }
+    },
+    {
+      "team": "Tottenham Hotspur",
+      "minute": 90,
+      "objective": "win",
+      "goal_diff": -1,
+      "policy": {
+        "version": "late-win-v1",
+        "active": true,
+        "urgency": 1.0,
+        "assumed_end_minute": 94,
+        "assumed_remaining_minutes": 4,
+        "baseline_tactical_time": 0.044444444444444446,
+        "tactical_time": 0.13333333333333333,
+        "defensive_downside_multiplier": 0.75
+      },
+      "before": {
+        "decision": "NO_SUBSTITUTION",
+        "recommended_pairs": 0,
+        "selected": null,
+        "selected_benefit": null,
+        "top_benefit": null
+      },
+      "after": {
+        "decision": "TACTICAL_ADJUSTMENT",
+        "recommended_pairs": 0,
+        "selected": null,
+        "selected_benefit": null,
+        "top_benefit": null
+      }
+    },
+    {
+      "team": "Tottenham Hotspur",
+      "minute": 90,
+      "objective": "draw",
+      "goal_diff": -1,
+      "policy": {
+        "version": "late-win-v1",
+        "active": false,
+        "urgency": 0.0,
+        "assumed_end_minute": 94,
+        "assumed_remaining_minutes": 4,
+        "baseline_tactical_time": 0.044444444444444446,
+        "tactical_time": 0.044444444444444446,
+        "defensive_downside_multiplier": 1.0
+      },
+      "before": {
+        "decision": "NO_SUBSTITUTION",
+        "recommended_pairs": 0,
+        "selected": null,
+        "selected_benefit": null,
+        "top_benefit": null
+      },
+      "after": {
+        "decision": "NO_SUBSTITUTION",
+        "recommended_pairs": 0,
+        "selected": null,
+        "selected_benefit": null,
+        "top_benefit": null
+      }
+    }
+  ]
+}
