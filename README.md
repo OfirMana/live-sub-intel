@@ -98,3 +98,5 @@ The live board shows cumulative xG, shots, shots on target, pass attempts and pa
 [Pass-quality fixes, need semantics and local-vs-Azure explanation status](docs/POSSESSION_AND_PASS_QUALITY_HE.md).
 
 [Late win-pursuit weighting and Azure integration handoff](docs/AZURE_FINAL_INTEGRATION_HE.md).
+
+[Compact dashboard layout and fixed-seed scenario guide](docs/COMPACT_UI_HANDOFF_HE.md).
