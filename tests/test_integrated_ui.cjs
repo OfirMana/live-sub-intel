@@ -49,3 +49,26 @@ test('duplicate records and invalid assist links cannot inflate player achieveme
  assert.equal(stats.players.scorer.goals,1);assert.equal(stats.players.creator.assists,1);
  assert.equal(stats.players.opponent.assists,0);
 });
+
+const {possessionAt}=require('../web/coach-room/app.js');
+test('possession integrates control time: pressure and lost tackles cannot steal it',()=>{
+ const event=(id,sec,team_id,kind,success)=>({id,elapsed:sec/60,team_id,kind,success});
+ const f={home:{id:'h'},away:{id:'a'},stat_events:[
+  event('p',0,'h','pass',true),event('press',10,'a','pressure'),event('lost',15,'a','tackle',false),
+  event('recover',20,'a','recovery',true),event('goal',30,'a','goal'),event('restart',40,'h','pass',true)
+ ]};
+ const before=possessionAt(f,20/60);assert.equal(before.seconds.h,20);assert.equal(before.seconds.a,0);
+ const at=possessionAt(f,50/60);assert.equal(at.seconds.h,30);assert.equal(at.seconds.a,10);
+ assert.equal(at.percent.h,75);assert.equal(at.percent.a,25);assert.equal(at.unknownSeconds,10);assert.equal(at.coverage,80);
+ const gap=possessionAt(f,100/60);assert.equal(gap.seconds.h,50);assert.equal(gap.unknownSeconds,40);
+ assert.deepEqual(possessionAt(f,20/60),before);
+});
+test('failed passes end inferred control and future events cannot fill unknown time',()=>{
+ const f={home:{id:'h'},away:{id:'a'},stat_events:[
+  {id:'a',elapsed:0,kind:'pass',team_id:'h',success:true},
+  {id:'b',elapsed:10/60,kind:'pass',team_id:'h',success:false},
+  {id:'c',elapsed:30/60,kind:'recovery',team_id:'a',success:true}
+ ]};
+ const s=possessionAt(f,20/60);assert.equal(s.seconds.h,10);assert.equal(s.seconds.a,0);assert.equal(s.unknownSeconds,10);
+ const empty=possessionAt({...f,stat_events:[]},2);assert.equal(empty.percent.h,null);assert.equal(empty.unknownSeconds,120);
+});

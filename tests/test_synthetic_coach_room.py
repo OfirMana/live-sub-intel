@@ -111,3 +111,21 @@ def test_match_stat_stream_preserves_pass_links_cards_and_visible_goal_totals(ro
     cards=[e for e in stats if e['kind']=='card']
     assert len(cards)==2 and all(e['card']=='yellow' for e in cards)
     assert {e['id'] for e in goals}=={e['id'] for e in fixture['events'] if e['kind']=='goal'}
+
+
+def test_both_teams_have_failed_passes_and_turnovers_end_each_generated_attack(room):
+    bootstrap,_=room
+    events=bootstrap['fixtures'][MATCH_ID]['stat_events']
+    for tid in ('24','1'):
+        passes=[e for e in events if e['kind']=='pass' and e['team_id']==tid and e['elapsed']<65]
+        rate=sum(e['success'] is True for e in passes)/len(passes)
+        assert .7<rate<.98  # scenario QA, not a claim of statistical calibration
+    groups={}
+    evidence=json.loads((Path(__file__).resolve().parents[1]/'demo_data/source_evidence.json').read_text(encoding='utf-8'))
+    raw,_=simulate(load_demo_profiles(),evidence,apply_substitutions=False,collect_snapshots=False)
+    for i,e in enumerate(raw[:-1]):
+        if e['type']=='pass' and e['success'] is False:
+            after=raw[i+1]
+            assert after['type']=='recovery'
+            assert after['team_id']!=e['team_id']
+            assert after['minute']==e['minute'] and after['second']==e['second']+1

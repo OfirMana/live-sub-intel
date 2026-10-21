@@ -75,7 +75,7 @@ python scripts/audit_integrated_explanations.py --data-mode synthetic
 python scripts/audit_integrated_explanations.py --data-mode historical
 ```
 
-On 21 October: 192 Python tests and 11 Node tests passed locally. The synthetic audit checked 36 checkpoints, 1,254 offered plan contexts and 7,524 rendered explanations; the historical audit checked 72 checkpoints and 12,420 explanations. These are contract/consistency checks, **not football accuracy or evidence that substitutions improve results**. See the JSON reports in `docs/research/`.
+On 21 October: 193 Python tests and 13 Node tests passed locally. The synthetic audit checked 36 checkpoints, 1,255 offered plan contexts and 7,530 rendered explanations; the historical audit checked 72 checkpoints and 12,420 explanations. These are contract/consistency checks, **not football accuracy or evidence that substitutions improve results**. See the JSON reports in `docs/research/`.
 
 ## Limits and data attribution
 
@@ -93,4 +93,6 @@ Older dated reports describe previous versions; the run commands and scope on th
 
 ## Match statistics and player markers
 
-The live board shows cumulative xG, shots, shots on target, pass attempts and pass accuracy, plus an explicitly labelled pass-share possession proxy. Shirt markers show match-to-date cards, goals and linked assists. Counts rewind with the replay clock; sent-off players move below the pitch. No time-based possession measurement or ten-player tactical solver is claimed. See [formulas, sources and integration notes](docs/MATCH_STATS_BADGES_HE.md).
+The live board shows cumulative xG, shots, shots on target, pass attempts and pass accuracy, plus an explicitly labelled event-control-time possession estimate. Shirt markers show match-to-date cards, goals and linked assists. Counts rewind with the replay clock; sent-off players move below the pitch. Control intervals are inferred from successful ball-control events; pressure does not transfer possession, dead-ball/unknown periods are excluded, and ownership expires after 30 seconds without control evidence. Coverage is shown. This is an estimate, not provider-measured possession. No ten-player tactical solver is claimed. See [formulas, sources and integration notes](docs/MATCH_STATS_BADGES_HE.md).
+
+[Pass-quality fixes, need semantics and local-vs-Azure explanation status](docs/POSSESSION_AND_PASS_QUALITY_HE.md).

@@ -1,6 +1,18 @@
 "use strict";
 function visibleTimeline(timeline,elapsed){return timeline.filter((t,i)=>i===0||t.elapsed<elapsed).at(-1);}
 function scoreAt(fixture,elapsed){const s={[fixture.home.id]:0,[fixture.away.id]:0};for(const e of fixture.events)if(e.elapsed<elapsed&&['goal','own_goal'].includes(e.kind))s[e.team_id]++;return s;}
+function possessionAt(fixture,elapsed){
+ const seconds=Object.fromEntries([fixture.home.id,fixture.away.id].map(id=>[id,0])),limit=Math.max(0,elapsed*60),seen=new Set();
+ let owner=null,last=0,lastControl=0;
+ const accrue=to=>{if(owner)seconds[owner]+=Math.max(0,Math.min(to,lastControl+30)-last);last=to;};
+ for(const e of fixture.stat_events||[]){
+  const at=e.elapsed*60;if(at>=limit)break;if(seen.has(e.id))continue;seen.add(e.id);accrue(at);
+  if(['period_start','period_end','goal','own_goal','shot','card'].includes(e.kind)||['miscontrol','dispossessed'].includes(e.kind)||(e.kind==='pass'&&e.success===false)){owner=null;continue;}
+  if(Object.hasOwn(seconds,e.team_id)&&((e.kind==='pass'&&e.success===true)||(['carry','dribble','recovery','interception','tackle'].includes(e.kind)&&e.success===true))){owner=e.team_id;lastControl=at;}
+ }
+ accrue(limit);const known=Object.values(seconds).reduce((a,b)=>a+b,0);
+ return {seconds,percent:Object.fromEntries(Object.entries(seconds).map(([id,n])=>[id,known?100*n/known:null])),knownSeconds:known,unknownSeconds:Math.max(0,limit-known),coverage:limit?100*known/limit:0,maxGapSeconds:30};
+}
 function matchStatsAt(fixture,elapsed){
  const teams=Object.fromEntries([fixture.home.id,fixture.away.id].map(id=>[id,{shots:0,onTarget:0,xg:0,passes:0,completed:0,accuracy:null,possessionProxy:null}])),players={},passes=new Map(),seen=new Set();
  const player=id=>players[id]||(players[id]={goals:0,assists:0,yellows:0,red:false});
@@ -18,18 +30,19 @@ function matchStatsAt(fixture,elapsed){
  }
  const total=Object.values(teams).reduce((sum,t)=>sum+t.passes,0);
  for(const t of Object.values(teams)){t.accuracy=t.passes?100*t.completed/t.passes:null;t.possessionProxy=total?100*t.passes/total:null;}
- return {teams,players};
+ const possession=possessionAt(fixture,elapsed);for(const [id,t] of Object.entries(teams))t.possessionTime=possession.percent[id];
+ return {teams,players,possession};
 }
 function contextKey(view,minute,config){return JSON.stringify([view.match_id,view.team_id,minute,config]);}
 function explanationKey(context,planId,audience,lang){return JSON.stringify([context,planId,audience,lang]);}
-if(typeof module!=='undefined')module.exports={visibleTimeline,scoreAt,matchStatsAt,contextKey,explanationKey};
+if(typeof module!=='undefined')module.exports={visibleTimeline,scoreAt,matchStatsAt,possessionAt,contextKey,explanationKey};
 if(typeof document!=='undefined')initialize();
 
 function initialize(){
  const $=id=>document.getElementById(id),esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])),fmt=(v,n=3)=>v==null?'—':Number(v).toFixed(n);
  const q=new URLSearchParams(location.search);let lang=q.get('lang')==='he'?'he':'en';
  const t=(key,params)=>translate(lang,key,params),pos=p=>lang==='he'?(positionsHe[p]||p):p;
- let data,view,fixture,record,index=0,elapsed=0,stages=[],requestToken=0,animation=0,playing=false,pending=false,opened=false,chosen=null,explainToken=0,explainAbort=null;
+ let health=null,data,view,fixture,record,index=0,elapsed=0,stages=[],requestToken=0,animation=0,playing=false,pending=false,opened=false,chosen=null,explainToken=0,explainAbort=null;
  const config=()=>({stance:$('stance').value,objective:$('objective').value,formation:'auto',freshness_cap:Number($('freshness').value)});
  const minutes=()=>stages[index]?.minute;
  const planId=()=>chosen?.plan_id||record?.selected_plan_id||'wait';
@@ -40,6 +53,7 @@ function initialize(){
  function applyLanguage(){
   document.documentElement.lang=lang;document.documentElement.dir=lang==='he'?'rtl':'ltr';document.title=lang==='he'?'Live Sub Intel — חדר המאמן':'Live Sub Intel — Coach Room';$('language').value=lang;
   document.querySelectorAll('[data-i18n]').forEach(e=>e.textContent=t(data?.data_mode==='synthetic'&&['research','caveat'].includes(e.dataset.i18n)?'synthetic_'+e.dataset.i18n:e.dataset.i18n));
+  if(health){$('modelStatus').textContent=t(health.llm_configured?'modelConfigured':'modelNotConfigured');$('azureDemo').hidden=health.llm_configured;}
   $('language').setAttribute('aria-label',t('language'));$('team').setAttribute('aria-label',t('perspective'));document.querySelector('.explain').setAttribute('aria-label',t('explanation'));
  }
  function badges(id,stats){
@@ -49,8 +63,8 @@ function initialize(){
  }
  function renderStats(stats){
   const ids=[fixture.home.id,fixture.away.id];
-  const rows=[['xgTotal','xg',2],['totalShots','shots',0],['shotsOnTarget','onTarget',0],['passAttempts','passes',0],['passAccuracy','accuracy',1],['possessionProxy','possessionProxy',1]];
-  $('matchStats').innerHTML='<table><tr><th>'+esc(fixture.home.name)+'</th><th>'+t('statistic')+'</th><th>'+esc(fixture.away.name)+'</th></tr>'+rows.map(([label,key,n])=>'<tr>'+`<td class="num">${stats.teams[ids[0]][key]==null?'—':fmt(stats.teams[ids[0]][key],n)+(n===1?'%':'')}</td><th>${t(label)}</th><td class="num">${stats.teams[ids[1]][key]==null?'—':fmt(stats.teams[ids[1]][key],n)+(n===1?'%':'')}</td></tr>`).join('')+'</table>';
+  const rows=[['xgTotal','xg',2],['totalShots','shots',0],['shotsOnTarget','onTarget',0],['passAttempts','passes',0],['passAccuracy','accuracy',1],['possessionTime','possessionTime',1]];
+  $('matchStats').innerHTML='<table><tr><th>'+esc(fixture.home.name)+'</th><th>'+t('statistic')+'</th><th>'+esc(fixture.away.name)+'</th></tr>'+rows.map(([label,key,n])=>'<tr>'+`<td class="num">${stats.teams[ids[0]][key]==null?'—':fmt(stats.teams[ids[0]][key],n)+(n===1?'%':'')}</td><th>${t(label)}</th><td class="num">${stats.teams[ids[1]][key]==null?'—':fmt(stats.teams[ids[1]][key],n)+(n===1?'%':'')}</td></tr>`).join('')+'</table>'+`<p class="muted small">${t('possessionCoverage',{coverage:fmt(stats.possession.coverage,1)})}</p>`;
   const dismissed=Object.entries(stats.players).filter(([id,p])=>p.red&&data.profiles[id]?.team===view.team);
   $('dismissedPlayers').innerHTML=dismissed.length?`<strong>${t('sentOff')}</strong> `+dismissed.map(([id])=>`<span class="dismissed-player"><span class="dismissed-shirt" aria-hidden="true">👕</span>${esc(data.profiles[id]?.name||id)} ${badges(id,stats)}</span>`).join(' '):'';
  }
@@ -133,6 +147,7 @@ function initialize(){
   finally{if(token===explainToken)$('explainBtn').disabled=false;}
  };
  $('sensitivity').onclick=async()=>{const key=currentContext();$('sensitivity').disabled=true;$('sensitivityResult').textContent=t('capLoading');try{const rows=[];for(const cap of [0,.5,1,1.5]){const response=await fetch('/api/evaluate',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({match_id:view.match_id,team_id:view.team_id,minute:minutes(),config:{...config(),freshness_cap:cap}})});if(!response.ok)throw Error();rows.push([cap,await response.json()]);}if(key!==currentContext())return;$('sensitivityResult').innerHTML=`<table><tr><th>${t('cap')}</th><th>${t('plan')}</th><th>${t('benefit')}</th><th>${t('alternatives')}</th></tr>`+rows.map(([cap,r])=>`<tr><td>${cap}</td><td>${esc(r.selected?planName(r.selected):r.recommendation==='TACTICAL_ADJUSTMENT'?planName(r.selected_plan):t('noChange'))}</td><td class="num">${fmt(r.alternatives[0]?.expected_benefit,4)}</td><td>${r.alternatives.filter(c=>c.recommended).length}</td></tr>`).join('')+`</table><p class="small muted">${t('sensitivityHelp')}</p>`;}catch(error){$('sensitivityResult').textContent=t('failed');}finally{controls();}};
+ fetch('/healthz').then(r=>r.ok?r.json():null).then(h=>{health=h;applyLanguage();}).catch(()=>{});
  applyLanguage();
  fetch('/api/bootstrap').then(r=>{if(!r.ok)throw Error();return r.json()}).then(d=>{data=d;applyLanguage();d.views.forEach(v=>$('team').add(new Option(v.team+' · '+d.fixtures[v.match_id].home.name+' / '+d.fixtures[v.match_id].away.name,v.team_id)));$('team').value=d.views.some(v=>v.team_id===q.get('team'))?q.get('team'):d.views[0].team_id;for(const id of ['stance','objective','freshness']){const value=q.get(id==='freshness'?'freshness_cap':id);if([...$(id).options].some(o=>o.value===value))$(id).value=value;}const m=Number(q.get('minute')||0);chooseTeam(Number.isInteger(m)&&m>=0&&m<=90&&m%5===0?m:0);if(q.get('inspect')==='1')opened=true;}).catch(()=>$('status').textContent=t('failed'));
 }

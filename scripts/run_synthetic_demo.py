@@ -18,7 +18,7 @@ ROOT = Path(__file__).resolve().parents[1]
 
 
 DEFAULT_SEED = 20261021
-GENERATOR_VERSION = 'seeded-possessions-v3-badges'
+GENERATOR_VERSION = 'seeded-possessions-v4-turnovers'
 
 
 def simulate(dataset, evidence, *, apply_substitutions=True, collect_snapshots=True, seed=DEFAULT_SEED):
@@ -63,29 +63,43 @@ def simulate(dataset, evidence, *, apply_substitutions=True, collect_snapshots=T
             base = possession*(58//count)+rng.randint(1,2)
             sterile = tid == '24' and 40 <= minute < 75
             x,y = rng.uniform(28,48),rng.uniform(12,68)
+            lost=False
+            # A failed pass ends this attack. Further actions belong to the
+            # recovering side; pressure alone never changes ball ownership.
             for step in range(3):
                 end_x = min(110,x+rng.uniform(2,7) if sterile else x+rng.uniform(7,19))
                 end_y = max(2,min(78,y+rng.uniform(-12,12)))
+                completed=rng.random() < (.85 if sterile else .92)
                 emit(minute,base+step,tid,a if step%2==0 else b,'pass',
                      x=round(x,2),y=round(y,2),end_x=round(end_x,2),end_y=round(end_y,2),
-                     success=True,recipient_id=b if step%2==0 else a,
+                     success=completed,recipient_id=b if step%2==0 else a,
                      possession_id=minute*4+possession,under_pressure=sterile)
+                if not completed:
+                    emit(minute,base+step+1,opponent,defender,'recovery',success=True)
+                    lost=True
+                    break
                 x,y=end_x,end_y
+            if lost:continue
+            emit(minute,base+3,opponent,defender,'pressure')
+            if rng.random()<.3:
+                won=rng.random()<.6
+                emit(minute,base+4,opponent,defender,'tackle',success=won)
+                if won:
+                    emit(minute,base+5,opponent,defender,'recovery',success=True)
+                    continue
+            if rng.random()<.08:
+                emit(minute,base+5,tid,a,'miscontrol',success=False)
+                emit(minute,base+6,opponent,defender,'recovery',success=True)
+                continue
             if not sterile:
-                emit(minute,base+3,tid,a,'carry',x=x,y=y,end_x=min(115,x+rng.uniform(5,17)),end_y=y,
+                emit(minute,base+5,tid,a,'carry',x=x,y=y,end_x=min(115,x+rng.uniform(5,17)),end_y=y,
                      success=True,transition=rng.random()<.2)
-            else:
-                emit(minute,base+3,tid,a,'pass',x=x,y=y,end_x=110,end_y=rng.uniform(20,60),
+            elif rng.random()<.5:
+                emit(minute,base+5,tid,a,'pass',x=x,y=y,end_x=110,end_y=rng.uniform(20,60),
                      success=False,cross=True)
-            # Pressure/tackles belong to the defending team, not the passer.
-            emit(minute,base+4,opponent,defender,'pressure',under_pressure=False)
-            if rng.random()<.35:
-                won=rng.random()<.65
-                emit(minute,base+5,opponent,defender,'tackle',success=won)
-                if won:emit(minute,base+6,opponent,defender,'recovery',success=True)
-            if rng.random()<.13:
-                emit(minute,base+7,tid,a,'miscontrol',success=False)
-            if rng.random() < (.015 if sterile else .085):
+                emit(minute,base+6,opponent,defender,'recovery',success=True)
+                continue
+            if rng.random() < (.02 if sterile else .12):
                 pid=shooter(tid)
                 creator=rng.choice([p for p in actors(tid) if p!=pid])
                 assist=emit(minute,base+8,tid,creator,'pass',x=94,y=35,end_x=108,end_y=40,
