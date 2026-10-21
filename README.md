@@ -1,197 +1,90 @@
-# Integrated coach room
-
-**Live demo (Azure App Service):** https://live-sub-intel-fcfudheze9b5ewfz.swedencentral-01.azurewebsites.net/
-· deployed automatically from `main` by `.github/workflows/main_live-sub-intel.yml`
-(tests run before every deployment).
-
-English-default interface with Hebrew/RTL, automatic full-XI tactical plans and
-explanations of the alternative you inspect. Run:
-
-```bash
-pip install -e ".[dev,llm]"
-python scripts/serve_app.py --port 8778
-```
-
-Open http://127.0.0.1:8778/. The same startup entry point is used on Azure.
-[Integration details and limits](docs/INTEGRATED_ROOM.md) ·
-[Prompt for the teammate's Claude to diagnose Foundry](docs/CLAUDE_FOUNDRY_HANDOFF.md).
-The model selects verified facts; the app renders the explanation. Without
-Foundry configuration the source is explicitly labelled as a verified template.
-The older project notes below describe earlier entry points and experiments.
-
 # Live Substitution Intelligence
 
-## Automatic tactical plans — 19 October 2026
+A football decision-support prototype: identify the team's current needs, compare substitutions and full-XI tactical plans, then explain the inspected alternative. Microsoft × Premier League hackathon project by Thomas, Tal and Ofir.
 
-The isolated `feature/coach-match-room` branch automatically compares every
-available outfield substitution pair, supported formations and complete XI
-assignments, including repositioning without a substitution. The coach sets
-stance and a win/draw objective; no formation choice is required. Both pitches
-show names, shirt numbers and the selected plan's position changes.
+## Try it
 
-Start `python scripts/serve_coach_room.py --port 8775` and open
-http://127.0.0.1:8775/. See [current algorithm, evidence and integration](docs/AUTO_TACTICAL_PLANS.md)
-or the [Hebrew teammate handoff](docs/COACH_HANDOFF_HE.md).
-This remains a separate research scorer with heuristic position suitability;
-the shared engine and teammate LLM/demo are unchanged.
-
-Microsoft × Premier League "Inside the Game" hackathon. Team: Thomas, Tal, Ofir.
-
-An explainable live layer that reads a match event stream, works out what the
-team needs right now, and shows which substitution would address it, with the
-trade-offs, or says that no change is worth making. Deterministic analytics
-underneath; the LLM only explains.
-
-The shared spec is [`docs/CONTRACT.md`](docs/CONTRACT.md). Read it first.
-
-## Quickstart
+[Azure deployment](https://live-sub-intel-fcfudheze9b5ewfz.swedencentral-01.azurewebsites.net/) is deployed from `main`. Changes on a pull-request branch are not live until merged and deployed. See [current readiness and remaining work](docs/DEMO_READINESS_HE.md).
 
 ```bash
-python -m venv .venv && source .venv/bin/activate
-pip install -e ".[dev]"
-
-# Whole 2015/16 Premier League season from StatsBomb Open Data -> data/player_buckets.csv
-# (~40 s; --delete-raw keeps only the 5 MB CSV)
-python scripts/build_player_buckets.py --delete-raw
-
-# Replay Tottenham 0-1 Leicester (13 Jan 2016) through the live engine
-python scripts/replay_match.py --at 55 65 70 80
-python scripts/replay_match.py --at 65 --json   # the Recommendation JSON the LLM/UI receive
-
-pytest
+python -m venv .venv
+# Activate .venv in your shell, then:
+pip install -e ".[dev,llm]"
+python scripts/serve_app.py --port 8779
 ```
 
-## Layout
+Open http://127.0.0.1:8779/?team=24&minute=65&stance=attack&objective=win&inspect=1 . No Azure account or key is needed for deterministic decisions or labelled template explanations.
 
-```
-src/subintel/
-  schema.py      the contract: Event, GameState, TeamNeeds, SubOption, Recommendation
-  statsbomb.py   StatsBomb JSON -> Event (the only file that knows StatsBomb)
-  metrics.py     Event -> metric components; shared by profiles and the live engine
-  profiles.py    pre-match player profiles and team baselines
-  engine.py      MatchState, team needs, substitution ranking
-  demo_live.py   demo-card scoring, freshness balance, formation changes
-  narrative.py   explanation layer: facts -> LLM (Microsoft Foundry) or template
-scripts/         build_player_buckets.py, replay_match.py, explain_recommendation.py, ...
-docs/            CONTRACT.md, FOUNDRY_HE.md, examples/recommendation.json
-```
+**The default server mode uses original synthetic match actions.** It runs offline from committed player/roster metadata; no StatsBomb event download is required. The scripted scenario is not a real match, a prediction, or a calibrated match simulator. Historical player abilities, starting-XI metadata and shirt numbers are disclosed priors. Load and positional suitability are estimates. Inspecting a plan does not execute it or change future events.
 
-## Explanation layer
-
-The engine decides; the LLM only explains. `narrative.explain(snapshot, audience, lang)`
-sends the model a small facts object and rejects any text containing a number that is
-not in it, falling back to a deterministic template (also used offline). Audiences:
-`fan`, `analyst`, `broadcaster`; languages: `he`, `en`.
+For the separate four-team historical research room:
 
 ```bash
-pip install -e ".[llm]"   # only needed for the LLM; the template works without it
-export FOUNDRY_ENDPOINT=... FOUNDRY_DEPLOYMENT=...   # and FOUNDRY_API_KEY, never committed
-python scripts/explain_recommendation.py --minute 75 --lang he
+python scripts/serve_app.py --data-mode historical --port 8778
 ```
 
-Microsoft Foundry setup, step by step (Hebrew): [`docs/FOUNDRY_HE.md`](docs/FOUNDRY_HE.md).
+Historical mode replays StatsBomb Open Data and may download pinned raw files. It is a research benchmark, not the synthetic submission demo. `DEMO_DATA_MODE=historical` selects it on a host; the CLI flag takes priority.
 
-## Game room with explanations (web app)
+## Demonstration
+
+1. Choose Liverpool, minute 65, More attacking, Seek a win. Inspect plans.
+2. The primary recommendation and ranked alternatives include threshold gaps, tactical/freshness components, supported formations and retained-player movements.
+3. Select the second alternative. Both the proposed pitch and explanation target that plan.
+4. Choose Broadcaster for qualitative wording; Analyst exposes numerical model scores. Switch English/Hebrew to check localization.
+5. Advance five minutes to see only the events available at that point. Restart or step back to compare a different coach context.
+
+The synthetic scenario includes a sterile attacking period, an opponent goal at 54:58 and later scripted goals. These events do not respond to inspected substitutions. Zero-action and tactical-only outcomes are valid.
+
+## Architecture
+
+```mermaid
+flowchart LR
+    S[Synthetic Event stream] --> M[Deterministic metrics and load estimates]
+    P[Historical player priors] --> A[Full-XI tactical search]
+    C[Coach intent and result objective] --> N[Current team needs]
+    M --> N --> A
+    A --> J[Ranked plans and verified facts]
+    J --> F[Microsoft Foundry fact selection]
+    F --> R[Validated sentence rendering]
+    J --> T[Explicit template fallback]
+    R --> U[Bilingual coach room]
+    T --> U
+```
+
+The deterministic engine chooses the plan. It searches available one-substitution pairs, six supported shapes and positional assignments, comparing each substitution with the best action without a substitution. Unsupported positions are blocked. Freshness can compensate only a bounded tactical loss. The model selects from verified fact IDs; the app validates the selection and renders trusted localized sentences. It does not accept arbitrary model prose or invented statistics.
+
+The main endpoints are `GET /api/bootstrap`, `POST /api/evaluate`, `POST /api/explain` and `GET /healthz`. Plan identity is validated server-side. Model calls have timeout, concurrency, cache and per-process rate limits. Secrets remain server-side.
+
+## Connect Microsoft Foundry
+
+Set `FOUNDRY_ENDPOINT`, `FOUNDRY_API_KEY` and `FOUNDRY_DEPLOYMENT` in the server environment. Never commit credentials. Use the HTTPS resource endpoint and the deployment name belonging to that resource.
 
 ```bash
-python scripts/serve_app.py            # http://127.0.0.1:8000
+python scripts/diagnose_foundry.py          # no model calls
+python scripts/diagnose_foundry.py --full   # at most two bounded calls
 ```
 
-Serves the game room plus `/api/explain` and `/healthz`. Explanations are generated
-server-side (the key never reaches the browser), only for the checkpoints the game
-room shows, and model answers are cached, so a public deployment makes at most
-4 views x 18 checkpoints x 3 audiences x 2 languages model calls. Without the
-`FOUNDRY_*` variables it serves the deterministic template. On a host:
-`python scripts/serve_app.py --host 0.0.0.0 --port $PORT`. The offline bundle in
-`docs/match-replay` has no server and hides the explanation panel.
+`source=llm` on an actual explanation is the acceptance criterion. Configuration presence or a successful Azure deployment is insufficient. Safe failure codes and correlation references appear in the UI and health response. See [runtime diagnosis](docs/FOUNDRY_DIAGNOSIS_20261021.md).
 
-Deploying it to Azure App Service, step by step (Hebrew): [`docs/AZURE_DEPLOY_HE.md`](docs/AZURE_DEPLOY_HE.md).
+## Validation
 
-## Plan to the 27 October deadline
-
-| Days | Person 1: data, profiles | Person 2: needs, substitutions | Person 3: stream, AI, UI |
-|---|---|---|---|
-| 15–16 Oct | review contract, freeze v0 | review contract, freeze v0 | Foundry model deployment, UI skeleton on `examples/recommendation.json` |
-| 17–20 Oct | possession pool for the generator; profile QA | tune constants on 3–4 real matches; pick the demo scenario | narrative prompt (3 audiences, 2 languages); FastAPI + SSE stream |
-| 21–23 Oct | synthetic generator with the scenario script | "no change" calibration; ranked alternatives | wire generator → engine → LLM → UI |
-| 24–25 Oct | feature freeze; end-to-end rehearsals | | deploy (Azure Container Apps) |
-| 26 Oct | demo video, write-up | | |
-| 27 Oct | buffer, submit | | |
-
-Out of scope before submission: tracking data, extra dimensions, more agents,
-multiple scenarios.
-
-## Data
-
-StatsBomb Open Data (https://github.com/hudl/open-data), Premier League 2015/16
-(competition 2, season 27). Raw files are not committed. Their terms ask anyone
-publishing analysis based on the data to name StatsBomb as the source and use
-their logo.
-
-## Reproducible player cards and synthetic demo
-
-```
-PYTHONPATH=src python scripts/build_demo_dataset.py
-PYTHONPATH=src python scripts/run_synthetic_demo.py
-python -m http.server 8765 --directory data/synthetic_demo
+```bash
+python -m pytest -q
+node --test tests/test_coach_room_ui.cjs tests/test_match_replay_ui.cjs tests/test_integrated_ui.cjs
+python scripts/audit_integrated_explanations.py --data-mode synthetic
+python scripts/audit_integrated_explanations.py --data-mode historical
 ```
 
-Open http://localhost:8765 and select team/minute, or press Play. This is an
-interactive playback of deterministic checkpoints from original synthetic events.
-Outputs: `events.jsonl`, `recommendations.json`, `index.html`. The explanatory
-text is deterministic; a remote LLM/API/Azure service is not required or deployed.
-Player source data, formulas, caveats and the complete acceptance table are in
-`demo_data/README.md` and `demo_data/player_acceptance_table.md`.
+On 21 October: 189 Python tests and 8 Node tests passed locally. The synthetic audit checked 36 checkpoints, 1,253 offered plan contexts and 7,518 rendered explanations; the historical audit checked 72 checkpoints and 12,420 explanations. These are contract/consistency checks, **not football accuracy or evidence that substitutions improve results**. See the JSON reports in `docs/research/`.
 
-Research validation (requires network for cached real StatsBomb events):
+## Limits and data attribution
 
-```
-PYTHONPATH=src python scripts/benchmark_demo.py
-```
+- One substitution at a time; a bounded formation catalog; no goalkeeper or ten-player tactical search.
+- Position suitability, role exposure and physical load are heuristic. Freshness/threshold calibration needs independent football review.
+- Historical cards are frozen at their documented cutoff. FIFA16-derived priors and disclosed synthetic card fallbacks are not live-season ratings. Their redistribution rights still require team review before final submission.
+- StatsBomb Open Data is the source of historical research events, pre-cutoff evidence and roster metadata. See [StatsBomb Open Data](https://github.com/statsbomb/open-data) and the attribution/licensing terms there. Do not present historical events as licensed live Premier League data.
+- Current LLM integration is constrained fact selection, not an autonomous tool-calling coach. Do not claim agentic functionality that is absent.
 
-Existing team metrics are preserved. Demo recommendations use the new 0..100
-cards, supported positions and bounded live adjustments; the older replay CLI
-still uses the legacy rate profiles. Neither engine permits generic formation
-changes. Recommendation thresholds and physical mappings remain provisional.
+[Scoring and position-fit details](docs/AUTO_TACTICAL_PLANS.md) · [Integrated API and explanation design](docs/INTEGRATED_ROOM.md) · [Player cards and workbook](docs/player-cards/README.md) · [Deployment guide](docs/AZURE_DEPLOY_HE.md)
 
-For actual event-by-event streaming, run:
-
-```
-PYTHONPATH=src python scripts/serve_demo.py --port 8765
-```
-
-Open the local URL and press **Stream events**. Each viewer gets a fresh Python
-engine; synthetic events feed sequentially over SSE and recommendations recompute
-after each simulated minute. **Play checkpoints** also works from the exported
-standalone HTML. The server binds only to 127.0.0.1 and is not publicly deployed.
-
-## Current four-team revision — 18 October 2026
-
-72 matchday player cards cover Liverpool, Arsenal, Chelsea and Tottenham. Observed
-pre-cutoff goals/assists and technical output now enter capped profile signals.
-Freshness uses a separate near-term horizon; threshold stays .15. 54 Python tests and 3 Node tests pass.
-The 12 team-match research replays have 216 five-minute checkpoints; Liverpool
-now receives recommendations in all three checked fixtures. This is not evidence
-that the football decisions are validated: center-back/early-swap biases remain.
-
-- [Hebrew team handoff](docs/TEAM_HANDOFF_HE.md)
-- [Calculation details and limitations](docs/MODEL_UPDATE_HE.md)
-- [Player browser, workbook and offline ZIP](docs/player-cards/README.md)
-- [Interactive five-minute research report](docs/research/README.md)
-- [Step-by-step match replay UI and offline download](docs/match-replay/README.md)
-- [Validation and sensitivity](docs/VALIDATION.md)
-
-Work is on the fork branch feature/demo-player-dataset. Upstream main is unchanged.
-GitHub Pages, remote LLM and Azure are not configured. Download the offline bundles
-to view HTML, or serve docs locally. Rich demo JSON still needs UI/API alignment.
-
-## Foundry runtime diagnosis
-
-If the UI falls back to a template, the explanation response now includes a
-safe diagnostic code and correlation reference; health shows validated settings,
-installed SDK versions and the last meaningful explanation outcome. In the
-actual App Service Python environment, run `python scripts/diagnose_foundry.py`
-for a zero-call preflight, or add `--full` for a bounded minimal/full-model test.
-See [evidence and fixes](docs/FOUNDRY_DIAGNOSIS_20261021.md) and the
-[Hebrew next-step handoff](docs/FOUNDRY_NEXT_STEP_HE.txt). Never paste a key into
-command arguments, source, reports or chat.
+Older dated reports describe previous versions; the run commands and scope on this page take precedence.

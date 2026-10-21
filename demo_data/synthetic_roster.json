@@ -1,0 +1,397 @@
+{
+  "source": "Historical roster/initial-position metadata only; synthetic match actions are generated independently.",
+  "teams": {
+    "24": {
+      "name": "Liverpool",
+      "formation": "4-3-3",
+      "lineup": [
+        {
+          "player_id": "3539",
+          "name": "Simon Mignolet",
+          "number": 22,
+          "position": "Goalkeeper",
+          "role": "GK",
+          "x": 50,
+          "y": 91
+        },
+        {
+          "player_id": "4590",
+          "name": "Nathaniel Clyne",
+          "number": 2,
+          "position": "Right Back",
+          "role": "FB",
+          "x": 83,
+          "y": 72
+        },
+        {
+          "player_id": "38412",
+          "name": "Kolo Tour\u00e9",
+          "number": 4,
+          "position": "Right Center Back",
+          "role": "CB",
+          "x": 64,
+          "y": 77
+        },
+        {
+          "player_id": "3483",
+          "name": "Mamadou Sakho",
+          "number": 17,
+          "position": "Left Center Back",
+          "role": "CB",
+          "x": 36,
+          "y": 77
+        },
+        {
+          "player_id": "3515",
+          "name": "Alberto Moreno",
+          "number": 18,
+          "position": "Left Back",
+          "role": "FB",
+          "x": 17,
+          "y": 72
+        },
+        {
+          "player_id": "3493",
+          "name": "Emre Can",
+          "number": 23,
+          "position": "Center Defensive Midfield",
+          "role": "CM",
+          "x": 50,
+          "y": 63
+        },
+        {
+          "player_id": "3532",
+          "name": "Jordan Henderson",
+          "number": 14,
+          "position": "Right Center Midfield",
+          "role": "CM",
+          "x": 66,
+          "y": 49
+        },
+        {
+          "player_id": "3473",
+          "name": "James Milner",
+          "number": 7,
+          "position": "Left Center Midfield",
+          "role": "CM",
+          "x": 34,
+          "y": 49
+        },
+        {
+          "player_id": "3635",
+          "name": "Jordon Ibe",
+          "number": 33,
+          "position": "Right Wing",
+          "role": "AM_W",
+          "x": 83,
+          "y": 24
+        },
+        {
+          "player_id": "4090",
+          "name": "Adam Lallana",
+          "number": 20,
+          "position": "Left Wing",
+          "role": "AM_W",
+          "x": 17,
+          "y": 24
+        },
+        {
+          "player_id": "3535",
+          "name": "Roberto Firmino",
+          "number": 11,
+          "position": "Center Forward",
+          "role": "ST",
+          "x": 50,
+          "y": 17
+        }
+      ]
+    },
+    "1": {
+      "name": "Arsenal",
+      "formation": "4-2-3-1",
+      "lineup": [
+        {
+          "player_id": "3461",
+          "name": "Petr \u010cech",
+          "number": 33,
+          "position": "Goalkeeper",
+          "role": "GK",
+          "x": 50,
+          "y": 91
+        },
+        {
+          "player_id": "3511",
+          "name": "H\u00e9ctor Beller\u00edn",
+          "number": 24,
+          "position": "Right Back",
+          "role": "FB",
+          "x": 83,
+          "y": 72
+        },
+        {
+          "player_id": "3475",
+          "name": "Per Mertesacker",
+          "number": 4,
+          "position": "Right Center Back",
+          "role": "CB",
+          "x": 64,
+          "y": 77
+        },
+        {
+          "player_id": "3394",
+          "name": "Laurent Koscielny",
+          "number": 6,
+          "position": "Left Center Back",
+          "role": "CB",
+          "x": 36,
+          "y": 77
+        },
+        {
+          "player_id": "3498",
+          "name": "Nacho Monreal",
+          "number": 18,
+          "position": "Left Back",
+          "role": "FB",
+          "x": 17,
+          "y": 72
+        },
+        {
+          "player_id": "3517",
+          "name": "Aaron Ramsey",
+          "number": 16,
+          "position": "Right Defensive Midfield",
+          "role": "CM",
+          "x": 63,
+          "y": 61
+        },
+        {
+          "player_id": "6631",
+          "name": "Mathieu Flamini",
+          "number": 20,
+          "position": "Left Defensive Midfield",
+          "role": "CM",
+          "x": 37,
+          "y": 61
+        },
+        {
+          "player_id": "5581",
+          "name": "Joel Campbell",
+          "number": 28,
+          "position": "Right Wing",
+          "role": "AM_W",
+          "x": 83,
+          "y": 24
+        },
+        {
+          "player_id": "3496",
+          "name": "Mesut \u00d6zil",
+          "number": 11,
+          "position": "Center Attacking Midfield",
+          "role": "AM_W",
+          "x": 50,
+          "y": 32
+        },
+        {
+          "player_id": "3668",
+          "name": "Theo Walcott",
+          "number": 14,
+          "position": "Left Wing",
+          "role": "AM_W",
+          "x": 17,
+          "y": 24
+        },
+        {
+          "player_id": "3604",
+          "name": "Olivier Giroud",
+          "number": 12,
+          "position": "Center Forward",
+          "role": "ST",
+          "x": 50,
+          "y": 17
+        }
+      ]
+    }
+  },
+  "roster": {
+    "3380": {
+      "name": "Christian Benteke",
+      "number": 9,
+      "team_id": "24"
+    },
+    "3473": {
+      "name": "James Milner",
+      "number": 7,
+      "team_id": "24"
+    },
+    "3483": {
+      "name": "Mamadou Sakho",
+      "number": 17,
+      "team_id": "24"
+    },
+    "3493": {
+      "name": "Emre Can",
+      "number": 23,
+      "team_id": "24"
+    },
+    "3515": {
+      "name": "Alberto Moreno",
+      "number": 18,
+      "team_id": "24"
+    },
+    "3532": {
+      "name": "Jordan Henderson",
+      "number": 14,
+      "team_id": "24"
+    },
+    "3535": {
+      "name": "Roberto Firmino",
+      "number": 11,
+      "team_id": "24"
+    },
+    "3539": {
+      "name": "Simon Mignolet",
+      "number": 22,
+      "team_id": "24"
+    },
+    "3635": {
+      "name": "Jordon Ibe",
+      "number": 33,
+      "team_id": "24"
+    },
+    "4090": {
+      "name": "Adam Lallana",
+      "number": 20,
+      "team_id": "24"
+    },
+    "4590": {
+      "name": "Nathaniel Clyne",
+      "number": 2,
+      "team_id": "24"
+    },
+    "7780": {
+      "name": "Lucas Leiva",
+      "number": 21,
+      "team_id": "24"
+    },
+    "9914": {
+      "name": "Danny Ward",
+      "number": 52,
+      "team_id": "24"
+    },
+    "9958": {
+      "name": "Steven Caulker",
+      "number": 19,
+      "team_id": "24"
+    },
+    "10326": {
+      "name": "Jo\u00e3o Carlos",
+      "number": 53,
+      "team_id": "24"
+    },
+    "10931": {
+      "name": "Joe Allen",
+      "number": 24,
+      "team_id": "24"
+    },
+    "13448": {
+      "name": "Bradley Shaun Smith",
+      "number": 44,
+      "team_id": "24"
+    },
+    "38412": {
+      "name": "Kolo Tour\u00e9",
+      "number": 4,
+      "team_id": "24"
+    },
+    "3394": {
+      "name": "Laurent Koscielny",
+      "number": 6,
+      "team_id": "1"
+    },
+    "3461": {
+      "name": "Petr \u010cech",
+      "number": 33,
+      "team_id": "1"
+    },
+    "3475": {
+      "name": "Per Mertesacker",
+      "number": 4,
+      "team_id": "1"
+    },
+    "3496": {
+      "name": "Mesut \u00d6zil",
+      "number": 11,
+      "team_id": "1"
+    },
+    "3498": {
+      "name": "Nacho Monreal",
+      "number": 18,
+      "team_id": "1"
+    },
+    "3511": {
+      "name": "H\u00e9ctor Beller\u00edn",
+      "number": 24,
+      "team_id": "1"
+    },
+    "3517": {
+      "name": "Aaron Ramsey",
+      "number": 16,
+      "team_id": "1"
+    },
+    "3525": {
+      "name": "Alex Oxlade-Chamberlain",
+      "number": 15,
+      "team_id": "1"
+    },
+    "3528": {
+      "name": "Kieran Gibbs",
+      "number": 3,
+      "team_id": "1"
+    },
+    "3604": {
+      "name": "Olivier Giroud",
+      "number": 12,
+      "team_id": "1"
+    },
+    "3647": {
+      "name": "Alex Iwobi",
+      "number": 45,
+      "team_id": "1"
+    },
+    "3668": {
+      "name": "Theo Walcott",
+      "number": 14,
+      "team_id": "1"
+    },
+    "3713": {
+      "name": "Calum Chambers",
+      "number": 21,
+      "team_id": "1"
+    },
+    "5581": {
+      "name": "Joel Campbell",
+      "number": 28,
+      "team_id": "1"
+    },
+    "6631": {
+      "name": "Mathieu Flamini",
+      "number": 20,
+      "team_id": "1"
+    },
+    "6746": {
+      "name": "Gabriel Paulista",
+      "number": 5,
+      "team_id": "1"
+    },
+    "9417": {
+      "name": "Matt Macey",
+      "number": 49,
+      "team_id": "1"
+    },
+    "42703": {
+      "name": "Mikel Arteta",
+      "number": 8,
+      "team_id": "1"
+    }
+  }
+}

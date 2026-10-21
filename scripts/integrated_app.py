@@ -129,6 +129,7 @@ def make_handler(app):
             if path in ('/healthz','/health'):
                 config=configuration_summary()
                 return self.send(200,dict(status='ok',version='integrated-room-v1',llm_configured=config['configured'],
+                    data_mode=app.bootstrap.get('data_mode','historical'),
                     llm_configuration=config,llm_runtime_versions=runtime_versions(),last_explanation=app.last_explanation,
                     connectivity_verified=bool(app.last_explanation and app.last_explanation['source']=='llm'),
                     connectivity_basis='last_explanation_result',explanation_mode='verified-fact-selection'))
@@ -159,8 +160,15 @@ def make_handler(app):
 def main():
     parser=argparse.ArgumentParser()
     parser.add_argument('--host',default='127.0.0.1');parser.add_argument('--port',type=int,default=int(os.environ.get('PORT',8000)))
+    parser.add_argument('--data-mode',choices=('synthetic','historical'),default=os.environ.get('DEMO_DATA_MODE','synthetic'))
     args=parser.parse_args()
-    bootstrap,evaluate=create_room();app=IntegratedApp(bootstrap,evaluate)
+    if args.data_mode=='synthetic':
+        from synthetic_coach_room import create_synthetic_room
+        bootstrap,evaluate=create_synthetic_room()
+    else:
+        bootstrap,evaluate=create_room()
+        bootstrap['data_mode']='historical'
+    app=IntegratedApp(bootstrap,evaluate)
     print(f'Integrated coach room: http://{args.host}:{args.port} (English default, Hebrew supported)',flush=True)
     ThreadingHTTPServer((args.host,args.port),make_handler(app)).serve_forever()
 
