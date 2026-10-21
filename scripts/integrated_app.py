@@ -2,6 +2,7 @@
 import argparse
 from collections import OrderedDict, deque
 from concurrent.futures import Future
+from datetime import datetime, timezone
 import json
 import os
 from pathlib import Path
@@ -13,6 +14,7 @@ from urllib.parse import urlparse
 from pydantic import ConfigDict
 from serve_coach_room import RoomRequest, create_room
 from subintel.plan_narrative import explain_plan, identified, chosen_plan
+from subintel.foundry_runtime import configuration_summary, runtime_versions
 
 ROOT=Path(__file__).resolve().parents[1]
 
@@ -96,6 +98,7 @@ class IntegratedApp:
     def __init__(self,bootstrap,evaluate,explain_fn=explain_plan):
         self.bootstrap,self.evaluate=bootstrap,evaluate
         self.explanations=ExplanationCache(explain_fn)
+        self.last_explanation=None
 
     def snapshot(self,request):
         return annotate(self.evaluate(request.match_id,request.team_id,request.minute,request.config.model_dump_json()))
@@ -106,7 +109,11 @@ class IntegratedApp:
         snapshot=self.snapshot(request)
         chosen_plan(snapshot,request.plan_id)  # validation before cache/provider
         key=(request.match_id,request.team_id,request.minute,request.config.model_dump_json(),request.plan_id,request.audience,request.lang)
-        return self.explanations.get(key,snapshot,request.plan_id,request.audience,request.lang)
+        result=self.explanations.get(key,snapshot,request.plan_id,request.audience,request.lang)
+        if result.get('note')!='LLM_COOLDOWN':
+            self.last_explanation=dict({k:result.get(k) for k in ('source','note','cached','diagnostic')},
+                                       observed_at=datetime.now(timezone.utc).isoformat())
+        return result
 
 
 def make_handler(app):
@@ -120,9 +127,11 @@ def make_handler(app):
         def do_GET(self):
             path=urlparse(self.path).path
             if path in ('/healthz','/health'):
-                configured=all(os.environ.get(k) for k in ('FOUNDRY_ENDPOINT','FOUNDRY_API_KEY','FOUNDRY_DEPLOYMENT'))
-                return self.send(200,dict(status='ok',version='integrated-room-v1',llm_configured=configured,
-                    connectivity_verified=False,explanation_mode='verified-fact-selection'))
+                config=configuration_summary()
+                return self.send(200,dict(status='ok',version='integrated-room-v1',llm_configured=config['configured'],
+                    llm_configuration=config,llm_runtime_versions=runtime_versions(),last_explanation=app.last_explanation,
+                    connectivity_verified=bool(app.last_explanation and app.last_explanation['source']=='llm'),
+                    connectivity_basis='last_explanation_result',explanation_mode='verified-fact-selection'))
             if path=='/api/bootstrap':return self.send(200,app.bootstrap)
             files={'/':'index.html','/index.html':'index.html','/app.js':'app.js','/i18n.js':'i18n.js','/styles.css':'styles.css'}
             if path in files:

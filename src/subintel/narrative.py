@@ -186,21 +186,18 @@ def foundry_client_from_env():
     """(client, deployment) for Microsoft Foundry, or None when not configured."""
     # strip(): values pasted into a portal often carry a stray space or newline, which
     # makes the key an invalid header and fails every call as a "connection error".
-    endpoint, key, deployment = ((os.environ.get(k) or '').strip()
-                                 for k in ('FOUNDRY_ENDPOINT', 'FOUNDRY_API_KEY', 'FOUNDRY_DEPLOYMENT'))
-    if not (endpoint and key and deployment):
+    from .foundry_runtime import read_config
+    config=read_config()
+    if config is None:
         return None
     from openai import OpenAI  # optional dependency: pip install -e ".[llm]"
-    return OpenAI(base_url=v1_base_url(endpoint), api_key=key), deployment
+    return OpenAI(base_url=config.base_url, api_key=config.api_key, timeout=12, max_retries=0), config.deployment
 
 
 def v1_base_url(endpoint: str) -> str:
     """Resource endpoint (or a project endpoint) -> the OpenAI-compatible v1 base URL."""
-    base = endpoint.strip().rstrip('/')
-    for marker in ('/api/projects', '/openai'):
-        if marker in base:
-            base = base[:base.index(marker)]
-    return base + '/openai/v1/'
+    from .foundry_runtime import normalize_endpoint
+    return normalize_endpoint(endpoint)
 
 
 def _describe(error: Exception) -> str:

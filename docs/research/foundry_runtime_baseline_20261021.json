@@ -1,0 +1,64 @@
+{
+  "reviewed_commit": "d3952a1a3823fd85a6b260dd43ab3b4c32077f11",
+  "health": {
+    "http_status": 200,
+    "elapsed_ms": 407,
+    "body": {
+      "status": "ok",
+      "version": "integrated-room-v1",
+      "llm_configured": true,
+      "connectivity_verified": false,
+      "explanation_mode": "verified-fact-selection"
+    }
+  },
+  "checks": [
+    {
+      "stage": "evaluate_small_wait_context",
+      "http_status": 200,
+      "elapsed_ms": 422,
+      "decision": "NO_SUBSTITUTION",
+      "plan_id": "wait"
+    },
+    {
+      "stage": "provider_small_wait_context",
+      "http_status": 200,
+      "elapsed_ms": 750,
+      "source": "template",
+      "note": "LLM_UNAVAILABLE",
+      "plan_id": "wait",
+      "cached": false,
+      "diagnostic": null
+    },
+    {
+      "stage": "provider_full_second_choice",
+      "http_status": 200,
+      "elapsed_ms": 562,
+      "source": "template",
+      "note": "LLM_UNAVAILABLE",
+      "plan_id": "swap:3535:3380",
+      "cached": false,
+      "diagnostic": null
+    }
+  ],
+  "documented_endpoint_probe": {
+    "source": "project deployment guide",
+    "scope": "local machine, unauthenticated",
+    "dns": "resolved",
+    "https_status": 401
+  },
+  "exact_sdk_probe": {
+    "openai": "3.35.1",
+    "httpx2": "2.15.1",
+    "credential": "deliberately invalid dummy key",
+    "status": 401,
+    "type": "AuthenticationError",
+    "elapsed_s": 1.06,
+    "scope": "local machine, not production authentication"
+  },
+  "tests": {
+    "python": 187,
+    "node": 8,
+    "runtime_specific": 33,
+    "successful_production_llm_response_observed": false
+  }
+}
