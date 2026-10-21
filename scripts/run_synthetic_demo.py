@@ -16,7 +16,7 @@ from subintel.schema import Event, EventType
 ROOT = Path(__file__).resolve().parents[1]
 
 
-def simulate(dataset, evidence):
+def simulate(dataset, evidence, *, apply_substitutions=True, collect_snapshots=True):
     ms = make_match(dataset, evidence)
     events, snapshots = [], []
     sequence = 0
@@ -74,13 +74,13 @@ def simulate(dataset, evidence):
             tid = '1' if minute == 54 else '24'
             emit(minute, 58, tid, attacker(tid), 'shot', x=111, y=40, xg=.32,
                  success=True, goal=True, on_target=True)
-        if minute >= 15 and minute % 5 == 0:
+        if collect_snapshots and minute >= 15 and minute % 5 == 0:
             for tid in ('24', '1'):
                 snapshot = recommend_demo(ms, tid)
                 snapshot['event_source'] = 'SYNTHETIC_SCRIPTED_POSSESSIONS'
                 snapshots.append(snapshot)
         # Apply only an engine-approved change, never force a named historical swap.
-        if 30 <= minute <= 80 and minute % 5 == 0:
+        if apply_substitutions and 30 <= minute <= 80 and minute % 5 == 0:
             for tid in ('24', '1'):
                 rec = recommend_demo(ms, tid)
                 if rec['selected']:

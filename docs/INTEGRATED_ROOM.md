@@ -1,5 +1,10 @@
 # Integrated coach room — 20 October 2026
 
+> Current startup and submission-demo scope: see the root README and
+> [21 October readiness](DEMO_READINESS_HE.md). The default server now uses
+> synthetic actions; use `--data-mode historical` for the research examples
+> below. This document records the earlier integration design, not deployment status.
+
 Branch: `feature/integrated-coach-explanations`. This merges shared main
 `1ae3c14` and automatic planner `4205a36`, then adds per-plan grounded
 explanations and an English-default bilingual interface. Shared main is not
