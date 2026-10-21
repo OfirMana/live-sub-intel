@@ -8,11 +8,14 @@ from __future__ import annotations
 
 import json
 import logging
+import uuid
+from datetime import datetime, timezone
 from typing import Literal
 
 from pydantic import BaseModel, ConfigDict, Field
 
 from .narrative import foundry_client_from_env
+from .foundry_runtime import classify_failure
 
 AUDIENCES = ('fan', 'analyst', 'broadcaster')
 LANGUAGES = ('en', 'he')
@@ -163,17 +166,21 @@ def explain_plan(snapshot, plan_id, audience='fan', lang='en', client=None, depl
     bank = sentences(bundle,audience,lang)
     ids = default_ids(bank,audience)
     source, note = 'template', 'LLM_NOT_CONFIGURED'
+    diagnostic=None;stage='configuration'
     try:
         if client is None:
             configured=foundry_client_from_env()
             if configured:
                 client,deployment=configured
+                stage='client_setup'
                 client=client.with_options(timeout=12,max_retries=0)
         if client is not None:
+            stage='provider_request'
             response=client.chat.completions.create(model=deployment, max_completion_tokens=250,
                 response_format={'type':'json_object'}, messages=[
                     {'role':'system','content':'Select relevant fact IDs for a football explanation. Return JSON only: {"fact_ids":[...],"style":"direct"}. Use only supplied IDs, include decision first. Never return prose. Respect the audience; broadcaster is qualitative. The deterministic engine owns the decision.'},
                     {'role':'user','content':json.dumps(dict(audience=audience,language=lang,available_facts=bank,context=bundle),ensure_ascii=False)}])
+            stage='output_validation'
             selection=Selection.model_validate_json(response.choices[0].message.content or '')
             if selection.fact_ids[0]!='decision' or len(set(selection.fact_ids))!=len(selection.fact_ids) or any(k not in bank for k in selection.fact_ids):
                 raise ValueError('invalid fact selection')
@@ -187,10 +194,11 @@ def explain_plan(snapshot, plan_id, audience='fan', lang='en', client=None, depl
             source,note='llm',None
     except Exception as error:
         # No keys, response bodies or arbitrary model text in public diagnostics.
-        cause=error.__cause__ or error.__context__
-        LOG.warning('Explanation failed: type=%s status=%s code=%s cause=%s',type(error).__name__,getattr(error,'status_code',None),
-                    getattr(error,'code',None),f'{type(cause).__name__}: {str(cause)[:200]}' if cause else None)
-        note='LLM_TEXT_REJECTED' if isinstance(error,(ValueError,KeyError,TypeError)) else 'LLM_UNAVAILABLE'
+        diagnostic=dict(classify_failure(error,stage),reference=uuid.uuid4().hex[:12],
+                        at=datetime.now(timezone.utc).isoformat())
+        LOG.warning('Explanation failed: reference=%s code=%s stage=%s status=%s provider_code=%s param=%s type=%s causes=%s',
+            diagnostic['reference'],diagnostic['code'],stage,diagnostic['status'],diagnostic['provider_code'],diagnostic['provider_param'],diagnostic['exception_type'],diagnostic['cause_types'])
+        note='LLM_TEXT_REJECTED' if stage=='output_validation' else 'LLM_CONFIGURATION_INVALID' if stage=='configuration' else 'LLM_UNAVAILABLE'
     return dict(text=' '.join(bank[k] for k in ids), source=source,note=note,
                 audience=audience,lang=lang,plan_id=plan_id,facts=bundle,fact_ids=ids,
-                rendering='VERIFIED_FACT_SENTENCES',model=deployment if source=='llm' else None)
+                rendering='VERIFIED_FACT_SENTENCES',model=deployment if source=='llm' else None,diagnostic=diagnostic)

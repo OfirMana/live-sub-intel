@@ -93,7 +93,7 @@ function initialize(){
  $('explainBtn').onclick=async()=>{
   const key=currentExplanation(),token=++explainToken,id=planId();explainAbort?.abort();explainAbort=new AbortController();$('explainBtn').disabled=true;$('explainText').textContent=t('explaining');$('explainSource').textContent='';
   try{const response=await fetch('/api/explain',{method:'POST',signal:explainAbort.signal,headers:{'Content-Type':'application/json'},body:JSON.stringify({match_id:view.match_id,team_id:view.team_id,minute:minutes(),config:config(),plan_id:id,audience:$('audience').value,lang})});if(!response.ok)throw Error();const result=await response.json();if(token!==explainToken||key!==currentExplanation()||result.plan_id!==id)return;
-   $('explainText').textContent=result.text;$('explainSource').textContent=result.source==='llm'?t('modelSource',{model:result.model||'Foundry'}):t('templateSource',{reason:t(result.note||'LLM_NOT_CONFIGURED')});
+   $('explainText').textContent=result.text;$('explainSource').textContent=result.source==='llm'?t('modelSource',{model:result.model||'Foundry'}):t('templateSource',{reason:t(result.note||'LLM_NOT_CONFIGURED')});if(result.diagnostic)$('explainSource').textContent+=' · '+t('diagnosticRef',result.diagnostic);
   }catch(error){if(token===explainToken&&error.name!=='AbortError')$('explainText').textContent=t('explainFailed');}
   finally{if(token===explainToken)$('explainBtn').disabled=false;}
  };

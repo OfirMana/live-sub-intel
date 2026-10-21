@@ -184,3 +184,14 @@ that the football decisions are validated: center-back/early-swap biases remain.
 Work is on the fork branch feature/demo-player-dataset. Upstream main is unchanged.
 GitHub Pages, remote LLM and Azure are not configured. Download the offline bundles
 to view HTML, or serve docs locally. Rich demo JSON still needs UI/API alignment.
+
+## Foundry runtime diagnosis
+
+If the UI falls back to a template, the explanation response now includes a
+safe diagnostic code and correlation reference; health shows validated settings,
+installed SDK versions and the last meaningful explanation outcome. In the
+actual App Service Python environment, run `python scripts/diagnose_foundry.py`
+for a zero-call preflight, or add `--full` for a bounded minimal/full-model test.
+See [evidence and fixes](docs/FOUNDRY_DIAGNOSIS_20261021.md) and the
+[Hebrew next-step handoff](docs/FOUNDRY_NEXT_STEP_HE.txt). Never paste a key into
+command arguments, source, reports or chat.
