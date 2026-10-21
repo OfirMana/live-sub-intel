@@ -33,7 +33,7 @@ Historical mode replays StatsBomb Open Data and may download pinned raw files. I
 4. Choose Broadcaster for qualitative wording; Analyst exposes numerical model scores. Switch English/Hebrew to check localization.
 5. Advance five minutes to see only the events available at that point. Restart or step back to compare a different coach context.
 
-The synthetic scenario includes a sterile attacking period, an opponent goal at 54:58 and later scripted goals. These events do not respond to inspected substitutions. Zero-action and tactical-only outcomes are valid.
+The synthetic scenario includes a sterile attacking period, an opponent goal during minute 54 and later scripted goals. The seeded generator varies actors, timings, shot quality and defensive actions. Goal phases at minutes 54, 78 and 82 remain authored story beats, not sampled match outcomes. The default seed is 20261021; generator metadata is exposed in bootstrap and facts. The event-feed filter reveals pressures, tackles and recoveries. These events do not respond to inspected substitutions. Zero-action and tactical-only outcomes are valid.
 
 ## Architecture
 
@@ -75,7 +75,7 @@ python scripts/audit_integrated_explanations.py --data-mode synthetic
 python scripts/audit_integrated_explanations.py --data-mode historical
 ```
 
-On 21 October: 189 Python tests and 8 Node tests passed locally. The synthetic audit checked 36 checkpoints, 1,253 offered plan contexts and 7,518 rendered explanations; the historical audit checked 72 checkpoints and 12,420 explanations. These are contract/consistency checks, **not football accuracy or evidence that substitutions improve results**. See the JSON reports in `docs/research/`.
+On 21 October: 191 Python tests and 8 Node tests passed locally. The synthetic audit checked 36 checkpoints, 1,254 offered plan contexts and 7,524 rendered explanations; the historical audit checked 72 checkpoints and 12,420 explanations. These are contract/consistency checks, **not football accuracy or evidence that substitutions improve results**. See the JSON reports in `docs/research/`.
 
 ## Limits and data attribution
 
@@ -88,3 +88,5 @@ On 21 October: 189 Python tests and 8 Node tests passed locally. The synthetic a
 [Submission draft](docs/submission/SUBMISSION.md) · [Scoring and position-fit details](docs/AUTO_TACTICAL_PLANS.md) · [Integrated API and explanation design](docs/INTEGRATED_ROOM.md) · [Player cards and workbook](docs/player-cards/README.md) · [Deployment guide](docs/AZURE_DEPLOY_HE.md)
 
 Older dated reports describe previous versions; the run commands and scope on this page take precedence.
+
+[Seeded generator revision and live Foundry acceptance findings](docs/SEEDED_DEMO_REVIEW_HE.md).

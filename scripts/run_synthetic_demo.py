@@ -7,6 +7,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import random
 from pathlib import Path
 
 from subintel.demo_data import load_demo_profiles
@@ -16,77 +17,106 @@ from subintel.schema import Event, EventType
 ROOT = Path(__file__).resolve().parents[1]
 
 
-def simulate(dataset, evidence, *, apply_substitutions=True, collect_snapshots=True):
+DEFAULT_SEED = 20261021
+GENERATOR_VERSION = 'seeded-possessions-v2'
+
+
+def simulate(dataset, evidence, *, apply_substitutions=True, collect_snapshots=True, seed=DEFAULT_SEED):
+    """Seeded illustrative possessions; no fitted outcome probabilities.
+
+    The three goal phases are authored scenario beats. Timing, actors, locations
+    and shot quality vary independently of recommendations. No future event is
+    supplied to the recommendation engine.
+    """
+    rng = random.Random(seed)
     ms = make_match(dataset, evidence)
     events, snapshots = [], []
     sequence = 0
+    pending = []
 
     def emit(minute, second, tid, pid, kind, **fields):
         nonlocal sequence
         sequence += 1
         ev = Event(event_id=f'synthetic-{sequence}', match_id=ms.match_id, period=1 if minute < 45 else 2,
                    minute=minute, second=second, team_id=tid, player_id=pid, type=EventType(kind), **fields)
-        events.append(ev.model_dump(mode='json'))
-        ms.feed(ev)
+        pending.append(ev)
         return ev.event_id
 
     def actors(tid):
-        return sorted((p for p in ms.on_pitch if ms.players[p].team_id == tid and ms.role(p) != 'GK'),
-                      key=lambda p: (ms.role(p), p))
+        return sorted(p for p in ms.on_pitch if ms.players[p].team_id == tid and ms.role(p) != 'GK')
 
-    def attacker(tid):
-        return next((p for p in actors(tid) if ms.role(p) == 'ST'), actors(tid)[0])
+    def shooter(tid):
+        ids = actors(tid)
+        weights = {'ST':5, 'AM_W':3.5, 'CM':1.5, 'FB':.5, 'CB':.3}
+        return rng.choices(ids, weights=[weights.get(ms.role(p),1) for p in ids])[0]
 
     for minute in range(91):
         if minute in (0, 45):
             emit(minute, 0, '24', None, 'period_start')
-        for possession in range(4):
-            tid = '24' if possession % 2 == 0 else '1'
-            ids = actors(tid)
-            a, b = ids[(minute + possession) % len(ids)], ids[(minute + possession + 1) % len(ids)]
-            base_second = 1 + possession * 14
+        count = rng.randint(3,4)
+        for possession in range(count):
+            tid = rng.choice(('24','1'))
+            opponent = '1' if tid == '24' else '24'
+            a,b = rng.sample(actors(tid),2)
+            defender = rng.choice(actors(opponent))
+            base = possession*(58//count)+rng.randint(1,2)
             sterile = tid == '24' and 40 <= minute < 75
+            x,y = rng.uniform(28,48),rng.uniform(12,68)
             for step in range(3):
-                x = 38 + step * (3 if sterile else 15)
-                emit(minute, base_second + step * 2, tid, a if step % 2 == 0 else b, 'pass',
-                     x=x, y=30 + 5 * step, end_x=x+8, end_y=35, success=True,
-                     recipient_id=b if step % 2 == 0 else a, possession_id=minute*4+possession,
-                     under_pressure=sterile)
+                end_x = min(110,x+rng.uniform(2,7) if sterile else x+rng.uniform(7,19))
+                end_y = max(2,min(78,y+rng.uniform(-12,12)))
+                emit(minute,base+step,tid,a if step%2==0 else b,'pass',
+                     x=round(x,2),y=round(y,2),end_x=round(end_x,2),end_y=round(end_y,2),
+                     success=True,recipient_id=b if step%2==0 else a,
+                     possession_id=minute*4+possession,under_pressure=sterile)
+                x,y=end_x,end_y
             if not sterile:
-                emit(minute, base_second+7, tid, a, 'carry', x=65, y=35, end_x=80, end_y=35, success=True,
-                     transition=minute % 5 == 0)
+                emit(minute,base+3,tid,a,'carry',x=x,y=y,end_x=min(115,x+rng.uniform(5,17)),end_y=y,
+                     success=True,transition=rng.random()<.2)
             else:
-                emit(minute, base_second+7, tid, a, 'pass', x=90, y=5, end_x=109, end_y=40,
-                     success=False, cross=True)
-            emit(minute, base_second+8, tid, b, 'pressure')
-            if minute % 3 == 0:
-                emit(minute, base_second+9, tid, b, 'recovery', success=True)
-            if minute % 5 == 0:
-                emit(minute, base_second+10, tid, a, 'miscontrol', success=False)
-            shot_frequency = 9 if tid == '24' else 7
-            if not sterile and minute % shot_frequency == 0 and possession < 2:
-                shooter = attacker(tid)
-                assist = emit(minute, base_second+11, tid, b, 'pass', x=94, y=35, end_x=109, end_y=40,
-                              success=True, recipient_id=shooter)
-                emit(minute, base_second+12, tid, shooter, 'shot', x=109, y=40, xg=.12,
-                     success=False, goal=False, on_target=minute % 2 == 0, key_pass_id=assist)
-        if minute in (54, 78, 82):
-            tid = '1' if minute == 54 else '24'
-            emit(minute, 58, tid, attacker(tid), 'shot', x=111, y=40, xg=.32,
-                 success=True, goal=True, on_target=True)
-        if collect_snapshots and minute >= 15 and minute % 5 == 0:
-            for tid in ('24', '1'):
-                snapshot = recommend_demo(ms, tid)
-                snapshot['event_source'] = 'SYNTHETIC_SCRIPTED_POSSESSIONS'
+                emit(minute,base+3,tid,a,'pass',x=x,y=y,end_x=110,end_y=rng.uniform(20,60),
+                     success=False,cross=True)
+            # Pressure/tackles belong to the defending team, not the passer.
+            emit(minute,base+4,opponent,defender,'pressure',under_pressure=False)
+            if rng.random()<.35:
+                won=rng.random()<.65
+                emit(minute,base+5,opponent,defender,'tackle',success=won)
+                if won:emit(minute,base+6,opponent,defender,'recovery',success=True)
+            if rng.random()<.13:
+                emit(minute,base+7,tid,a,'miscontrol',success=False)
+            if rng.random() < (.015 if sterile else .085):
+                pid=shooter(tid)
+                creator=rng.choice([p for p in actors(tid) if p!=pid])
+                assist=emit(minute,base+8,tid,creator,'pass',x=94,y=35,end_x=108,end_y=40,
+                            success=True,recipient_id=pid)
+                xg=round(rng.uniform(.025,.26),3)
+                emit(minute,base+9,tid,pid,'shot',x=round(rng.uniform(96,113),2),
+                     y=round(rng.uniform(25,55),2),xg=xg,success=False,goal=False,
+                     on_target=rng.random()<.4,key_pass_id=assist)
+        if minute in (54,78,82):
+            tid='1' if minute==54 else '24'
+            emit(minute,rng.randint(8,56),tid,shooter(tid),'shot',
+                 x=round(rng.uniform(104,114),2),y=round(rng.uniform(30,50),2),
+                 xg=round(rng.uniform(.14,.46),3),success=True,goal=True,on_target=True)
+        for ev in sorted(pending,key=lambda e:(e.minute,e.second)):
+            events.append(ev.model_dump(mode='json'))
+            ms.feed(ev)
+        pending.clear()
+        if collect_snapshots and minute >= 15 and minute%5==0:
+            for tid in ('24','1'):
+                snapshot=recommend_demo(ms,tid)
+                snapshot['event_source']='SYNTHETIC_SCRIPTED_POSSESSIONS'
                 snapshots.append(snapshot)
-        # Apply only an engine-approved change, never force a named historical swap.
-        if apply_substitutions and 30 <= minute <= 80 and minute % 5 == 0:
-            for tid in ('24', '1'):
-                rec = recommend_demo(ms, tid)
+        if apply_substitutions and 30<=minute<=80 and minute%5==0:
+            for tid in ('24','1'):
+                rec=recommend_demo(ms,tid)
                 if rec['selected']:
-                    chosen = rec['selected']
-                    emit(minute, 59, tid, chosen['out_player']['id'], 'substitution', replacement_id=chosen['in_player']['id'])
-    return events, snapshots
+                    chosen=rec['selected']
+                    emit(minute,59,tid,chosen['out_player']['id'],'substitution',replacement_id=chosen['in_player']['id'])
+            for ev in pending:
+                events.append(ev.model_dump(mode='json'));ms.feed(ev)
+            pending.clear()
+    return events,snapshots
 
 
 def grounded_explanation(rec):
@@ -119,10 +149,11 @@ function draw(record){const r=record&&record.team_needs?record:data.find(x=>x.mi
 
 def main():
     ap = argparse.ArgumentParser()
+    ap.add_argument('--seed',type=int,default=DEFAULT_SEED)
     ap.add_argument('--out', type=Path, default=ROOT / 'data/synthetic_demo')
     args = ap.parse_args()
     evidence = json.loads((ROOT / 'demo_data/source_evidence.json').read_text(encoding='utf-8'))
-    events, snapshots = simulate(load_demo_profiles(), evidence)
+    events, snapshots = simulate(load_demo_profiles(), evidence, seed=args.seed)
     for snapshot in snapshots:
         snapshot['explanation'] = grounded_explanation(snapshot)
     args.out.mkdir(parents=True, exist_ok=True)

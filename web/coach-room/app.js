@@ -31,7 +31,7 @@ function initialize(){
   const half=elapsed>=45+fixture.first_half_extra,clock=elapsed-(half?fixture.first_half_extra:0),total=Math.floor(clock*60+1e-5),m=Math.floor(total/60),s=String(total%60).padStart(2,'0'),limit=half?90:45;
   $('clock').textContent=elapsed?`${m>=limit?limit+'+'+(m-limit):String(m).padStart(2,'0')}:${s}`:'00:00';$('rail').style.width=Math.min(elapsed/fixture.final_elapsed,1)*100+'%';
   const observed=visibleTimeline(view.lineup_timeline,elapsed);renderPitch('pitchCurrent',observed.lineup);$('observedFormation').textContent=observed.formation;$('initialFormation').textContent=t(data.data_mode==='synthetic'?'synthetic_initial':'initial',{shape:view.lineup_timeline[0].formation});
-  $('events').innerHTML=fixture.events.filter(e=>e.elapsed<elapsed).reverse().map(e=>`<li class="${e.kind}"><time>${e.minute}:${String(e.second).padStart(2,'0')}</time>${esc(t(e.kind))} ${esc(e.player||'')}${e.replacement?' → '+esc(e.replacement):''}${e.xg!=null?' · xG '+fmt(e.xg,2):''}</li>`).join('')||`<li class="muted">${t('emptyEvents')}</li>`;
+  $('events').innerHTML=fixture.events.filter(e=>e.elapsed<elapsed&&($('eventFilter').value==='all'||!['pressure','tackle','recovery'].includes(e.kind))).reverse().map(e=>`<li class="${e.kind}"><time>${e.minute}:${String(e.second).padStart(2,'0')}</time>${esc(t(e.kind))} ${esc(e.player||'')}${e.replacement?' → '+esc(e.replacement):''}${e.xg!=null?' · xG '+fmt(e.xg,2):''}</li>`).join('')||`<li class="muted">${t('emptyEvents')}</li>`;
  }
  function controls(){
   $('next').disabled=playing||pending||index===stages.length-1;$('back').disabled=playing||pending||!index;$('reset').disabled=pending;
@@ -83,6 +83,7 @@ function initialize(){
  function finish(){goto(Math.min(index+1,stages.length-1));}
  function next(){if(playing||pending||index>=stages.length-1)return;resetExplain();const duration=Number($('speed').value);if(!duration){finish();return;}playing=true;opened=false;$('analysis').hidden=true;controls();const from=elapsed,to=stages[index+1].elapsed,start=performance.now();function frame(now){const f=Math.min(1,(now-start)/duration);elapsed=from+(to-from)*f;renderGame();if(f<1)animation=requestAnimationFrame(frame);else finish();}animation=requestAnimationFrame(frame);}
  function chooseTeam(start=0){requestToken++;pending=false;view=data.views.find(v=>v.team_id===$('team').value);fixture=data.fixtures[view.match_id];stages=[{minute:0,elapsed:0},...Array.from({length:18},(_,i)=>{const m=(i+1)*5;return{minute:m,elapsed:m+(m>45?fixture.first_half_extra:0)}}),{minute:null,elapsed:fixture.final_elapsed}];$('home').textContent=fixture.home.name;$('away').textContent=fixture.away.name;goto(start/5);}
+ $('eventFilter').onchange=renderGame;
  $('next').onclick=next;$('finish').onclick=finish;$('back').onclick=()=>goto(Math.max(0,index-1));$('reset').onclick=()=>goto(0);$('team').onchange=()=>chooseTeam();
  ['stance','objective','freshness'].forEach(id=>$(id).onchange=()=>{$('sensitivityResult').innerHTML='';analyze();});
  $('check').onclick=()=>{opened=!opened;const candidate=record.alternatives.find(p=>p.plan_id===record.selected_plan_id)||(record.selected_plan_id==='tactical'?record.tactical_plan:null);showPlan(opened?candidate:null);renderAnalysis();controls();updateShare();};
