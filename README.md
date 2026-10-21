@@ -85,6 +85,6 @@ On 21 October: 189 Python tests and 8 Node tests passed locally. The synthetic a
 - StatsBomb Open Data is the source of historical research events, pre-cutoff evidence and roster metadata. See [StatsBomb Open Data](https://github.com/statsbomb/open-data) and the attribution/licensing terms there. Do not present historical events as licensed live Premier League data.
 - Current LLM integration is constrained fact selection, not an autonomous tool-calling coach. Do not claim agentic functionality that is absent.
 
-[Scoring and position-fit details](docs/AUTO_TACTICAL_PLANS.md) · [Integrated API and explanation design](docs/INTEGRATED_ROOM.md) · [Player cards and workbook](docs/player-cards/README.md) · [Deployment guide](docs/AZURE_DEPLOY_HE.md)
+[Submission draft](docs/submission/SUBMISSION.md) · [Scoring and position-fit details](docs/AUTO_TACTICAL_PLANS.md) · [Integrated API and explanation design](docs/INTEGRATED_ROOM.md) · [Player cards and workbook](docs/player-cards/README.md) · [Deployment guide](docs/AZURE_DEPLOY_HE.md)
 
 Older dated reports describe previous versions; the run commands and scope on this page take precedence.
