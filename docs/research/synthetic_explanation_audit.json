@@ -2,13 +2,13 @@
   "kind": "OFFLINE_CONTRACT_COVERAGE_NOT_TACTICAL_ACCURACY",
   "counts": {
     "checkpoints": 36,
-    "plan_contexts": 1253,
-    "rendered_explanations": 7518
+    "plan_contexts": 1255,
+    "rendered_explanations": 7530
   },
   "decisions": {
-    "NO_SUBSTITUTION": 8,
-    "TACTICAL_ADJUSTMENT": 13,
-    "SUBSTITUTION": 15
+    "NO_SUBSTITUTION": 10,
+    "SUBSTITUTION": 12,
+    "TACTICAL_ADJUSTMENT": 14
   },
   "provider_calls": 0,
   "data_mode": "synthetic",

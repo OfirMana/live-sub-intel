@@ -33,7 +33,7 @@ Historical mode replays StatsBomb Open Data and may download pinned raw files. I
 4. Choose Broadcaster for qualitative wording; Analyst exposes numerical model scores. Switch English/Hebrew to check localization.
 5. Advance five minutes to see only the events available at that point. Restart or step back to compare a different coach context.
 
-The synthetic scenario includes a sterile attacking period, an opponent goal at 54:58 and later scripted goals. These events do not respond to inspected substitutions. Zero-action and tactical-only outcomes are valid.
+The synthetic scenario includes a sterile attacking period, an opponent goal during minute 54 and later scripted goals. The seeded generator varies actors, timings, shot quality and defensive actions. Goal phases at minutes 54, 78 and 82 remain authored story beats, not sampled match outcomes. The default seed is 20261021; generator metadata is exposed in bootstrap and facts. The event-feed filter reveals pressures, tackles and recoveries. These events do not respond to inspected substitutions. Zero-action and tactical-only outcomes are valid.
 
 ## Architecture
 
@@ -75,7 +75,7 @@ python scripts/audit_integrated_explanations.py --data-mode synthetic
 python scripts/audit_integrated_explanations.py --data-mode historical
 ```
 
-On 21 October: 189 Python tests and 8 Node tests passed locally. The synthetic audit checked 36 checkpoints, 1,253 offered plan contexts and 7,518 rendered explanations; the historical audit checked 72 checkpoints and 12,420 explanations. These are contract/consistency checks, **not football accuracy or evidence that substitutions improve results**. See the JSON reports in `docs/research/`.
+On 21 October: 198 Python tests and 13 Node tests passed locally. The synthetic audit checked 36 checkpoints, 1,255 offered plan contexts and 7,530 rendered explanations; the historical audit checked 72 checkpoints and 12,420 explanations. These are contract/consistency checks, **not football accuracy or evidence that substitutions improve results**. See the JSON reports in `docs/research/`.
 
 ## Limits and data attribution
 
@@ -88,3 +88,15 @@ On 21 October: 189 Python tests and 8 Node tests passed locally. The synthetic a
 [Submission draft](docs/submission/SUBMISSION.md) · [Scoring and position-fit details](docs/AUTO_TACTICAL_PLANS.md) · [Integrated API and explanation design](docs/INTEGRATED_ROOM.md) · [Player cards and workbook](docs/player-cards/README.md) · [Deployment guide](docs/AZURE_DEPLOY_HE.md)
 
 Older dated reports describe previous versions; the run commands and scope on this page take precedence.
+
+[Seeded generator revision and live Foundry acceptance findings](docs/SEEDED_DEMO_REVIEW_HE.md).
+
+## Match statistics and player markers
+
+The live board shows cumulative xG, shots, shots on target, pass attempts and pass accuracy, plus an explicitly labelled event-control-time possession estimate. Shirt markers show match-to-date cards, goals and linked assists. Counts rewind with the replay clock; sent-off players move below the pitch. Control intervals are inferred from successful ball-control events; pressure does not transfer possession, dead-ball/unknown periods are excluded, and ownership expires after 30 seconds without control evidence. Coverage is shown. This is an estimate, not provider-measured possession. No ten-player tactical solver is claimed. See [formulas, sources and integration notes](docs/MATCH_STATS_BADGES_HE.md).
+
+[Pass-quality fixes, need semantics and local-vs-Azure explanation status](docs/POSSESSION_AND_PASS_QUALITY_HE.md).
+
+[Late win-pursuit weighting and Azure integration handoff](docs/AZURE_FINAL_INTEGRATION_HE.md).
+
+[Compact dashboard layout and fixed-seed scenario guide](docs/COMPACT_UI_HANDOFF_HE.md).

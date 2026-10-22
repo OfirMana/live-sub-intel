@@ -33,7 +33,8 @@ def test_position_matrix_blocks_kane_at_center_back_and_does_not_invent_lamela_s
 
 
 @pytest.mark.parametrize('quality_reference',[None,.01,.15])
-def test_exact_solver_matches_exhaustive_small_assignment(quality_reference):
+@pytest.mark.parametrize('risk',[.75,1.])
+def test_exact_solver_matches_exhaustive_small_assignment(quality_reference,risk):
     positions=['Right Center Midfield','Center Midfield','Left Center Midfield']
     ids=['a','b','c']
     cards={pid:dict(primary_role='CM',positions=dict(primary=pos,secondary=[p for p in positions if p!=pos],eligibility={'CM':1},suitability={'CM':1})) for pid,pos in zip(ids,positions)}
@@ -41,7 +42,7 @@ def test_exact_solver_matches_exhaustive_small_assignment(quality_reference):
     roster={pid:dict(name=pid,number=i) for i,pid in enumerate(ids)}
     needs=TeamNeeds(team_id='x',needs=dict(zip(DIMS,[.8,.6,.55,.4,.75])),importance=dict.fromkeys(DIMS,1),deficit_z=dict.fromkeys(DIMS,0))
     old=dict(zip(ids,positions));reference=dict.fromkeys(DIMS,200.)
-    gain=[max(needs.needs[d]-.5,0)*2 for d in DIMS];loss=[.5 for _ in DIMS]
+    gain=[max(needs.needs[d]-.5,0)*2 for d in DIMS];loss=[.5*(risk if d in ('retention','defense') else 1.) for d in DIMS]
     brute=[]
     for perm in itertools.permutations(ids):
         totals=dict.fromkeys(DIMS,0.);fresh=0.;cost=0.
@@ -54,7 +55,7 @@ def test_exact_solver_matches_exhaustive_small_assignment(quality_reference):
         if quality_reference is None or tactical-quality_reference>=-min(.1,.35*fresh)-1e-10:
             brute.append(tactical+fresh)
     result,stats=optimize_assignment(ids,positions,cards,roster,ratings,reference,needs,old,
-        'same','same',freshness_base=.2,incoming_id='c',quality_reference=quality_reference)
+        'same','same',freshness_base=.2,incoming_id='c',quality_reference=quality_reference,defensive_downside_multiplier=risk)
     if brute:
         assert result['raw_benefit']==pytest.approx(max(brute))
     else:
@@ -115,3 +116,33 @@ def test_zero_freshness_never_recommends_negative_incremental_tactics(replay):
     rec=recommend_auto(ms,'24',observed,replay.roster,AutoConfig(freshness_cap=0.))
     assert all(c['score_components']['freshness_benefit']==0 for c in rec['alternatives'])
     assert all(c['score_components']['tactical_benefit']>=-1e-10 for c in rec['alternatives'] if c['recommended'])
+
+
+def test_late_win_policy_is_contextual_bounded_and_still_expires():
+    from subintel.auto_plans import late_game_weights
+    from subintel.schema import GameState
+    def policy(m,diff=0,objective='win',enabled=True):
+        return late_game_weights(GameState(minute=m,goal_diff=diff,subs_left=3),AutoConfig(objective=objective),enabled)
+    for p in [policy(65),policy(90,1),policy(90,0,'draw'),policy(90,0,enabled=False)]:
+        assert p['urgency']==0
+        assert p['tactical_time']==p['baseline_tactical_time']
+        assert p['defensive_downside_multiplier']==1
+    p80,p90=policy(80),policy(90,-1)
+    assert p80['urgency']<p90['urgency']==1
+    assert p90['baseline_tactical_time']<p90['tactical_time']<=3*p90['baseline_tactical_time']
+    assert p90['defensive_downside_multiplier']==.75
+    assert policy(94)['tactical_time']==0
+
+
+def test_late_win_policy_does_not_force_changes_or_bypass_the_no_sub_reference(replay):
+    ms,observed=replay.state_at(90)
+    r=recommend_auto(ms,'24',observed,replay.roster,AutoConfig(stance='attack'))
+    assert r['late_game_policy']['active']
+    for p in r['alternatives']:
+        assert p['expected_benefit']==pytest.approx(p['raw_plan_benefit']-r['formation_only']['benefit'],abs=1e-5)
+        if p['recommended']:
+            assert p['quality_gate_passed'] and p['clears_threshold']
+            assert p['score_components']['tactical_benefit']>=-p['allowed_tactical_loss']-1e-9
+    ms.subs_made['24']=3
+    exhausted=recommend_auto(ms,'24',observed,replay.roster,AutoConfig(stance='attack'))
+    assert exhausted['selected'] is None and not exhausted['alternatives']

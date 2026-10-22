@@ -1,0 +1,127 @@
+{
+  "health_before": {
+    "status": "ok",
+    "version": "integrated-room-v1",
+    "llm_configured": true,
+    "data_mode": "synthetic",
+    "llm_configuration": {
+      "configured": true,
+      "missing": [],
+      "code": "CONFIG_VALID"
+    },
+    "llm_runtime_versions": {
+      "openai": "3.35.1",
+      "httpx": null,
+      "httpx2": "2.16.0",
+      "pydantic": "2.14.1"
+    },
+    "last_explanation": null,
+    "connectivity_verified": false,
+    "connectivity_basis": "last_explanation_result",
+    "explanation_mode": "verified-fact-selection"
+  },
+  "checks": [
+    {
+      "plan_id": "swap:3635:3380",
+      "source": "llm",
+      "cached": false,
+      "model": "gpt-4.1-mini",
+      "note": null,
+      "diagnostic": null,
+      "text": "Bringing on Christian Benteke for Jordon Ibe passes the recommendation rules. The modelled trade-off is weaker defending. The main driver is fresh legs for a player with estimated fatigue, weighed against the tactical trade-off. Retained players also change positions: Jordan Henderson \u2192 Center Defensive Midfield; James Milner \u2192 Right Center Midfield; Emre Can \u2192 Left Center Midfield. The model rates the proposed XI higher for attacking threat. The improvement in attacking threat addresses a current team need.",
+      "team_id": "24",
+      "audience": "fan",
+      "lang": "en",
+      "seconds": 5.64
+    },
+    {
+      "plan_id": "swap:3635:3380",
+      "source": "template",
+      "cached": false,
+      "model": null,
+      "note": "LLM_TEXT_REJECTED",
+      "diagnostic": {
+        "code": "MODEL_RESPONSE_REJECTED",
+        "stage": "output_validation",
+        "status": null,
+        "provider_code": null,
+        "provider_param": null,
+        "exception_type": "ValidationError",
+        "cause_types": [],
+        "hint": "The provider replied, but the result did not match the allowed fact-selection schema.",
+        "retryable": false,
+        "reference": "cb24b14aa31a",
+        "at": "2026-10-21T15:12:53.958644+00:00"
+      },
+      "text": "\u05d4\u05db\u05e0\u05e1\u05ea Christian Benteke \u05d1\u05de\u05e7\u05d5\u05dd Jordon Ibe \u05e2\u05d5\u05d1\u05e8\u05ea \u05d0\u05ea \u05ea\u05e0\u05d0\u05d9 \u05d4\u05d4\u05de\u05dc\u05e6\u05d4. \u05d4\u05e9\u05d9\u05e7\u05d5\u05dc \u05d4\u05de\u05e8\u05db\u05d6\u05d9 \u05d4\u05d5\u05d0 \u05e8\u05e2\u05e0\u05d5\u05df \u05e9\u05d7\u05e7\u05df \u05e9\u05e2\u05d9\u05d9\u05e4\u05d5\u05ea\u05d5 \u05de\u05e9\u05d5\u05e2\u05e8\u05ea, \u05dc\u05e6\u05d3 \u05d4\u05de\u05d7\u05d9\u05e8 \u05d4\u05d8\u05e7\u05d8\u05d9. \u05d2\u05dd \u05e9\u05d7\u05e7\u05e0\u05d9\u05dd \u05e9\u05e0\u05e9\u05d0\u05e8\u05d9\u05dd \u05d1\u05de\u05d2\u05e8\u05e9 \u05de\u05d7\u05dc\u05d9\u05e4\u05d9\u05dd \u05ea\u05e4\u05e7\u05d9\u05d3\u05d9\u05dd: Jordan Henderson \u2192 \u05e7\u05e9\u05e8 \u05d0\u05d7\u05d5\u05e8\u05d9; James Milner \u2192 \u05e7\u05e9\u05e8 \u05de\u05e8\u05db\u05d6\u05d9 \u05d9\u05de\u05e0\u05d9; Emre Can \u2192 \u05e7\u05e9\u05e8 \u05de\u05e8\u05db\u05d6\u05d9 \u05e9\u05de\u05d0\u05dc\u05d9. \u05dc\u05e4\u05d9 \u05d4\u05de\u05d5\u05d3\u05dc, \u05d4\u05d4\u05e8\u05db\u05d1 \u05d4\u05de\u05d5\u05e6\u05e2 \u05de\u05d5\u05e1\u05d9\u05e3 \u05d0\u05d9\u05d5\u05dd \u05dc\u05e9\u05e2\u05e8. \u05d4\u05de\u05d7\u05d9\u05e8 \u05dc\u05e4\u05d9 \u05d4\u05de\u05d5\u05d3\u05dc \u05d4\u05d5\u05d0 \u05d9\u05e8\u05d9\u05d3\u05d4 \u05d1\u05d4\u05d2\u05e0\u05d4. \u05d4\u05e9\u05d9\u05e4\u05d5\u05e8 \u05d1\u05d0\u05d9\u05d5\u05dd \u05dc\u05e9\u05e2\u05e8 \u05de\u05ea\u05d0\u05d9\u05dd \u05dc\u05e6\u05d5\u05e8\u05da \u05e9\u05d6\u05d5\u05d4\u05d4 \u05db\u05e2\u05ea.",
+      "team_id": "24",
+      "audience": "analyst",
+      "lang": "he",
+      "seconds": 3.12
+    },
+    {
+      "plan_id": "swap:3635:3380",
+      "source": "llm",
+      "cached": false,
+      "model": "gpt-4.1-mini",
+      "note": null,
+      "diagnostic": null,
+      "text": "The suggested change is Christian Benteke for Jordon Ibe. The trade-off would be weaker defending. The idea is to bring on fresh legs for a player assessed as tiring.",
+      "team_id": "24",
+      "audience": "broadcaster",
+      "lang": "en",
+      "seconds": 3.23
+    },
+    {
+      "plan_id": "swap:3635:3380",
+      "source": "llm",
+      "cached": false,
+      "model": "gpt-4.1-mini",
+      "note": null,
+      "diagnostic": null,
+      "text": "\u05d4\u05d4\u05e6\u05e2\u05d4 \u05d4\u05d9\u05d0 \u05dc\u05d4\u05db\u05e0\u05d9\u05e1 \u05d0\u05ea Christian Benteke \u05d1\u05de\u05e7\u05d5\u05dd Jordon Ibe. \u05d4\u05d5\u05d5\u05d9\u05ea\u05d5\u05e8 \u05d9\u05d4\u05d9\u05d4 \u05e2\u05dc \u05d4\u05d2\u05e0\u05d4. \u05d4\u05e8\u05e2\u05d9\u05d5\u05df \u05d4\u05d5\u05d0 \u05dc\u05d4\u05db\u05e0\u05d9\u05e1 \u05e8\u05d2\u05dc\u05d9\u05d9\u05dd \u05e8\u05e2\u05e0\u05e0\u05d5\u05ea \u05d1\u05de\u05e7\u05d5\u05dd \u05e9\u05d7\u05e7\u05df \u05e9\u05de\u05d5\u05e2\u05e8\u05da \u05db\u05e2\u05d9\u05d9\u05e3.",
+      "team_id": "24",
+      "audience": "broadcaster",
+      "lang": "he",
+      "seconds": 2.56
+    },
+    {
+      "plan_id": "swap:3475:6746",
+      "source": "template",
+      "cached": false,
+      "model": null,
+      "note": "LLM_TEXT_REJECTED",
+      "diagnostic": {
+        "code": "MODEL_RESPONSE_REJECTED",
+        "stage": "output_validation",
+        "status": null,
+        "provider_code": null,
+        "provider_param": null,
+        "exception_type": "ValidationError",
+        "cause_types": [],
+        "hint": "The provider replied, but the result did not match the allowed fact-selection schema.",
+        "retryable": false,
+        "reference": "3821b8111c95",
+        "at": "2026-10-21T15:13:05.111170+00:00"
+      },
+      "text": "Bringing on Gabriel Paulista for Per Mertesacker passes the recommendation rules. The main driver is fresh legs for a player with estimated fatigue, weighed against the tactical trade-off. Retained players also change positions: Mathieu Flamini \u2192 Right Defensive Midfield; Aaron Ramsey \u2192 Left Defensive Midfield. The model rates the proposed XI higher for attacking threat. The modelled trade-off is weaker defending. The improvement in attacking threat addresses a current team need.",
+      "team_id": "1",
+      "audience": "analyst",
+      "lang": "en",
+      "seconds": 3.41
+    },
+    {
+      "plan_id": "swap:3475:6746",
+      "source": "llm",
+      "cached": false,
+      "model": "gpt-4.1-mini",
+      "note": null,
+      "diagnostic": null,
+      "text": "\u05d4\u05db\u05e0\u05e1\u05ea Gabriel Paulista \u05d1\u05de\u05e7\u05d5\u05dd Per Mertesacker \u05e2\u05d5\u05d1\u05e8\u05ea \u05d0\u05ea \u05ea\u05e0\u05d0\u05d9 \u05d4\u05d4\u05de\u05dc\u05e6\u05d4. \u05d4\u05de\u05d7\u05d9\u05e8 \u05dc\u05e4\u05d9 \u05d4\u05de\u05d5\u05d3\u05dc \u05d4\u05d5\u05d0 \u05d9\u05e8\u05d9\u05d3\u05d4 \u05d1\u05d4\u05d2\u05e0\u05d4. \u05d4\u05e9\u05d9\u05e7\u05d5\u05dc \u05d4\u05de\u05e8\u05db\u05d6\u05d9 \u05d4\u05d5\u05d0 \u05e8\u05e2\u05e0\u05d5\u05df \u05e9\u05d7\u05e7\u05df \u05e9\u05e2\u05d9\u05d9\u05e4\u05d5\u05ea\u05d5 \u05de\u05e9\u05d5\u05e2\u05e8\u05ea, \u05dc\u05e6\u05d3 \u05d4\u05de\u05d7\u05d9\u05e8 \u05d4\u05d8\u05e7\u05d8\u05d9. \u05d2\u05dd \u05e9\u05d7\u05e7\u05e0\u05d9\u05dd \u05e9\u05e0\u05e9\u05d0\u05e8\u05d9\u05dd \u05d1\u05de\u05d2\u05e8\u05e9 \u05de\u05d7\u05dc\u05d9\u05e4\u05d9\u05dd \u05ea\u05e4\u05e7\u05d9\u05d3\u05d9\u05dd: Mathieu Flamini \u2192 \u05e7\u05e9\u05e8 \u05d0\u05d7\u05d5\u05e8\u05d9 \u05d9\u05de\u05e0\u05d9; Aaron Ramsey \u2192 \u05e7\u05e9\u05e8 \u05d0\u05d7\u05d5\u05e8\u05d9 \u05e9\u05de\u05d0\u05dc\u05d9. \u05dc\u05e4\u05d9 \u05d4\u05de\u05d5\u05d3\u05dc, \u05d4\u05d4\u05e8\u05db\u05d1 \u05d4\u05de\u05d5\u05e6\u05e2 \u05de\u05d5\u05e1\u05d9\u05e3 \u05d0\u05d9\u05d5\u05dd \u05dc\u05e9\u05e2\u05e8. \u05d4\u05e9\u05d9\u05e4\u05d5\u05e8 \u05d1\u05d0\u05d9\u05d5\u05dd \u05dc\u05e9\u05e2\u05e8 \u05de\u05ea\u05d0\u05d9\u05dd \u05dc\u05e6\u05d5\u05e8\u05da \u05e9\u05d6\u05d5\u05d4\u05d4 \u05db\u05e2\u05ea.",
+      "team_id": "1",
+      "audience": "fan",
+      "lang": "he",
+      "seconds": 2.62
+    }
+  ]
+}
