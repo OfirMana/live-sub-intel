@@ -1,3 +1,5 @@
+> Research archive. Generated ZIP/Excel/preview artifacts are no longer bundled. Use the live Azure app for the submission; existing HTML is a historical research snapshot, not the current product.
+
 # חדר המשחק — שחזור מחזור 21
 
 UI פשוט בעברית, עם טוטנהאם–לסטר כברירת מחדל. אפשר לבחור גם צ׳לסי–ווסט ברום
@@ -5,7 +7,7 @@ UI פשוט בעברית, עם טוטנהאם–לסטר כברירת מחדל. 
 
 ## פתיחה
 
-הורידו [match-replay.zip](match-replay.zip), חלצו ופתחו `index.html` בדפדפן.
+הורידו `match-replay.zip` (local generated export; not bundled), חלצו ופתחו `index.html` בדפדפן.
 הכול כלול בקובץ, ללא התקנות או רשת. GitHub מציג את [קובץ האתר](index.html) כקוד;
 כדי לראות את הממשק יש להוריד ולפתוח אותו, או לשרת את תיקיית docs מקומית.
 
@@ -49,5 +51,3 @@ python -m http.server 8771 --bind 127.0.0.1 --directory docs
 המקורות נמצאים ב־web/match-replay. קבצי StatsBomb הגולמיים נדרשים לבנייה מחדש,
 אך אינם נדרשים להפעלת הממשק המיוצא. הבדיקות בוחנות חשיפה בזמן, התאמה לתוצאות
 המנוע, מחציות ותוספת זמן, פרופילים והפרש מהסף.
-
-![תצוגת חדר המשחק לפני הפתיחה](preview.png)

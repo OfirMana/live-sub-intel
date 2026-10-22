@@ -1,8 +1,10 @@
+> Research archive. Generated ZIP/Excel/preview artifacts are no longer bundled. Use the live Azure app for the submission; existing HTML is a historical research snapshot, not the current product.
+
 # בדיקות החלטות בכל חמש דקות
 
 העדכון הנוכחי הוא מ־18.10.2026: 12 הרצות קבוצה־משחק, 216 נקודות.
 
-הורידו [research-review.zip](research-review.zip), חלצו ופתחו research/index.html.
+הורידו `research-review.zip` (local generated export; not bundled), חלצו ופתחו research/index.html.
 החבילה כוללת גם את כרטיסי השחקנים והאקסל בתיקייה player-cards.
 אפשר לבחור קבוצה ומשחק וללחוץ על דקה כדי לראות את פירוט הניקוד והמועמדים.
 

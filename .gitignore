@@ -7,3 +7,9 @@ __pycache__/
 
 # Optional workbook exporter QA sidecars
 /docs/player-cards/*.inspect.ndjson
+
+# Reproducible research exports are local artifacts, not submission assets.
+/docs/**/*.zip
+/docs/player-cards/*.xlsx
+/docs/player-cards/preview.png
+/docs/match-replay/preview.png
