@@ -19,12 +19,12 @@ ROOT = Path(__file__).resolve().parents[1]
 MATCH_ID = 'synthetic-demo'
 
 
-def create_synthetic_room(seed=DEFAULT_SEED):
+def create_synthetic_room(seed=DEFAULT_SEED, scenario="original"):
     dataset = load_demo_profiles()
     evidence = json.loads((ROOT/'demo_data/source_evidence.json').read_text(encoding='utf-8'))
     metadata = json.loads((ROOT/'demo_data/synthetic_roster.json').read_text(encoding='utf-8'))
     roster, teams = metadata['roster'], metadata['teams']
-    raw, _ = simulate(dataset, evidence, apply_substitutions=False, collect_snapshots=False, seed=seed)
+    raw, _ = simulate(dataset, evidence, apply_substitutions=False, collect_snapshots=False, seed=seed, scenario=scenario)
     events = tuple(Event.model_validate(e) for e in raw)
     key_events = []
     for e in events:
@@ -47,7 +47,7 @@ def create_synthetic_room(seed=DEFAULT_SEED):
     bootstrap = dict(fixtures={MATCH_ID:fixture},views=views,formations=list(FORMATIONS),
         profiles={str(p['player_id']):dict(p,position_suitability={pos:dict(zip(('fit','source'),position_fit(p,pos))) for pos in POSITIONS}) for p in dataset['players']},
         version='coach-room-synthetic-v2',data_mode='synthetic',
-        generator=dict(version=GENERATOR_VERSION,seed=seed,scenario='authored-goal-phases-not-outcome-validation'),
+        generator=dict(version=GENERATOR_VERSION,seed=seed,scenario=scenario,scenario_purpose='authored-goal-phases-not-outcome-validation'),
         provenance=dict(events='SYNTHETIC_SCRIPTED_POSSESSIONS',
             player_profiles='HISTORICAL_PRIORS_WITH_DISCLOSED_ESTIMATES',
             lineup='HISTORICAL_STARTING_XI_METADATA',execution='INSPECTION_ONLY'))

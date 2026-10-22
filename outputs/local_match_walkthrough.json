@@ -1,0 +1,821 @@
+[
+  {
+    "scenario": "original",
+    "goals": [
+      {
+        "minute": 54.81666666666667,
+        "team": "1",
+        "player": "3604"
+      },
+      {
+        "minute": 78.51666666666667,
+        "team": "24",
+        "player": "4090"
+      },
+      {
+        "minute": 82.2,
+        "team": "24",
+        "player": "3635"
+      }
+    ],
+    "yellow_players": {
+      "4090": 1,
+      "3475": 1
+    },
+    "checkpoints": [
+      {
+        "minute": 0,
+        "score": [
+          0,
+          0
+        ],
+        "segment_highlights": [],
+        "decisions": {
+          "24": "NO_SUBSTITUTION",
+          "1": "NO_SUBSTITUTION"
+        }
+      },
+      {
+        "minute": 5,
+        "score": [
+          0,
+          0
+        ],
+        "segment_highlights": [
+          {
+            "kind": "shot",
+            "elapsed": 4.65,
+            "player": "Mesut \u00d6zil",
+            "card": null
+          }
+        ],
+        "decisions": {
+          "24": "NO_SUBSTITUTION",
+          "1": "NO_SUBSTITUTION"
+        }
+      },
+      {
+        "minute": 10,
+        "score": [
+          0,
+          0
+        ],
+        "segment_highlights": [
+          {
+            "kind": "shot",
+            "elapsed": 6.166666666666667,
+            "player": "Mesut \u00d6zil",
+            "card": null
+          },
+          {
+            "kind": "shot",
+            "elapsed": 6.416666666666667,
+            "player": "Theo Walcott",
+            "card": null
+          },
+          {
+            "kind": "shot",
+            "elapsed": 7.4,
+            "player": "Jordon Ibe",
+            "card": null
+          }
+        ],
+        "decisions": {
+          "24": "NO_SUBSTITUTION",
+          "1": "NO_SUBSTITUTION"
+        }
+      },
+      {
+        "minute": 15,
+        "score": [
+          0,
+          0
+        ],
+        "segment_highlights": [
+          {
+            "kind": "shot",
+            "elapsed": 11.4,
+            "player": "Jordon Ibe",
+            "card": null
+          }
+        ],
+        "decisions": {
+          "24": "NO_SUBSTITUTION",
+          "1": "NO_SUBSTITUTION"
+        }
+      },
+      {
+        "minute": 20,
+        "score": [
+          0,
+          0
+        ],
+        "segment_highlights": [
+          {
+            "kind": "shot",
+            "elapsed": 18.183333333333334,
+            "player": "Olivier Giroud",
+            "card": null
+          }
+        ],
+        "decisions": {
+          "24": "SUBSTITUTION",
+          "1": "TACTICAL_ADJUSTMENT"
+        }
+      },
+      {
+        "minute": 25,
+        "score": [
+          0,
+          0
+        ],
+        "segment_highlights": [],
+        "decisions": {
+          "24": "TACTICAL_ADJUSTMENT",
+          "1": "TACTICAL_ADJUSTMENT"
+        }
+      },
+      {
+        "minute": 30,
+        "score": [
+          0,
+          0
+        ],
+        "segment_highlights": [
+          {
+            "kind": "shot",
+            "elapsed": 26.166666666666668,
+            "player": "Jordan Henderson",
+            "card": null
+          },
+          {
+            "kind": "shot",
+            "elapsed": 28.883333333333333,
+            "player": "Jordan Henderson",
+            "card": null
+          }
+        ],
+        "decisions": {
+          "24": "TACTICAL_ADJUSTMENT",
+          "1": "TACTICAL_ADJUSTMENT"
+        }
+      },
+      {
+        "minute": 35,
+        "score": [
+          0,
+          0
+        ],
+        "segment_highlights": [
+          {
+            "kind": "card",
+            "elapsed": 32.916666666666664,
+            "player": "Adam Lallana",
+            "card": "yellow"
+          }
+        ],
+        "decisions": {
+          "24": "TACTICAL_ADJUSTMENT",
+          "1": "TACTICAL_ADJUSTMENT"
+        }
+      },
+      {
+        "minute": 40,
+        "score": [
+          0,
+          0
+        ],
+        "segment_highlights": [
+          {
+            "kind": "shot",
+            "elapsed": 37.81666666666667,
+            "player": "Per Mertesacker",
+            "card": null
+          },
+          {
+            "kind": "shot",
+            "elapsed": 39.166666666666664,
+            "player": "Per Mertesacker",
+            "card": null
+          }
+        ],
+        "decisions": {
+          "24": "TACTICAL_ADJUSTMENT",
+          "1": "TACTICAL_ADJUSTMENT"
+        }
+      },
+      {
+        "minute": 45,
+        "score": [
+          0,
+          0
+        ],
+        "segment_highlights": [
+          {
+            "kind": "shot",
+            "elapsed": 41.416666666666664,
+            "player": "Joel Campbell",
+            "card": null
+          }
+        ],
+        "decisions": {
+          "24": "TACTICAL_ADJUSTMENT",
+          "1": "TACTICAL_ADJUSTMENT"
+        }
+      },
+      {
+        "minute": 50,
+        "score": [
+          0,
+          0
+        ],
+        "segment_highlights": [],
+        "decisions": {
+          "24": "TACTICAL_ADJUSTMENT",
+          "1": "TACTICAL_ADJUSTMENT"
+        }
+      },
+      {
+        "minute": 55,
+        "score": [
+          0,
+          1
+        ],
+        "segment_highlights": [
+          {
+            "kind": "shot",
+            "elapsed": 53.5,
+            "player": "Olivier Giroud",
+            "card": null
+          },
+          {
+            "kind": "goal",
+            "elapsed": 54.81666666666667,
+            "player": "Olivier Giroud",
+            "card": null
+          }
+        ],
+        "decisions": {
+          "24": "TACTICAL_ADJUSTMENT",
+          "1": "NO_SUBSTITUTION"
+        }
+      },
+      {
+        "minute": 60,
+        "score": [
+          0,
+          1
+        ],
+        "segment_highlights": [],
+        "decisions": {
+          "24": "SUBSTITUTION",
+          "1": "SUBSTITUTION"
+        }
+      },
+      {
+        "minute": 65,
+        "score": [
+          0,
+          1
+        ],
+        "segment_highlights": [
+          {
+            "kind": "card",
+            "elapsed": 61.233333333333334,
+            "player": "Per Mertesacker",
+            "card": "yellow"
+          },
+          {
+            "kind": "shot",
+            "elapsed": 64.16666666666667,
+            "player": "Olivier Giroud",
+            "card": null
+          }
+        ],
+        "decisions": {
+          "24": "SUBSTITUTION",
+          "1": "SUBSTITUTION"
+        }
+      },
+      {
+        "minute": 70,
+        "score": [
+          0,
+          1
+        ],
+        "segment_highlights": [],
+        "decisions": {
+          "24": "SUBSTITUTION",
+          "1": "SUBSTITUTION"
+        }
+      },
+      {
+        "minute": 75,
+        "score": [
+          0,
+          1
+        ],
+        "segment_highlights": [
+          {
+            "kind": "shot",
+            "elapsed": 74.63333333333334,
+            "player": "Theo Walcott",
+            "card": null
+          }
+        ],
+        "decisions": {
+          "24": "SUBSTITUTION",
+          "1": "SUBSTITUTION"
+        }
+      },
+      {
+        "minute": 80,
+        "score": [
+          1,
+          1
+        ],
+        "segment_highlights": [
+          {
+            "kind": "shot",
+            "elapsed": 75.41666666666667,
+            "player": "Joel Campbell",
+            "card": null
+          },
+          {
+            "kind": "shot",
+            "elapsed": 78.5,
+            "player": "Jordon Ibe",
+            "card": null
+          },
+          {
+            "kind": "goal",
+            "elapsed": 78.51666666666667,
+            "player": "Adam Lallana",
+            "card": null
+          }
+        ],
+        "decisions": {
+          "24": "SUBSTITUTION",
+          "1": "SUBSTITUTION"
+        }
+      },
+      {
+        "minute": 85,
+        "score": [
+          2,
+          1
+        ],
+        "segment_highlights": [
+          {
+            "kind": "goal",
+            "elapsed": 82.2,
+            "player": "Jordon Ibe",
+            "card": null
+          }
+        ],
+        "decisions": {
+          "24": "SUBSTITUTION",
+          "1": "NO_SUBSTITUTION"
+        }
+      },
+      {
+        "minute": 90,
+        "score": [
+          2,
+          1
+        ],
+        "segment_highlights": [],
+        "decisions": {
+          "24": "NO_SUBSTITUTION",
+          "1": "NO_SUBSTITUTION"
+        }
+      }
+    ]
+  },
+  {
+    "scenario": "lively",
+    "goals": [
+      {
+        "minute": 27.666666666666668,
+        "team": "1",
+        "player": "3517"
+      },
+      {
+        "minute": 78.38333333333334,
+        "team": "24",
+        "player": "3635"
+      },
+      {
+        "minute": 82.75,
+        "team": "24",
+        "player": "3473"
+      }
+    ],
+    "yellow_players": {
+      "4090": 1,
+      "3483": 1,
+      "3394": 1,
+      "5581": 1,
+      "4590": 1
+    },
+    "checkpoints": [
+      {
+        "minute": 0,
+        "score": [
+          0,
+          0
+        ],
+        "segment_highlights": [],
+        "decisions": {
+          "24": "NO_SUBSTITUTION",
+          "1": "NO_SUBSTITUTION"
+        }
+      },
+      {
+        "minute": 5,
+        "score": [
+          0,
+          0
+        ],
+        "segment_highlights": [
+          {
+            "kind": "shot",
+            "elapsed": 4.65,
+            "player": "Mesut \u00d6zil",
+            "card": null
+          }
+        ],
+        "decisions": {
+          "24": "NO_SUBSTITUTION",
+          "1": "NO_SUBSTITUTION"
+        }
+      },
+      {
+        "minute": 10,
+        "score": [
+          0,
+          0
+        ],
+        "segment_highlights": [
+          {
+            "kind": "shot",
+            "elapsed": 6.166666666666667,
+            "player": "Mesut \u00d6zil",
+            "card": null
+          },
+          {
+            "kind": "shot",
+            "elapsed": 6.416666666666667,
+            "player": "Theo Walcott",
+            "card": null
+          },
+          {
+            "kind": "shot",
+            "elapsed": 7.4,
+            "player": "Jordon Ibe",
+            "card": null
+          }
+        ],
+        "decisions": {
+          "24": "NO_SUBSTITUTION",
+          "1": "NO_SUBSTITUTION"
+        }
+      },
+      {
+        "minute": 15,
+        "score": [
+          0,
+          0
+        ],
+        "segment_highlights": [
+          {
+            "kind": "shot",
+            "elapsed": 11.4,
+            "player": "Jordon Ibe",
+            "card": null
+          }
+        ],
+        "decisions": {
+          "24": "NO_SUBSTITUTION",
+          "1": "NO_SUBSTITUTION"
+        }
+      },
+      {
+        "minute": 20,
+        "score": [
+          0,
+          0
+        ],
+        "segment_highlights": [
+          {
+            "kind": "shot",
+            "elapsed": 18.183333333333334,
+            "player": "Olivier Giroud",
+            "card": null
+          },
+          {
+            "kind": "card",
+            "elapsed": 18.466666666666665,
+            "player": "Adam Lallana",
+            "card": "yellow"
+          }
+        ],
+        "decisions": {
+          "24": "SUBSTITUTION",
+          "1": "TACTICAL_ADJUSTMENT"
+        }
+      },
+      {
+        "minute": 25,
+        "score": [
+          0,
+          0
+        ],
+        "segment_highlights": [],
+        "decisions": {
+          "24": "TACTICAL_ADJUSTMENT",
+          "1": "TACTICAL_ADJUSTMENT"
+        }
+      },
+      {
+        "minute": 30,
+        "score": [
+          0,
+          1
+        ],
+        "segment_highlights": [
+          {
+            "kind": "shot",
+            "elapsed": 26.166666666666668,
+            "player": "Jordan Henderson",
+            "card": null
+          },
+          {
+            "kind": "goal",
+            "elapsed": 27.666666666666668,
+            "player": "Aaron Ramsey",
+            "card": null
+          },
+          {
+            "kind": "shot",
+            "elapsed": 29.4,
+            "player": "Jordon Ibe",
+            "card": null
+          }
+        ],
+        "decisions": {
+          "24": "TACTICAL_ADJUSTMENT",
+          "1": "TACTICAL_ADJUSTMENT"
+        }
+      },
+      {
+        "minute": 35,
+        "score": [
+          0,
+          1
+        ],
+        "segment_highlights": [
+          {
+            "kind": "card",
+            "elapsed": 32.88333333333333,
+            "player": "Mamadou Sakho",
+            "card": "yellow"
+          }
+        ],
+        "decisions": {
+          "24": "TACTICAL_ADJUSTMENT",
+          "1": "TACTICAL_ADJUSTMENT"
+        }
+      },
+      {
+        "minute": 40,
+        "score": [
+          0,
+          1
+        ],
+        "segment_highlights": [
+          {
+            "kind": "shot",
+            "elapsed": 37.81666666666667,
+            "player": "Per Mertesacker",
+            "card": null
+          },
+          {
+            "kind": "shot",
+            "elapsed": 39.166666666666664,
+            "player": "Per Mertesacker",
+            "card": null
+          }
+        ],
+        "decisions": {
+          "24": "TACTICAL_ADJUSTMENT",
+          "1": "TACTICAL_ADJUSTMENT"
+        }
+      },
+      {
+        "minute": 45,
+        "score": [
+          0,
+          1
+        ],
+        "segment_highlights": [
+          {
+            "kind": "shot",
+            "elapsed": 41.416666666666664,
+            "player": "Joel Campbell",
+            "card": null
+          },
+          {
+            "kind": "card",
+            "elapsed": 44.71666666666667,
+            "player": "Laurent Koscielny",
+            "card": "yellow"
+          }
+        ],
+        "decisions": {
+          "24": "TACTICAL_ADJUSTMENT",
+          "1": "NO_SUBSTITUTION"
+        }
+      },
+      {
+        "minute": 50,
+        "score": [
+          0,
+          1
+        ],
+        "segment_highlights": [],
+        "decisions": {
+          "24": "TACTICAL_ADJUSTMENT",
+          "1": "NO_SUBSTITUTION"
+        }
+      },
+      {
+        "minute": 55,
+        "score": [
+          0,
+          1
+        ],
+        "segment_highlights": [
+          {
+            "kind": "shot",
+            "elapsed": 53.5,
+            "player": "Olivier Giroud",
+            "card": null
+          }
+        ],
+        "decisions": {
+          "24": "TACTICAL_ADJUSTMENT",
+          "1": "SUBSTITUTION"
+        }
+      },
+      {
+        "minute": 60,
+        "score": [
+          0,
+          1
+        ],
+        "segment_highlights": [],
+        "decisions": {
+          "24": "SUBSTITUTION",
+          "1": "SUBSTITUTION"
+        }
+      },
+      {
+        "minute": 65,
+        "score": [
+          0,
+          1
+        ],
+        "segment_highlights": [
+          {
+            "kind": "card",
+            "elapsed": 61.6,
+            "player": "Joel Campbell",
+            "card": "yellow"
+          },
+          {
+            "kind": "shot",
+            "elapsed": 63.166666666666664,
+            "player": "Olivier Giroud",
+            "card": null
+          }
+        ],
+        "decisions": {
+          "24": "SUBSTITUTION",
+          "1": "SUBSTITUTION"
+        }
+      },
+      {
+        "minute": 70,
+        "score": [
+          0,
+          1
+        ],
+        "segment_highlights": [],
+        "decisions": {
+          "24": "SUBSTITUTION",
+          "1": "SUBSTITUTION"
+        }
+      },
+      {
+        "minute": 75,
+        "score": [
+          0,
+          1
+        ],
+        "segment_highlights": [
+          {
+            "kind": "card",
+            "elapsed": 73.46666666666667,
+            "player": "Nathaniel Clyne",
+            "card": "yellow"
+          },
+          {
+            "kind": "shot",
+            "elapsed": 73.63333333333334,
+            "player": "Theo Walcott",
+            "card": null
+          },
+          {
+            "kind": "shot",
+            "elapsed": 74.41666666666667,
+            "player": "Joel Campbell",
+            "card": null
+          }
+        ],
+        "decisions": {
+          "24": "SUBSTITUTION",
+          "1": "SUBSTITUTION"
+        }
+      },
+      {
+        "minute": 80,
+        "score": [
+          1,
+          1
+        ],
+        "segment_highlights": [
+          {
+            "kind": "shot",
+            "elapsed": 77.16666666666667,
+            "player": "Joel Campbell",
+            "card": null
+          },
+          {
+            "kind": "goal",
+            "elapsed": 78.38333333333334,
+            "player": "Jordon Ibe",
+            "card": null
+          }
+        ],
+        "decisions": {
+          "24": "SUBSTITUTION",
+          "1": "SUBSTITUTION"
+        }
+      },
+      {
+        "minute": 85,
+        "score": [
+          2,
+          1
+        ],
+        "segment_highlights": [
+          {
+            "kind": "shot",
+            "elapsed": 80.86666666666666,
+            "player": "Per Mertesacker",
+            "card": null
+          },
+          {
+            "kind": "goal",
+            "elapsed": 82.75,
+            "player": "James Milner",
+            "card": null
+          },
+          {
+            "kind": "shot",
+            "elapsed": 84.41666666666667,
+            "player": "Jordan Henderson",
+            "card": null
+          }
+        ],
+        "decisions": {
+          "24": "SUBSTITUTION",
+          "1": "TACTICAL_ADJUSTMENT"
+        }
+      },
+      {
+        "minute": 90,
+        "score": [
+          2,
+          1
+        ],
+        "segment_highlights": [],
+        "decisions": {
+          "24": "NO_SUBSTITUTION",
+          "1": "NO_SUBSTITUTION"
+        }
+      }
+    ]
+  }
+]

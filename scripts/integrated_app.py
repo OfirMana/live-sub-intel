@@ -161,10 +161,11 @@ def main():
     parser=argparse.ArgumentParser()
     parser.add_argument('--host',default='127.0.0.1');parser.add_argument('--port',type=int,default=int(os.environ.get('PORT',8000)))
     parser.add_argument('--data-mode',choices=('synthetic','historical'),default=os.environ.get('DEMO_DATA_MODE','synthetic'))
+    parser.add_argument('--scenario', choices=('original','lively'), default='original')
     args=parser.parse_args()
     if args.data_mode=='synthetic':
         from synthetic_coach_room import create_synthetic_room
-        bootstrap,evaluate=create_synthetic_room()
+        bootstrap,evaluate=create_synthetic_room(scenario=args.scenario)
     else:
         bootstrap,evaluate=create_room()
         bootstrap['data_mode']='historical'
