@@ -21,6 +21,14 @@ def sample():
         alternatives=[plan],selected=plan,best_no_substitution=None,threshold=.15,provenance={},formation_only={},team_needs=dict(threat=.7))
 
 
+def stub(text):
+    calls=[]
+    def create(**kwargs):
+        calls.append(kwargs)
+        return SimpleNamespace(choices=[SimpleNamespace(message=SimpleNamespace(content=text))])
+    return SimpleNamespace(chat=SimpleNamespace(completions=SimpleNamespace(create=create))),calls
+
+
 @pytest.fixture
 def config(monkeypatch):
     for name,value in zip(ENV_NAMES,['https://live-sub-intel-resource.openai.azure.com/','private-test-key','gpt-4.1-mini']):monkeypatch.setenv(name,value)
@@ -77,6 +85,38 @@ def test_config_error_does_not_get_mislabelled_as_bad_model_output(config,monkey
     assert r['note']=='LLM_CONFIGURATION_INVALID'
     assert r['diagnostic']['code']=='CONFIG_KEY_FORMAT'
     assert 'private-test-key' not in json.dumps(r) and 'private-test-key' not in caplog.text
+
+
+def test_long_analyst_selection_is_truncated_not_rejected():
+    # The live analyst failures: every available fact selected, more than six.
+    bank=['decision','freshness','gain','need','tradeoff','score','components']
+    client,calls=stub(json.dumps(dict(fact_ids=bank,style='direct')))
+    r=explain_plan(sample(),'swap:off:on','analyst','en',client=client,deployment='gpt-4.1-mini')
+    assert r['source']=='llm' and r['fact_ids'][0]=='decision' and len(r['fact_ids'])==6
+    assert 'tradeoff' in r['fact_ids']
+
+
+@pytest.mark.parametrize('audience,limit',[('broadcaster',3),('fan',6),('analyst',6)])
+def test_prompt_states_the_fact_limit(audience,limit):
+    client,calls=stub('{"fact_ids":["decision"],"style":"direct"}')
+    explain_plan(sample(),'swap:off:on',audience,'en',client=client,deployment='gpt-4.1-mini')
+    assert json.loads(calls[0]['messages'][1]['content'])['max_facts']==limit
+    assert 'max_facts' in calls[0]['messages'][0]['content']
+
+
+@pytest.mark.parametrize('reply,expected',[
+    ('{"fact_ids":["decision"],"style":"analytical"}',[dict(type='literal_error',loc='style')]),
+    ('{"fact_ids":["decision"],"style":"direct","private-test-key":1}',[dict(type='extra_forbidden',loc='unexpected_field')]),
+    ('{"fact_ids":[],"style":"direct"}',[dict(type='too_short',loc='fact_ids')]),
+    ('{"fact_ids":["decision"',[dict(type='json_invalid',loc='')]),
+])
+def test_rejected_selection_reports_error_kinds_without_model_text(reply,expected,caplog):
+    client,_=stub(reply)
+    with caplog.at_level(logging.WARNING):r=explain_plan(sample(),'swap:off:on','analyst','en',client=client,deployment='gpt-4.1-mini')
+    assert r['source']=='template' and r['note']=='LLM_TEXT_REJECTED'
+    assert r['diagnostic']['validation_errors']==expected
+    for leaked in ('analytical','private-test-key'):
+        assert leaked not in json.dumps(r) and leaked not in caplog.text
 
 
 @pytest.mark.parametrize('mode',['preflight','success','authentication','malformed_output'])
