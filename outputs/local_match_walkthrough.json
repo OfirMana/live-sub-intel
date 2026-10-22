@@ -403,12 +403,12 @@
       {
         "minute": 78.38333333333334,
         "team": "24",
-        "player": "3635"
+        "player": "3493"
       },
       {
         "minute": 82.75,
         "team": "24",
-        "player": "3473"
+        "player": "10326"
       }
     ],
     "yellow_players": {
@@ -416,7 +416,7 @@
       "3483": 1,
       "3394": 1,
       "5581": 1,
-      "4590": 1
+      "38412": 1
     },
     "checkpoints": [
       {
@@ -676,7 +676,7 @@
         ],
         "segment_highlights": [],
         "decisions": {
-          "24": "SUBSTITUTION",
+          "24": "TACTICAL_ADJUSTMENT",
           "1": "SUBSTITUTION"
         }
       },
@@ -701,7 +701,7 @@
           }
         ],
         "decisions": {
-          "24": "SUBSTITUTION",
+          "24": "TACTICAL_ADJUSTMENT",
           "1": "SUBSTITUTION"
         }
       },
@@ -727,7 +727,7 @@
           {
             "kind": "card",
             "elapsed": 73.46666666666667,
-            "player": "Nathaniel Clyne",
+            "player": "Kolo Tour\u00e9",
             "card": "yellow"
           },
           {
@@ -739,12 +739,12 @@
           {
             "kind": "shot",
             "elapsed": 74.41666666666667,
-            "player": "Joel Campbell",
+            "player": "Theo Walcott",
             "card": null
           }
         ],
         "decisions": {
-          "24": "SUBSTITUTION",
+          "24": "TACTICAL_ADJUSTMENT",
           "1": "SUBSTITUTION"
         }
       },
@@ -758,18 +758,18 @@
           {
             "kind": "shot",
             "elapsed": 77.16666666666667,
-            "player": "Joel Campbell",
+            "player": "Theo Walcott",
             "card": null
           },
           {
             "kind": "goal",
             "elapsed": 78.38333333333334,
-            "player": "Jordon Ibe",
+            "player": "Emre Can",
             "card": null
           }
         ],
         "decisions": {
-          "24": "SUBSTITUTION",
+          "24": "TACTICAL_ADJUSTMENT",
           "1": "SUBSTITUTION"
         }
       },
@@ -789,18 +789,18 @@
           {
             "kind": "goal",
             "elapsed": 82.75,
-            "player": "James Milner",
+            "player": "Jo\u00e3o Carlos",
             "card": null
           },
           {
             "kind": "shot",
             "elapsed": 84.41666666666667,
-            "player": "Jordan Henderson",
+            "player": "Joe Allen",
             "card": null
           }
         ],
         "decisions": {
-          "24": "SUBSTITUTION",
+          "24": "NO_SUBSTITUTION",
           "1": "TACTICAL_ADJUSTMENT"
         }
       },

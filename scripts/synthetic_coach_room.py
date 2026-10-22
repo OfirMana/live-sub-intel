@@ -28,26 +28,42 @@ def create_synthetic_room(seed=DEFAULT_SEED, scenario="original"):
     events = tuple(Event.model_validate(e) for e in raw)
     key_events = []
     for e in events:
-        if e.type not in (EventType.CARD, EventType.SHOT, EventType.PRESSURE, EventType.TACKLE, EventType.RECOVERY, EventType.PERIOD_START, EventType.PERIOD_END):
+        if e.type not in (EventType.SUBSTITUTION, EventType.CARD, EventType.SHOT, EventType.PRESSURE, EventType.TACKLE, EventType.RECOVERY, EventType.PERIOD_START, EventType.PERIOD_END):
             continue
         key_events.append(dict(id=e.event_id, kind='goal' if e.goal else e.type.value,
             period=e.period, minute=e.minute, second=e.second, elapsed=e.minute+e.second/60,
             team_id=e.team_id, player_id=e.player_id, player=roster.get(e.player_id,{}).get('name'),
-            replacement=None, replacement_id=None, card=e.card, xg=e.xg,
+            replacement=roster.get(e.replacement_id,{}).get("name"), replacement_id=e.replacement_id, card=e.card, xg=e.xg,
             source='SYNTHETIC_SCRIPTED_POSSESSIONS'))
     key_events.append(dict(id='synthetic-full-time',kind='period_end',period=2,minute=91,
         second=0,elapsed=91,team_id='24',player_id=None,player=None,replacement=None,xg=None))
     fixture = dict(id=MATCH_ID, date='Synthetic scenario', first_half_extra=0,
         home=dict(id='24',name='Liverpool'), away=dict(id='1',name='Arsenal'),
-        stat_events=[dict(id=e.event_id,kind='goal' if e.goal else e.type.value,elapsed=e.minute+e.second/60,team_id=e.team_id,player_id=e.player_id,success=e.success,recipient_id=e.recipient_id,key_pass_id=e.key_pass_id,xg=e.xg,on_target=e.on_target,card=e.card) for e in events],
+        stat_events=[dict(id=e.event_id,kind='goal' if e.goal else e.type.value,elapsed=e.minute+e.second/60,team_id=e.team_id,player_id=e.player_id,success=e.success,recipient_id=e.recipient_id,key_pass_id=e.key_pass_id,xg=e.xg,on_target=e.on_target,card=e.card,replacement_id=e.replacement_id) for e in events],
         events=key_events, final_elapsed=91.001, source='SYNTHETIC_SCRIPTED_POSSESSIONS')
     views = [dict(team=t['name'],team_id=tid,match_id=MATCH_ID,
         lineup_timeline=[dict(elapsed=0,formation=t['formation'],lineup=t['lineup'])])
         for tid,t in teams.items()]
+    # One canonical timeline supplies both browser and planner at the same cutoff.
+    for view in views:
+        for event in events:
+            if event.type != EventType.SUBSTITUTION or event.team_id != view['team_id']:
+                continue
+            previous = view['lineup_timeline'][-1]
+            lineup = deepcopy(previous['lineup'])
+            outgoing = next(p for p in lineup if p['player_id'] == event.player_id)
+            outgoing['player_id'] = event.replacement_id
+            outgoing['name'] = roster[event.replacement_id]['name']
+            # Slot, role and coordinates are retained for like-for-like swaps.
+            for key in ('number', 'shirt', 'shirt_number'):
+                if key in outgoing and key in roster[event.replacement_id]:
+                    outgoing[key] = roster[event.replacement_id][key]
+            view['lineup_timeline'].append(dict(elapsed=event.minute+event.second/60,
+                formation=previous['formation'], lineup=lineup))
     bootstrap = dict(fixtures={MATCH_ID:fixture},views=views,formations=list(FORMATIONS),
         profiles={str(p['player_id']):dict(p,position_suitability={pos:dict(zip(('fit','source'),position_fit(p,pos))) for pos in POSITIONS}) for p in dataset['players']},
         version='coach-room-synthetic-v2',data_mode='synthetic',
-        generator=dict(version=GENERATOR_VERSION,seed=seed,scenario=scenario,scenario_purpose='authored-goal-phases-not-outcome-validation'),
+        generator=dict(version=GENERATOR_VERSION + ('-scripted-subs-v1' if scenario == 'lively' else ''),seed=seed,scenario=scenario,scenario_purpose='authored-goal-phases-not-outcome-validation'),
         provenance=dict(events='SYNTHETIC_SCRIPTED_POSSESSIONS',
             player_profiles='HISTORICAL_PRIORS_WITH_DISCLOSED_ESTIMATES',
             lineup='HISTORICAL_STARTING_XI_METADATA',execution='INSPECTION_ONLY'))
@@ -68,8 +84,10 @@ def create_synthetic_room(seed=DEFAULT_SEED, scenario="original"):
             ms.feed(Event(event_id=f'synthetic-checkpoint-{minute}',match_id=MATCH_ID,
                 period=1 if minute<=45 else 2,minute=minute,second=0,team_id=tid,type=EventType.PERIOD_END))
         t=teams[tid]
+        timeline=next(v['lineup_timeline'] for v in views if v['team_id']==tid)
+        current=next(x for x in reversed(timeline) if x['elapsed']==0 or x['elapsed']<minute)
         observed=dict(formation=t['formation'],initial_formation=t['formation'],
-            lineup=deepcopy(t['lineup']),shifts=[],source='SYNTHETIC_SCRIPTED_POSSESSIONS',
+            lineup=deepcopy(current['lineup']),shifts=[],source='SYNTHETIC_SCRIPTED_POSSESSIONS',
             lineup_source='HISTORICAL_STARTING_XI_METADATA',coordinate_source='SCHEMATIC_NOT_TRACKING')
         result=recommend_auto(ms,tid,observed,roster,AutoConfig.model_validate_json(config_json))
         result['provenance']['lineup']='HISTORICAL_STARTING_XI_METADATA'

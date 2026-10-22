@@ -51,8 +51,25 @@ def simulate(dataset, evidence, *, apply_substitutions=True, collect_snapshots=T
         weights = {'ST':5, 'AM_W':3.5, 'CM':1.5, 'FB':.5, 'CB':.3}
         return rng.choices(ids, weights=[weights.get(ms.role(p),1) for p in ids])[0]
 
+    # Authored manager decisions, independent of the recommendation ranking.
+    # Same-role swaps keep the replay legal without inventing a formation change.
+    scripted_swaps = {
+        58: ('24', '3535', '3380'), 64: ('1', '3511', '3713'),
+        70: ('24', '4090', '10326'), 74: ('1', '5581', '3525'),
+        79: ('24', '3473', '10931'), 83: ('1', '3604', '3647'),
+    }
     booked = set()
     for minute in range(91):
+        if scenario == 'lively' and minute in scripted_swaps:
+            tid, outgoing, incoming = scripted_swaps[minute]
+            assert outgoing in ms.on_pitch and incoming not in ms.used
+            assert ms.players[outgoing].team_id == ms.players[incoming].team_id == tid
+            emit(minute, 0, tid, outgoing, 'substitution', replacement_id=incoming)
+            # Feed before creating later actions: departed players cannot act again.
+            for event in pending:
+                events.append(event.model_dump(mode='json'))
+                ms.feed(event)
+            pending.clear()
         if minute in (0, 45):
             emit(minute, 0, '24', None, 'period_start')
         count = rng.randint(3,4)
@@ -139,7 +156,7 @@ def simulate(dataset, evidence, *, apply_substitutions=True, collect_snapshots=T
                 snapshot=recommend_demo(ms,tid)
                 snapshot['event_source']='SYNTHETIC_SCRIPTED_POSSESSIONS'
                 snapshots.append(snapshot)
-        if apply_substitutions and 30<=minute<=80 and minute%5==0:
+        if apply_substitutions and scenario != "lively" and 30<=minute<=80 and minute%5==0:
             for tid in ('24','1'):
                 rec=recommend_demo(ms,tid)
                 if rec['selected']:

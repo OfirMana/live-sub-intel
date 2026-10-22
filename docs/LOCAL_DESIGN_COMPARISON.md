@@ -4,7 +4,7 @@ Branch: `design/local-options-match-audit`. Local experiments only; no deploymen
 
 ## Open
 
-- Lively scenario: http://127.0.0.1:8783/?design=studio&minute=30&team=24&inspect=1
+- Lively scenario: http://127.0.0.1:8785/?design=studio&minute=30&team=24&inspect=1
 - Original scenario: http://127.0.0.1:8784/?design=studio&minute=30&team=24&inspect=1
 
 The top selector changes between Original, Clean studio, Night control room and Match broadcast without resetting the checkpoint or coach context. These are visual directions using the same components and calculations, not three different products. Clean studio is the recommended starting point for readability; Night is an alternative for presenting; Broadcast emphasizes the score.
@@ -12,7 +12,7 @@ The top selector changes between Original, Clean studio, Night control room and 
 Run with `PYTHONPATH=src;scripts` and dependencies installed:
 
 ```
-python scripts/integrated_app.py --port 8783 --scenario lively
+python scripts/integrated_app.py --port 8785 --scenario lively
 python scripts/integrated_app.py --port 8784 --scenario original
 python scripts/audit_local_design.py
 ```
@@ -38,3 +38,9 @@ Instant playback is selected by default, with slower modes still available. All 
 Local Foundry credentials are absent, so model explanations use the labelled fallback; this experiment does not revalidate LLM prose or translations. Live Azure remains the authoritative place to test the configured model. Technical consistency is not proof that football recommendations are optimal. No new deployment was performed. The synthetic replay future remains fixed regardless of inspected plans.
 
 Keep final audience/language work separate from this design experiment. Review which visual direction and scenario to retain before integration. The design comparison toolbar and its fixed localhost links must be removed or made explicitly preview-only before any production merge.
+
+## Follow-up: selected Broadcast direction and evolving lineups
+
+The user selected Match broadcast. It is now the default when design is omitted. The lively script now contains independent authored manager substitutions at 58/64/70/74/79/83 (three per team). They are actual SUBSTITUTION events fed before later actions, not fake changes to the displayed name. The canonical lineup timeline drives both the browser and evaluator; incoming shirt numbers are updated; used players cannot re-enter; remaining substitutions decrease; and new actors participate in subsequent possessions. A visible label distinguishes these scripted manager decisions from inspected recommendations. No counterfactual effect on outcome is asserted.
+
+Verified: 209 Python tests passed; detailed eligibility test checks every actor and pass recipient, no re-entry, three changes per team, timeline rewind, Benteke shirt 9 and exclusion from future incoming options. Full 76-checkpoint audit rerun passed. The original script remains unchanged. This improves replay variety but does not mean every recommendation must differ or that the scenario is a calibrated football simulator.
