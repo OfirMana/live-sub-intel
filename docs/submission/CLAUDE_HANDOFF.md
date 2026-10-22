@@ -1,6 +1,6 @@
 # Claude handoff — integrate the final demo, then finish explanations
 
-22 October 2026. Current main was f8adf5d at audit. The companion PR uses branch `OfirMana:design/local-options-match-audit` into `TomThomasPrintac/live-sub-intel:main`; its exact URL is recorded in PR_LINK.txt after creation.
+22 October 2026. Current main was f8adf5d at audit. The companion PR uses branch `OfirMana:design/local-options-match-audit` into `TomThomasPrintac/live-sub-intel:main`; exact URL: https://github.com/TomThomasPrintac/live-sub-intel/pull/21. It is a draft PR awaiting integration review.
 
 FIRST: inspect current main and the companion PR. Integrate that PR or merge its branch into your integration branch; preserve any newer LLM work. Do not recreate its features. It contains the selected Broadcast theme, Instant default, evolving synthetic XI, two scripted changes per team with one left late, a visible substitution budget, rejection reasons and the no-substitution tactical alternative. The design comparison toolbar is opt-in (`?preview=1` or `?design=...`), not in the standard demo.
 
