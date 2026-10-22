@@ -795,12 +795,12 @@
           {
             "kind": "shot",
             "elapsed": 84.41666666666667,
-            "player": "Joe Allen",
+            "player": "Christian Benteke",
             "card": null
           }
         ],
         "decisions": {
-          "24": "NO_SUBSTITUTION",
+          "24": "SUBSTITUTION",
           "1": "TACTICAL_ADJUSTMENT"
         }
       },

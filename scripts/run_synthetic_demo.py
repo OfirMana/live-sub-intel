@@ -56,7 +56,6 @@ def simulate(dataset, evidence, *, apply_substitutions=True, collect_snapshots=T
     scripted_swaps = {
         58: ('24', '3535', '3380'), 64: ('1', '3511', '3713'),
         70: ('24', '4090', '10326'), 74: ('1', '5581', '3525'),
-        79: ('24', '3473', '10931'), 83: ('1', '3604', '3647'),
     }
     booked = set()
     for minute in range(91):

@@ -44,3 +44,14 @@ Keep final audience/language work separate from this design experiment. Review w
 The user selected Match broadcast. It is now the default when design is omitted. The lively script now contains independent authored manager substitutions at 58/64/70/74/79/83 (three per team). They are actual SUBSTITUTION events fed before later actions, not fake changes to the displayed name. The canonical lineup timeline drives both the browser and evaluator; incoming shirt numbers are updated; used players cannot re-enter; remaining substitutions decrease; and new actors participate in subsequent possessions. A visible label distinguishes these scripted manager decisions from inspected recommendations. No counterfactual effect on outcome is asserted.
 
 Verified: 209 Python tests passed; detailed eligibility test checks every actor and pass recipient, no re-entry, three changes per team, timeline rewind, Benteke shirt 9 and exclusion from future incoming options. Full 76-checkpoint audit rerun passed. The original script remains unchanged. This improves replay variety but does not mean every recommendation must differ or that the scenario is a calibrated football simulator.
+
+## Late-game diagnosis and retained bench option
+
+The previous lively script spent all three Liverpool substitutions by 79 and Arsenal substitutions by 83. This explained the empty substitution shortlist at the end; it was not caused by the attacking context failing to reach the engine. Arsenal at 85 in attack/win still recommended a tactical adjustment (0.217 over the current XI). At 90 its tactical benefit was 0.113 against a 0.15 threshold.
+
+The local experiment now scripts only two substitutions per team, preserving one for the end. Arsenal at 85 continues to prefer repositioning (0.217); the best substitution adds only 0.115 beyond the best action without a substitute, below 0.15. At 90 it still does not clear the threshold. Liverpool after Benteke enters often prefers rearranging the current XI. These are model findings, not proof of an optimal real-world decision. We did not retune the threshold to force a substitution.
+
+The verdict now displays substitutions remaining/used and tactical-only benefit against threshold. Rejected candidate rows show their actual quality/threshold rejection reason and numeric benefit, so a score above threshold does not masquerade as passing the tactical quality gate. Added the missing translation for FORMATION_ONLY_SUFFICIENT. In the attached user screenshot, 0.17 could therefore be rejected even though 0.15 is the threshold: tactical quality is a separate mandatory condition.
+
+Current local experiment: http://127.0.0.1:8786/?team=1&minute=85&stance=attack&objective=win&inspect=1
+Earlier port links describe previous iterations. Current schedule: Liverpool 58/70, Arsenal 64/74. Configured substitution allowance stays three for this historical-rules demo; no global rule change.

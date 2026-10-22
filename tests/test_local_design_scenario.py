@@ -40,7 +40,7 @@ def test_scripted_substitutions_update_timeline_stats_and_actor_eligibility():
             active[tid].remove(pid); active[tid].add(incoming); used.add(incoming)
             counts[tid] += 1
             assert len(active[tid]) == 11
-    assert counts == {'24': 3, '1': 3}
+    assert counts == {'24': 2, '1': 2}
     config = AutoConfig().model_dump_json()
     before = evaluate('synthetic-demo', '24', 55, config)
     after = evaluate('synthetic-demo', '24', 60, config)
@@ -51,6 +51,23 @@ def test_scripted_substitutions_update_timeline_stats_and_actor_eligibility():
     assert benteke['number'] == 9
     assert all(p['in_player']['id'] != '3380' for p in after['alternatives'])
     end = evaluate('synthetic-demo','24',90,config)
-    assert not end['alternatives']
+    assert end['state']['subs_left'] == 1
+    assert end['alternatives']
     # Rewinding reconstructs the original lineup rather than mutating cached history.
     assert evaluate('synthetic-demo','24',55,config) == before
+
+
+def test_late_arsenal_keeps_a_sub_and_evaluates_tactics_after_conceding():
+    from subintel.auto_plans import AutoConfig
+    _, evaluate = create_synthetic_room(scenario='lively')
+    config = AutoConfig(stance='attack',objective='win').model_dump_json()
+    after_goal = evaluate('synthetic-demo','1',85,config)
+    assert after_goal['state']['goal_diff'] == -1
+    assert after_goal['state']['subs_left'] == 1
+    assert after_goal['recommendation'] == 'TACTICAL_ADJUSTMENT'
+    assert after_goal['selected_plan']['formation']
+    final = evaluate('synthetic-demo','1',90,config)
+    assert final['state']['subs_left'] == 1
+    assert final['alternatives']
+    assert final['no_substitution_reason'] == 'BELOW_THRESHOLD'
+    assert final['formation_only']['benefit'] < final['threshold']
