@@ -20,11 +20,18 @@ from .foundry_runtime import classify_failure
 AUDIENCES = ('fan', 'analyst', 'broadcaster')
 LANGUAGES = ('en', 'he')
 LOG = logging.getLogger(__name__)
+FACT_IDS = ('decision','reason','freshness','quality','shape','moves','gain','tradeoff','need','score','components')
+
+
+def max_facts(audience):
+    return 3 if audience=='broadcaster' else 6
 
 
 class Selection(BaseModel):
     model_config = ConfigDict(extra='forbid')
-    fact_ids: list[str] = Field(min_length=1, max_length=6)
+    # Every ID is still checked against the bank; the per-audience length is
+    # applied when rendering, so a long but valid selection is truncated, not rejected.
+    fact_ids: list[str] = Field(min_length=1, max_length=len(FACT_IDS))
     style: Literal['direct', 'context'] = 'direct'
 
 
@@ -148,7 +155,7 @@ def snapshot_need(bundle, dimension):
 
 
 def default_ids(bank, audience):
-    priority = ['decision','reason','freshness','quality','shape','moves','gain','tradeoff','need','score','components']
+    priority = list(FACT_IDS)
     if audience=='broadcaster':
         priority = ['decision','reason','quality','freshness','shape','tradeoff','gain','moves']
     limit = 3 if audience=='broadcaster' else 6 if audience=='analyst' else 4
@@ -178,8 +185,10 @@ def explain_plan(snapshot, plan_id, audience='fan', lang='en', client=None, depl
             stage='provider_request'
             response=client.chat.completions.create(model=deployment, max_completion_tokens=250,
                 response_format={'type':'json_object'}, messages=[
-                    {'role':'system','content':'Select relevant fact IDs for a football explanation. Return JSON only: {"fact_ids":[...],"style":"direct"}. Use only supplied IDs, include decision first. Never return prose. Respect the audience; broadcaster is qualitative. The deterministic engine owns the decision.'},
-                    {'role':'user','content':json.dumps(dict(audience=audience,language=lang,available_facts=bank,context=bundle),ensure_ascii=False)}])
+                    {'role':'system','content':'Select relevant fact IDs for a football explanation. Return JSON only, exactly {"fact_ids":[...],"style":"direct"}. '
+                        'fact_ids: between 1 and max_facts unique keys of available_facts, copied exactly and never translated, with "decision" first. '
+                        'style: "direct" or "context". No other keys and no prose. Respect the audience; broadcaster is qualitative. The deterministic engine owns the decision.'},
+                    {'role':'user','content':json.dumps(dict(audience=audience,language=lang,max_facts=max_facts(audience),available_facts=bank,context=bundle),ensure_ascii=False)}])
             stage='output_validation'
             selection=Selection.model_validate_json(response.choices[0].message.content or '')
             if selection.fact_ids[0]!='decision' or len(set(selection.fact_ids))!=len(selection.fact_ids) or any(k not in bank for k in selection.fact_ids):
@@ -188,16 +197,15 @@ def explain_plan(snapshot, plan_id, audience='fan', lang='en', client=None, depl
             if audience=='analyst' and 'moves' in bank:required.append('moves')
             # Required caveats cannot be truncated by a long model selection.
             optional=[k for k in selection.fact_ids if k not in ['decision',*required]]
-            limit=3 if audience=='broadcaster' else 6
-            limit=max(limit,1+len(required))
+            limit=max(max_facts(audience),1+len(required))
             ids=list(dict.fromkeys(['decision',*required,*optional]))[:limit]
             source,note='llm',None
     except Exception as error:
         # No keys, response bodies or arbitrary model text in public diagnostics.
         diagnostic=dict(classify_failure(error,stage),reference=uuid.uuid4().hex[:12],
                         at=datetime.now(timezone.utc).isoformat())
-        LOG.warning('Explanation failed: reference=%s code=%s stage=%s status=%s provider_code=%s param=%s type=%s causes=%s',
-            diagnostic['reference'],diagnostic['code'],stage,diagnostic['status'],diagnostic['provider_code'],diagnostic['provider_param'],diagnostic['exception_type'],diagnostic['cause_types'])
+        LOG.warning('Explanation failed: reference=%s code=%s stage=%s status=%s provider_code=%s param=%s type=%s causes=%s validation=%s',
+            diagnostic['reference'],diagnostic['code'],stage,diagnostic['status'],diagnostic['provider_code'],diagnostic['provider_param'],diagnostic['exception_type'],diagnostic['cause_types'],diagnostic['validation_errors'])
         note='LLM_TEXT_REJECTED' if stage=='output_validation' else 'LLM_CONFIGURATION_INVALID' if stage=='configuration' else 'LLM_UNAVAILABLE'
     return dict(text=' '.join(bank[k] for k in ids), source=source,note=note,
                 audience=audience,lang=lang,plan_id=plan_id,facts=bundle,fact_ids=ids,

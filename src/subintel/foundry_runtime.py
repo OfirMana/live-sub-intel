@@ -5,7 +5,10 @@ import re
 import importlib.metadata
 from urllib.parse import urlsplit, urlunsplit
 
+from pydantic import ValidationError
+
 ENV_NAMES=('FOUNDRY_ENDPOINT','FOUNDRY_API_KEY','FOUNDRY_DEPLOYMENT')
+SELECTION_FIELDS=('fact_ids','style')
 
 
 def runtime_versions():
@@ -92,6 +95,13 @@ HINTS={
 }
 
 
+def validation_summary(error):
+    """Pydantic error kinds and field paths only: never the input, its values or messages."""
+    if not isinstance(error,ValidationError):return None
+    return [dict(type=item['type'],loc='.'.join(str(p) if isinstance(p,int) or p in SELECTION_FIELDS else 'unexpected_field' for p in item['loc']))
+            for item in error.errors(include_url=False,include_context=False,include_input=False)[:5]]
+
+
 def classify_failure(error,stage):
     chain=[];seen=set();item=error
     while item is not None and id(item) not in seen and len(chain)<8:
@@ -121,5 +131,5 @@ def classify_failure(error,stage):
     if provider_param not in ('model','messages','response_format','max_completion_tokens','max_tokens','temperature','top_p'):
         provider_param=None
     return dict(code=code,stage=stage,status=status,provider_code=provider_code,provider_param=provider_param,
-                exception_type=type(error).__name__,cause_types=types[1:],
+                exception_type=type(error).__name__,cause_types=types[1:],validation_errors=validation_summary(error),
                 hint=HINTS[code],retryable=code in ('NETWORK_TIMEOUT','CONNECTION_FAILED','PROVIDER_SERVICE_ERROR','PROVIDER_RATE_LIMIT_OR_QUOTA'))
