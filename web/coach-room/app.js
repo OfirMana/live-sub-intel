@@ -41,13 +41,15 @@ if(typeof document!=='undefined')initialize();
 function initialize(){
  const $=id=>document.getElementById(id),esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])),fmt=(v,n=3)=>v==null?'—':Number(v).toFixed(n);
  const q=new URLSearchParams(location.search);let lang=q.get('lang')==='he'?'he':'en';
+ const explainLangs=[...document.querySelectorAll('#explainLang option')].map(o=>o.value);
+ let explainLang=explainLangs.includes(q.get('explain_lang'))?q.get('explain_lang'):lang,explainLangChosen=explainLangs.includes(q.get('explain_lang'));
  const t=(key,params)=>translate(lang,key,params),pos=p=>lang==='he'?(positionsHe[p]||p):p;
  let health=null,data,view,fixture,record,index=0,elapsed=0,stages=[],requestToken=0,animation=0,playing=false,pending=false,opened=false,chosen=null,explainToken=0,explainAbort=null;
  const config=()=>({stance:$('stance').value,objective:$('objective').value,formation:'auto',freshness_cap:Number($('freshness').value)});
  const minutes=()=>stages[index]?.minute;
  const planId=()=>chosen?.plan_id||record?.selected_plan_id||'wait';
  const currentContext=()=>view?contextKey(view,minutes(),config()):'';
- const currentExplanation=()=>explanationKey(currentContext(),planId(),$('audience').value,lang);
+ const currentExplanation=()=>explanationKey(currentContext(),planId(),$('audience').value,explainLang);
  const planName=p=>p?.out_player?t('planName',{off:p.out_player.name,on:p.in_player.name}):p?t('tacticalName',{shape:p.formation}):t('wait');
  function resetExplain(){explainToken++;explainAbort?.abort();explainAbort=null;$('explainText').textContent='';$('explainSource').textContent='';$('explainBtn').disabled=!record;$('explainPlan').textContent=t('inspected',{plan:planName(chosen)});}
  function applyLanguage(){
@@ -56,7 +58,7 @@ function initialize(){
   if(health){$('modelStatus').textContent=t(health.llm_configured?'modelConfigured':'modelNotConfigured');$('azureDemo').hidden=health.llm_configured;$('modelConnectionChip').textContent=t(health.llm_configured?'modelReady':'templateMode');$('modelConnectionChip').className='connection-chip '+(health.llm_configured?'configured':'template');}
   $('scenarioIdentity').textContent=data?.generator?t('fixedScenario',{seed:data.generator.seed}):t('historicalShort');
   if(data?.generator?.version?.includes('scripted-subs')) $('scenarioIdentity').textContent += lang==='he'?' · חילופי מאמן מתוזמנים בתסריט':' · Scripted manager substitutions';
-  $('methodologyLink').title=t('methodologyHint');$('language').setAttribute('aria-label',t('language'));$('audience').setAttribute('aria-label',t('audience'));$('team').setAttribute('aria-label',t('perspective'));document.querySelector('.explain').setAttribute('aria-label',t('explanation'));
+  $('methodologyLink').title=t('methodologyHint');$('language').setAttribute('aria-label',t('language'));$('explainLang').setAttribute('aria-label',t('explanationLanguage'));$('explainLang').value=explainLang;$('audience').setAttribute('aria-label',t('audience'));$('team').setAttribute('aria-label',t('perspective'));document.querySelector('.explain').setAttribute('aria-label',t('explanation'));
  }
  function badges(id,stats){
   const p=stats.players[id];if(!p)return '';
@@ -93,7 +95,7 @@ function initialize(){
   $('sensitivity').disabled=playing||pending||minutes()==null;
   ['stance','objective','freshness','team'].forEach(id=>$(id).disabled=playing);
  }
- function updateShare(){if(view)$('share').href='/?'+new URLSearchParams({team:view.team_id,minute:minutes()??90,...config(),lang,inspect:opened?'1':'0'});}
+ function updateShare(){if(view)$('share').href='/?'+new URLSearchParams({team:view.team_id,minute:minutes()??90,...config(),lang,...(explainLangChosen?{explain_lang:explainLang}:{}),inspect:opened?'1':'0'});}
  function showPlan(candidate){
   chosen=candidate;resetExplain();const plan=candidate?.proposed_lineup||record?.observed.lineup;
   $('planFormation').textContent=candidate?.formation||record?.observed.formation||'';
@@ -150,11 +152,14 @@ function initialize(){
  $('candidates').onclick=e=>{const b=e.target.closest('[data-index]');if(b){showPlan(record.alternatives[Number(b.dataset.index)]);renderAnalysis();}};
  $('tactical').onclick=()=>{showPlan(record.tactical_plan);renderAnalysis();};
  $('audience').onchange=resetExplain;
- $('language').onchange=()=>{lang=$('language').value;applyLanguage();resetExplain();if(view){renderGame();showPlan(chosen);renderRecord();$('status').textContent=record?t('ready',{minute:minutes()}):t('loading');controls();$('sensitivityResult').innerHTML='';}};
+ // The explanation language never changes page labels or the inspected plan; it follows the interface until chosen.
+ $('explainLang').onchange=()=>{explainLang=$('explainLang').value;explainLangChosen=true;resetExplain();updateShare();};
+ $('language').onchange=()=>{lang=$('language').value;if(!explainLangChosen)explainLang=lang;applyLanguage();resetExplain();if(view){renderGame();showPlan(chosen);renderRecord();$('status').textContent=record?t('ready',{minute:minutes()}):t('loading');controls();$('sensitivityResult').innerHTML='';}};
  $('explainBtn').onclick=async()=>{
   const key=currentExplanation(),token=++explainToken,id=planId();explainAbort?.abort();explainAbort=new AbortController();$('explainBtn').disabled=true;$('explainText').textContent=t('explaining');$('explainSource').textContent='';
-  try{const response=await fetch('/api/explain',{method:'POST',signal:explainAbort.signal,headers:{'Content-Type':'application/json'},body:JSON.stringify({match_id:view.match_id,team_id:view.team_id,minute:minutes(),config:config(),plan_id:id,audience:$('audience').value,lang})});if(!response.ok)throw Error();const result=await response.json();if(token!==explainToken||key!==currentExplanation()||result.plan_id!==id)return;
-   $('explainText').textContent=result.text;$('explainText').lang=result.lang;$('explainText').dir=['he','ar'].includes(result.lang)?'rtl':'ltr';$('explainSource').textContent=result.source==='llm'?t('modelSource',{model:result.model||'Foundry'}):t('templateSource',{reason:t(result.note||'LLM_NOT_CONFIGURED')});if(result.diagnostic)$('explainSource').textContent+=' · '+t('diagnosticRef',result.diagnostic);
+  try{const response=await fetch('/api/explain',{method:'POST',signal:explainAbort.signal,headers:{'Content-Type':'application/json'},body:JSON.stringify({match_id:view.match_id,team_id:view.team_id,minute:minutes(),config:config(),plan_id:id,audience:$('audience').value,lang:explainLang})});if(!response.ok)throw Error();const result=await response.json();if(token!==explainToken||key!==currentExplanation()||result.plan_id!==id)return;
+   const shown=result.output_lang||result.lang;$('explainText').textContent=result.text;$('explainText').lang=shown;$('explainText').dir=['he','ar'].includes(shown)?'rtl':'ltr';$('explainSource').textContent=result.source==='llm'?t('modelSource',{model:result.model||'Foundry'}):t('templateSource',{reason:t(result.note||'LLM_NOT_CONFIGURED')});if(result.diagnostic)$('explainSource').textContent+=' · '+t('diagnosticRef',result.diagnostic);
+   const tr=result.translation||{};if(tr.status==='model')$('explainSource').textContent+=' '+t('translatedBy',{model:tr.model||'Foundry'});if(tr.status==='fallback')$('explainSource').textContent+=' '+t('translationFallback',{reason:t(tr.note||'TRANSLATION_UNAVAILABLE')})+(tr.diagnostic?' · '+t('diagnosticRef',tr.diagnostic):'');
   }catch(error){if(token===explainToken&&error.name!=='AbortError')$('explainText').textContent=t('explainFailed');}
   finally{if(token===explainToken)$('explainBtn').disabled=false;}
  };

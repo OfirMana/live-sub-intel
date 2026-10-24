@@ -1,0 +1,99 @@
+{
+  "_note": "Reviewed reference translations for tests: rejection, negative trade-offs, estimated fatigue, missing data and model scores. Written and reviewed by the developer, not by native-speaker linguists; runtime translations come from the model and are validated structurally (src/subintel/translation.py).",
+  "es": {
+    "tpl:decision.swap.recommended": "Dar entrada a {on} en lugar de {off} cumple los criterios de recomendación.",
+    "tpl:decision.swap.rejected": "La opción es {on} en lugar de {off}; no cumple los criterios de recomendación.",
+    "tpl:quality.loss": "La pérdida táctica es demasiado grande para que la ganancia de frescura la justifique.",
+    "tpl:freshness": "El motivo principal es aportar piernas frescas por un jugador con fatiga estimada, sopesado frente al coste táctico.",
+    "tpl:freshness.coach": "La fatiga de {off} se estima a partir de la carga del partido (no es una medición médica), por lo que las piernas frescas son el motivo principal.",
+    "tpl:tradeoff": "El coste según el modelo es una {dim} más débil.",
+    "tpl:stats.unavailable": "No hay estadísticas del partido disponibles antes de este punto de control.",
+    "tpl:score": "El beneficio incremental es {benefit} frente a un umbral de {threshold}; es una puntuación del modelo, no una probabilidad.",
+    "term:dim.defense": "defensa",
+    "term:dim.threat": "amenaza ofensiva"
+  },
+  "fr": {
+    "tpl:decision.swap.recommended": "Faire entrer {on} à la place de {off} respecte les règles de recommandation.",
+    "tpl:decision.swap.rejected": "L'option est {on} à la place de {off} ; elle ne respecte pas les règles de recommandation.",
+    "tpl:quality.loss": "La perte tactique est trop importante pour que le gain de fraîcheur la justifie.",
+    "tpl:freshness": "Le facteur principal est l'apport de fraîcheur pour un joueur dont la fatigue est estimée, mis en balance avec le coût tactique.",
+    "tpl:freshness.coach": "La fatigue de {off} est estimée à partir de la charge du match (ce n'est pas une mesure médicale) ; l'apport de fraîcheur est donc la raison principale.",
+    "tpl:tradeoff": "Selon le modèle, la contrepartie est une {dim} plus faible.",
+    "tpl:stats.unavailable": "Aucune statistique de match n'est disponible avant ce point de contrôle.",
+    "tpl:score": "Le bénéfice incrémental est de {benefit} pour un seuil de {threshold} ; il s'agit d'un score du modèle, pas d'une probabilité.",
+    "term:dim.defense": "défense",
+    "term:dim.threat": "menace offensive"
+  },
+  "de": {
+    "tpl:decision.swap.recommended": "Die Einwechslung von {on} für {off} erfüllt die Empfehlungsregeln.",
+    "tpl:decision.swap.rejected": "Die Option ist {on} für {off}; sie erfüllt die Empfehlungsregeln nicht.",
+    "tpl:quality.loss": "Der taktische Verlust ist zu groß, als dass der Frischegewinn ihn rechtfertigen würde.",
+    "tpl:freshness": "Hauptgrund sind frische Beine für einen Spieler mit geschätzter Ermüdung, abgewogen gegen den taktischen Preis.",
+    "tpl:freshness.coach": "Die Ermüdung von {off} wird aus der Spielbelastung geschätzt (keine medizinische Messung); daher sind frische Beine der Hauptgrund.",
+    "tpl:tradeoff": "Der modellierte Preis ist eine schwächere {dim}.",
+    "tpl:stats.unavailable": "Vor diesem Zeitpunkt sind keine Spielstatistiken verfügbar.",
+    "tpl:score": "Der zusätzliche Nutzen beträgt {benefit} bei einer Schwelle von {threshold}; das ist ein Modellwert, keine Wahrscheinlichkeit.",
+    "term:dim.defense": "Verteidigung",
+    "term:dim.threat": "Offensivgefahr"
+  },
+  "it": {
+    "tpl:decision.swap.recommended": "L'ingresso di {on} al posto di {off} rispetta i criteri di raccomandazione.",
+    "tpl:decision.swap.rejected": "L'opzione è {on} al posto di {off}; non rispetta i criteri di raccomandazione.",
+    "tpl:quality.loss": "La perdita tattica è troppo grande perché il guadagno di freschezza la giustifichi.",
+    "tpl:freshness": "Il motivo principale sono gambe fresche per un giocatore con affaticamento stimato, valutate rispetto al costo tattico.",
+    "tpl:freshness.coach": "L'affaticamento di {off} è stimato dal carico di gara (non è una misura medica), quindi le gambe fresche sono il motivo principale.",
+    "tpl:tradeoff": "Secondo il modello, il prezzo è una {dim} più debole.",
+    "tpl:stats.unavailable": "Non sono disponibili statistiche della partita prima di questo punto di controllo.",
+    "tpl:score": "Il beneficio incrementale è {benefit} rispetto a una soglia di {threshold}; è un punteggio del modello, non una probabilità.",
+    "term:dim.defense": "difesa",
+    "term:dim.threat": "pericolosità offensiva"
+  },
+  "pt": {
+    "tpl:decision.swap.recommended": "Colocar {on} no lugar de {off} cumpre os critérios de recomendação.",
+    "tpl:decision.swap.rejected": "A opção é {on} no lugar de {off}; não cumpre os critérios de recomendação.",
+    "tpl:quality.loss": "A perda tática é grande demais para que o ganho de frescor a justifique.",
+    "tpl:freshness": "O principal motivo são pernas frescas para um jogador com fadiga estimada, ponderadas contra o custo tático.",
+    "tpl:freshness.coach": "A fadiga de {off} é estimada pela carga do jogo (não é uma medição médica), por isso pernas frescas são o principal motivo.",
+    "tpl:tradeoff": "Segundo o modelo, o custo é uma {dim} mais fraca.",
+    "tpl:stats.unavailable": "Não há estatísticas da partida disponíveis antes deste ponto de verificação.",
+    "tpl:score": "O benefício incremental é {benefit} contra um limite de {threshold}; é uma pontuação do modelo, não uma probabilidade.",
+    "term:dim.defense": "defesa",
+    "term:dim.threat": "ameaça ofensiva"
+  },
+  "ar": {
+    "tpl:decision.swap.recommended": "إدخال {on} بدلاً من {off} يستوفي شروط التوصية.",
+    "tpl:decision.swap.rejected": "الخيار هو {on} بدلاً من {off}؛ وهو لا يستوفي شروط التوصية.",
+    "tpl:quality.loss": "الخسارة التكتيكية أكبر من أن يبررها مكسب الانتعاش.",
+    "tpl:freshness": "الدافع الرئيسي هو إدخال لاعب منتعش بدلاً من لاعب إرهاقه مُقدَّر، مع موازنة ذلك بالكلفة التكتيكية.",
+    "tpl:freshness.coach": "إرهاق {off} مُقدَّر من حمل المباراة (وليس قياسًا طبيًا)، لذا فإن الانتعاش البدني هو السبب الرئيسي.",
+    "tpl:tradeoff": "الكلفة بحسب النموذج هي ضعف في {dim}.",
+    "tpl:stats.unavailable": "لا تتوفر إحصاءات للمباراة قبل نقطة التحقق هذه.",
+    "tpl:score": "الفائدة الإضافية هي {benefit} مقابل عتبة قدرها {threshold}؛ وهذه درجة نموذج وليست احتمالًا.",
+    "term:dim.defense": "الدفاع",
+    "term:dim.threat": "الخطورة الهجومية"
+  },
+  "ja": {
+    "tpl:decision.swap.recommended": "{off} に代えて {on} を投入する案は、推奨条件を満たしています。",
+    "tpl:decision.swap.rejected": "選択肢は {off} に代えて {on} を投入する案ですが、推奨条件を満たしていません。",
+    "tpl:quality.loss": "戦術面での損失が大きすぎ、フレッシュさによる利点では正当化できません。",
+    "tpl:freshness": "主な理由は、疲労が推定される選手に代えてフレッシュな選手を入れることで、戦術面のコストと比較衡量しています。",
+    "tpl:freshness.coach": "{off} の疲労は試合の負荷から推定したものです（医学的な測定ではありません）。そのため、フレッシュな選手の投入が主な理由です。",
+    "tpl:tradeoff": "モデル上の代償は{dim}の低下です。",
+    "tpl:stats.unavailable": "このチェックポイント以前の試合統計はありません。",
+    "tpl:score": "追加の利点は {benefit}、しきい値は {threshold} です。これはモデルのスコアであり、確率ではありません。",
+    "term:dim.defense": "守備",
+    "term:dim.threat": "攻撃の脅威"
+  },
+  "zh-Hans": {
+    "tpl:decision.swap.recommended": "用 {on} 换下 {off} 符合推荐规则。",
+    "tpl:decision.swap.rejected": "该选项是用 {on} 换下 {off}；它不符合推荐规则。",
+    "tpl:quality.loss": "战术损失过大，体能优势不足以弥补。",
+    "tpl:freshness": "主要原因是为一名疲劳程度经估算的球员换上体能充沛的球员，并与战术代价进行权衡。",
+    "tpl:freshness.coach": "{off} 的疲劳是根据比赛负荷估算的（并非医学测量），因此主要原因是换上体能充沛的球员。",
+    "tpl:tradeoff": "按模型估算，代价是{dim}减弱。",
+    "tpl:stats.unavailable": "在此检查点之前没有可用的比赛统计数据。",
+    "tpl:score": "增量收益为 {benefit}，阈值为 {threshold}；这是模型评分，不是概率。",
+    "term:dim.defense": "防守",
+    "term:dim.threat": "进攻威胁"
+  }
+}

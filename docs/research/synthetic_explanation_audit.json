@@ -13,5 +13,15 @@
   "provider_calls": 0,
   "data_mode": "synthetic",
   "scenario": "lively",
-  "scope": "2 team views, 18 checkpoints, every offered pair/tactical/wait plan, 3 audiences and 2 languages"
+  "scope": "2 team views, 18 checkpoints, every offered pair/tactical/wait plan, 3 audiences and the 2 hand-written languages",
+  "model_translated_locales": [
+    "ar",
+    "es",
+    "fr",
+    "de",
+    "it",
+    "pt",
+    "ja",
+    "zh-Hans"
+  ]
 }
