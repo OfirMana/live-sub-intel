@@ -63,9 +63,10 @@ def test_broadcaster_has_qualitative_tradeoffs_no_scores_or_percentages(snapshot
 
 def test_rejected_plan_does_not_sound_recommended(snapshot):
     rejected=next(p for p in snapshot['alternatives'] if not p['recommended'])
-    r=explain_plan(snapshot,rejected['plan_id'],'fan','en')
-    assert 'does not pass' in r['text']
-    assert not r['facts']['inspected_plan']['recommended']
+    for audience,phrase in (('analyst','does not pass'),('coach','does not pass'),('broadcaster','not justified'),('fan','not justified')):
+        r=explain_plan(snapshot,rejected['plan_id'],audience,'en')
+        assert phrase in r['text'] and 'suggested change' not in r['text']
+        assert not r['facts']['inspected_plan']['recommended']
 
 
 def test_tactical_only_plan_is_explained_without_inventing_a_swap(snapshot):
@@ -97,8 +98,10 @@ def test_arbitrary_prose_and_untrusted_claims_cannot_reach_the_ui(snapshot,bad):
 
 
 def test_valid_model_selection_is_rendered_from_verified_facts(snapshot):
-    stub,calls=client('{"fact_ids":["decision","freshness"],"style":"direct"}')
-    r=explain_plan(snapshot,snapshot['alternatives'][0]['plan_id'],'broadcaster','en',client=stub,deployment='test')
+    plan_id=snapshot['alternatives'][0]['plan_id']
+    bank=sentences(fact_bundle(snapshot,plan_id),'broadcaster','en')
+    stub,calls=client(json.dumps(dict(fact_ids=list(bank),style='direct')))
+    r=explain_plan(snapshot,plan_id,'broadcaster','en',client=stub,deployment='test')
     assert r['source']=='llm' and r['rendering']=='VERIFIED_FACT_SENTENCES'
     assert not re.search(r'\d|%',r['text'])
     assert calls[0]['max_completion_tokens']==250

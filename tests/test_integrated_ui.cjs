@@ -3,8 +3,8 @@ const {explanationKey,contextKey}=require('../web/coach-room/app.js');
 const {messages,translate}=require('../web/coach-room/i18n.js');
 test('explanation identity changes with candidate, context, audience or language',()=>{
  const ctx=contextKey({match_id:'m',team_id:'t'},65,{stance:'attack'});
- const base=explanationKey(ctx,'swap:a:b','fan','en');
- for(const args of [[ctx,'swap:c:d','fan','en'],[ctx,'tactical','fan','en'],[ctx,'swap:a:b','analyst','en'],[ctx,'swap:a:b','fan','he'],[ctx+'changed','swap:a:b','fan','en']])assert.notEqual(base,explanationKey(...args));
+ const base=explanationKey(ctx,'swap:a:b','broadcaster','en');
+ for(const args of [[ctx,'swap:c:d','broadcaster','en'],[ctx,'tactical','broadcaster','en'],[ctx,'swap:a:b','analyst','en'],[ctx,'swap:a:b','coach','en'],[ctx,'swap:a:b','broadcaster','he'],[ctx+'changed','swap:a:b','broadcaster','en']])assert.notEqual(base,explanationKey(...args));
 });
 test('English base and Hebrew cover the same interface with interpolation and fallback',()=>{
  assert.deepEqual(Object.keys(messages.en).sort(),Object.keys(messages.he).sort());
@@ -71,4 +71,27 @@ test('failed passes end inferred control and future events cannot fill unknown t
  ]};
  const s=possessionAt(f,20/60);assert.equal(s.seconds.h,10);assert.equal(s.seconds.a,0);assert.equal(s.unknownSeconds,10);
  const empty=possessionAt({...f,stat_events:[]},2);assert.equal(empty.percent.h,null);assert.equal(empty.unknownSeconds,120);
+});
+
+const fs=require('node:fs'),path=require('node:path');
+const page=fs.readFileSync(path.join(__dirname,'../web/coach-room/index.html'),'utf8');
+const script=fs.readFileSync(path.join(__dirname,'../web/coach-room/app.js'),'utf8');
+test('a clean first visit plays Instant and slower playback stays available',()=>{
+ const speed=page.match(/<select id="speed">(.*?)<\/select>/)[1];
+ assert.deepEqual([...speed.matchAll(/<option value="(\d+)"/g)].map(m=>m[1]),['4000','1500','0']);
+ assert.match(speed,/<option value="0" selected/);
+ assert.equal((speed.match(/ selected/g)||[]).length,1);
+ // Nothing resets the choice on load, team change or Restart, and nothing is persisted across visits.
+ assert.doesNotMatch(script,/\$\('speed'\)\.value\s*=/);assert.doesNotMatch(script,/localStorage/);
+});
+test('three audiences, Broadcaster first and selected, each labelled in both languages',()=>{
+ const audience=page.match(/<select id="audience"[^>]*>(.*?)<\/select>/)[1];
+ assert.deepEqual([...audience.matchAll(/<option value="(\w+)"/g)].map(m=>m[1]),['broadcaster','analyst','coach']);
+ assert.match(audience,/<option value="broadcaster" selected/);
+ for(const key of ['broadcaster','analyst','coachAudience'])for(const lang of ['en','he'])assert.ok(messages[lang][key]);
+});
+test('the main statistics use short labels; methodology lives in the linked document',()=>{
+ assert.equal(messages.en.possessionTime,'Possession');assert.equal(messages.en.xgTotal,'xG');
+ assert.doesNotMatch(script,/statsHelp|possessionCoverage/);
+ assert.match(page,/id="methodologyLink"[^>]*href="https:\/\/github\.com\/TomThomasPrintac\/live-sub-intel\/blob\/main\/docs\/METHODOLOGY\.md"/);
 });
