@@ -20,6 +20,7 @@ from subintel.foundry_runtime import configuration_summary, runtime_versions
 from subintel.match_facts import FACTS_VERSION, checkpoint_facts, fingerprint
 
 ROOT=Path(__file__).resolve().parents[1]
+BUILD_SHA=(ROOT/'BUILD_SHA').read_text().strip() if (ROOT/'BUILD_SHA').exists() else None
 # Any change to templates, facts or the prompt must not reuse cached explanations.
 CACHE_SCHEMA=f'{TEMPLATE_VERSION}/{FACTS_VERSION}/selection-prompt-v2/{TRANSLATION_PROMPT_VERSION}'
 
@@ -136,7 +137,7 @@ def make_handler(app):
             path=urlparse(self.path).path
             if path in ('/healthz','/health'):
                 config=configuration_summary()
-                return self.send(200,dict(status='ok',version='integrated-room-v1',llm_configured=config['configured'],
+                return self.send(200,dict(status='ok',version='integrated-room-v1',build_sha=BUILD_SHA,llm_configured=config['configured'],
                     data_mode=app.bootstrap.get('data_mode','historical'),
                     llm_configuration=config,llm_runtime_versions=runtime_versions(),last_explanation=app.last_explanation,
                     connectivity_verified=bool(app.last_explanation and app.last_explanation['source']=='llm'),
