@@ -1,0 +1,39 @@
+# Manual live acceptance of the deployed coach room: a bounded set of fresh explanation
+# requests (scripts/live_acceptance.py). No secrets; it calls the public site only.
+name: Live acceptance on Azure
+
+on:
+  workflow_dispatch:
+    inputs:
+      base_url:
+        description: Deployed app to check
+        default: https://live-sub-intel-fcfudheze9b5ewfz.swedencentral-01.azurewebsites.net
+        required: true
+
+jobs:
+  acceptance:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Wake the app
+        run: curl -sS --retry 5 --retry-delay 10 --max-time 60 "${{ inputs.base_url }}/healthz"
+
+      - name: Run bounded acceptance requests
+        run: python scripts/live_acceptance.py "${{ inputs.base_url }}" --out live_acceptance.json
+
+      - name: Print the full report
+        if: always()
+        run: cat live_acceptance.json || true
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: live-acceptance
+          path: live_acceptance.json
