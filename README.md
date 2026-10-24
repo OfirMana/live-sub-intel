@@ -30,7 +30,7 @@ Historical mode replays StatsBomb Open Data and may download pinned raw files. I
 1. Choose Arsenal, minute 65, More attacking, Seek a win. Inspect plans.
 2. The primary recommendation and ranked alternatives include threshold gaps, tactical/freshness components, supported formations and retained-player movements.
 3. Select the second alternative. Both the proposed pitch and explanation target that plan.
-4. Choose Broadcaster for qualitative wording; Analyst exposes numerical model scores. Switch English/Hebrew to check localization.
+4. Choose Broadcaster for two short qualitative sentences, Analyst for match statistics and the benefit against the threshold, or Coach for game state, urgency, fatigue and the downside. Pick one of ten explanation languages beside the audience; the page language is separate. See [Methodology](docs/METHODOLOGY.md).
 5. Advance five minutes to see only the events available at that point. Restart or step back to compare a different coach context.
 
 The synthetic scenario includes a sterile attacking period, an opponent goal during minute 54 and later scripted goals. The seeded generator varies actors, timings, shot quality and defensive actions. Goal phases at minutes 54, 78 and 82 remain authored story beats, not sampled match outcomes. The default seed is 20261021; generator metadata is exposed in bootstrap and facts. The event-feed filter reveals pressures, tackles and recoveries. These events do not respond to inspected substitutions. Zero-action and tactical-only outcomes are valid.
