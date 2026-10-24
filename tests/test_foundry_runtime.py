@@ -88,15 +88,15 @@ def test_config_error_does_not_get_mislabelled_as_bad_model_output(config,monkey
 
 
 def test_long_analyst_selection_is_truncated_not_rejected():
-    # The live analyst failures: every available fact selected, more than six.
-    bank=['decision','freshness','gain','need','tradeoff','score','components']
+    # The live analyst failures: every available fact selected, more than the audience limit.
+    bank=['decision','stats','freshness','gain','tradeoff','score','components']
     client,calls=stub(json.dumps(dict(fact_ids=bank,style='direct')))
     r=explain_plan(sample(),'swap:off:on','analyst','en',client=client,deployment='gpt-4.1-mini')
-    assert r['source']=='llm' and r['fact_ids'][0]=='decision' and len(r['fact_ids'])==6
-    assert 'tradeoff' in r['fact_ids']
+    assert r['source']=='llm' and r['fact_ids'][0]=='decision' and len(r['fact_ids'])==5
+    assert {'stats','score','tradeoff'}<=set(r['fact_ids'])
 
 
-@pytest.mark.parametrize('audience,limit',[('broadcaster',3),('fan',6),('analyst',6)])
+@pytest.mark.parametrize('audience,limit',[('broadcaster',2),('fan',2),('analyst',5),('coach',4)])
 def test_prompt_states_the_fact_limit(audience,limit):
     client,calls=stub('{"fact_ids":["decision"],"style":"direct"}')
     explain_plan(sample(),'swap:off:on',audience,'en',client=client,deployment='gpt-4.1-mini')
@@ -157,7 +157,7 @@ def test_health_distinguishes_configuration_success_failure_and_cooldown(config)
         assert health()['connectivity_verified']
         app.explanation(ExplainRequest(**ctx,audience='analyst'))
         assert not health()['connectivity_verified']
-        app.explanation(ExplainRequest(**ctx,audience='broadcaster'))
+        app.explanation(ExplainRequest(**ctx,audience='coach'))
         report=health()
         assert report['last_explanation']['diagnostic']['code']=='AUTHENTICATION_FAILED'
         assert len(calls)==2 and 'private-test-key' not in json.dumps(report)
@@ -174,7 +174,7 @@ def test_real_sdk_wire_request_and_error_mapping(status,caplog):
         def do_POST(self):
             seen.append(dict(path=self.path,body=json.loads(self.rfile.read(int(self.headers['Content-Length'])))))
             if status==200:
-                body=dict(id='chat-test',object='chat.completion',created=1,model='gpt-4.1-mini',choices=[dict(index=0,finish_reason='stop',message=dict(role='assistant',content='{"fact_ids":["decision","freshness"],"style":"direct"}'))])
+                body=dict(id='chat-test',object='chat.completion',created=1,model='gpt-4.1-mini',choices=[dict(index=0,finish_reason='stop',message=dict(role='assistant',content='{"fact_ids":["decision","tradeoff"],"style":"direct"}'))])
             else:body=dict(error=dict(code='test',message='secret-should-not-appear'))
             raw=json.dumps(body).encode();self.send_response(status);self.send_header('Content-Type','application/json');self.send_header('Content-Length',str(len(raw)));self.end_headers();self.wfile.write(raw)
     server=ThreadingHTTPServer(('127.0.0.1',0),Handler);thread=threading.Thread(target=server.serve_forever,daemon=True);thread.start()

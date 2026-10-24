@@ -2,14 +2,16 @@
   "kind": "OFFLINE_CONTRACT_COVERAGE_NOT_TACTICAL_ACCURACY",
   "counts": {
     "checkpoints": 72,
-    "plan_contexts": 2070,
-    "rendered_explanations": 12420
+    "plan_contexts": 2068,
+    "rendered_explanations": 12408
   },
   "decisions": {
-    "NO_SUBSTITUTION": 24,
-    "SUBSTITUTION": 30,
-    "TACTICAL_ADJUSTMENT": 18
+    "NO_SUBSTITUTION": 22,
+    "SUBSTITUTION": 29,
+    "TACTICAL_ADJUSTMENT": 21
   },
   "provider_calls": 0,
-  "scope": "Four team views, 18 checkpoints, every offered pair/tactical/wait plan, 3 audiences and 2 languages"
+  "data_mode": "historical",
+  "scenario": null,
+  "scope": "4 team views, 18 checkpoints, every offered pair/tactical/wait plan, 3 audiences and 2 languages"
 }

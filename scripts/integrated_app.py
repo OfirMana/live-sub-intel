@@ -13,16 +13,20 @@ from urllib.parse import urlparse
 
 from pydantic import ConfigDict
 from serve_coach_room import RoomRequest, create_room
-from subintel.plan_narrative import explain_plan, identified, chosen_plan
+from subintel.plan_narrative import (DEFAULT_AUDIENCE, LANGUAGES, TEMPLATE_VERSION, explain_plan, identified, chosen_plan,
+                                     normalize_audience)
 from subintel.foundry_runtime import configuration_summary, runtime_versions
+from subintel.match_facts import FACTS_VERSION, checkpoint_facts, fingerprint
 
 ROOT=Path(__file__).resolve().parents[1]
+# Any change to templates, facts or the prompt must not reuse cached explanations.
+CACHE_SCHEMA=f'{TEMPLATE_VERSION}/{FACTS_VERSION}/selection-prompt-v2'
 
 
 class ExplainRequest(RoomRequest):
     model_config=ConfigDict(extra='forbid')
     plan_id: str
-    audience: str='fan'
+    audience: str=DEFAULT_AUDIENCE
     lang: str='en'
 
 
@@ -79,7 +83,8 @@ class ExplanationCache:
                 snapshot,plan_id,audience,lang=args
                 facts=fact_bundle(snapshot,plan_id);bank=sentences(facts,audience,lang);ids=default_ids(bank,audience)
                 value=dict(text=' '.join(bank[k] for k in ids),source='template',note='LLM_COOLDOWN',
-                    audience=audience,lang=lang,plan_id=plan_id,facts=facts,fact_ids=ids,rendering='VERIFIED_FACT_SENTENCES',model=None)
+                    audience=audience,lang=lang,plan_id=plan_id,facts=facts,fact_ids=ids,template_version=TEMPLATE_VERSION,
+                    rendering='VERIFIED_FACT_SENTENCES',model=None)
             with self.lock:
                 if value.get('note')=='LLM_UNAVAILABLE':self.cooldown_until=self.clock()+15
                 ttl=600 if value['source']=='llm' else 30
@@ -97,6 +102,7 @@ class ExplanationCache:
 class IntegratedApp:
     def __init__(self,bootstrap,evaluate,explain_fn=explain_plan):
         self.bootstrap,self.evaluate=bootstrap,evaluate
+        self.data_version=json.dumps([bootstrap.get('version'),bootstrap.get('generator')],sort_keys=True)
         self.explanations=ExplanationCache(explain_fn)
         self.last_explanation=None
 
@@ -104,12 +110,17 @@ class IntegratedApp:
         return annotate(self.evaluate(request.match_id,request.team_id,request.minute,request.config.model_dump_json()))
 
     def explanation(self,request):
-        if request.audience not in ('fan','analyst','broadcaster') or request.lang not in ('en','he'):
-            raise ValueError('unsupported locale or audience')
+        audience=normalize_audience(request.audience)  # legacy 'fan' -> broadcaster, before the cache
+        if request.lang not in LANGUAGES:
+            raise ValueError('unsupported locale')
         snapshot=self.snapshot(request)
         chosen_plan(snapshot,request.plan_id)  # validation before cache/provider
-        key=(request.match_id,request.team_id,request.minute,request.config.model_dump_json(),request.plan_id,request.audience,request.lang)
-        result=self.explanations.get(key,snapshot,request.plan_id,request.audience,request.lang)
+        # Server-computed from the canonical events; the browser never supplies statistics.
+        fixture=(self.bootstrap.get('fixtures') or {}).get(request.match_id)
+        snapshot['match_facts']=checkpoint_facts(fixture,request.minute,request.team_id)
+        key=(CACHE_SCHEMA,self.data_version,request.match_id,request.team_id,request.minute,request.config.model_dump_json(),
+             request.plan_id,audience,request.lang,fingerprint(snapshot['match_facts']))
+        result=self.explanations.get(key,snapshot,request.plan_id,audience,request.lang)
         if result.get('note')!='LLM_COOLDOWN':
             self.last_explanation=dict({k:result.get(k) for k in ('source','note','cached','diagnostic')},
                                        observed_at=datetime.now(timezone.utc).isoformat())
