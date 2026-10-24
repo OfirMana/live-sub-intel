@@ -13,3 +13,6 @@ __pycache__/
 /docs/player-cards/*.xlsx
 /docs/player-cards/preview.png
 /docs/match-replay/preview.png
+
+# Written by the deploy workflow; read by /healthz.
+BUILD_SHA
