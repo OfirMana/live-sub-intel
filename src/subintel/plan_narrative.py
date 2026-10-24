@@ -20,7 +20,7 @@ from pydantic import BaseModel, ConfigDict, Field
 
 from .narrative import foundry_client_from_env
 from .foundry_runtime import classify_failure
-from .translation import TRUSTED, TranslationCatalog, TranslationRejected, translate
+from .translation import SENTENCE_JOIN, TRUSTED, TranslationCatalog, TranslationRejected, translate
 
 AUDIENCES = ('broadcaster', 'analyst', 'coach')
 AUDIENCE_ALIASES = {'fan': 'broadcaster'}  # Fan merged into Broadcaster (22 October 2026).
@@ -28,7 +28,7 @@ DEFAULT_AUDIENCE = 'broadcaster'
 # English and Hebrew are hand-written; the others are model-translated templates, validated (translation.py).
 LANGUAGES = ('en', 'he', 'ar', 'es', 'fr', 'de', 'it', 'pt', 'ja', 'zh-Hans')
 RTL = ('he', 'ar')
-TEMPLATE_VERSION = 'plan-templates-v2'
+TEMPLATE_VERSION = 'plan-templates-v3'
 LOG = logging.getLogger(__name__)
 # Canonical reading order; the model chooses which optional facts appear, not their order.
 FACT_IDS = ('decision','reason','quality','state','urgency','stats','freshness','gain','shape','moves','tradeoff','discipline','score','components')
@@ -106,10 +106,10 @@ TERMS = {
 REASONS = ('OUTSIDE_DECISION_WINDOW','NO_SUBSTITUTIONS_LEFT','QUALITY_LOSS_TOO_LARGE','BELOW_THRESHOLD','NO_FEASIBLE_PLAN','MISSING_PLAYER_PROFILES','UNSUPPORTED_PLAYER_COUNT')
 TEMPLATES = {
     'en': {
-        'decision.swap.recommended': 'Bringing on {on} for {off} passes the recommendation rules.',
-        'decision.swap.rejected': 'The option is {on} for {off}; it does not pass the recommendation rules.',
-        'decision.swap.recommended.shape': 'Bringing on {on} for {off}, switching to {formation}, passes the recommendation rules.',
-        'decision.swap.rejected.shape': 'The option is {on} for {off}, switching to {formation}; it does not pass the recommendation rules.',
+        'decision.swap.recommended': 'Bringing on {on} for {off} meets the recommendation criteria.',
+        'decision.swap.rejected': 'The option is {on} for {off}; it does not meet the recommendation criteria.',
+        'decision.swap.recommended.shape': 'Bringing on {on} for {off}, switching to {formation}, meets the recommendation criteria.',
+        'decision.swap.rejected.shape': 'The option is {on} for {off}, switching to {formation}; it does not meet the recommendation criteria.',
         'decision.swap.recommended.broadcaster': 'The suggested change is {on} for {off}.',
         'decision.swap.recommended.broadcaster.fresh': 'The suggested change is {on} for {off}, bringing fresh legs for a player assessed as tiring.',
         'decision.swap.recommended.broadcaster.aim': 'The suggested change is {on} for {off}, to {aim}.',
@@ -120,7 +120,7 @@ TEMPLATES = {
         'decision.tactical.alternative.shape': 'This option repositions the players already on the pitch into {formation} without a substitution; it is not the current recommendation.',
         'decision.tactical.recommended.broadcaster': 'The suggestion is to reshuffle the players already on the pitch rather than make a substitution.',
         'decision.tactical.alternative.broadcaster': 'Reshuffling the current players is being considered, but it is not the suggestion.',
-        'decision.wait': 'No change currently passes the recommendation rules.',
+        'decision.wait': 'No change currently meets the recommendation criteria.',
         'decision.wait.broadcaster': 'No change is suggested at this point.',
         'reason.OUTSIDE_DECISION_WINDOW': 'The engine is waiting for its decision window.',
         'reason.NO_SUBSTITUTIONS_LEFT': 'All available substitutions have been used.',
@@ -388,7 +388,7 @@ def localized(fmap, ids, lang, catalog):
     if catalog.missing(lang, source_keys(fmap, ids)):
         return None
     templates, terms = catalog.lookup(lang, 'tpl:'), catalog.lookup(lang, 'term:')
-    return ' '.join(render(*fmap[k], lang, templates, terms) for k in ids)
+    return SENTENCE_JOIN.get(lang, ' ').join(render(*fmap[k], lang, templates, terms) for k in ids)
 
 
 def required_ids(bank, audience):

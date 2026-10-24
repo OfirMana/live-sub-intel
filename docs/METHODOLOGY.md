@@ -58,7 +58,8 @@ Benefits and thresholds are **model scores, not probabilities and not xG**.
    - **English and Hebrew** use hand-written templates.
    - **The other eight:** Foundry translates only the English sentence templates and vocabulary the explanation needs, in one bounded call returning strict JSON (`src/subintel/translation.py`).
      - Player names, numbers, plan identity and statuses are never sent for translation. The server inserts them afterwards through placeholders.
-     - A translation is used only if every placeholder survives exactly once, no digit is added or lost, the IDs match, and a negated English sentence (for example "does not pass", "not a probability") is still negated.
+     - A translation is used only if every placeholder survives exactly once, no digit is added or lost, the IDs match, and a negated English sentence (for example "does not meet", "not a probability") is still negated.
+     - A sentence about the recommendation status must use the target language's ordinary verb for "meets" (cumple, respecte, erfüllt…), negated only when the English is. This check exists because the first live run turned "passes the recommendation rules" into "violates" (Arabic), "contradicts" (German) and "exceeds" (Portuguese). The English wording is now "meets the recommendation criteria", and translation runs at temperature 0.
      - Validated translations are cached per language and template version, so later explanations reuse them without a call.
    - **Fallback:** if a translation is unavailable or fails validation, the explanation is shown in verified English, labelled as such, with a safe error code.
    - **Text direction:** in Hebrew and Arabic, names and numbers are wrapped in direction isolates, so a score such as 0–1 is never shown reversed.

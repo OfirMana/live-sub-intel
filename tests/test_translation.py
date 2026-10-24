@@ -190,3 +190,42 @@ def test_rejected_plan_stays_negated_after_translation():
     stub, _ = client('fr')
     r = explain_plan(snap, 'swap:off:on', 'analyst', 'fr', client=stub, deployment='d', catalog=TranslationCatalog())
     assert r['translation']['status'] == 'model' and 'ne respecte pas' in r['text'] and FIXTURES['fr']['tpl:quality.loss'] in r['text']
+
+
+@pytest.mark.parametrize('lang,key,text', [
+    # Verbatim from the first live run (24 October): a recommended plan rendered as violating/contradicting/exceeding the rules.
+    ('ar', 'tpl:decision.swap.recommended', 'إدخال {on} بدلاً من {off} ينتهك قواعد التوصية.'),
+    ('de', 'tpl:decision.swap.recommended', 'Der Wechsel von {off} zu {on} widerspricht den Empfehlungsregeln.'),
+    ('pt', 'tpl:decision.swap.recommended', 'Entrar com {on} no lugar de {off} ultrapassa as regras de recomendação.'),
+    # A recommended plan must not be negated; a rejected one must keep the "meets" verb under its negation.
+    ('fr', 'tpl:decision.swap.recommended', "Faire entrer {on} à la place de {off} ne respecte pas les règles de recommandation."),
+    ('es', 'tpl:decision.swap.rejected', 'La opción es {on} en lugar de {off}; no viola las reglas de recomendación.'),
+    ('zh-Hans', 'tpl:decision.wait', '目前没有任何变化违反推荐规则。'),
+])
+def test_recommendation_status_cannot_flip_in_translation(lang, key, text):
+    with pytest.raises(TranslationRejected) as error:
+        validate(lang, {key: source_text(key)}, {key: text})
+    assert error.value.rule == 'status'
+
+
+def test_status_sentences_with_the_right_polarity_pass():
+    for lang, key, text in (('de', 'tpl:decision.swap.recommended', 'Die Einwechslung von {on} für {off} erfüllt die Empfehlungskriterien.'),
+                            ('ar', 'tpl:decision.wait', 'لا يوجد تغيير يستوفي معايير التوصية حاليًا.'),
+                            ('ja', 'tpl:decision.wait', '現時点で推奨基準を満たす変更はありません。')):
+        validate(lang, {key: source_text(key)}, {key: text})
+
+
+def test_japanese_and_chinese_sentences_are_not_space_separated():
+    for lang in ('ja', 'zh-Hans'):
+        stub, _ = client(lang)
+        text = explain_plan(sample(), 'swap:off:on', 'analyst', lang, client=stub, deployment='d', catalog=TranslationCatalog())['text']
+        assert '。 ' not in text and '。' in text
+    stub, _ = client('fr')
+    assert '. ' in explain_plan(sample(), 'swap:off:on', 'analyst', 'fr', client=stub, deployment='d', catalog=TranslationCatalog())['text']
+
+
+def test_translation_request_is_deterministic_and_carries_the_status_glossary():
+    stub, calls = client('de')
+    explain_plan(sample(), 'swap:off:on', 'analyst', 'de', client=stub, deployment='d', catalog=TranslationCatalog())
+    request = calls[1]
+    assert request['temperature'] == 0 and 'erfüllt / erfüllt nicht' in request['messages'][0]['content']
