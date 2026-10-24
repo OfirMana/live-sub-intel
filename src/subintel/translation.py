@@ -12,7 +12,7 @@ import re
 import threading
 from collections import Counter
 
-TRANSLATION_PROMPT_VERSION = 'template-translation-v1'
+TRANSLATION_PROMPT_VERSION = 'template-translation-v2'
 TRUSTED = ('en', 'he')  # hand-written templates in plan_narrative
 LANGUAGE_NAMES = {'ar': 'Arabic', 'es': 'Spanish', 'fr': 'French', 'de': 'German', 'it': 'Italian',
                   'pt': 'Portuguese', 'ja': 'Japanese', 'zh-Hans': 'Simplified Chinese'}
@@ -28,6 +28,23 @@ NEGATION = {
     'ja': r'(ない|ません|ず|未|不|無)',
     'zh-Hans': r'(不|未|没|无|非)',
 }
+# A sentence about the recommendation criteria must say "meets" with the language's ordinary verb:
+# the first live run turned "passes the recommendation rules" into "violates", "contradicts" and "exceeds".
+STATUS_SOURCE = re.compile(r'recommendation criteria', re.IGNORECASE)
+STATUS_VERB = {
+    'es': r'\b(cumple|cumplen|satisface|reúne)\b',
+    'fr': r'\b(respecte|remplit|satisfait)\b',
+    'de': r'\b(erfüllt|erfüllen|entspricht)\b',
+    'it': r'\b(soddisfa|rispetta|soddisfano)\b',
+    'pt': r'\b(cumpre|atende|satisfaz)\b',
+    'ar': r'(يستوفي|تستوفي|يلبي|تلبي|يفي|تفي)',
+    'ja': r'(満たし|満たす|適合)',
+    'zh-Hans': r'(符合|满足)',
+}
+STATUS_EXAMPLE = {'es': 'cumple / no cumple', 'fr': 'respecte / ne respecte pas', 'de': 'erfüllt / erfüllt nicht',
+                  'it': 'soddisfa / non soddisfa', 'pt': 'cumpre / não cumpre', 'ar': 'يستوفي / لا يستوفي',
+                  'ja': '満たしています / 満たしていません', 'zh-Hans': '符合 / 不符合'}
+SENTENCE_JOIN = {'ja': '', 'zh-Hans': ''}  # these scripts do not put spaces between sentences
 
 
 class TranslationRejected(ValueError):
@@ -52,8 +69,13 @@ def validate(lang, sources, translations):
             raise TranslationRejected('braces', key)
         if Counter(re.findall(r'\d', text)) != Counter(re.findall(r'\d', source)):
             raise TranslationRejected('digits', key)
-        if ENGLISH_NEGATION.search(source) and not re.search(NEGATION[lang], text, re.IGNORECASE):
+        negated = bool(ENGLISH_NEGATION.search(source))
+        if negated and not re.search(NEGATION[lang], text, re.IGNORECASE):
             raise TranslationRejected('negation', key)
+        if STATUS_SOURCE.search(source):
+            # The recommendation status must keep its polarity: the "meets" verb, negated only when the source is.
+            if not re.search(STATUS_VERB[lang], text, re.IGNORECASE) or (not negated and re.search(NEGATION[lang], text, re.IGNORECASE)):
+                raise TranslationRejected('status', key)
 
 
 class TranslationCatalog:
@@ -95,10 +117,13 @@ def translate(client, deployment, lang, sources):
               'Return JSON only: {"translations": {"<id>": "<translation>"}} with exactly the same ids. '
               'Keep every {placeholder} exactly as written, untranslated, once each. Do not add numbers, names, facts or explanations. '
               'Keep negations and uncertainty ("estimated", "not a probability") in meaning. Keep "xG" as is. '
+              '"Meets the recommendation criteria" means the plan satisfies the rules and is recommended; translate it with the ordinary '
+              f'verb for "meets/satisfies" ({STATUS_EXAMPLE[lang]}), never as violating, contradicting or exceeding the rules. '
+              '"Bringing on A for B" means A comes on and B goes off. "Weaker" always means a loss. '
               'Terms are short phrases inserted into the sentences; translate them so they read naturally there. '
               'Use a neutral, professional sports-analysis register.')
     try:
-        response = client.chat.completions.create(model=deployment, max_completion_tokens=1500, response_format=response_format,
+        response = client.chat.completions.create(model=deployment, max_completion_tokens=1500, temperature=0, response_format=response_format,
                                                   messages=[{'role': 'system', 'content': system},
                                                             {'role': 'user', 'content': json.dumps(dict(items=items), ensure_ascii=False)}])
     except Exception as error:

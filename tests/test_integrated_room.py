@@ -63,7 +63,7 @@ def test_broadcaster_has_qualitative_tradeoffs_no_scores_or_percentages(snapshot
 
 def test_rejected_plan_does_not_sound_recommended(snapshot):
     rejected=next(p for p in snapshot['alternatives'] if not p['recommended'])
-    for audience,phrase in (('analyst','does not pass'),('coach','does not pass'),('broadcaster','not justified'),('fan','not justified')):
+    for audience,phrase in (('analyst','does not meet'),('coach','does not meet'),('broadcaster','not justified'),('fan','not justified')):
         r=explain_plan(snapshot,rejected['plan_id'],audience,'en')
         assert phrase in r['text'] and 'suggested change' not in r['text']
         assert not r['facts']['inspected_plan']['recommended']

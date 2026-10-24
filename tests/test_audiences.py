@@ -96,7 +96,7 @@ def test_rejected_and_tactical_plans_never_sound_recommended(app):
     rejected = next(p['plan_id'] for p in snap['alternatives'] if not p['recommended'])
     assert 'not justified' in ask(app, '1', 65, rejected, 'broadcaster')['text']
     for audience in ('analyst', 'coach'):
-        assert 'does not pass' in ask(app, '1', 65, rejected, audience)['text']
+        assert 'does not meet' in ask(app, '1', 65, rejected, audience)['text']
     assert 'not the current recommendation' in ask(app, '1', 65, 'tactical', 'analyst')['text']
     later = snapshot(app, '1', 85)
     assert later['recommendation'] == 'TACTICAL_ADJUSTMENT'
