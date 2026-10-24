@@ -18,11 +18,9 @@ Choose Broadcaster, Analyst and Coach. Then choose Français or العربية i
 
 Arsenal is behind with one substitution remaining. The model prefers repositioning at about **0.217**; its best substitution adds only **0.115** beyond the best action without a swap. Switch the objective to a draw and inspect the changed policy. Waiting or repositioning is a valid result, not an empty demo.
 
-## 4. A different team and game state — Liverpool at 85
+## 4. Keep the presentation with Arsenal
 
-[Open Liverpool, 85, balanced / seek a win](https://live-sub-intel-fcfudheze9b5ewfz.swedencentral-01.azurewebsites.net/?team=24&minute=85&stance=balanced&objective=win&inspect=1).
-
-Liverpool leads. The reviewed model offers **Ibe → Lucas Leiva**, moving to **4-1-4-1**, with benefit about **0.168**. Compare More attacking: intent changes which trade-offs pass. This is a concrete contrast, not a claim that more substitutions are always better.
+Use the same Arsenal scenario throughout the video. Move between the first recommendation, a rejected alternative and the late tactical action; compare coach intent without switching teams. The Liverpool perspective remains available in the app and the research review, but is outside this recording route.
 
 ## What to evaluate
 

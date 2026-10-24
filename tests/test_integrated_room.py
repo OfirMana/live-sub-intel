@@ -63,9 +63,9 @@ def test_broadcaster_has_qualitative_tradeoffs_no_scores_or_percentages(snapshot
 
 def test_rejected_plan_does_not_sound_recommended(snapshot):
     rejected=next(p for p in snapshot['alternatives'] if not p['recommended'])
-    for audience,phrase in (('analyst','does not meet'),('coach','does not meet'),('broadcaster','not justified'),('fan','not justified')):
+    for audience in ('analyst','coach','broadcaster','fan'):
         r=explain_plan(snapshot,rejected['plan_id'],audience,'en')
-        assert phrase in r['text'] and 'suggested change' not in r['text']
+        assert ('not recommended' in r['text'] or 'not justified' in r['text']) and 'suggested change' not in r['text']
         assert not r['facts']['inspected_plan']['recommended']
 
 
@@ -161,6 +161,11 @@ def test_http_selected_plan_config_locale_and_validation(room):
     try:
         status,html=request('/')
         assert status==200 and '<html lang="en" dir="ltr">' in html
+        assert 'src="/statsbomb-logo.png"' in html and 'StatsBomb Open Data' in html
+        conn=http.client.HTTPConnection('127.0.0.1',server.server_port,timeout=10)
+        conn.request('GET','/statsbomb-logo.png');image=conn.getresponse()
+        assert image.status==200 and image.getheader('Content-Type')=='image/png'
+        assert image.read().startswith(b'\x89PNG\r\n\x1a\n');conn.close()
         status,text=request('/api/bootstrap')
         assert status==200 and len(json.loads(text)['profiles'])==72
         assert 'connectivity_verified' in json.loads(request('/healthz')[1])

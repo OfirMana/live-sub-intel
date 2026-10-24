@@ -47,9 +47,9 @@ Benefits and thresholds are **model scores, not probabilities and not xG**.
 
 1. **Facts.** The server builds verified facts for the inspected plan: the decision, rejection reasons, the main gain and trade-off, shape and position changes, estimated fatigue, the game state, the match statistics above (server-computed, never sent by the browser), and for analysts the benefit against the threshold.
 2. **Audiences.**
-   - **Broadcaster:** one or two short qualitative sentences, with no scores.
-   - **Analyst:** three to five sentences. Always includes a match statistic when one exists, and the benefit against the threshold or the rejection reason.
-   - **Coach:** two to four sentences. Covers the game state and brief, urgency, estimated fatigue, role or shape changes, and the downside.
+   - **Broadcaster:** two compact qualitative sentences, with no numbers. Explain the football purpose, key named player movements, benefit and downside. Up to three key movements are retained for complex plans.
+   - **Analyst:** relevant game-state statistics, incoming role/formation, named from/to movements, benefit and cost. Benefit against the threshold is optional, rather than a repeated eligibility statement. Rejection reasons remain mandatory.
+   - **Coach:** game state and intent, named role changes, benefit and downside; estimated fatigue, discipline and late urgency are available when relevant. Spoken text omits repeated probability/medical disclaimers; the methodology retains those distinctions.
    - Each audience always receives its required facts. The decision, rejection reasons and material trade-offs are never dropped for brevity.
 3. **Fact selection.** Microsoft Foundry (`gpt-4.1-mini`) receives the facts and returns only the IDs of the optional facts worth telling. The app validates the IDs and renders the sentences from fixed templates. The model never writes the text, so it cannot invent a number or swap a name.
 4. **Fallback.** If the model is unavailable, busy, or returns an invalid selection, the app shows the same verified facts in a default selection, labelled as a template, with a safe error code.
@@ -59,7 +59,7 @@ Benefits and thresholds are **model scores, not probabilities and not xG**.
    - **The other eight:** Foundry translates only the English sentence templates and vocabulary the explanation needs, in one bounded call returning strict JSON (`src/subintel/translation.py`).
      - Player names, numbers, plan identity and statuses are never sent for translation. The server inserts them afterwards through placeholders.
      - A translation is used only if every placeholder survives exactly once, no digit is added or lost, the IDs match, and a negated English sentence (for example "does not meet", "not a probability") is still negated.
-     - A sentence about the recommendation status must use the target language's ordinary verb for "meets" (cumple, respecte, erfüllt…), negated only when the English is. This check exists because the first live run turned "passes the recommendation rules" into "violates" (Arabic), "contradicts" (German) and "exceeds" (Portuguese). The English wording is now "meets the recommendation criteria", and translation runs at temperature 0.
+     - Recommendation sentences must retain the target language's recommendation wording and polarity. Known opposites such as violating or contradicting are rejected. Legacy criteria sentences retain their ordinary "meets"-verb check. These checks exist because a live run reversed recommendation status; translation runs at temperature 0. Contextual templates have their own cache version and require a fresh live acceptance after deployment.
      - Validated translations are cached per language and template version, so later explanations reuse them without a call.
    - **Fallback:** if a translation is unavailable or fails validation, the explanation is shown in verified English, labelled as such, with a safe error code.
    - **Text direction:** in Hebrew and Arabic, names and numbers are wrapped in direction isolates, so a score such as 0–1 is never shown reversed.

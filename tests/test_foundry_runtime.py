@@ -89,14 +89,14 @@ def test_config_error_does_not_get_mislabelled_as_bad_model_output(config,monkey
 
 def test_long_analyst_selection_is_truncated_not_rejected():
     # The live analyst failures: every available fact selected, more than the audience limit.
-    bank=['decision','stats','freshness','gain','tradeoff','score','components']
+    bank=['decision','stats','freshness','tradeoff','score','components']
     client,calls=stub(json.dumps(dict(fact_ids=bank,style='direct')))
     r=explain_plan(sample(),'swap:off:on','analyst','en',client=client,deployment='gpt-4.1-mini')
     assert r['source']=='llm' and r['fact_ids'][0]=='decision' and len(r['fact_ids'])==5
-    assert {'stats','score','tradeoff'}<=set(r['fact_ids'])
+    assert {'stats','tradeoff'}<=set(r['fact_ids'])
 
 
-@pytest.mark.parametrize('audience,limit',[('broadcaster',2),('fan',2),('analyst',5),('coach',4)])
+@pytest.mark.parametrize('audience,limit',[('broadcaster',4),('fan',4),('analyst',5),('coach',5)])
 def test_prompt_states_the_fact_limit(audience,limit):
     client,calls=stub('{"fact_ids":["decision"],"style":"direct"}')
     explain_plan(sample(),'swap:off:on',audience,'en',client=client,deployment='gpt-4.1-mini')

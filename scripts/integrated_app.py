@@ -144,8 +144,10 @@ def make_handler(app):
                     connectivity_basis='last_explanation_result',explanation_mode='verified-fact-selection',
                     explanation_languages=list(LANGUAGES),translation_catalog=CATALOG.counts()))
             if path=='/api/bootstrap':return self.send(200,app.bootstrap)
-            files={'/':'index.html','/index.html':'index.html','/app.js':'app.js','/i18n.js':'i18n.js','/styles.css':'styles.css'}
+            files={'/':'index.html','/index.html':'index.html','/app.js':'app.js','/i18n.js':'i18n.js','/styles.css':'styles.css','/statsbomb-logo.png':'statsbomb-logo.png'}
             if path in files:
+                if path.endswith('.png'):
+                    return self.send(200,(ROOT/'web/coach-room'/files[path]).read_bytes(),'image/png')
                 mime='text/html' if path in ('/','/index.html') else 'text/css' if path.endswith('.css') else 'text/javascript'
                 return self.send(200,(ROOT/'web/coach-room'/files[path]).read_bytes(),mime+'; charset=utf-8')
             self.send(404,{'error':'NOT_FOUND'})

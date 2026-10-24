@@ -27,8 +27,7 @@ Coach and extra languages are present in the reviewed build. Before recording, m
 
 - Opening: https://live-sub-intel-fcfudheze9b5ewfz.swedencentral-01.azurewebsites.net/?team=1&minute=65&stance=attack&objective=win&inspect=1
 - Late tactical case: https://live-sub-intel-fcfudheze9b5ewfz.swedencentral-01.azurewebsites.net/?team=1&minute=85&stance=attack&objective=win&inspect=1
-- Optional protective substitution: https://live-sub-intel-fcfudheze9b5ewfz.swedencentral-01.azurewebsites.net/?team=24&minute=85&stance=balanced&objective=win&inspect=1
 
-Use the first two in the final two-minute edit; the third is a useful backup, not another mandatory segment. Do not spend screen time reading raw JSON. If showcasing innovation, replace a generic architecture line with: “Our translation checks also protect the recommendation status: meeting the rules must never turn into violating them.” Avoid claiming general hallucination elimination.
+Use Arsenal throughout the final video, including alternative plans and language changes. Do not spend screen time reading raw JSON. If showcasing innovation, replace a generic architecture line with: “Our translation checks also protect whether a plan is recommended or rejected.” Avoid claiming general hallucination elimination.
 
 The video can be recorded as a functional demonstration now. Submission still has the separate documented data-rights gate; a successful recording does not certify that gate or complete the submission.

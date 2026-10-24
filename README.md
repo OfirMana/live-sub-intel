@@ -79,4 +79,10 @@ One substitution is inspected at a time. No ten-player solver, opposition-specif
 
 [Data sources and outstanding permissions](docs/submission/DATA_SOURCES.md) · [Third-party notices](THIRD_PARTY_NOTICES.md) · [Final checklist in Hebrew](docs/submission/FINAL_CLOSEOUT_HE.md) · [English video script](docs/submission/VIDEO_SCRIPT.md)
 
+[Calculation walkthrough and sanity checks (Hebrew)](docs/research/CALCULATIONS_SANITY_HE_20261024.md)
+
+![Hudl Statsbomb](web/coach-room/statsbomb-logo.png)
+
+Historical research uses StatsBomb Open Data; the displayed match events are synthetic. Physical estimates use SkillCorner positional references. [Official logo provenance](docs/submission/STATSBOMB_LOGO.md).
+
 Publication rights for retained FIFA/StatsBomb-derived inputs are not established merely by citations, old dates or removal of export archives. Those gates remain explicit; this README does not certify them.

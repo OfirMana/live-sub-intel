@@ -1,0 +1,143 @@
+{
+  "kind": "OFFLINE_RENDERED_CONTEXT_EXAMPLES_NOT_LIVE_FOUNDRY",
+  "examples": [
+    {
+      "team": "1",
+      "minute": 65,
+      "stance": "attack",
+      "audience": "broadcaster",
+      "plan_id": "swap:5581:3525",
+      "text": "With Arsenal leading, the recommendation is Alex Oxlade-Chamberlain for Joel Campbell. The aim is to move the ball forward more effectively; Key positional changes: Mathieu Flamini moves from Left Defensive Midfield to Right Defensive Midfield; Aaron Ramsey moves from Right Defensive Midfield to Left Defensive Midfield.",
+      "source": "template",
+      "fact_ids": [
+        "decision",
+        "gain",
+        "moves"
+      ]
+    },
+    {
+      "team": "1",
+      "minute": 65,
+      "stance": "attack",
+      "audience": "analyst",
+      "plan_id": "swap:5581:3525",
+      "text": "The recommendation is Alex Oxlade-Chamberlain for Joel Campbell. With Arsenal leading at 1–0, their passing platform is 90.1% accuracy and 54.1% possession. The change adds fresh legs for a player showing estimated fatigue. The aim is to move the ball forward more effectively. Mathieu Flamini moves from Left Defensive Midfield to Right Defensive Midfield; Aaron Ramsey moves from Right Defensive Midfield to Left Defensive Midfield.",
+      "source": "template",
+      "fact_ids": [
+        "decision",
+        "stats",
+        "freshness",
+        "gain",
+        "moves"
+      ]
+    },
+    {
+      "team": "1",
+      "minute": 65,
+      "stance": "attack",
+      "audience": "coach",
+      "plan_id": "swap:5581:3525",
+      "text": "The recommendation is Alex Oxlade-Chamberlain for Joel Campbell. Arsenal lead 1–0 at 65′; the priority is to extend the lead. Fresh legs replace Joel Campbell, whose estimated match load indicates fatigue. The aim is to move the ball forward more effectively. Mathieu Flamini moves from Left Defensive Midfield to Right Defensive Midfield; Aaron Ramsey moves from Right Defensive Midfield to Left Defensive Midfield.",
+      "source": "template",
+      "fact_ids": [
+        "decision",
+        "state",
+        "freshness",
+        "gain",
+        "moves"
+      ]
+    },
+    {
+      "team": "1",
+      "minute": 85,
+      "stance": "attack",
+      "audience": "broadcaster",
+      "plan_id": "tactical",
+      "text": "The suggestion is to reshuffle the players already on the pitch rather than make a substitution. The aim is to create more chances; Key positional changes: Mathieu Flamini moves from Left Defensive Midfield to Right Defensive Midfield; Aaron Ramsey moves from Right Defensive Midfield to Left Defensive Midfield.",
+      "source": "template",
+      "fact_ids": [
+        "decision",
+        "gain",
+        "moves"
+      ]
+    },
+    {
+      "team": "1",
+      "minute": 85,
+      "stance": "attack",
+      "audience": "analyst",
+      "plan_id": "tactical",
+      "text": "The recommendation is to reposition the players already on the pitch, without a substitution. Arsenal are trailing at 1–2; their attacking output is 1.81 xG and 6 shots on target, against 1.58 xG for Liverpool. The aim is to create more chances, addressing a current team need. Mathieu Flamini moves from Left Defensive Midfield to Right Defensive Midfield; Aaron Ramsey moves from Right Defensive Midfield to Left Defensive Midfield. The additional benefit is 0.217 against a threshold of 0.150.",
+      "source": "template",
+      "fact_ids": [
+        "decision",
+        "stats",
+        "gain",
+        "moves",
+        "score"
+      ]
+    },
+    {
+      "team": "1",
+      "minute": 85,
+      "stance": "attack",
+      "audience": "coach",
+      "plan_id": "tactical",
+      "text": "The recommendation is to reposition the players already on the pitch, without a substitution. Arsenal trail 1–2 at 85′; the priority is to turn the result around. A winner is still needed late on, so the brief accepts more defensive risk. The aim is to create more chances, addressing a current team need. Mathieu Flamini moves from Left Defensive Midfield to Right Defensive Midfield; Aaron Ramsey moves from Right Defensive Midfield to Left Defensive Midfield.",
+      "source": "template",
+      "fact_ids": [
+        "decision",
+        "state",
+        "urgency",
+        "gain",
+        "moves"
+      ]
+    },
+    {
+      "team": "24",
+      "minute": 85,
+      "stance": "balanced",
+      "audience": "broadcaster",
+      "plan_id": "swap:3635:7780",
+      "text": "With Liverpool leading, the recommendation is Lucas Leiva for Jordon Ibe, taking the Center Defensive Midfield role. Key positional changes: João Carlos moves from Left Wing to Right Midfield; Emre Can moves from Center Defensive Midfield to Left Center Midfield; James Milner moves from Left Center Midfield to Left Midfield; The plan aims to strengthen the defending, at the cost of weaker attacking threat.",
+      "source": "template",
+      "fact_ids": [
+        "decision",
+        "moves",
+        "tradeoff"
+      ]
+    },
+    {
+      "team": "24",
+      "minute": 85,
+      "stance": "balanced",
+      "audience": "analyst",
+      "plan_id": "swap:3635:7780",
+      "text": "The recommendation is Lucas Leiva for Jordon Ibe, taking the Center Defensive Midfield role in a 4-1-4-1. Liverpool lead 2–1, but Arsenal have generated the higher xG total (1.81 against 1.58); defensive cover is the purpose of this change. The change adds fresh legs for a player showing estimated fatigue. João Carlos moves from Left Wing to Right Midfield; Emre Can moves from Center Defensive Midfield to Left Center Midfield; James Milner moves from Left Center Midfield to Left Midfield. The plan aims to strengthen the defending, at the cost of weaker attacking threat.",
+      "source": "template",
+      "fact_ids": [
+        "decision",
+        "stats",
+        "freshness",
+        "moves",
+        "tradeoff"
+      ]
+    },
+    {
+      "team": "24",
+      "minute": 85,
+      "stance": "balanced",
+      "audience": "coach",
+      "plan_id": "swap:3635:7780",
+      "text": "The recommendation is Lucas Leiva for Jordon Ibe, taking the Center Defensive Midfield role in a 4-1-4-1. Liverpool lead 2–1 at 85′; the priority is to protect the lead. Fresh legs replace Jordon Ibe, whose estimated match load indicates fatigue. João Carlos moves from Left Wing to Right Midfield; Emre Can moves from Center Defensive Midfield to Left Center Midfield; James Milner moves from Left Center Midfield to Left Midfield. The plan aims to strengthen the defending, at the cost of weaker attacking threat.",
+      "source": "template",
+      "fact_ids": [
+        "decision",
+        "state",
+        "freshness",
+        "moves",
+        "tradeoff"
+      ]
+    }
+  ]
+}

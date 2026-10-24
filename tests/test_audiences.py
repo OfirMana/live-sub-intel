@@ -60,6 +60,52 @@ def test_fan_is_an_alias_for_broadcaster(app):
     assert ExplainRequest(match_id='m', team_id='t', minute=0, plan_id='wait').audience == 'broadcaster'
 
 
+def test_defensive_change_explains_game_context_benefit_cost_and_movements(app):
+    from subintel.plan_narrative import TERMS
+    snap = snapshot(app, '24', 85, stance='balanced')
+    plan = snap['selected']
+    assert plan['in_player']['name'] == 'Lucas Leiva'
+    for audience in ('broadcaster', 'analyst', 'coach'):
+        result = ask(app, '24', 85, snap['selected_plan_id'], audience, stance='balanced')
+        text = result['text']
+        assert 'defensive' in text.lower() and 'threat' in text.lower()
+        assert 'moves' in result['fact_ids'] and 'tradeoff' in result['fact_ids']
+        for move in plan['repositioned']:
+            assert move['name'] in text
+            assert TERMS['en']['position.' + move['before_position']] in text
+            assert TERMS['en']['position.' + move['after_position']] in text
+        assert 'meets the recommendation criteria' not in text
+        assert 'not a probability' not in text and 'medical' not in text
+        assert 'Match so far' not in text
+    analyst = ask(app, '24', 85, snap['selected_plan_id'], 'analyst', stance='balanced')['text']
+    assert 'Arsenal' in analyst and 'higher xG' in analyst and '1.81' in analyst
+    coach = ask(app, '24', 85, snap['selected_plan_id'], 'coach', stance='balanced')['text']
+    assert 'protect' in coach and '2–1' in coach
+
+
+def test_incoming_position_is_explicit_when_formation_changes(app):
+    from subintel.plan_narrative import TERMS
+    snap = snapshot(app, '24', 85, stance='balanced')
+    plan = snap['selected']
+    assert plan['change_type'] == 'FORMATION_CHANGE'
+    incoming = next(p for p in plan['proposed_lineup'] if p['player_id'] == plan['in_player']['id'])
+    for audience in ('broadcaster', 'analyst', 'coach'):
+        text = ask(app, '24', 85, snap['selected_plan_id'], audience, stance='balanced')['text']
+        assert TERMS['en']['position.'+incoming['position']] in text
+        if audience != 'broadcaster':
+            assert plan['formation'] in text
+
+
+def test_higher_opponent_xg_claim_is_only_available_when_true(app):
+    from copy import deepcopy
+    from subintel.plan_narrative import _stats_fact
+    snap = snapshot(app, '24', 85, stance='balanced')
+    bundle = deepcopy(ask(app, '24', 85, snap['selected_plan_id'], 'analyst', stance='balanced')['facts'])
+    assert _stats_fact(bundle, 'defense')[0] == 'stats.defense.lead.pressure'
+    bundle['match']['opponent']['xg'] = 0
+    assert _stats_fact(bundle, 'defense')[0] == 'stats.defense.context'
+
+
 def test_server_and_page_offer_the_same_three_audiences():
     html = (ROOT/'web/coach-room/index.html').read_text(encoding='utf-8')
     select = re.search(r'<select id="audience"[^>]*>(.*?)</select>', html).group(1)
@@ -88,7 +134,7 @@ def test_every_plan_keeps_its_identity_and_audience_limits(app, lang):
                     if audience == 'broadcaster':
                         assert len(sentences(r['text'])) <= 2 and not re.search(r'\d|%', r['text'])
                         if lang == 'en':
-                            assert len(r['text'].split()) <= 45
+                            assert len(r['text'].split()) <= 120
 
 
 def test_rejected_and_tactical_plans_never_sound_recommended(app):
@@ -96,7 +142,7 @@ def test_rejected_and_tactical_plans_never_sound_recommended(app):
     rejected = next(p['plan_id'] for p in snap['alternatives'] if not p['recommended'])
     assert 'not justified' in ask(app, '1', 65, rejected, 'broadcaster')['text']
     for audience in ('analyst', 'coach'):
-        assert 'does not meet' in ask(app, '1', 65, rejected, audience)['text']
+        assert 'not recommended' in ask(app, '1', 65, rejected, audience)['text']
     assert 'not the current recommendation' in ask(app, '1', 65, 'tactical', 'analyst')['text']
     later = snapshot(app, '1', 85)
     assert later['recommendation'] == 'TACTICAL_ADJUSTMENT'
@@ -108,14 +154,19 @@ def test_analyst_quotes_server_statistics_and_the_benefit(app):
     plan = snap['alternatives'][1]
     r = ask(app, '1', 65, plan['plan_id'], 'analyst')
     match = r['facts']['match']
-    assert {'stats', 'score'} <= set(r['fact_ids'])
+    assert {'stats', 'moves'} <= set(r['fact_ids'])
     assert match['cutoff']['minute'] == 65 and match['team']['name'] == 'Arsenal'
-    stats_sentence = next(s for s in sentences(r['text']) if s.startswith('Match so far'))
+    from subintel.plan_narrative import facts,render
+    key,params=facts(r['facts'],'analyst')['stats']
+    stats_sentence=render(key,params,'en')
+    assert stats_sentence in r['text'] and 'Match so far' not in r['text']
     numbers = re.findall(r'\d+(?:\.\d+)?', stats_sentence)
     allowed = {f"{match[side]['xg']:.2f}" for side in ('team', 'opponent')} | {str(match[side][k]) for side in ('team', 'opponent') for k in ('shots', 'on_target')}
     allowed |= {f"{match['team'][k]:.1f}" for k in ('pass_accuracy', 'possession') if match['team'][k] is not None}
+    allowed |= {str(match[side]['goals']) for side in ('team','opponent')}
     assert numbers and set(numbers) <= allowed
-    assert f"{plan['expected_benefit']:.3f}" in r['text'] and f"{snap['threshold']:.3f}" in r['text']
+    assert 'not a probability' not in r['text']
+    assert any(k in r['fact_ids'] for k in ('gain','tradeoff'))
     wait = ask(app, '1', 90, 'wait', 'analyst')
     assert {'reason', 'stats'} <= set(wait['fact_ids'])
 
@@ -133,14 +184,14 @@ def test_coach_gets_game_state_urgency_and_discipline_only_when_true(app):
     snap = snapshot(app, '1', 65)
     plan = snap['alternatives'][0]
     r = ask(app, '1', 65, plan['plan_id'], 'coach')
-    assert 'Arsenal lead 1–0 at 65′; brief: more attacking, seek a win.' in r['text']
+    assert 'Arsenal lead 1–0 at 65′; the priority is to extend the lead.' in r['text']
     assert 'urgency' not in r['fact_ids']  # the late win policy is not active while leading
     booked = r['facts']['match']['players'].get(plan['out_player']['id'], {}).get('yellows', 0)
     from subintel.plan_narrative import facts
     bank = facts(dict(r['facts']), 'coach')
     assert ('discipline' in bank) == bool(booked)
     if 'discipline' in r['fact_ids']:
-        assert 'not part of the score' in r['text']
+        assert 'yellow card' in r['text'] and 'not part of the score' not in r['text']
     late = ask(app, '1', 85, 'tactical', 'coach')
     assert 'Arsenal trail 1–2 at 85′' in late['text'] and 'urgency' in late['fact_ids']
     assert 'urgency' not in ask(app, '1', 85, 'tactical', 'coach', objective='draw')['fact_ids']
@@ -189,5 +240,5 @@ def test_model_cannot_drop_required_facts(app):
         choices=[SimpleNamespace(message=SimpleNamespace(content='{"fact_ids":["decision"],"style":"direct"}'))]))))
     snap = dict(snapshot(app, '1', 65), match_facts=app.bootstrap and integrated_app.checkpoint_facts(app.bootstrap['fixtures']['synthetic-demo'], 65, '1'))
     r = explain_plan(snap, plan, 'analyst', 'en', client=stub, deployment='test')
-    assert r['source'] == 'llm' and {'decision', 'stats', 'score'} <= set(r['fact_ids'])
+    assert r['source'] == 'llm' and {'decision', 'stats', 'moves'} <= set(r['fact_ids'])
     assert json.dumps(r['facts']['match']['cutoff']) == json.dumps(dict(minute=65, elapsed=65, rule='events strictly before the checkpoint'))

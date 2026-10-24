@@ -8,7 +8,9 @@ Physical-generation references use position-group aggregates from SkillCorner's 
 
 ## StatsBomb Open Data
 
-Historical evidence and derived analysis use https://github.com/hudl/open-data, pinned in the collector. StatsBomb's Public Data User Agreement applies; it is not a blanket MIT/CC0 license. Its attribution/logo and redistribution/commercial-use conditions must be addressed separately. This text does not satisfy an outstanding logo requirement or resolve permission questions. See [data-source gate](docs/submission/DATA_SOURCES.md).
+Historical evidence and derived analysis use https://github.com/hudl/open-data, pinned in the collector. StatsBomb's Public Data User Agreement applies; it is not a blanket MIT/CC0 license. The app footer and this repository include the official Hudl Statsbomb logo with attribution; [asset provenance](docs/submission/STATSBOMB_LOGO.md). Attribution and redistribution/commercial-use conditions are distinct. See [data-source gate](docs/submission/DATA_SOURCES.md).
+
+![Hudl Statsbomb](web/coach-room/statsbomb-logo.png)
 
 ## FIFA16 / SoFIFA-derived profiles
 

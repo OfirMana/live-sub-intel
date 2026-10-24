@@ -24,6 +24,12 @@
 
 ## Position against judging criteria
 
+### Contextual explanation follow-up
+
+Final local regression result for this follow-up: **281 Python passed / 1 optional historical-cache check skipped; 16 Node passed**, with the Node binary on PATH for server/browser parity. The new regression cases cover named movement translation, conditional opponent-xG statements and serving the official PNG.
+
+The same PR now adds football-context templates with relevant statistics, named from/to movements, explicit benefits and costs, and reduced spoken methodology boilerplate. Template/translation cache versions are bumped. The official Hudl Statsbomb asset is included in the footer and repository with its provenance. The calculation walkthrough and recording route now emphasize Arsenal. No engine inputs, weights, threshold or scenario were changed. Offline coverage: synthetic 36 checkpoints / 1,107 plan contexts / 6,642 renders; historical 72 / 2,068 / 12,408. These are contract checks, not football validation. The previous live Foundry reports above apply to the old templates; **the new templates require fresh strict live acceptance after merge/deploy**.
+
 The [official criteria](https://github.com/microsoft/insidethegamehackathon/blob/main/OFFICIAL%20RULES.md) give five equally weighted categories. The table is our positioning analysis, not a predicted score or organizer endorsement.
 
 | Criterion | Evidence to foreground | Limit / next action |

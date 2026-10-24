@@ -28,23 +28,23 @@ DEFAULT_AUDIENCE = 'broadcaster'
 # English and Hebrew are hand-written; the others are model-translated templates, validated (translation.py).
 LANGUAGES = ('en', 'he', 'ar', 'es', 'fr', 'de', 'it', 'pt', 'ja', 'zh-Hans')
 RTL = ('he', 'ar')
-TEMPLATE_VERSION = 'plan-templates-v3'
+TEMPLATE_VERSION = 'plan-templates-v4-context'
 LOG = logging.getLogger(__name__)
 # Canonical reading order; the model chooses which optional facts appear, not their order.
 FACT_IDS = ('decision','reason','quality','state','urgency','stats','freshness','gain','shape','moves','tradeoff','discipline','score','components')
-MAX_FACTS = dict(broadcaster=2, analyst=5, coach=4)
-REQUIRED = dict(broadcaster=('decision','reason','quality','tradeoff'),
-                analyst=('decision','reason','quality','stats','score','tradeoff'),
-                coach=('decision','reason','quality','state','tradeoff'))
-OPTIONAL = dict(broadcaster=('shape','gain','moves'),
-                analyst=('gain','freshness','moves','components'),
-                coach=('urgency','freshness','discipline','moves','gain'))
-GUIDANCE = dict(broadcaster='One or two short sentences for fans and commentators; qualitative, no model scores.',
-                analyst='Compact and quantitative: the match statistic, the need the plan addresses, its cost and its benefit against the threshold.',
-                coach='Practical: game state and brief, urgency, estimated fatigue, role or shape changes and the downside.')
+MAX_FACTS = dict(broadcaster=4, analyst=5, coach=5)
+REQUIRED = dict(broadcaster=('decision','reason','quality','moves','tradeoff','gain'),
+                analyst=('decision','reason','quality','stats','moves','tradeoff','gain'),
+                coach=('decision','reason','quality','state','moves','tradeoff','gain'))
+OPTIONAL = dict(broadcaster=('gain','shape'),
+                analyst=('freshness','score','components'),
+                coach=('urgency','freshness','discipline'))
+GUIDANCE = dict(broadcaster='Explain the football purpose and key player movements in two compact sentences; no scores, generic shape-change statements or system caveats.',
+                analyst='Link a relevant verified match statistic to the game state and football purpose. Explain the positive effect, exact movements and cost; avoid a match-stat dump or system caveats.',
+                coach='Practical football decision: protect a lead or chase a result as appropriate, explain benefits and actual movements plus the cost. Do not claim opponent-specific weaknesses or unmeasured fitness facts.')
 
 Term = namedtuple('Term', 'key')  # translatable vocabulary (a dimension, a position), not a literal value
-Moves = namedtuple('Moves', 'items')  # ((player name, position term key), ...)
+Moves = namedtuple('Moves', 'items')  # ((player name, before-position key, after-position key), ...)
 
 
 def normalize_audience(audience):
@@ -218,6 +218,69 @@ TEMPLATES = {
 }
 
 
+# Football-first copy; methodology remains available separately from the spoken explanation.
+TEMPLATES['en'].update({
+ 'decision.swap.recommended':'The recommendation is {on} for {off}.',
+ 'decision.swap.rejected':'This change is not recommended: {on} for {off}.',
+ 'decision.swap.recommended.shape':'The recommendation is {on} for {off}, taking the {position} role in a {formation}.',
+ 'decision.swap.rejected.shape':'This change is not recommended: {on} for {off}, taking the {position} role in a {formation}.',
+ 'decision.swap.recommended.broadcaster.context':'With {team} {situation}, the recommendation is {on} for {off}.',
+ 'decision.swap.recommended.broadcaster.context.shape':'With {team} {situation}, the recommendation is {on} for {off}, taking the {position} role.',
+ 'decision.swap.recommended.broadcaster.shape':'The recommendation is {on} for {off}, taking the {position} role.',
+ 'decision.swap.rejected.broadcaster.shape':'This change is not recommended: {on} for {off}, taking the {position} role.',
+ 'freshness.coach':'Fresh legs replace {off}, whose estimated match load indicates fatigue.',
+ 'freshness':'The change adds fresh legs for a player showing estimated fatigue.',
+ 'gain':'The aim is to {aim}.', 'gain.need':'The aim is to {aim}, addressing a current team need.',
+ 'tradeoff.gain':'The plan aims to {aim}, at the cost of weaker {dim}.',
+ 'tradeoff':'The cost is weaker {dim}.',
+ 'moves':'{moves}.', 'moves.broadcaster':'Key positional changes: {moves}.',
+ 'move.item':'{player} moves from {before} to {after}',
+ 'state.lead':'{team} lead {score} at {minute}′; the priority is to {objective}.',
+ 'state.level':'{team} are level at {score} in minute {minute}; the priority is to {objective}.',
+ 'state.trail':'{team} trail {score} at {minute}′; the priority is to {objective}.',
+ 'stats.attack.context':'{team} are {situation} at {score}; their attacking output is {xg} xG and {on_target} shots on target, against {opp_xg} xG for {opponent}.',
+ 'stats.defense.context':'{team} are {situation} at {score}; {opponent} have generated {opp_xg} xG and {opp_on_target} shots on target, compared with {xg} xG for {team_name}.',
+ 'stats.defense.lead.pressure':'{team} lead {score}, but {opponent} have generated the higher xG total ({opp_xg} against {xg}); defensive cover is the purpose of this change.',
+ 'stats.passing.context':'With {team} {situation} at {score}, their passing platform is {accuracy} accuracy and {possession} possession.',
+ 'stats.passing.no_possession.context':'With {team} {situation} at {score}, pass accuracy is {accuracy}.',
+ 'discipline.yellow':'{off} is already on a yellow card.',
+ 'score':'The additional benefit is {benefit} against a threshold of {threshold}.',
+ 'urgency.late':'A winner is still needed late on, so the brief accepts more defensive risk.',
+})
+TEMPLATES['he'].update({
+ 'decision.swap.recommended':'ההמלצה היא להכניס את {on} במקום {off}.',
+ 'decision.swap.rejected':'החילוף הזה אינו מומלץ: {on} במקום {off}.',
+ 'decision.swap.recommended.shape':'ההמלצה היא להכניס את {on} במקום {off}, בעמדת {position} במערך {formation}.',
+ 'decision.swap.rejected.shape':'החילוף הזה אינו מומלץ: {on} במקום {off}, בעמדת {position} במערך {formation}.',
+ 'decision.swap.recommended.broadcaster.context':'כש{team} {situation}, ההמלצה היא להכניס את {on} במקום {off}.',
+ 'decision.swap.recommended.broadcaster.context.shape':'כש{team} {situation}, ההמלצה היא להכניס את {on} במקום {off}, בעמדת {position}.',
+ 'decision.swap.recommended.broadcaster.shape':'ההמלצה היא להכניס את {on} במקום {off}, בעמדת {position}.',
+ 'decision.swap.rejected.broadcaster.shape':'החילוף הזה אינו מומלץ: {on} במקום {off}, בעמדת {position}.',
+ 'freshness.coach':'החילוף מרענן את מקומו של {off}, שעומס המשחק המשוער מצביע על עייפות שלו.',
+ 'freshness':'החילוף מוסיף רעננות במקום שחקן עם עייפות משוערת.',
+ 'gain':'המטרה היא {aim}.', 'gain.need':'המטרה היא {aim}, בהתאם לצורך שזוהה כעת.',
+ 'tradeoff.gain':'התוכנית מכוונת {aim}, במחיר של ירידה ב{dim}.',
+ 'tradeoff':'המחיר הוא ירידה ב{dim}.',
+ 'moves':'{moves}.', 'moves.broadcaster':'שינויי המיקום המרכזיים: {moves}.',
+ 'move.item':'{player} עובר מעמדת {before} לעמדת {after}',
+ 'state.lead':'{team} מובילה {score} בדקה {minute}; המטרה היא {objective}.',
+ 'state.level':'{team} בשוויון {score} בדקה {minute}; המטרה היא {objective}.',
+ 'state.trail':'{team} בפיגור {score} בדקה {minute}; המטרה היא {objective}.',
+ 'stats.attack.context':'{team} {situation} בתוצאה {score}; היא יצרה {xg} xG ו-{on_target} בעיטות למסגרת, מול {opp_xg} xG של {opponent}.',
+ 'stats.defense.context':'{team} {situation} בתוצאה {score}; {opponent} יצרה {opp_xg} xG ו-{opp_on_target} בעיטות למסגרת, לעומת {xg} xG של {team_name}.',
+ 'stats.defense.lead.pressure':'{team} מובילה {score}, אבל {opponent} יצרה יותר xG במצטבר ({opp_xg} מול {xg}); השינוי נועד לחזק את הכיסוי ההגנתי.',
+ 'stats.passing.context':'כש{team} {situation} בתוצאה {score}, בסיס הנעת הכדור שלה הוא {accuracy} דיוק במסירות ו-{possession} החזקה בכדור.',
+ 'stats.passing.no_possession.context':'כש{team} {situation} בתוצאה {score}, דיוק המסירות שלה הוא {accuracy}.',
+ 'discipline.yellow':'{off} כבר עם כרטיס צהוב.',
+ 'score':'תוספת התועלת היא {benefit} מול סף {threshold}.',
+ 'urgency.late':'נדרש עדיין שער ניצחון בשלב מאוחר, ולכן ההנחיה מקבלת יותר סיכון הגנתי.',
+})
+for locale,terms in {
+ 'en':{'situation.lead':'leading','situation.level':'level','situation.trail':'trailing','intent.protect':'protect the lead','intent.extend':'extend the lead','intent.win':'find a winner','intent.recover':'turn the result around','intent.draw':'avoid defeat'},
+ 'he':{'situation.lead':'מובילה','situation.level':'בשוויון','situation.trail':'בפיגור','intent.protect':'לשמור על היתרון','intent.extend':'להגדיל את היתרון','intent.win':'להשיג שער ניצחון','intent.recover':'להפוך את התוצאה','intent.draw':'להימנע מהפסד'},
+}.items(): TERMS[locale].update(terms)
+
+
 def fact_bundle(snapshot, plan_id):
     plan = chosen_plan(snapshot, plan_id)
     state = snapshot['state']
@@ -243,15 +306,21 @@ def _stats_fact(bundle, focus):
     if not match or not match['events_observed']:
         return 'stats.unavailable', {}
     t, o = match['team'], match['opponent']
+    gf,ga=t['goals'],o['goals']
+    situation='lead' if gf>ga else 'trail' if gf<ga else 'level'
     params = dict(team=t['name'], opponent=o['name'], xg=f"{t['xg']:.2f}", shots=t['shots'], on_target=t['on_target'],
-                  opp_xg=f"{o['xg']:.2f}", opp_shots=o['shots'], opp_on_target=o['on_target'])
+                  opp_xg=f"{o['xg']:.2f}", opp_shots=o['shots'], opp_on_target=o['on_target'],score=f'{gf}–{ga}',situation=Term('situation.'+situation))
     if focus in ('progression','retention') and t['pass_accuracy'] is not None:
         params['accuracy'] = f"{t['pass_accuracy']:.1f}%"  # the sign stays inside the number's isolate
         if t['possession'] is None:
-            return 'stats.passing.no_possession', params
+            return 'stats.passing.no_possession.context', params
         params['possession'] = f"{t['possession']:.1f}%"
-        return 'stats.passing', params
-    return ('stats.defense' if focus=='defense' else 'stats.attack'), params
+        return 'stats.passing.context', params
+    if focus=='defense' and gf>ga and o['xg']>t['xg']:
+        return 'stats.defense.lead.pressure',params
+    if focus=='defense':
+        params['team_name']=t['name']
+    return ('stats.defense.context' if focus=='defense' else 'stats.attack.context'),params
 
 
 def facts(bundle, audience):
@@ -274,6 +343,12 @@ def facts(bundle, audience):
         fresh = is_swap and p.get('decision_basis')=='FRESH_LEGS'
         if positive:
             focus = positive[0][0]
+            available_positive={d for d,_ in positive}
+            if bundle['goal_diff']>0 and bundle['coach'].get('stance')!='attack' and 'defense' in available_positive:
+                focus='defense'
+            elif bundle['goal_diff']<=0 and bundle['coach'].get('objective')=='win':
+                attacking=[(d,v) for d,v in positive if d in ('threat','creation')]
+                if attacking: focus=max(attacking,key=lambda item:item[1])[0]
         if is_swap:
             names = dict(on=p['in_player']['name'], off=p['out_player']['name'])
             if not p['recommended']:
@@ -295,26 +370,36 @@ def facts(bundle, audience):
         else:
             out['decision'] = ('decision.tactical.'+('recommended' if p.get('recommended') else 'alternative')+('.broadcaster' if b else ''), {})
         if p.get('change_type')=='FORMATION_CHANGE':
-            # Broadcasters receive no formation digits; for the others the decision sentence names the new shape.
-            if b:
-                out['shape'] = ('shape.broadcaster', {})
-            else:
-                key, params = out['decision']
-                out['decision'] = (key+'.shape', dict(params, formation=p['formation']))
-        moves = p.get('repositioned', [])
+            if is_swap:
+                incoming=next(x for x in p['proposed_lineup'] if x['player_id']==p['in_player']['id'])
+                out['decision']=('decision.swap.'+('recommended' if p['recommended'] else 'rejected')+('.broadcaster' if b else '')+'.shape',
+                    dict(names,position=Term('position.'+incoming['position']),**({} if b else dict(formation=p['formation']))))
+            elif not b:
+                key,params=out['decision'];out['decision']=(key+'.shape',dict(params,formation=p['formation']))
+        if b and is_swap and p['recommended'] and bundle.get('match'):
+            match=bundle['match'];gf,ga=match['team']['goals'],match['opponent']['goals']
+            _,params=out['decision']
+            params=dict(params,team=match['team']['name'],situation=Term('situation.'+('lead' if gf>ga else 'trail' if gf<ga else 'level')))
+            params={k:v for k,v in params.items() if k in ('on','off','team','situation','position')}
+            out['decision']=('decision.swap.recommended.broadcaster.context'+('.shape' if p.get('change_type')=='FORMATION_CHANGE' else ''),params)
+        moves=p.get('repositioned',[])
         if moves:
-            out['moves'] = ('moves.broadcaster', {}) if b else ('moves', dict(moves=Moves(tuple(
-                (m['name'], 'position.'+m['after_position'] if m['after_position'] in POSITION_HE else 'role.'+m['after']) for m in moves[:3]))))
+            displayed=moves[:3] if b else moves
+            out['moves']=('moves.broadcaster' if b else 'moves',dict(moves=Moves(tuple(
+                (m['name'],'position.'+m['before_position'],'position.'+m['after_position']) for m in displayed))))
         # Use whole-XI changes, not the incoming/outgoing raw card difference.
-        if positive and not (b and is_swap):
-            d = positive[0][0]
-            out['gain'] = ('gain.broadcaster', dict(aim=Term('aim.'+d))) if b else (('gain.need' if snapshot_need(bundle,d) else 'gain'), dict(dim=Term('dim.'+d)))
+        if positive:
+            d = focus
+            out['gain'] = ('gain.broadcaster', dict(aim=Term('aim.'+d))) if b else (('gain.need' if snapshot_need(bundle,d) else 'gain'), dict(aim=Term('aim.'+d)))
         if negative and not (b and 'quality' in out):
             if b and 'shape' in out:
                 out.pop('shape')
                 out['tradeoff'] = ('tradeoff.broadcaster.shape', dict(dim=Term('dim.'+negative[0][0])))
             else:
                 out['tradeoff'] = ('tradeoff'+('.broadcaster' if b else '.coach' if c else ''), dict(dim=Term('dim.'+negative[0][0])))
+        if positive and negative and 'tradeoff' in out:
+            out['tradeoff']=('tradeoff.gain',dict(aim=Term('aim.'+focus),dim=Term('dim.'+negative[0][0])))
+            out.pop('gain',None)
         if a:
             out['score'] = ('score', dict(benefit=f"{p['expected_benefit']:.3f}", threshold=f"{bundle['threshold']:.3f}"))
             if is_swap:
@@ -331,7 +416,7 @@ def facts(bundle, audience):
         if match:
             gf, ga = match['team']['goals'], match['opponent']['goals']
             out['state'] = ('state.'+('lead' if gf>ga else 'trail' if gf<ga else 'level'), dict(team=match['team']['name'], score=f'{gf}–{ga}',
-                minute=bundle['minute'], stance=Term('stance.'+bundle['coach'].get('stance','balanced')), objective=Term('objective.'+bundle['coach'].get('objective','win'))))
+                minute=bundle['minute'], stance=Term('stance.'+bundle['coach'].get('stance','balanced')), objective=Term('intent.'+('draw' if bundle['coach'].get('objective')=='draw' else ('extend' if bundle['coach'].get('stance')=='attack' else 'protect') if gf>ga else 'recover' if gf<ga else 'win'))))
         if (bundle.get('late_game_policy') or {}).get('active'):
             out['urgency'] = ('urgency.late', {})
     return {k: out[k] for k in FACT_IDS if k in out}
@@ -349,7 +434,7 @@ def render(template_key, params, lang, templates=None, terms=None):
         if isinstance(v, Term):
             return terms[v.key]
         if isinstance(v, Moves):
-            return '; '.join(f'{isolate(name, lang)} → {terms[key]}' for name, key in v.items)
+            return '; '.join(templates['move.item'].format(player=isolate(name,lang),before=terms[before],after=terms[after]) for name,before,after in v.items)
         return isolate(v, lang)
     return templates[template_key].format(**{k: value(v) for k, v in params.items()})
 
@@ -377,18 +462,25 @@ def source_keys(fmap, ids):
             if isinstance(v, Term):
                 keys.add('term:'+v.key)
             elif isinstance(v, Moves):
-                keys.update('term:'+k for _, k in v.items)
+                keys.add('tpl:move.item')
+                keys.update('term:'+k for _,before,after in v.items for k in (before,after))
     return keys
 
 
-def localized(fmap, ids, lang, catalog):
+def narrative_join(parts,lang,audience):
+    if audience=='broadcaster' and len(parts)>2:
+        return parts[0]+' '+'; '.join(p.rstrip('.!?。 ') for p in parts[1:])+'.'
+    return SENTENCE_JOIN.get(lang,' ').join(parts)
+
+
+def localized(fmap, ids, lang, catalog, audience):
     """The chosen facts in lang from trusted or validated templates, or None if any piece is missing."""
     if lang in TRUSTED:
-        return ' '.join(render(*fmap[k], lang) for k in ids)
+        return narrative_join([render(*fmap[k],lang) for k in ids],lang,audience)
     if catalog.missing(lang, source_keys(fmap, ids)):
         return None
     templates, terms = catalog.lookup(lang, 'tpl:'), catalog.lookup(lang, 'term:')
-    return SENTENCE_JOIN.get(lang, ' ').join(render(*fmap[k], lang, templates, terms) for k in ids)
+    return narrative_join([render(*fmap[k],lang,templates,terms) for k in ids],lang,audience)
 
 
 def required_ids(bank, audience):
@@ -475,13 +567,13 @@ def explain_plan(snapshot, plan_id, audience=DEFAULT_AUDIENCE, lang='en', client
                 rejected=isinstance(error,TranslationRejected)
                 tdiag=_diagnostic(error,'translation_validation' if rejected else 'translation')
                 tnote='TRANSLATION_REJECTED' if rejected else 'TRANSLATION_UNAVAILABLE'
-        text=localized(fmap,ids,lang,catalog)
+        text=localized(fmap,ids,lang,catalog,audience)
         translation=(dict(status='model',model=deployment,cached=not missing) if text is not None else
                      dict(status='fallback',note=tnote,diagnostic=tdiag))
     else:
-        text=localized(fmap,ids,lang,catalog)
+        text=localized(fmap,ids,lang,catalog,audience)
     if text is None:
-        text=' '.join(bank[k] for k in ids)  # verified English, labelled as a fallback
+        text=narrative_join([bank[k] for k in ids],'en',audience)  # verified English, labelled as a fallback
     return dict(text=text, source=source,note=note,audience=audience,lang=lang,
                 output_lang='en' if translation['status']=='fallback' else lang,translation=translation,
                 plan_id=plan_id,facts=bundle,fact_ids=ids,template_version=TEMPLATE_VERSION,

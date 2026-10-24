@@ -27,13 +27,13 @@ def sample(benefit=.2):
 
 
 def client(lang, mutate=None, fail=None):
-    """Selection returns decision + freshness; translation answers from the reviewed fixtures."""
+    """Selection returns decision + freshness + score; translation answers from the reviewed fixtures."""
     calls = []
     by_source = {source_text(k): v for k, v in FIXTURES.get(lang, {}).items()}
     def create(**kwargs):
         calls.append(kwargs)
         if kwargs['response_format']['type'] == 'json_object' and 'fact_ids' in kwargs['messages'][0]['content']:
-            content = '{"fact_ids":["decision","freshness"],"style":"direct"}'
+            content = '{"fact_ids":["decision","freshness","score"],"style":"direct"}'
         else:
             if fail:
                 raise fail
@@ -123,7 +123,7 @@ def test_rejected_translation_falls_back_to_labelled_english():
     stub, _ = client('fr', mutate=lambda out: {k: v.replace('{on}', '') for k, v in out.items()})
     catalog = TranslationCatalog()
     r = explain_plan(sample(), 'swap:off:on', 'analyst', 'fr', client=stub, deployment='d', catalog=catalog)
-    assert r['output_lang'] == 'en' and r['text'].startswith('Bringing on Player On for Player Off')
+    assert r['output_lang'] == 'en' and r['text'].startswith('The recommendation is Player On for Player Off')
     assert r['translation']['status'] == 'fallback' and r['translation']['note'] == 'TRANSLATION_REJECTED'
     assert r['translation']['diagnostic']['code'] == 'TRANSLATION_REJECTED' and r['translation']['diagnostic']['rule'] == 'placeholders'
     assert r['source'] == 'llm' and catalog.counts() == {}
@@ -189,7 +189,7 @@ def test_rejected_plan_stays_negated_after_translation():
     snap['recommendation'] = 'NO_SUBSTITUTION'
     stub, _ = client('fr')
     r = explain_plan(snap, 'swap:off:on', 'analyst', 'fr', client=stub, deployment='d', catalog=TranslationCatalog())
-    assert r['translation']['status'] == 'model' and 'ne respecte pas' in r['text'] and FIXTURES['fr']['tpl:quality.loss'] in r['text']
+    assert r['translation']['status'] == 'model' and 'n’est pas recommandé' in r['text'] and FIXTURES['fr']['tpl:quality.loss'] in r['text']
 
 
 @pytest.mark.parametrize('lang,key,text', [
@@ -209,7 +209,7 @@ def test_recommendation_status_cannot_flip_in_translation(lang, key, text):
 
 
 def test_status_sentences_with_the_right_polarity_pass():
-    for lang, key, text in (('de', 'tpl:decision.swap.recommended', 'Die Einwechslung von {on} für {off} erfüllt die Empfehlungskriterien.'),
+    for lang, key, text in (('de', 'tpl:decision.swap.recommended', 'Empfohlen wird {on} für {off}.'),
                             ('ar', 'tpl:decision.wait', 'لا يوجد تغيير يستوفي معايير التوصية حاليًا.'),
                             ('ja', 'tpl:decision.wait', '現時点で推奨基準を満たす変更はありません。')):
         validate(lang, {key: source_text(key)}, {key: text})
@@ -229,3 +229,16 @@ def test_translation_request_is_deterministic_and_carries_the_status_glossary():
     explain_plan(sample(), 'swap:off:on', 'analyst', 'de', client=stub, deployment='d', catalog=TranslationCatalog())
     request = calls[1]
     assert request['temperature'] == 0 and 'erfüllt / erfüllt nicht' in request['messages'][0]['content']
+
+
+def test_translated_moves_keep_both_position_terms_and_server_inserted_name():
+    from subintel.plan_narrative import Moves, localized, source_keys
+    fmap = {'moves': ('moves', {'moves': Moves((('Player Name', 'position.Left Wing', 'position.Right Midfield'),))})}
+    keys = source_keys(fmap, ['moves'])
+    assert keys == {'tpl:moves', 'tpl:move.item', 'term:position.Left Wing', 'term:position.Right Midfield'}
+    assert all('Player Name' not in source_text(k) for k in keys)
+    mapping = {'tpl:moves':'{moves}.', 'tpl:move.item':'{player} wechselt von {before} zu {after}',
+               'term:position.Left Wing':'Linksaußen', 'term:position.Right Midfield':'rechtem Mittelfeld'}
+    validate('de', {k:source_text(k) for k in keys}, mapping)
+    catalog = TranslationCatalog(); catalog.add('de', mapping)
+    assert localized(fmap, ['moves'], 'de', catalog, 'analyst') == 'Player Name wechselt von Linksaußen zu rechtem Mittelfeld.'

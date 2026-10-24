@@ -12,7 +12,7 @@ import re
 import threading
 from collections import Counter
 
-TRANSLATION_PROMPT_VERSION = 'template-translation-v2'
+TRANSLATION_PROMPT_VERSION = 'template-translation-v3-context'
 TRUSTED = ('en', 'he')  # hand-written templates in plan_narrative
 LANGUAGE_NAMES = {'ar': 'Arabic', 'es': 'Spanish', 'fr': 'French', 'de': 'German', 'it': 'Italian',
                   'pt': 'Portuguese', 'ja': 'Japanese', 'zh-Hans': 'Simplified Chinese'}
@@ -41,6 +41,19 @@ STATUS_VERB = {
     'ja': r'(満たし|満たす|適合)',
     'zh-Hans': r'(符合|满足)',
 }
+RECOMMENDATION_SOURCE = re.compile(r'The recommendation is \{on\} for \{off\}|This change is not recommended',re.IGNORECASE)
+RECOMMENDATION_WORD = {
+ 'es':r'(recomend|recomiend)', 'fr':r'recommand', 'de':r'(empfohl|empfehl|empfiehl)',
+ 'it':r'(raccomand|consigli|sugger)', 'pt':r'recomend', 'ar':r'(يوصى|توصي|ينصح|الموصى|التوصية|موصى)',
+ 'ja':r'(推奨|勧め|すすめ|提案)', 'zh-Hans':r'(建议|推荐)',
+}
+STATUS_OPPOSITE = {
+    'es': r'(viola|contradice)', 'fr': r'(viole|contredit)',
+    'de': r'(widerspricht|verletzt|verstößt)', 'it': r'(viola|contraddice)',
+    'pt': r'(viola|contraria|ultrapassa)', 'ar': r'(ينتهك|يخالف)',
+    'ja': r'(違反|反する)', 'zh-Hans': r'(违反|违背)',
+}
+
 STATUS_EXAMPLE = {'es': 'cumple / no cumple', 'fr': 'respecte / ne respecte pas', 'de': 'erfüllt / erfüllt nicht',
                   'it': 'soddisfa / non soddisfa', 'pt': 'cumpre / não cumpre', 'ar': 'يستوفي / لا يستوفي',
                   'ja': '満たしています / 満たしていません', 'zh-Hans': '符合 / 不符合'}
@@ -72,6 +85,11 @@ def validate(lang, sources, translations):
         negated = bool(ENGLISH_NEGATION.search(source))
         if negated and not re.search(NEGATION[lang], text, re.IGNORECASE):
             raise TranslationRejected('negation', key)
+        if RECOMMENDATION_SOURCE.search(source):
+            if (not re.search(RECOMMENDATION_WORD[lang],text,re.IGNORECASE)
+                    or re.search(STATUS_OPPOSITE[lang],text,re.IGNORECASE)
+                    or (not negated and re.search(NEGATION[lang],text,re.IGNORECASE))):
+                raise TranslationRejected('status',key)
         if STATUS_SOURCE.search(source):
             # The recommendation status must keep its polarity: the "meets" verb, negated only when the source is.
             if not re.search(STATUS_VERB[lang], text, re.IGNORECASE) or (not negated and re.search(NEGATION[lang], text, re.IGNORECASE)):
@@ -120,7 +138,7 @@ def translate(client, deployment, lang, sources):
               '"Meets the recommendation criteria" means the plan satisfies the rules and is recommended; translate it with the ordinary '
               f'verb for "meets/satisfies" ({STATUS_EXAMPLE[lang]}), never as violating, contradicting or exceeding the rules. '
               '"Bringing on A for B" means A comes on and B goes off. "Weaker" always means a loss. '
-              'Terms are short phrases inserted into the sentences; translate them so they read naturally there. '
+              'A recommendation must remain a recommendation, and a change described as not recommended must stay rejected. Never reverse player movement direction (from/to). Terms are short phrases inserted into the sentences; translate them so they read naturally there. '
               'Use a neutral, professional sports-analysis register.')
     try:
         response = client.chat.completions.create(model=deployment, max_completion_tokens=1500, temperature=0, response_format=response_format,
