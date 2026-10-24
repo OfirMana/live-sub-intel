@@ -26,7 +26,7 @@ jobs:
         run: curl -sS --retry 5 --retry-delay 10 --max-time 60 "${{ inputs.base_url }}/healthz"
 
       - name: Run bounded acceptance requests
-        run: python scripts/live_acceptance.py "${{ inputs.base_url }}" --out live_acceptance.json
+        run: python scripts/live_acceptance.py "${{ inputs.base_url }}" --out live_acceptance.json --require-model --extended-audiences
 
       - name: Print the full report
         if: always()

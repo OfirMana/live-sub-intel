@@ -1,0 +1,39 @@
+{
+  "build_sha": "95456a7d6924a350c8a78821ad6800e65f6e3b07",
+  "requests": [
+    {
+      "team": "1",
+      "minute": 65,
+      "audience": "coach",
+      "lang": "es",
+      "http": 200,
+      "seconds": 4.86,
+      "source": "llm",
+      "output_lang": "es",
+      "translation": "model",
+      "cached": false,
+      "text": "Sustituir a Laurent Koscielny por Gabriel Paulista cumple con los criterios recomendados. Arsenal lidera 1–0 en el minuto 65′; resumen: más ofensivo, buscar la victoria. La fatiga de Laurent Koscielny se estima a partir de la carga del partido (no es una medida médica), por lo que las piernas frescas son la razón principal. Los jugadores retenidos también cambian de posición: Mathieu Flamini → Mediocampista Defensivo Derecho; Aaron Ramsey → Mediocampista Defensivo Izquierdo.",
+      "plan_identity_ok": true,
+      "broadcaster_has_digits": false
+    },
+    {
+      "team": "1",
+      "minute": 65,
+      "audience": "coach",
+      "lang": "ja",
+      "http": 200,
+      "seconds": 8.14,
+      "source": "llm",
+      "output_lang": "ja",
+      "translation": "model",
+      "cached": false,
+      "text": "Laurent Koscielnyに代えてGabriel Paulistaを投入することは推奨基準を満たしています。Arsenalは65分に1–0でリードしています；概要：より攻撃的、勝利を目指す。Laurent Koscielnyの疲労は試合負荷から推定されており（医療的な測定ではありません）、そのため新鮮な脚が主な理由です。残留した選手もポジションを変更します：Mathieu Flamini → 右守備的ミッドフィールダー; Aaron Ramsey → 左守備的ミッドフィールダー。",
+      "plan_identity_ok": true,
+      "broadcaster_has_digits": false
+    }
+  ],
+  "scope": "Retry only two connection-timeout cases, preserving initial failed report",
+  "build_sha_after": "95456a7d6924a350c8a78821ad6800e65f6e3b07",
+  "failures": [],
+  "passed": true
+}

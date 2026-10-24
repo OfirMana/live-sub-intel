@@ -1,0 +1,455 @@
+[
+  {
+    "team": "1",
+    "minute": 65,
+    "stance": "attack",
+    "state": {
+      "minute": 65,
+      "goal_diff": 1,
+      "red_card_diff": 0,
+      "subs_left": 2
+    },
+    "decision": "SUBSTITUTION",
+    "reason": null,
+    "threshold": 0.15,
+    "selected": {
+      "formation": "4-2-3-1",
+      "out": {
+        "id": "5581",
+        "name": "Joel Campbell"
+      },
+      "incoming": {
+        "id": "3525",
+        "name": "Alex Oxlade-Chamberlain"
+      },
+      "score": 0.19201,
+      "components": {
+        "tactical_core": 0.449963616969684,
+        "tactical_support": -0.04,
+        "evidence_multiplier": 0.6878611881645862,
+        "remaining_time_multiplier": 0.32222222222222224,
+        "freshness_time_multiplier": 0.9666666666666667,
+        "baseline_time_multiplier": 0.32222222222222224,
+        "defensive_downside_multiplier": 1.0,
+        "freshness_relief": 0.3041,
+        "outgoing_fatigue": 0.3041,
+        "freshness_benefit": 0.20220596774348895,
+        "tactical_benefit": -0.01019110816618983
+      },
+      "moves": [
+        {
+          "player_id": "6631",
+          "name": "Mathieu Flamini",
+          "before": "CM",
+          "after": "CM",
+          "before_position": "Left Defensive Midfield",
+          "after_position": "Right Defensive Midfield"
+        },
+        {
+          "player_id": "3517",
+          "name": "Aaron Ramsey",
+          "before": "CM",
+          "after": "CM",
+          "before_position": "Right Defensive Midfield",
+          "after_position": "Left Defensive Midfield"
+        }
+      ],
+      "changes": {
+        "threat": 9.8857,
+        "creation": 12.838,
+        "progression": 19.009,
+        "retention": 17.9385,
+        "defense": 13.4891
+      }
+    },
+    "best_swap": [
+      {
+        "out": {
+          "id": "5581",
+          "name": "Joel Campbell"
+        },
+        "incoming": {
+          "id": "3525",
+          "name": "Alex Oxlade-Chamberlain"
+        },
+        "score": 0.19201,
+        "quality": true,
+        "components": {
+          "tactical_core": 0.449963616969684,
+          "tactical_support": -0.04,
+          "evidence_multiplier": 0.6878611881645862,
+          "remaining_time_multiplier": 0.32222222222222224,
+          "freshness_time_multiplier": 0.9666666666666667,
+          "baseline_time_multiplier": 0.32222222222222224,
+          "defensive_downside_multiplier": 1.0,
+          "freshness_relief": 0.3041,
+          "outgoing_fatigue": 0.3041,
+          "freshness_benefit": 0.20220596774348895,
+          "tactical_benefit": -0.01019110816618983
+        }
+      }
+    ]
+  },
+  {
+    "team": "1",
+    "minute": 85,
+    "stance": "attack",
+    "state": {
+      "minute": 85,
+      "goal_diff": -1,
+      "red_card_diff": 0,
+      "subs_left": 1
+    },
+    "decision": "TACTICAL_ADJUSTMENT",
+    "reason": "FORMATION_ONLY_SUFFICIENT",
+    "threshold": 0.15,
+    "selected": {
+      "formation": "4-2-3-1",
+      "out": null,
+      "incoming": null,
+      "score": 0.21695,
+      "components": {
+        "tactical_core": 0.9077927985422445,
+        "tactical_support": -0.04,
+        "evidence_multiplier": 1.0,
+        "remaining_time_multiplier": 0.25,
+        "freshness_time_multiplier": 0.3,
+        "baseline_time_multiplier": 0.1,
+        "defensive_downside_multiplier": 0.8125,
+        "freshness_relief": 0.0,
+        "outgoing_fatigue": 0.0,
+        "freshness_benefit": 0.0,
+        "tactical_benefit": 0.2169481996355611
+      },
+      "moves": [
+        {
+          "player_id": "6631",
+          "name": "Mathieu Flamini",
+          "before": "CM",
+          "after": "CM",
+          "before_position": "Left Defensive Midfield",
+          "after_position": "Right Defensive Midfield"
+        },
+        {
+          "player_id": "3517",
+          "name": "Aaron Ramsey",
+          "before": "CM",
+          "after": "CM",
+          "before_position": "Right Defensive Midfield",
+          "after_position": "Left Defensive Midfield"
+        }
+      ],
+      "changes": {
+        "threat": 8.5944,
+        "creation": 10.8342,
+        "progression": 12.2511,
+        "retention": 13.0172,
+        "defense": 11.4759
+      }
+    },
+    "best_swap": [
+      {
+        "out": {
+          "id": "3394",
+          "name": "Laurent Koscielny"
+        },
+        "incoming": {
+          "id": "6746",
+          "name": "Gabriel Paulista"
+        },
+        "score": 0.11498,
+        "quality": true,
+        "components": {
+          "tactical_core": 0.933512382506824,
+          "tactical_support": -0.04,
+          "evidence_multiplier": 0.7281021530281364,
+          "remaining_time_multiplier": 0.25,
+          "freshness_time_multiplier": 0.3,
+          "baseline_time_multiplier": 0.1,
+          "defensive_downside_multiplier": 0.8125,
+          "freshness_relief": 0.775,
+          "outgoing_fatigue": 0.775,
+          "freshness_benefit": 0.16928375057904171,
+          "tactical_benefit": -0.05430612727043155
+        }
+      }
+    ]
+  },
+  {
+    "team": "1",
+    "minute": 90,
+    "stance": "attack",
+    "state": {
+      "minute": 90,
+      "goal_diff": -1,
+      "red_card_diff": 0,
+      "subs_left": 1
+    },
+    "decision": "NO_SUBSTITUTION",
+    "reason": "BELOW_THRESHOLD",
+    "threshold": 0.15,
+    "selected": {
+      "formation": "4-2-3-1",
+      "out": null,
+      "incoming": null,
+      "score": null,
+      "components": {
+        "tactical_core": 0.8902543756882693,
+        "tactical_support": -0.04,
+        "evidence_multiplier": 1.0,
+        "remaining_time_multiplier": 0.13333333333333333,
+        "freshness_time_multiplier": 0.13333333333333333,
+        "baseline_time_multiplier": 0.044444444444444446,
+        "defensive_downside_multiplier": 0.75,
+        "freshness_relief": 0.0,
+        "outgoing_fatigue": 0.0,
+        "freshness_benefit": 0.0,
+        "tactical_benefit": 0.11336725009176923
+      },
+      "moves": [
+        {
+          "player_id": "6631",
+          "name": "Mathieu Flamini",
+          "before": "CM",
+          "after": "CM",
+          "before_position": "Left Defensive Midfield",
+          "after_position": "Right Defensive Midfield"
+        },
+        {
+          "player_id": "3517",
+          "name": "Aaron Ramsey",
+          "before": "CM",
+          "after": "CM",
+          "before_position": "Right Defensive Midfield",
+          "after_position": "Left Defensive Midfield"
+        }
+      ],
+      "changes": {
+        "threat": 8.5936,
+        "creation": 10.8335,
+        "progression": 12.1816,
+        "retention": 13.0357,
+        "defense": 11.3821
+      }
+    },
+    "best_swap": [
+      {
+        "out": {
+          "id": "3394",
+          "name": "Laurent Koscielny"
+        },
+        "incoming": {
+          "id": "6746",
+          "name": "Gabriel Paulista"
+        },
+        "score": 0.06715,
+        "quality": true,
+        "components": {
+          "tactical_core": 0.973468409069763,
+          "tactical_support": -0.04,
+          "evidence_multiplier": 0.7281021530281364,
+          "remaining_time_multiplier": 0.13333333333333333,
+          "freshness_time_multiplier": 0.13333333333333333,
+          "baseline_time_multiplier": 0.044444444444444446,
+          "defensive_downside_multiplier": 0.75,
+          "freshness_relief": 0.926,
+          "outgoing_fatigue": 0.926,
+          "freshness_benefit": 0.08989634582720725,
+          "tactical_benefit": -0.022745868968110095
+        }
+      }
+    ]
+  },
+  {
+    "team": "24",
+    "minute": 65,
+    "stance": "attack",
+    "state": {
+      "minute": 65,
+      "goal_diff": -1,
+      "red_card_diff": 0,
+      "subs_left": 2
+    },
+    "decision": "TACTICAL_ADJUSTMENT",
+    "reason": "FORMATION_ONLY_SUFFICIENT",
+    "threshold": 0.15,
+    "selected": {
+      "formation": "4-3-3",
+      "out": null,
+      "incoming": null,
+      "score": 0.50528,
+      "components": {
+        "tactical_core": 1.6281225158407295,
+        "tactical_support": -0.06,
+        "evidence_multiplier": 1.0,
+        "remaining_time_multiplier": 0.32222222222222224,
+        "freshness_time_multiplier": 0.9666666666666667,
+        "baseline_time_multiplier": 0.32222222222222224,
+        "defensive_downside_multiplier": 1.0,
+        "freshness_relief": 0.0,
+        "outgoing_fatigue": 0.0,
+        "freshness_benefit": 0.0,
+        "tactical_benefit": 0.5052839217709018
+      },
+      "moves": [
+        {
+          "player_id": "3532",
+          "name": "Jordan Henderson",
+          "before": "CM",
+          "after": "CM",
+          "before_position": "Right Center Midfield",
+          "after_position": "Center Defensive Midfield"
+        },
+        {
+          "player_id": "3473",
+          "name": "James Milner",
+          "before": "CM",
+          "after": "CM",
+          "before_position": "Left Center Midfield",
+          "after_position": "Right Center Midfield"
+        },
+        {
+          "player_id": "3493",
+          "name": "Emre Can",
+          "before": "CM",
+          "after": "CM",
+          "before_position": "Center Defensive Midfield",
+          "after_position": "Left Center Midfield"
+        }
+      ],
+      "changes": {
+        "threat": 9.44,
+        "creation": 12.3726,
+        "progression": 13.2981,
+        "retention": 12.4703,
+        "defense": 11.3691
+      }
+    },
+    "best_swap": [
+      {
+        "out": {
+          "id": "3635",
+          "name": "Jordon Ibe"
+        },
+        "incoming": {
+          "id": "7780",
+          "name": "Lucas Leiva"
+        },
+        "score": 0.06725,
+        "quality": false,
+        "components": {
+          "tactical_core": 1.8195609643818282,
+          "tactical_support": -0.09,
+          "evidence_multiplier": 0.7120544423787556,
+          "remaining_time_multiplier": 0.32222222222222224,
+          "freshness_time_multiplier": 0.9666666666666667,
+          "baseline_time_multiplier": 0.32222222222222224,
+          "defensive_downside_multiplier": 1.0,
+          "freshness_relief": 0.25527162984466656,
+          "outgoing_fatigue": 0.2573,
+          "freshness_benefit": 0.1757083881093548,
+          "tactical_benefit": -0.10845386095383514
+        }
+      }
+    ]
+  },
+  {
+    "team": "24",
+    "minute": 85,
+    "stance": "balanced",
+    "state": {
+      "minute": 85,
+      "goal_diff": 1,
+      "red_card_diff": 0,
+      "subs_left": 1
+    },
+    "decision": "SUBSTITUTION",
+    "reason": null,
+    "threshold": 0.15,
+    "selected": {
+      "formation": "4-1-4-1",
+      "out": {
+        "id": "3635",
+        "name": "Jordon Ibe"
+      },
+      "incoming": {
+        "id": "7780",
+        "name": "Lucas Leiva"
+      },
+      "score": 0.16817,
+      "components": {
+        "tactical_core": 1.014655191394008,
+        "tactical_support": -0.09,
+        "evidence_multiplier": 0.7120544423787556,
+        "remaining_time_multiplier": 0.1,
+        "freshness_time_multiplier": 0.3,
+        "baseline_time_multiplier": 0.1,
+        "defensive_downside_multiplier": 1.0,
+        "freshness_relief": 0.7139124573271947,
+        "outgoing_fatigue": 0.7177,
+        "freshness_benefit": 0.1525033610128088,
+        "tactical_benefit": 0.015670014265234664
+      },
+      "moves": [
+        {
+          "player_id": "10326",
+          "name": "Jo\u00e3o Carlos",
+          "before": "AM_W",
+          "after": "AM_W",
+          "before_position": "Left Wing",
+          "after_position": "Right Midfield"
+        },
+        {
+          "player_id": "3493",
+          "name": "Emre Can",
+          "before": "CM",
+          "after": "CM",
+          "before_position": "Center Defensive Midfield",
+          "after_position": "Left Center Midfield"
+        },
+        {
+          "player_id": "3473",
+          "name": "James Milner",
+          "before": "CM",
+          "after": "AM_W",
+          "before_position": "Left Center Midfield",
+          "after_position": "Left Midfield"
+        }
+      ],
+      "changes": {
+        "threat": -21.1296,
+        "creation": 16.8746,
+        "progression": 2.2855,
+        "retention": 4.8903,
+        "defense": 34.5198
+      }
+    },
+    "best_swap": [
+      {
+        "out": {
+          "id": "3635",
+          "name": "Jordon Ibe"
+        },
+        "incoming": {
+          "id": "7780",
+          "name": "Lucas Leiva"
+        },
+        "score": 0.16817,
+        "quality": true,
+        "components": {
+          "tactical_core": 1.014655191394008,
+          "tactical_support": -0.09,
+          "evidence_multiplier": 0.7120544423787556,
+          "remaining_time_multiplier": 0.1,
+          "freshness_time_multiplier": 0.3,
+          "baseline_time_multiplier": 0.1,
+          "defensive_downside_multiplier": 1.0,
+          "freshness_relief": 0.7139124573271947,
+          "outgoing_fatigue": 0.7177,
+          "freshness_benefit": 0.1525033610128088,
+          "tactical_benefit": 0.015670014265234664
+        }
+      }
+    ]
+  }
+]

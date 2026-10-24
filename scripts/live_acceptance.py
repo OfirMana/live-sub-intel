@@ -29,6 +29,38 @@ def call(base, path, body=None, timeout=60):
             return response.status, json.load(response), round(time.monotonic() - started, 2)
     except urllib.error.HTTPError as error:
         return error.code, None, round(time.monotonic() - started, 2)
+    except (urllib.error.URLError, TimeoutError, json.JSONDecodeError):
+        return 0, None, round(time.monotonic() - started, 2)
+
+
+def acceptance_failures(report, require_model=False):
+    """Make the workflow fail on broken contracts, rather than just print them."""
+    failures=[]
+    rows=report.get('requests',[])
+    if not rows:
+        failures.append('No explanation requests were recorded')
+    for index,row in enumerate(rows):
+        label=f"request {index+1}: {row.get('team')} {row.get('minute')} {row.get('audience')} {row.get('lang')}"
+        if row.get('skipped'):
+            failures.append(label+' was skipped: '+row['skipped'])
+            continue
+        if row.get('http')!=200 or row.get('source') not in ('llm','template'):
+            failures.append(label+' did not return a valid explanation')
+        if row.get('plan_identity_ok') is not True:
+            failures.append(label+' failed plan identity')
+        if row.get('broadcaster_has_digits'):
+            failures.append(label+' contains broadcaster digits')
+        if require_model:
+            if row.get('source')!='llm':
+                failures.append(label+' did not use model fact selection')
+            if row.get('output_lang')!=row.get('lang'):
+                failures.append(label+' did not return the requested language')
+            if row.get('lang') in EXTRA_LOCALES and row.get('translation')!='model':
+                failures.append(label+' did not use model translation')
+    before,after=report.get('build_sha'),report.get('build_sha_after')
+    if before and after and before!=after:
+        failures.append('Deployment changed during acceptance; results span builds')
+    return failures
 
 
 def main():
@@ -36,6 +68,8 @@ def main():
     parser.add_argument('base')
     parser.add_argument('--spacing', type=float, default=3.0, help='seconds between explanation requests')
     parser.add_argument('--out', default=None)
+    parser.add_argument('--extended-audiences', action='store_true', help='Also check broadcaster and coach in the eight translated locales')
+    parser.add_argument('--require-model', action='store_true', help='Fail if fact selection or requested translation falls back')
     args = parser.parse_args()
     _, health, _ = call(args.base, '/healthz')
     _, bootstrap, _ = call(args.base, '/api/bootstrap')
@@ -71,6 +105,8 @@ def main():
     cases += [('1', 65, {}, 'second', 'analyst', lang) for lang in EXTRA_LOCALES]
     # A rejected plan per locale: the negated status sentence is the riskiest translation.
     cases += [('1', 65, {}, 'rejected', 'analyst', lang) for lang in EXTRA_LOCALES]
+    if args.extended_audiences:
+        cases += [('1',65,{},'second',audience,locale) for audience in ('broadcaster','coach') for locale in EXTRA_LOCALES]
     rows = []
     for team, minute, config, kind, audience, lang in cases:
         snap = evaluate(team, minute, **config)
@@ -96,7 +132,7 @@ def main():
         time.sleep(args.spacing)
     _, after, _ = call(args.base, '/healthz')
     report = dict(kind='LIVE_AZURE_ACCEPTANCE', at=datetime.now(timezone.utc).isoformat(), base=args.base,
-                  build_sha=(health or {}).get('build_sha'), data_mode=(health or {}).get('data_mode'),
+                  build_sha=(health or {}).get('build_sha'), build_sha_after=(after or {}).get('build_sha'), data_mode=(health or {}).get('data_mode'),
                   generator=(bootstrap or {}).get('generator'), llm_configuration=(health or {}).get('llm_configuration'),
                   translation_catalog_after=(after or {}).get('translation_catalog'), requests=rows,
                   summary=dict(explanations=sum(1 for r in rows if 'http' in r), llm=sum(1 for r in rows if r.get('source') == 'llm'),
@@ -104,10 +140,18 @@ def main():
                                translation_fallback=sorted({r['lang'] for r in rows if r.get('translation') == 'fallback'}),
                                identity_failures=[r['plan_id'] for r in rows if r.get('plan_identity_ok') is False],
                                broadcaster_with_digits=[r['plan_id'] for r in rows if r.get('broadcaster_has_digits')]))
+    report['require_model']=args.require_model
+    report['extended_audiences']=args.extended_audiences
+    report['failures']=acceptance_failures(report,require_model=args.require_model)
+    report['passed']=not report['failures']
     out = Path(args.out or Path(__file__).resolve().parents[1]/'docs/research'/f"live_acceptance_{datetime.now(timezone.utc):%Y%m%d}.json")
     out.write_text(json.dumps(report, indent=2, ensure_ascii=False) + '\n', encoding='utf-8')
     print(json.dumps(report['summary'], indent=2, ensure_ascii=False))
     print(f'Report: {out}')
+    for failure in report['failures']:
+        print('FAIL: '+failure)
+    if report['failures']:
+        raise SystemExit(1)
 
 
 if __name__ == '__main__':

@@ -6,7 +6,7 @@ English text for the Inside the Game project page, ready to paste once the team 
 
 ## Elevator pitch
 
-Live Substitution Intelligence turns a stream of football match events into a bench decision that a coach, analyst or broadcaster can check. At any five-minute checkpoint it works out what the team needs now, searches substitutions, repositioning and formation changes across the whole XI, and explains the plan for a broadcaster, an analyst or a coach in ten languages. A deterministic engine makes the call; Microsoft Foundry picks which verified facts to tell and translates fixed sentence templates, so the explanation never invents a number or a name.
+Live Substitution Intelligence turns a stream of football match events into a bench decision that a coach, analyst or broadcaster can check. At any five-minute checkpoint it works out what the team needs now, searches substitutions, repositioning and formation changes across the whole XI, and explains the plan for a broadcaster, an analyst or a coach in ten languages. A deterministic engine makes the call; Microsoft Foundry picks which verified facts to tell and translates fixed sentence templates, while the server preserves the plan identities and numeric values.
 
 ## Project description
 
@@ -29,11 +29,11 @@ Live Substitution Intelligence turns a stream of football match events into a be
 
 ![The engine decides the plan; Foundry only picks which facts to tell](architecture.png)
 
-The engine in App Service makes every decision. Foundry sees only verified facts and returns their IDs, and a labelled template takes over whenever the model is unavailable or its answer is rejected.
+The engine in App Service makes every decision. Foundry selects optional verified fact IDs and translates protected sentence templates into eight additional languages. Mandatory facts stay server-controlled. Validation and labelled template/English fallback handle unavailable or rejected model outputs. Structural and status checks reduce errors, but do not guarantee complete translation semantics.
 
 ## Microsoft and Azure technologies
 
-Three Microsoft services carry the running app: Foundry selects verified facts for the explanation, App Service hosts it, and GitHub Actions tests and deploys every change.
+The running app uses Microsoft Foundry and Azure App Service, with GitHub Actions for CI/CD: Foundry selects verified facts for the explanation, App Service hosts it, and GitHub Actions tests and deploys every change.
 
 | Technology | What it does in the running app |
 | --- | --- |
@@ -95,7 +95,8 @@ This is a candidate description, not proof of submission.
   - Model translation for all eight other languages, for recommended and rejected plans.
   - The recommendation status correct in every checked language.
   - The first run found a reversed status in Arabic, German and Portuguese. It was fixed and re-checked the same day.
-- **Not verified:** native-speaker fluency, and coach and broadcaster wording in the eight model-translated languages.
+- **Additional independent verification:** all 16 coach/broadcaster combinations in the eight translated locales returned model-assisted output after two connection failures were retried. The original failures remain recorded; see [independent release review](RELEASE_REVIEW_20261024.md).
+- **Not verified:** native-speaker fluency and professional football validation. Successful schema/status checks do not certify complete translation semantics.
 - **Remaining release gates:**
   - Finish the data-license and attribution review (see DATA_SOURCES.md).
   - Record and upload the English video, under two minutes.
