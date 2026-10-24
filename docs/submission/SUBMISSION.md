@@ -87,9 +87,15 @@ This is a candidate description, not proof of submission.
   - The Broadcast design and the evolving synthetic match (#21).
   - The three audiences with server-computed match statistics (#22).
   - The ten explanation languages with validated template translation (#23).
-  - The build SHA in `/healthz` and the live acceptance script (#24).
-- **Verified offline:** 262 Python tests and 16 Node tests, plus the synthetic and historical explanation audits.
-- **Still to verify on Azure:** run `python scripts/live_acceptance.py https://live-sub-intel-fcfudheze9b5ewfz.swedencentral-01.azurewebsites.net` and record which languages Foundry actually translated. Describe as ready only the languages that pass.
+  - The build SHA and the live acceptance script and workflow (#24, #25).
+  - The translation status-polarity fix (#26).
+- **Verified offline:** 271 Python tests and 16 Node tests, plus the synthetic and historical explanation audits.
+- **Verified live on Azure, 24 October** ([report](../research/LIVE_ACCEPTANCE_20261024.md)):
+  - Model fact selection for all three audiences in English and Hebrew.
+  - Model translation for all eight other languages, for recommended and rejected plans.
+  - The recommendation status correct in every checked language.
+  - The first run found a reversed status in Arabic, German and Portuguese. It was fixed and re-checked the same day.
+- **Not verified:** native-speaker fluency, and coach and broadcaster wording in the eight model-translated languages.
 - **Remaining release gates:**
   - Finish the data-license and attribution review (see DATA_SOURCES.md).
   - Record and upload the English video, under two minutes.
