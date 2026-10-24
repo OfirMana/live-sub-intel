@@ -21,7 +21,7 @@ DEFAULT_SEED = 20261021
 GENERATOR_VERSION = 'seeded-possessions-v4-turnovers'
 
 
-def simulate(dataset, evidence, *, apply_substitutions=True, collect_snapshots=True, seed=DEFAULT_SEED):
+def simulate(dataset, evidence, *, apply_substitutions=True, collect_snapshots=True, seed=DEFAULT_SEED, scenario="original"):
     """Seeded illustrative possessions; no fitted outcome probabilities.
 
     The three goal phases are authored scenario beats. Timing, actors, locations
@@ -51,7 +51,24 @@ def simulate(dataset, evidence, *, apply_substitutions=True, collect_snapshots=T
         weights = {'ST':5, 'AM_W':3.5, 'CM':1.5, 'FB':.5, 'CB':.3}
         return rng.choices(ids, weights=[weights.get(ms.role(p),1) for p in ids])[0]
 
+    # Authored manager decisions, independent of the recommendation ranking.
+    # Same-role swaps keep the replay legal without inventing a formation change.
+    scripted_swaps = {
+        58: ('24', '3535', '3380'), 64: ('1', '3511', '3713'),
+        70: ('24', '4090', '10326'), 74: ('1', '5581', '3525'),
+    }
+    booked = set()
     for minute in range(91):
+        if scenario == 'lively' and minute in scripted_swaps:
+            tid, outgoing, incoming = scripted_swaps[minute]
+            assert outgoing in ms.on_pitch and incoming not in ms.used
+            assert ms.players[outgoing].team_id == ms.players[incoming].team_id == tid
+            emit(minute, 0, tid, outgoing, 'substitution', replacement_id=incoming)
+            # Feed before creating later actions: departed players cannot act again.
+            for event in pending:
+                events.append(event.model_dump(mode='json'))
+                ms.feed(event)
+            pending.clear()
         if minute in (0, 45):
             emit(minute, 0, '24', None, 'period_start')
         count = rng.randint(3,4)
@@ -108,8 +125,9 @@ def simulate(dataset, evidence, *, apply_substitutions=True, collect_snapshots=T
                 emit(minute,base+9,tid,pid,'shot',x=round(rng.uniform(96,113),2),
                      y=round(rng.uniform(25,55),2),xg=xg,success=False,goal=False,
                      on_target=rng.random()<.4,key_pass_id=assist)
-        if minute in (54,78,82):
-            tid='1' if minute==54 else '24'
+        first_goal = 27 if scenario == "lively" else 54
+        if minute in (first_goal,78,82):
+            tid='1' if minute==first_goal else '24'
             pid=shooter(tid)
             second=rng.randint(8,56)
             creator=annotations_rng.choice([p for p in actors(tid) if p!=pid])
@@ -117,9 +135,17 @@ def simulate(dataset, evidence, *, apply_substitutions=True, collect_snapshots=T
             emit(minute,second,tid,pid,'shot',
                  x=round(rng.uniform(104,114),2),y=round(rng.uniform(30,50),2),
                  xg=round(rng.uniform(.14,.46),3),success=True,goal=True,on_target=True,key_pass_id=assist)
-        if minute in (32,61):
-            tid='24' if minute==32 else '1'
-            emit(minute,annotations_rng.randint(8,56),tid,annotations_rng.choice(actors(tid)),'card',card='yellow')
+        card_minutes = (18,32,44,61,73) if scenario == "lively" else (32,61)
+        if minute in card_minutes:
+            tid='24' if minute in (18,32,73) else '1'
+            if scenario == 'original':
+                emit(minute,annotations_rng.randint(8,56),tid,annotations_rng.choice(actors(tid)),'card',card='yellow')
+            else:
+                eligible = [pid for pid in actors(tid) if pid not in booked]
+                if eligible:
+                    booked_player = annotations_rng.choice(eligible)
+                    booked.add(booked_player)
+                    emit(minute,annotations_rng.randint(8,56),tid,booked_player,'card',card='yellow')
         for ev in sorted(pending,key=lambda e:(e.minute,e.second)):
             events.append(ev.model_dump(mode='json'))
             ms.feed(ev)
@@ -129,7 +155,7 @@ def simulate(dataset, evidence, *, apply_substitutions=True, collect_snapshots=T
                 snapshot=recommend_demo(ms,tid)
                 snapshot['event_source']='SYNTHETIC_SCRIPTED_POSSESSIONS'
                 snapshots.append(snapshot)
-        if apply_substitutions and 30<=minute<=80 and minute%5==0:
+        if apply_substitutions and scenario != "lively" and 30<=minute<=80 and minute%5==0:
             for tid in ('24','1'):
                 rec=recommend_demo(ms,tid)
                 if rec['selected']:

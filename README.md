@@ -4,7 +4,7 @@ A football decision-support prototype: identify the team's current needs, compar
 
 ## Try it
 
-[Azure deployment](https://live-sub-intel-fcfudheze9b5ewfz.swedencentral-01.azurewebsites.net/) is deployed from `main`. Changes on a pull-request branch are not live until merged and deployed. See [current readiness and remaining work](docs/DEMO_READINESS_HE.md).
+[Azure deployment](https://live-sub-intel-fcfudheze9b5ewfz.swedencentral-01.azurewebsites.net/) is deployed from `main`. Changes on a pull-request branch are not live until merged and deployed. See [current readiness and remaining work](docs/submission/FINAL_CLOSEOUT_HE.md).
 
 ```bash
 python -m venv .venv
@@ -15,7 +15,7 @@ python scripts/serve_app.py --port 8779
 
 Open http://127.0.0.1:8779/?team=24&minute=65&stance=attack&objective=win&inspect=1 . No Azure account or key is needed for deterministic decisions or labelled template explanations.
 
-**The default server mode uses original synthetic match actions.** It runs offline from committed player/roster metadata; no StatsBomb event download is required. The scripted scenario is not a real match, a prediction, or a calibrated match simulator. Historical player abilities, starting-XI metadata and shirt numbers are disclosed priors. Load and positional suitability are estimates. Inspecting a plan does not execute it or change future events.
+**The default server mode uses original synthetic match actions and scripted manager substitutions (`--scenario lively`). Use `--scenario original` for the earlier fixed-XI comparison.** It runs offline from committed player/roster metadata; no StatsBomb event download is required. The scripted scenario is not a real match, a prediction, or a calibrated match simulator. Historical player abilities, starting-XI metadata and shirt numbers are disclosed priors. Load and positional suitability are estimates. Inspecting a plan does not execute it or change future events.
 
 For the separate four-team historical research room:
 
@@ -27,7 +27,7 @@ Historical mode replays StatsBomb Open Data and may download pinned raw files. I
 
 ## Demonstration
 
-1. Choose Liverpool, minute 65, More attacking, Seek a win. Inspect plans.
+1. Choose Arsenal, minute 65, More attacking, Seek a win. Inspect plans.
 2. The primary recommendation and ranked alternatives include threshold gaps, tactical/freshness components, supported formations and retained-player movements.
 3. Select the second alternative. Both the proposed pitch and explanation target that plan.
 4. Choose Broadcaster for qualitative wording; Analyst exposes numerical model scores. Switch English/Hebrew to check localization.
@@ -100,3 +100,13 @@ The live board shows cumulative xG, shots, shots on target, pass attempts and pa
 [Late win-pursuit weighting and Azure integration handoff](docs/AZURE_FINAL_INTEGRATION_HE.md).
 
 [Compact dashboard layout and fixed-seed scenario guide](docs/COMPACT_UI_HANDOFF_HE.md).
+
+## Submission package
+
+- [Closeout and remaining work](docs/submission/FINAL_CLOSEOUT_HE.md)
+- [Claude integration handoff](docs/submission/CLAUDE_HANDOFF.md)
+- [English demo video script](docs/submission/VIDEO_SCRIPT.md)
+- [English submission draft](docs/submission/SUBMISSION.md)
+- [Data sources and publication limitations](docs/submission/DATA_SOURCES.md)
+
+Generated research ZIP/Excel/preview artifacts are not bundled. Data provenance remains documented; artifact cleanup is not license clearance.

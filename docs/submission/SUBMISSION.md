@@ -1,6 +1,6 @@
 # Live Substitution Intelligence - Hackathon Submission Draft
 
-21 October 2026 · Thomas, Tal and Ofir
+22 October 2026 · Thomas, Tal and Ofir
 
 English text for the Inside the Game project page, ready to paste once the team signs off. Submission closes 27 October 2026 at 23:59 Pacific (28 October, 08:59 Israel).
 
@@ -32,7 +32,7 @@ The engine in App Service makes every decision. Foundry sees only verified facts
 
 ## Microsoft and Azure technologies
 
-Three Microsoft services carry the running app: Foundry writes the explanation, App Service hosts it, and GitHub Actions tests and deploys every change.
+Three Microsoft services carry the running app: Foundry selects verified facts for the explanation, App Service hosts it, and GitHub Actions tests and deploys every change.
 
 | Technology | What it does in the running app |
 | --- | --- |
@@ -48,19 +48,19 @@ Every match action in the demo is synthetic; only the player priors and line-ups
 - **Match events:** original synthetic events from our own scripted-possession generator, in the same event format the engine reads live. They are not a real fixture, a prediction or licensed Premier League data.
 - **Player profiles:** historical priors. Each card starts from FIFA 16 ratings and is adjusted, by at most 6 points, using [StatsBomb Open Data](https://github.com/statsbomb/open-data) evidence from before the match date. Starting line-ups and shirt numbers use historical metadata.
 - **Estimates:** physical load and position suitability are heuristics, shown as estimates on screen.
-- **Research mode:** a separate mode replays four Premier League 2015/16 matches from StatsBomb Open Data to benchmark the engine. It is not the submission demo.
+- **Research mode:** a separate mode replays four team views across three Premier League 2015/16 fixtures from StatsBomb Open Data to benchmark the engine. It is not the submission demo.
 - **Original work:** the code was written for this hackathon; the first commit is dated 15 October 2026. Open-source libraries: NumPy, pandas, pydantic and the OpenAI Python SDK.
 
 ## Testing instructions for judges
 
-The app is live with no login at [live-sub-intel on Azure](https://live-sub-intel-fcfudheze9b5ewfz.swedencentral-01.azurewebsites.net/) and stays up until 10 November 2026. The first load can take up to 30 seconds while the server starts.
+The app is live with no login at [live-sub-intel on Azure](https://live-sub-intel-fcfudheze9b5ewfz.swedencentral-01.azurewebsites.net/) and stays up through the end of judging (11 November 2026 in Israel; maintain a safety buffer). The first load can take up to 30 seconds while the server starts.
 
 **Two-minute walkthrough**
 
-1. Open [this checkpoint](https://live-sub-intel-fcfudheze9b5ewfz.swedencentral-01.azurewebsites.net/?team=24&minute=65&stance=attack&objective=win&freshness_cap=1&lang=en&inspect=1): Liverpool at minute 65, More attacking, Seek a win, plans open.
+1. Open [this checkpoint](https://live-sub-intel-fcfudheze9b5ewfz.swedencentral-01.azurewebsites.net/?team=1&minute=65&stance=attack&objective=win&freshness_cap=1&lang=en&inspect=1): Arsenal at minute 65, More attacking, Seek a win, plans open.
 2. Read the bench decision: the recommended plan, its benefit against the 0.15 threshold, and the ranked alternatives that pass the rules.
 3. Click the second alternative. The proposed pitch and the explanation both switch to that plan.
-4. Set Audience to Broadcaster and click **Explain this plan**. The line under the text reads "Model-assisted fact selection (gpt-4.1-mini)" when Foundry wrote it, or "Verified template" with the reason when it did not.
+4. Set Audience to Broadcaster and click **Explain this plan**. The line under the text reads "Model-assisted fact selection (gpt-4.1-mini)" when Foundry selected the facts, or "Verified template" with the reason when it did not.
 5. Switch Audience to Analyst for the model's scores, and Language to Hebrew for right-to-left output.
 6. Step forward or back five minutes, or change the approach and result objective; the analysis recalculates from the events up to that minute.
 
@@ -76,14 +76,10 @@ pip install -e ".[dev,llm]"
 python scripts/serve_app.py --port 8779
 ```
 
-Then open `http://127.0.0.1:8779/?team=24&minute=65&stance=attack&objective=win&inspect=1`. Without Foundry settings the decisions are identical and explanations are labelled templates; set `FOUNDRY_ENDPOINT`, `FOUNDRY_API_KEY` and `FOUNDRY_DEPLOYMENT` to use the model. Tests: `python -m pytest -q`.
+Then open `http://127.0.0.1:8779/?team=1&minute=65&stance=attack&objective=win&inspect=1`. Without Foundry settings the decisions are identical and explanations are labelled templates; set `FOUNDRY_ENDPOINT`, `FOUNDRY_API_KEY` and `FOUNDRY_DEPLOYMENT` to use the model. Tests: `python -m pytest -q`.
 
-## Open questions before submitting
+## Finalization status
 
-Five decisions are still open, and the video depends on the first.
+This is a candidate description, not proof of submission. The Broadcast presentation and evolving synthetic lineup scenario are on the integration PR until merged and deployed. Planned audience/language improvements must be described only after implemented and verified on Azure. See FINAL_CLOSEOUT_HE.md.
 
-- [ ] **Final synthetic script.** Ofir is varying shot timing, shooters and xG so the match looks less mechanical. The walkthrough and the video should use the final script.
-- [ ] **Demo video.** Under two minutes, public on YouTube or Vimeo, in English. Who records it, and when?
-- [ ] **FIFA 16 ratings.** May the raw ratings stay in a public repository, or should only the derived cards ship?
-- [ ] **StatsBomb attribution.** Confirm the wording and logo their terms require, then add them to the app and the project page.
-- [ ] **Agentic design (20% of the score).** Submit the explanation layer as constrained fact selection, as written here, or add a small tool-calling feature before the deadline?
+Remaining release gates: merge/deploy the reviewed UI/scenario PR; complete the Claude audience/language work; perform fresh Azure acceptance; finish data-license/attribution review; record and upload the under-two-minute English video; add the public video URL and complete submission. Historical third-party profiles remain in the repository; removing generated archives does not resolve their redistribution rights.

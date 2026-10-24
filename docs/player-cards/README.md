@@ -1,17 +1,19 @@
+> Research archive. Generated ZIP/Excel/preview artifacts are no longer bundled. Use the live Azure app for the submission; existing HTML is a historical research snapshot, not the current product.
+
 # כרטיסי ארבע קבוצות
 
 תצוגת 72 כרטיסי שחקנים לפני המשחק ב־13.01.2016. אין כאן נתוני משחק חיים.
 
 ## לפתיחה מהירה
 
-1. הורידו את [player-cards.zip](player-cards.zip) באמצעות Download raw file בגיטהאב.
+1. הורידו את `player-cards.zip` (local generated export; not bundled) באמצעות Download raw file בגיטהאב.
 2. חלצו את הקבצים לאותה תיקייה.
 3. פתחו את `index.html` בדפדפן. אין צורך בהתקנה או בחיבור לרשת.
 
 האתר כולל חיפוש, סינון לפי קבוצה ותפקיד, מעבר בין General/Recent/Season/Physical וכרטיס שחקן מלא. קישור האקסל יעבוד כשהקבצים נשארים באותה תיקייה.
 
 - [קוד האתר העצמאי](index.html)
-- [טבלת Excel מלאה](Four_Club_Player_Cards.xlsx)
+- `Four_Club_Player_Cards.xlsx` (יצוא מקומי שאינו כלול במאגר)
 - [סיכום ההתקדמות והמשימות הפתוחות](../TEAM_HANDOFF_HE.md)
 
 **GitHub מציג את קוד ה־HTML. GitHub Pages לא הופעל במסגרת העבודה.** כדי לראות את התצוגה, יש להוריד ולפתוח את הקובץ. כתובת localhost במחשב של חבר צוות אינה אתר ציבורי.
@@ -49,6 +51,6 @@ node scripts/export_player_workbook.mjs
 
 הייצוא אינו משנה את כרטיסי השחקנים. פלטי QA זמניים אינם חלק מחבילת ההורדה.
 
-![תצוגת כרטיסי השחקנים](preview.png)
+
 
 Season output מציג שערים, פנדלים, בישולים, ניסיונות והצלחות דריבל ומסירה לפני החיתוך. שיעורי ל־90 ואחוזי הצלחה מחושבים בנוסחאות באקסל. [דוח ההחלטות](../research/README.md) מציג בדיקה בכל חמש דקות.

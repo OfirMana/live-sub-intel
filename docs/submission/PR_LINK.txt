@@ -1,0 +1,4 @@
+Integration PR #21 (draft)
+https://github.com/TomThomasPrintac/live-sub-intel/pull/21
+Branch: OfirMana:design/local-options-match-audit -> TomThomasPrintac:main
+Read CLAUDE_HANDOFF.md before integration.

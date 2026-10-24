@@ -1,6 +1,8 @@
+> Research archive. Generated ZIP/Excel/preview artifacts are no longer bundled. Use the live Azure app for the submission; existing HTML is a historical research snapshot, not the current product.
+
 # Synthetic match demo
 
-Download [synthetic-demo.zip](synthetic-demo.zip), extract it and open `index.html`
+Download `synthetic-demo.zip` (local generated export; not bundled), extract it and open `index.html`
 in a browser for offline checkpoint playback. The package also includes the
 original synthetic `events.jsonl` and deterministic `recommendations.json`.
 All three were regenerated after the separate freshness-score revision.
