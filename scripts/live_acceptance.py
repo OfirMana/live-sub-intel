@@ -69,6 +69,8 @@ def main():
               ('1', 90, {}, 'wait', 'analyst', 'en'), ('24', 85, {}, 'selected', 'broadcaster', 'en'),
               ('1', 85, dict(objective='draw'), 'selected', 'coach', 'en')]
     cases += [('1', 65, {}, 'second', 'analyst', lang) for lang in EXTRA_LOCALES]
+    # A rejected plan per locale: the negated status sentence is the riskiest translation.
+    cases += [('1', 65, {}, 'rejected', 'analyst', lang) for lang in EXTRA_LOCALES]
     rows = []
     for team, minute, config, kind, audience, lang in cases:
         snap = evaluate(team, minute, **config)
