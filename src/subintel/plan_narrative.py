@@ -20,11 +20,13 @@ from pydantic import BaseModel, ConfigDict, Field
 
 from .narrative import foundry_client_from_env
 from .foundry_runtime import classify_failure
+from .translation import TRUSTED, TranslationCatalog, TranslationRejected, translate
 
 AUDIENCES = ('broadcaster', 'analyst', 'coach')
 AUDIENCE_ALIASES = {'fan': 'broadcaster'}  # Fan merged into Broadcaster (22 October 2026).
 DEFAULT_AUDIENCE = 'broadcaster'
-LANGUAGES = ('en', 'he')
+# English and Hebrew are hand-written; the others are model-translated templates, validated (translation.py).
+LANGUAGES = ('en', 'he', 'ar', 'es', 'fr', 'de', 'it', 'pt', 'ja', 'zh-Hans')
 RTL = ('he', 'ar')
 TEMPLATE_VERSION = 'plan-templates-v2'
 LOG = logging.getLogger(__name__)
@@ -341,7 +343,8 @@ def isolate(text, lang):
 
 
 def render(template_key, params, lang, templates=None, terms=None):
-    templates, terms = templates or TEMPLATES[lang], terms or TERMS[lang]
+    templates = TEMPLATES[lang] if templates is None else templates
+    terms = TERMS[lang] if terms is None else terms
     def value(v):
         if isinstance(v, Term):
             return terms[v.key]
@@ -352,8 +355,40 @@ def render(template_key, params, lang, templates=None, terms=None):
 
 
 def sentences(bundle, audience, lang):
-    """Each ID has a single verified meaning, localized from a fixed template."""
+    """Each ID has a single verified meaning, localized from a fixed hand-written template (en, he)."""
     return {fid: render(key, params, lang) for fid, (key, params) in facts(bundle, audience).items()}
+
+
+CATALOG = TranslationCatalog()
+
+
+def source_text(key):
+    kind, name = key.split(':', 1)
+    return (TEMPLATES if kind == 'tpl' else TERMS)['en'][name]
+
+
+def source_keys(fmap, ids):
+    """English templates and vocabulary the chosen facts need; values never leave the server."""
+    keys = set()
+    for fid in ids:
+        key, params = fmap[fid]
+        keys.add('tpl:'+key)
+        for v in params.values():
+            if isinstance(v, Term):
+                keys.add('term:'+v.key)
+            elif isinstance(v, Moves):
+                keys.update('term:'+k for _, k in v.items)
+    return keys
+
+
+def localized(fmap, ids, lang, catalog):
+    """The chosen facts in lang from trusted or validated templates, or None if any piece is missing."""
+    if lang in TRUSTED:
+        return ' '.join(render(*fmap[k], lang) for k in ids)
+    if catalog.missing(lang, source_keys(fmap, ids)):
+        return None
+    templates, terms = catalog.lookup(lang, 'tpl:'), catalog.lookup(lang, 'term:')
+    return ' '.join(render(*fmap[k], lang, templates, terms) for k in ids)
 
 
 def required_ids(bank, audience):
@@ -373,23 +408,35 @@ def default_ids(bank, audience):
     return compose(bank, audience, OPTIONAL[normalize_audience(audience)])
 
 
-def explain_plan(snapshot, plan_id, audience=DEFAULT_AUDIENCE, lang='en', client=None, deployment=None):
+def _diagnostic(error, stage):
+    diagnostic = dict(classify_failure(error, stage), reference=uuid.uuid4().hex[:12], at=datetime.now(timezone.utc).isoformat())
+    if isinstance(error, TranslationRejected):
+        diagnostic['rule'] = error.rule
+    LOG.warning('Explanation failed: reference=%s code=%s stage=%s status=%s provider_code=%s param=%s type=%s causes=%s validation=%s',
+        diagnostic['reference'],diagnostic['code'],stage,diagnostic['status'],diagnostic['provider_code'],diagnostic['provider_param'],diagnostic['exception_type'],diagnostic['cause_types'],diagnostic['validation_errors'])
+    return diagnostic
+
+
+def explain_plan(snapshot, plan_id, audience=DEFAULT_AUDIENCE, lang='en', client=None, deployment=None, catalog=None, allow_provider=True):
     audience = normalize_audience(audience)
     if lang not in LANGUAGES:
         raise ValueError('unsupported language')
+    catalog = CATALOG if catalog is None else catalog
     bundle = fact_bundle(snapshot, plan_id)
-    bank = sentences(bundle,audience,lang)
+    fmap = facts(bundle, audience)
+    # The model selects from sentences it can read; the requested language is rendered afterwards.
+    bank = {fid: render(key, params, lang if lang in TRUSTED else 'en') for fid, (key, params) in fmap.items()}
     ids = default_ids(bank,audience)
-    source, note = 'template', 'LLM_NOT_CONFIGURED'
-    diagnostic=None;stage='configuration'
+    source, note = 'template', ('LLM_COOLDOWN' if not allow_provider else 'LLM_NOT_CONFIGURED')
+    diagnostic=None;stage='configuration';reached=False
     try:
-        if client is None:
+        if client is None and allow_provider:
             configured=foundry_client_from_env()
             if configured:
                 client,deployment=configured
                 stage='client_setup'
                 client=client.with_options(timeout=12,max_retries=0)
-        if client is not None:
+        if client is not None and allow_provider:
             stage='provider_request'
             response=client.chat.completions.create(model=deployment, max_completion_tokens=250,
                 response_format={'type':'json_object'}, messages=[
@@ -399,6 +446,7 @@ def explain_plan(snapshot, plan_id, audience=DEFAULT_AUDIENCE, lang='en', client
                         'style: "direct" or "context". No other keys and no prose. The deterministic engine owns the decision.'},
                     {'role':'user','content':json.dumps(dict(audience=audience,guidance=GUIDANCE[audience],language=lang,max_facts=MAX_FACTS[audience],
                         required_facts=required_ids(bank,audience),available_facts=bank,context=bundle),ensure_ascii=False)}])
+            reached=True
             stage='output_validation'
             selection=Selection.model_validate_json(response.choices[0].message.content or '')
             if selection.fact_ids[0]!='decision' or len(set(selection.fact_ids))!=len(selection.fact_ids) or any(k not in bank for k in selection.fact_ids):
@@ -408,11 +456,33 @@ def explain_plan(snapshot, plan_id, audience=DEFAULT_AUDIENCE, lang='en', client
             source,note='llm',None
     except Exception as error:
         # No keys, response bodies or arbitrary model text in public diagnostics.
-        diagnostic=dict(classify_failure(error,stage),reference=uuid.uuid4().hex[:12],
-                        at=datetime.now(timezone.utc).isoformat())
-        LOG.warning('Explanation failed: reference=%s code=%s stage=%s status=%s provider_code=%s param=%s type=%s causes=%s validation=%s',
-            diagnostic['reference'],diagnostic['code'],stage,diagnostic['status'],diagnostic['provider_code'],diagnostic['provider_param'],diagnostic['exception_type'],diagnostic['cause_types'],diagnostic['validation_errors'])
+        diagnostic=_diagnostic(error,stage)
         note='LLM_TEXT_REJECTED' if stage=='output_validation' else 'LLM_CONFIGURATION_INVALID' if stage=='configuration' else 'LLM_UNAVAILABLE'
-    return dict(text=' '.join(bank[k] for k in ids), source=source,note=note,
-                audience=audience,lang=lang,plan_id=plan_id,facts=bundle,fact_ids=ids,template_version=TEMPLATE_VERSION,
+    translation=dict(status='trusted')
+    if lang not in TRUSTED:
+        missing=catalog.missing(lang,source_keys(fmap,ids))
+        tnote=tdiag=None
+        if missing and not allow_provider:
+            tnote='TRANSLATION_COOLDOWN'
+        elif missing and (client is None or not reached):
+            # Not configured, or the provider just failed: no second slow call.
+            tnote='TRANSLATION_NOT_CONFIGURED' if client is None else 'TRANSLATION_UNAVAILABLE'
+        elif missing:
+            try:
+                timed=client.with_options(timeout=15,max_retries=0) if hasattr(client,'with_options') else client
+                catalog.add(lang,translate(timed,deployment,lang,{k:source_text(k) for k in missing}))
+            except Exception as error:
+                rejected=isinstance(error,TranslationRejected)
+                tdiag=_diagnostic(error,'translation_validation' if rejected else 'translation')
+                tnote='TRANSLATION_REJECTED' if rejected else 'TRANSLATION_UNAVAILABLE'
+        text=localized(fmap,ids,lang,catalog)
+        translation=(dict(status='model',model=deployment,cached=not missing) if text is not None else
+                     dict(status='fallback',note=tnote,diagnostic=tdiag))
+    else:
+        text=localized(fmap,ids,lang,catalog)
+    if text is None:
+        text=' '.join(bank[k] for k in ids)  # verified English, labelled as a fallback
+    return dict(text=text, source=source,note=note,audience=audience,lang=lang,
+                output_lang='en' if translation['status']=='fallback' else lang,translation=translation,
+                plan_id=plan_id,facts=bundle,fact_ids=ids,template_version=TEMPLATE_VERSION,
                 rendering='VERIFIED_FACT_SENTENCES',model=deployment if source=='llm' else None,diagnostic=diagnostic)

@@ -13,14 +13,15 @@ from urllib.parse import urlparse
 
 from pydantic import ConfigDict
 from serve_coach_room import RoomRequest, create_room
-from subintel.plan_narrative import (DEFAULT_AUDIENCE, LANGUAGES, TEMPLATE_VERSION, explain_plan, identified, chosen_plan,
+from subintel.plan_narrative import (CATALOG, DEFAULT_AUDIENCE, LANGUAGES, TEMPLATE_VERSION, explain_plan, identified, chosen_plan,
                                      normalize_audience)
+from subintel.translation import TRANSLATION_PROMPT_VERSION
 from subintel.foundry_runtime import configuration_summary, runtime_versions
 from subintel.match_facts import FACTS_VERSION, checkpoint_facts, fingerprint
 
 ROOT=Path(__file__).resolve().parents[1]
 # Any change to templates, facts or the prompt must not reuse cached explanations.
-CACHE_SCHEMA=f'{TEMPLATE_VERSION}/{FACTS_VERSION}/selection-prompt-v2'
+CACHE_SCHEMA=f'{TEMPLATE_VERSION}/{FACTS_VERSION}/selection-prompt-v2/{TRANSLATION_PROMPT_VERSION}'
 
 
 class ExplainRequest(RoomRequest):
@@ -66,7 +67,7 @@ class ExplanationCache:
             else:
                 future=Future();self.pending[key]=future;owner=True
         if not owner:
-            return dict(future.result(timeout=20),cached=True)
+            return dict(future.result(timeout=35),cached=True)  # selection (12 s) + translation (15 s)
         try:
             with self.lock:
                 now=self.clock()
@@ -78,16 +79,12 @@ class ExplanationCache:
                 try: value=self.fn(*args)
                 finally:self.slots.release()
             else:
-                # No provider invocation while cooling down, busy or over budget.
-                from subintel.plan_narrative import fact_bundle,sentences,default_ids
+                # No provider invocation while cooling down, busy or over budget; cached translations still apply.
                 snapshot,plan_id,audience,lang=args
-                facts=fact_bundle(snapshot,plan_id);bank=sentences(facts,audience,lang);ids=default_ids(bank,audience)
-                value=dict(text=' '.join(bank[k] for k in ids),source='template',note='LLM_COOLDOWN',
-                    audience=audience,lang=lang,plan_id=plan_id,facts=facts,fact_ids=ids,template_version=TEMPLATE_VERSION,
-                    rendering='VERIFIED_FACT_SENTENCES',model=None)
+                value=explain_plan(snapshot,plan_id,audience,lang,allow_provider=False)
             with self.lock:
                 if value.get('note')=='LLM_UNAVAILABLE':self.cooldown_until=self.clock()+15
-                ttl=600 if value['source']=='llm' else 30
+                ttl=600 if value['source']=='llm' and (value.get('translation') or {}).get('status')!='fallback' else 30
                 self.cache[key]=(self.clock()+ttl,value)
                 while len(self.cache)>self.max_entries:self.cache.popitem(last=False)
             future.set_result(value)
@@ -122,7 +119,7 @@ class IntegratedApp:
              request.plan_id,audience,request.lang,fingerprint(snapshot['match_facts']))
         result=self.explanations.get(key,snapshot,request.plan_id,audience,request.lang)
         if result.get('note')!='LLM_COOLDOWN':
-            self.last_explanation=dict({k:result.get(k) for k in ('source','note','cached','diagnostic')},
+            self.last_explanation=dict({k:result.get(k) for k in ('source','note','cached','diagnostic','lang','output_lang','translation')},
                                        observed_at=datetime.now(timezone.utc).isoformat())
         return result
 
@@ -143,7 +140,8 @@ def make_handler(app):
                     data_mode=app.bootstrap.get('data_mode','historical'),
                     llm_configuration=config,llm_runtime_versions=runtime_versions(),last_explanation=app.last_explanation,
                     connectivity_verified=bool(app.last_explanation and app.last_explanation['source']=='llm'),
-                    connectivity_basis='last_explanation_result',explanation_mode='verified-fact-selection'))
+                    connectivity_basis='last_explanation_result',explanation_mode='verified-fact-selection',
+                    explanation_languages=list(LANGUAGES),translation_catalog=CATALOG.counts()))
             if path=='/api/bootstrap':return self.send(200,app.bootstrap)
             files={'/':'index.html','/index.html':'index.html','/app.js':'app.js','/i18n.js':'i18n.js','/styles.css':'styles.css'}
             if path in files:

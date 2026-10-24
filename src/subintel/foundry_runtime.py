@@ -91,6 +91,7 @@ HINTS={
  'NETWORK_TIMEOUT':'Check outbound routing and provider latency from the actual App Service runtime.',
  'CONNECTION_FAILED':'Check outbound HTTPS, proxy settings, DNS and the nested transport category in the runtime.',
  'MODEL_RESPONSE_REJECTED':'The provider replied, but the result did not match the allowed fact-selection schema.',
+ 'TRANSLATION_REJECTED':'The provider translated the templates, but placeholders, numbers, negation or IDs did not survive validation.',
  'UNEXPECTED_CLIENT_ERROR':'Run the runtime doctor and inspect SDK/client setup without printing credentials.',
 }
 
@@ -113,6 +114,7 @@ def classify_failure(error,stage):
     if not isinstance(status,int):status=None
     if isinstance(error,FoundryConfigError):code=error.code
     elif stage=='output_validation':code='MODEL_RESPONSE_REJECTED'
+    elif stage=='translation_validation':code='TRANSLATION_REJECTED'
     elif isinstance(error,ModuleNotFoundError):code='SDK_NOT_INSTALLED'
     elif status is not None:
         code={400:'PROVIDER_BAD_REQUEST',401:'AUTHENTICATION_FAILED',403:'RESOURCE_ACCESS_DENIED',404:'DEPLOYMENT_OR_ROUTE_NOT_FOUND',429:'PROVIDER_RATE_LIMIT_OR_QUOTA'}.get(status,'PROVIDER_SERVICE_ERROR' if status>=500 else 'UNEXPECTED_CLIENT_ERROR')

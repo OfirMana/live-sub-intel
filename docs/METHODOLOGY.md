@@ -54,7 +54,15 @@ Benefits and thresholds are **model scores, not probabilities and not xG**.
 3. **Fact selection.** Microsoft Foundry (`gpt-4.1-mini`) receives the facts and returns only the IDs of the optional facts worth telling. The app validates the IDs and renders the sentences from fixed templates. The model never writes the text, so it cannot invent a number or swap a name.
 4. **Fallback.** If the model is unavailable, busy, or returns an invalid selection, the app shows the same verified facts in a default selection, labelled as a template, with a safe error code.
 5. **Caching.** Model answers are cached for 10 minutes per checkpoint, coach brief, plan, audience and language. The cache key also carries the template, facts and prompt versions and a fingerprint of the match facts.
-6. **Languages.** English and Hebrew. In Hebrew, names and numbers are wrapped in direction isolates so a score such as 0–1 is never shown reversed.
+6. **Languages.** The explanation language is chosen separately from the page language. There are ten choices: English, Hebrew, Arabic, Spanish, French, German, Italian, Portuguese, Japanese and Simplified Chinese.
+   - **English and Hebrew** use hand-written templates.
+   - **The other eight:** Foundry translates only the English sentence templates and vocabulary the explanation needs, in one bounded call returning strict JSON (`src/subintel/translation.py`).
+     - Player names, numbers, plan identity and statuses are never sent for translation. The server inserts them afterwards through placeholders.
+     - A translation is used only if every placeholder survives exactly once, no digit is added or lost, the IDs match, and a negated English sentence (for example "does not pass", "not a probability") is still negated.
+     - Validated translations are cached per language and template version, so later explanations reuse them without a call.
+   - **Fallback:** if a translation is unavailable or fails validation, the explanation is shown in verified English, labelled as such, with a safe error code.
+   - **Text direction:** in Hebrew and Arabic, names and numbers are wrapped in direction isolates, so a score such as 0–1 is never shown reversed.
+   - **What validation does and does not prove:** structural validation does not prove that a translation is fluent or exact. The reviewed examples in `tests/fixtures/translations.json` were written by the developer, not by native-speaker linguists.
 
 ## Known limitations
 
@@ -77,5 +85,6 @@ Benefits and thresholds are **model scores, not probabilities and not xG**.
   - רענון מצדיק חילוף רק כשהירידה הטקטית קטנה.
 - **ההסבר:**
   - שלושה קהלים: שדרן, אנליסט ומאמן.
+  - עשר שפות להסבר: אנגלית ועברית כתובות ידנית; בשמונה האחרות Foundry מתרגם רק את התבניות, והשרת משבץ את השמות והמספרים. תרגום שלא עבר אימות מוחלף באנגלית עם תווית.
   - המודל ב־Foundry בוחר רק מזהי עובדות מאומתות, והאפליקציה כותבת את המשפטים מתבניות קבועות.
   - כשל מוצג כתבנית מסומנת.
